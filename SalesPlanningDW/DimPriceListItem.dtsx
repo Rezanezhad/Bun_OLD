@@ -1,0 +1,1023 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/15/2020 4:41:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="B2C017"
+  DTS:CreatorName="KHEILISABZ\f.teimouri"
+  DTS:DTSID="{F9B1D667-4115-4EB9-AACA-DEB740C6A35D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DimPriceListItem"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{CD1913AB-A066-44C8-BDBD-B4CEBF19FA8B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Incremental load - DimPriceListItem"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{15546B69-8500-4A01-870C-7D433D2798F9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Incremental load - DimPriceListItem"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="exec [ETL].[DimPriceListItemSCD]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\stagging PricelistItem from Rahkaran"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{63FC8068-CFB0-4890-A908-F7C72D42004A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="stagging PricelistItem from Rahkaran"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="LookUp ProductId"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimProduct]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimProduct]) [refTable]
+where [refTable].[ProductAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ProductKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PartAlternateKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductAlternateKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SerialNumber" dataType="DT_WSTR" length="64" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductName" dataType="DT_WSTR" length="256" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="productState" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Unit" dataType="DT_WSTR" length="256" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsFreeProduct" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Inputs[Lookup Input].Columns[ProductID]"
+                      cachedDataType="i8"
+                      cachedName="ProductID"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ProductAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Outputs[Lookup Match Output].Columns[ProductKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Outputs[Lookup Match Output].Columns[ProductKey]"
+                      name="ProductKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ProductKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage].[Rahkaran_PriceListItem]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PriceListItemID]"
+                      cachedDataType="i8"
+                      cachedName="PriceListItemID"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PriceListItemID]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PriceListItemID]" />
+                    <inputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PriceListID]"
+                      cachedDataType="i8"
+                      cachedName="PriceListID"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PriceListID]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PriceListID]" />
+                    <inputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SerialNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SerialNumber"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SerialNumber]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SerialNumber]" />
+                    <inputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[pricelistName]"
+                      cachedDataType="wstr"
+                      cachedLength="256"
+                      cachedName="pricelistName"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pricelistName]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[pricelistName]" />
+                    <inputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PricelistState]"
+                      cachedDataType="i4"
+                      cachedName="PricelistState"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PricelistState]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PricelistState]" />
+                    <inputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EndDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="EndDate"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[EndDate]" />
+                    <inputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PricelistCreationDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PricelistCreationDate"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PricelistCreationDate]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PricelistCreationDate]" />
+                    <inputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rn]"
+                      cachedDataType="i8"
+                      cachedName="rn"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rn]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[rn]" />
+                    <inputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Fee]"
+                      cachedDataType="numeric"
+                      cachedName="Fee"
+                      cachedPrecision="28"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Fee]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Fee]" />
+                    <inputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      cachedDataType="i8"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Currency]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="Currency"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Currency]" />
+                    <inputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Outputs[Lookup Match Output].Columns[ProductKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PriceListItemID]"
+                      dataType="i8"
+                      name="PriceListItemID" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PriceListID]"
+                      dataType="i8"
+                      name="PriceListID" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SerialNumber]"
+                      dataType="wstr"
+                      length="50"
+                      name="SerialNumber" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[pricelistName]"
+                      dataType="wstr"
+                      length="256"
+                      name="pricelistName" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PricelistState]"
+                      dataType="i4"
+                      name="PricelistState" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      dataType="dbTimeStamp"
+                      name="EndDate" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PricelistCreationDate]"
+                      dataType="dbTimeStamp"
+                      name="PricelistCreationDate" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rn]"
+                      dataType="i8"
+                      name="rn" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Fee]"
+                      dataType="numeric"
+                      name="Fee"
+                      precision="28"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      dataType="i8"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Currency]"
+                      dataType="wstr"
+                      length="128"
+                      name="Currency" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                      dataType="i4"
+                      name="ProductKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT PlI.PriceListItemID,
+       pl.PriceListID,
+       Pr.ProductID,
+       Pr.Number SerialNumber,
+       pl.Title pricelistName,
+       pl.State PricelistState,
+       pl.StartDate,
+       pl.EndDate,
+       pl.CreationDate PricelistCreationDate,
+       ROW_NUMBER() OVER (PARTITION BY Pr.Number ORDER BY pl.CreationDate DESC) rn,
+       PlI.Fee,
+       GNR3.Currency.Title Currency
+FROM SLS3.PriceListItem PlI
+    LEFT JOIN SLS3.PriceList pl
+        ON pl.PriceListID = PlI.PriceListRef
+    LEFT JOIN SLS3.Product Pr
+        ON PlI.ProductRef = Pr.ProductID
+    LEFT JOIN GNR3.Currency
+        ON Currency.CurrencyID = pl.CurrencyRef</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{39C9E0E1-261C-4A53-A5AB-28C7EDC58A55}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[KheiliSabz_sg3]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PriceListItemID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PriceListItemID]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PriceListItemID]"
+                      name="PriceListItemID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PriceListID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PriceListID]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PriceListID]"
+                      name="PriceListID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SerialNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SerialNumber]"
+                      length="50"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SerialNumber]"
+                      name="SerialNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[pricelistName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pricelistName]"
+                      length="256"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[pricelistName]"
+                      name="pricelistName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PricelistState]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PricelistState]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PricelistState]"
+                      name="PricelistState"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[EndDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[EndDate]"
+                      name="EndDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PricelistCreationDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PricelistCreationDate]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PricelistCreationDate]"
+                      name="PricelistCreationDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[rn]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rn]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[rn]"
+                      name="rn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Fee]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Fee]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Fee]"
+                      name="Fee"
+                      precision="28"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Currency]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                      length="128"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Currency]"
+                      name="Currency"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PriceListItemID]"
+                      dataType="i8"
+                      name="PriceListItemID" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PriceListID]"
+                      dataType="i8"
+                      name="PriceListID" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SerialNumber]"
+                      dataType="wstr"
+                      length="50"
+                      name="SerialNumber" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[pricelistName]"
+                      dataType="wstr"
+                      length="256"
+                      name="pricelistName" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PricelistState]"
+                      dataType="i4"
+                      name="PricelistState" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
+                      dataType="dbTimeStamp"
+                      name="EndDate" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PricelistCreationDate]"
+                      dataType="dbTimeStamp"
+                      name="PricelistCreationDate" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rn]"
+                      dataType="i8"
+                      name="rn" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Fee]"
+                      dataType="numeric"
+                      name="Fee"
+                      precision="28"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      dataType="i8"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Currency]"
+                      dataType="wstr"
+                      length="128"
+                      name="Currency" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PriceListItemID]"
+                      dataType="i8"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PriceListItemID]"
+                      name="PriceListItemID" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PriceListID]"
+                      dataType="i8"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PriceListID]"
+                      name="PriceListID" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      dataType="i8"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SerialNumber]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SerialNumber]"
+                      name="SerialNumber" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pricelistName]"
+                      dataType="wstr"
+                      length="256"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[pricelistName]"
+                      name="pricelistName" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PricelistState]"
+                      dataType="i4"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PricelistState]"
+                      name="PricelistState" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StartDate]"
+                      name="StartDate" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EndDate]"
+                      name="EndDate" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PricelistCreationDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PricelistCreationDate]"
+                      name="PricelistCreationDate" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rn]"
+                      dataType="i8"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rn]"
+                      name="rn" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Fee]"
+                      dataType="numeric"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Fee]"
+                      name="Fee"
+                      precision="28"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Currency]"
+                      name="Currency" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\stagging PricelistItem from Rahkaran.Paths[Lookup Match Output]"
+              endId="Package\stagging PricelistItem from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stagging PricelistItem from Rahkaran.Paths[OLE DB Source Output]"
+              endId="Package\stagging PricelistItem from Rahkaran\LookUp ProductId.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\stagging PricelistItem from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate stage table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3F0D0DE3-B03A-4AAE-A9F2-0DB21649669D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate stage table"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="truncate table Stage.Rahkaran_PriceListItem" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A677818E-92D9-460F-A694-DBEB4BC11CE9}"
+      DTS:From="Package\truncate stage table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\stagging PricelistItem from Rahkaran" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{33139174-B1B1-4FF4-82B1-C2E256FEE868}"
+      DTS:From="Package\stagging PricelistItem from Rahkaran"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Incremental load - DimPriceListItem" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="253,42"
+          Id="Package\Incremental load - DimPriceListItem"
+          TopLeft="112,200" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\stagging PricelistItem from Rahkaran"
+          TopLeft="104,117" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\truncate stage table"
+          TopLeft="149,33" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="235,75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="236,159">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\stagging PricelistItem from Rahkaran">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\stagging PricelistItem from Rahkaran\OLE DB Destination"
+          TopLeft="471,194" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\stagging PricelistItem from Rahkaran\LookUp ProductId"
+          TopLeft="472.5,107.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\stagging PricelistItem from Rahkaran\OLE DB Source"
+          TopLeft="477.5,5.49999999999989" />
+        <EdgeLayout
+          Id="Package\stagging PricelistItem from Rahkaran.Paths[OLE DB Source Output]"
+          TopLeft="556,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stagging PricelistItem from Rahkaran.Paths[Lookup Match Output]"
+          TopLeft="557.75,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.5000000000001"
+              Start="0,0"
+              End="0,37.0000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.0000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,12.6953125000001,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\stagging PricelistItem from Rahkaran\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stagging PricelistItem from Rahkaran\LookUp ProductId">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimProduct]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stagging PricelistItem from Rahkaran\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

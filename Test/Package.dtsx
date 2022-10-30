@@ -1,0 +1,207 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/8/2022 1:01:29 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PMO038"
+  DTS:CreatorName="KHEILISABZ\m.peyrovian"
+  DTS:DTSID="{DBEC0145-3690-437B-8306-E1C65065B189}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{70A13EDF-A981-4A3D-94F1-C0C4F03AC04B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[m.peyrovian-dsv]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{255D65AA-BC71-44C3-AE03-C7ED6D3C12F7}"
+      DTS:ObjectName="m.peyrovian-dsv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\m.peyrovian\Desktop\Cube\DSV\m.peyrovian.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[m.peyrovian-GRL]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{3ED84253-7BA6-4A74-B7A2-00140B480467}"
+      DTS:ObjectName="m.peyrovian-GRL">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\m.peyrovian\Desktop\Cube\GRL\m.peyrovian.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[m.peyrovian-PUB]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{D1F35525-4DCE-4DAD-9DE6-0EF6F0EC05B0}"
+      DTS:ObjectName="m.peyrovian-PUB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\m.peyrovian\Desktop\Cube\PUB\m.peyrovian.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[master-dsv]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{1C9F1565-C7F5-4EF6-B40A-E504CDD0CD03}"
+      DTS:ObjectName="master-dsv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\m.peyrovian\Desktop\Cube\DSV\master.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[master-GRL]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{FB9CF7DC-3C9C-4AD0-986F-626508AEC9C9}"
+      DTS:ObjectName="master-GRL">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\m.peyrovian\Desktop\Cube\GRL\master.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[master-PUB]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{890227F6-664B-4723-9F1A-4ACEE461B459}"
+      DTS:ObjectName="master-PUB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\m.peyrovian\Desktop\Cube\PUB\master.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[new-dsv]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{D2809956-FBF1-4ABF-8822-C9CA085E483D}"
+      DTS:ObjectName="new-dsv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\m.peyrovian\Desktop\Cube\DSV\new.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[new-GRL]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{58060A3A-873F-4943-A213-1BFA1E423BB4}"
+      DTS:ObjectName="new-GRL">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\m.peyrovian\Desktop\Cube\GRL\new.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[new-PUB]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{0CA4455A-5227-4AD3-AD28-C69B0DBAC416}"
+      DTS:ObjectName="new-PUB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\m.peyrovian\Desktop\Cube\PUB\new.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DSV"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{A1F5F4AE-82F5-47A9-9BFE-729A30209310}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DSV"
+      DTS:TaskContact="XML Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="Merge"
+          Source="m.peyrovian-dsv"
+          SecondOperandType="FileConnection"
+          SecondOperand="master-dsv"
+          SaveOperationResult="True"
+          Destination="new-dsv"
+          OverwriteDestination="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\GRL"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{f4ee77a6-9a01-49e4-b4a2-d36f01761dd8}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="GRL"
+      DTS:TaskContact="XML Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="Merge"
+          Source="m.peyrovian-GRL"
+          SecondOperandType="FileConnection"
+          SecondOperand="m.peyrovian-GRL"
+          SaveOperationResult="True"
+          Destination="new-GRL"
+          OverwriteDestination="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PUB"
+      DTS:CreationName="Microsoft.XMLTask"
+      DTS:Description="XML Task"
+      DTS:DTSID="{8aca2464-60bc-47eb-97db-94fd6aa26974}"
+      DTS:ExecutableType="Microsoft.XMLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PUB"
+      DTS:TaskContact="XML Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <XMLTaskData
+          OperationType="Merge"
+          Source="master-PUB"
+          SecondOperandType="FileConnection"
+          SecondOperand="m.peyrovian-PUB"
+          SaveOperationResult="True"
+          Destination="master-PUB"
+          OverwriteDestination="True" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="99,42"
+          Id="Package\DSV"
+          TopLeft="273,307" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\GRL"
+          TopLeft="713,301" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\PUB"
+          TopLeft="497,315" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,33 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="e15645a9-12e7-4772-910f-242fce1206ee" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>MNG</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>MNG Package Log Detail</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="695b2ea7-cd3a-4669-8e1f-67dfaca81014">
+          <ID>MNG Package Log Detail</ID>
+          <Name>MNG Package Log Detail</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.56Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:45.446667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:10:58.323333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="b8a43e92-9882-48b6-925a-75b562ffee38">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_MNG_PackageLog1</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="1bb309dc-f021-44dd-bc0d-b1a0d115f698">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="cb83d0ec-29c7-42f3-ac6b-a235b7d51e73" />
+          </ProactiveCaching>
+          <EstimatedSize>410</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

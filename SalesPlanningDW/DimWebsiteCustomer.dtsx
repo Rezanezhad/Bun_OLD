@@ -1,0 +1,2484 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/6/2021 1:08:20 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ITL022"
+  DTS:CreatorName="KHEILISABZ\e.nevisandeh"
+  DTS:DTSID="{82D55CAD-0CC0-4CAC-BE10-58E699329B31}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DimWebsiteCustomer"
+  DTS:PackageType="5"
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{032E747F-090F-4A41-8ECC-046FDCD016D9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DimWebsiteCustomer_Merge"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{AD979F61-1DB0-44B7-A456-157A0C56B0DD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DimWebsiteCustomer_Merge"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="exec [ETL].[DimWebsiteCustomer_Merge]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\stage dimWebCustomer"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A27E9509-3D3F-41B9-BD05-59BA6EE9327A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="stage dimWebCustomer"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\stage dimWebCustomer\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage].[Bun_Customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage dimWebCustomer\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WebsiteCustomerAlternateKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="201"
+                      cachedName="WebsiteCustomerAlternateKey"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteCustomerAlternateKey]"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteCustomerAlternateKey]" />
+                    <inputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedOn]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="CreatedOn"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]" />
+                    <inputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ModifiedOn]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="ModifiedOn"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedOn]"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedOn]" />
+                    <inputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Username]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Username"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Username]"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Username]" />
+                    <inputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WebsiteKey]"
+                      cachedDataType="i4"
+                      cachedName="WebsiteKey"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteKey]"
+                      lineageId="Package\stage dimWebCustomer\WebsiteKey.Outputs[Lookup Match Output].Columns[WebsiteKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteCustomerAlternateKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="201"
+                      name="WebsiteCustomerAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp2"
+                      name="CreatedOn"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedOn]"
+                      dataType="dbTimeStamp2"
+                      name="ModifiedOn"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="4000"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Username]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Username" />
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteKey]"
+                      dataType="i4"
+                      name="WebsiteKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage dimWebCustomer\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage dimWebCustomer\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CAST([SourceSite] AS VARCHAR(100)) + '-' + CAST([ReferenceId] AS VARCHAR(100)) AS [WebsiteCustomerAlternateKey],
+       [SourceSite] AS [WebsiteAlternateKey_BunOrders],
+       [DateCreated] AS [CreatedOn],
+       [DateModified] AS [ModifiedOn],
+       CAST([Email] AS NVARCHAR(4000)) AS [Email],
+       CAST([FirstName] AS NVARCHAR(4000)) AS [FirstName],
+       CAST([LastName] AS NVARCHAR(4000)) AS [LastName],
+       CAST([Username] AS NVARCHAR(4000)) AS [Username]
+FROM [dbo].[Customers]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage dimWebCustomer\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{547CF2FF-B9FC-4C27-8D1F-F9D5AE2D74C2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[BunDataCollection]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteCustomerAlternateKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WebsiteCustomerAlternateKey]"
+                      length="201"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteCustomerAlternateKey]"
+                      name="WebsiteCustomerAlternateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteAlternateKey_BunOrders]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WebsiteAlternateKey_BunOrders]"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteAlternateKey_BunOrders]"
+                      name="WebsiteAlternateKey_BunOrders"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      name="CreatedOn"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedOn]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedOn]"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedOn]"
+                      name="ModifiedOn"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      length="4000"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="4000"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="4000"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Username]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Username]"
+                      length="4000"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[Username]"
+                      name="Username"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WebsiteCustomerAlternateKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="201"
+                      name="WebsiteCustomerAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WebsiteAlternateKey_BunOrders]"
+                      dataType="i4"
+                      name="WebsiteAlternateKey_BunOrders" />
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp2"
+                      name="CreatedOn"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedOn]"
+                      dataType="dbTimeStamp2"
+                      name="ModifiedOn"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="4000"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Username]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Username" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WebsiteCustomerAlternateKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="201"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WebsiteCustomerAlternateKey]"
+                      name="WebsiteCustomerAlternateKey" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WebsiteAlternateKey_BunOrders]"
+                      dataType="i4"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WebsiteAlternateKey_BunOrders]"
+                      name="WebsiteAlternateKey_BunOrders" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      name="CreatedOn"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedOn]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedOn]"
+                      name="ModifiedOn"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Username]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Username]"
+                      name="Username" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage dimWebCustomer\WebsiteKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="WebsiteKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [WebsiteKey]
+      ,[WebsiteAlternateKey_BunOrders]
+  FROM [dbo].[DimWebsite]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [WebsiteKey]
+      ,[WebsiteAlternateKey_BunOrders]
+  FROM [dbo].[DimWebsite]) [refTable]
+where [refTable].[WebsiteAlternateKey_BunOrders] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="WebsiteKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WebsiteAlternateKey_BunOrders" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage dimWebCustomer\341:invalid};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage dimWebCustomer\WebsiteKey.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage dimWebCustomer\WebsiteKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage dimWebCustomer\WebsiteKey.Inputs[Lookup Input].Columns[WebsiteAlternateKey_BunOrders]"
+                      cachedDataType="i4"
+                      cachedName="WebsiteAlternateKey_BunOrders"
+                      lineageId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteAlternateKey_BunOrders]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">WebsiteAlternateKey_BunOrders</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage dimWebCustomer\WebsiteKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage dimWebCustomer\WebsiteKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\WebsiteKey.Outputs[Lookup Match Output].Columns[WebsiteKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage dimWebCustomer\WebsiteKey.Outputs[Lookup Match Output].Columns[WebsiteKey]"
+                      name="WebsiteKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">WebsiteKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage dimWebCustomer\WebsiteKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage dimWebCustomer\WebsiteKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage dimWebCustomer\WebsiteKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage dimWebCustomer\WebsiteKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage dimWebCustomer\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage dimWebCustomer\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage dimWebCustomer\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\stage dimWebCustomer.Paths[Lookup Match Output]"
+              endId="Package\stage dimWebCustomer\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\stage dimWebCustomer\WebsiteKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage dimWebCustomer.Paths[OLE DB Source Output]"
+              endId="Package\stage dimWebCustomer\WebsiteKey.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\stage dimWebCustomer\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\stage kheilisabz customers"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{b5a7da6e-c6b5-49e6-a811-c8216a186cf2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="stage kheilisabz customers"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\stage kheilisabz customers\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage].[Bun_Customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage kheilisabz customers\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WebsiteCustomerAlternateKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="102"
+                      cachedName="WebsiteCustomerAlternateKey"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteCustomerAlternateKey]"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteCustomerAlternateKey]" />
+                    <inputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedOn"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]" />
+                    <inputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ModifiedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedOn"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedOn]"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedOn]" />
+                    <inputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="256"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserName]"
+                      cachedDataType="wstr"
+                      cachedLength="256"
+                      cachedName="UserName"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Username]"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserName]" />
+                    <inputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WebsiteKey]"
+                      cachedDataType="i4"
+                      cachedName="WebsiteKey"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteKey]"
+                      lineageId="Package\stage kheilisabz customers\WebsiteKey.Outputs[Lookup Match Output].Columns[WebsiteKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteCustomerAlternateKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="201"
+                      name="WebsiteCustomerAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp2"
+                      name="CreatedOn"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedOn]"
+                      dataType="dbTimeStamp2"
+                      name="ModifiedOn"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="4000"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Username]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Username" />
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteKey]"
+                      dataType="i4"
+                      name="WebsiteKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage kheilisabz customers\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage kheilisabz customers\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 0 AS [WebsiteAlternateKey_BunOrders],
+       '0' + '-' + CAST([u].[Id] AS VARCHAR(100)) COLLATE SQL_Latin1_General_CP1_CI_AS AS [WebsiteCustomerAlternateKey],
+       [iu].[CreatedOn],
+       NULL AS [ModifiedOn],
+       [u].[Email],
+       [u].[FirstName],
+       [u].[LastName],
+       [iu].[UserName]
+FROM [dbo].[Users] AS [u]
+    JOIN [Identity].[dbo].[AspNetUsers] AS [iu]
+        ON [iu].[Id] = [u].[Id]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage kheilisabz customers\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{1037ED3A-B598-48A8-88AA-97AA02C7924C}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[KheilisabzCoreApi]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      length="256"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="200"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="200"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteCustomerAlternateKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WebsiteCustomerAlternateKey]"
+                      length="102"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteCustomerAlternateKey]"
+                      name="WebsiteCustomerAlternateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteAlternateKey_BunOrders]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WebsiteAlternateKey_BunOrders]"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteAlternateKey_BunOrders]"
+                      name="WebsiteAlternateKey_BunOrders"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      name="CreatedOn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedOn]"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedOn]"
+                      name="ModifiedOn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserName]"
+                      length="256"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserName]"
+                      name="UserName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      dataType="nText"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="200"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="200"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WebsiteCustomerAlternateKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="102"
+                      name="WebsiteCustomerAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WebsiteAlternateKey_BunOrders]"
+                      dataType="i4"
+                      name="WebsiteAlternateKey_BunOrders" />
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp2"
+                      name="CreatedOn"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedOn]"
+                      dataType="i4"
+                      name="ModifiedOn" />
+                    <externalMetadataColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserName]"
+                      dataType="wstr"
+                      length="256"
+                      name="UserName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WebsiteAlternateKey_BunOrders]"
+                      dataType="i4"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WebsiteAlternateKey_BunOrders]"
+                      name="WebsiteAlternateKey_BunOrders" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WebsiteCustomerAlternateKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="102"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WebsiteCustomerAlternateKey]"
+                      name="WebsiteCustomerAlternateKey" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      name="CreatedOn"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedOn]"
+                      dataType="i4"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedOn]"
+                      name="ModifiedOn" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      dataType="nText"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserName]"
+                      dataType="wstr"
+                      length="256"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserName]"
+                      name="UserName" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage kheilisabz customers\WebsiteKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="WebsiteKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [WebsiteKey]
+      ,[WebsiteAlternateKey_BunOrders]
+  FROM [dbo].[DimWebsite]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [WebsiteKey]
+      ,[WebsiteAlternateKey_BunOrders]
+  FROM [dbo].[DimWebsite]) [refTable]
+where [refTable].[WebsiteAlternateKey_BunOrders] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="WebsiteKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WebsiteAlternateKey_BunOrders" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteAlternateKey_BunOrders]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage kheilisabz customers\WebsiteKey.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage kheilisabz customers\WebsiteKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage kheilisabz customers\WebsiteKey.Inputs[Lookup Input].Columns[WebsiteAlternateKey_BunOrders]"
+                      cachedDataType="i4"
+                      cachedName="WebsiteAlternateKey_BunOrders"
+                      lineageId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteAlternateKey_BunOrders]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">WebsiteAlternateKey_BunOrders</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage kheilisabz customers\WebsiteKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage kheilisabz customers\WebsiteKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\WebsiteKey.Outputs[Lookup Match Output].Columns[WebsiteKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage kheilisabz customers\WebsiteKey.Outputs[Lookup Match Output].Columns[WebsiteKey]"
+                      name="WebsiteKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">WebsiteKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage kheilisabz customers\WebsiteKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage kheilisabz customers\WebsiteKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage kheilisabz customers\WebsiteKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage kheilisabz customers\WebsiteKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage kheilisabz customers\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage kheilisabz customers\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage kheilisabz customers\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\stage kheilisabz customers.Paths[Lookup Match Output]"
+              endId="Package\stage kheilisabz customers\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\stage kheilisabz customers\WebsiteKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage kheilisabz customers.Paths[OLE DB Source Output]"
+              endId="Package\stage kheilisabz customers\WebsiteKey.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\stage kheilisabz customers\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\stage porteghal customers"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{e471de0f-e16e-4665-a261-3c23d73648b2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="stage porteghal customers"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\stage porteghal customers\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage].[Bun_Customer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage porteghal customers\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WebsiteCustomerAlternateKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="102"
+                      cachedName="WebsiteCustomerAlternateKey"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteCustomerAlternateKey]"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteCustomerAlternateKey]" />
+                    <inputColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedOn"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]" />
+                    <inputColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ModifiedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedOn"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedOn]"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedOn]" />
+                    <inputColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="256"
+                      cachedName="Email"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserName]"
+                      cachedDataType="wstr"
+                      cachedLength="256"
+                      cachedName="UserName"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Username]"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserName]" />
+                    <inputColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WebsiteKey]"
+                      cachedDataType="i4"
+                      cachedName="WebsiteKey"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteKey]"
+                      lineageId="Package\stage porteghal customers\WebsiteKey.Outputs[Lookup Match Output].Columns[WebsiteKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteCustomerAlternateKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="201"
+                      name="WebsiteCustomerAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp2"
+                      name="CreatedOn"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedOn]"
+                      dataType="dbTimeStamp2"
+                      name="ModifiedOn"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="4000"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="4000"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Username]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Username" />
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteKey]"
+                      dataType="i4"
+                      name="WebsiteKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage porteghal customers\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage porteghal customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage porteghal customers\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage porteghal customers\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 6 AS [WebsiteAlternateKey_BunOrders],
+       '6' + '-' + CAST([ui].[Id] AS VARCHAR(100)) COLLATE SQL_Latin1_General_CP1_CI_AS AS [WebsiteCustomerAlternateKey],
+       [mem].[CreateDate] AS [CreatedOn],
+       NULL AS [ModifiedOn], --این درست نیست. بعد از پرسیدن از سعدی باید اصلاح بشه
+       [mem].[Email],
+       [ui].[FirstName],
+       [ui].[LastName],
+       [u].[UserName]
+FROM [dbo].[UserInfo] AS [ui]
+    JOIN [dbo].[aspnet_Membership] AS [mem]
+        ON [mem].[UserId] = [ui].[UserId]
+    JOIN [dbo].[aspnet_Users] AS [u]
+        ON [u].[UserId] = [mem].[UserId]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage porteghal customers\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{984C473F-F059-445A-8971-F6A39FE49D50}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Porteghaal]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      length="256"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[Email]"
+                      name="Email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteCustomerAlternateKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WebsiteCustomerAlternateKey]"
+                      length="102"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteCustomerAlternateKey]"
+                      name="WebsiteCustomerAlternateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteAlternateKey_BunOrders]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WebsiteAlternateKey_BunOrders]"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteAlternateKey_BunOrders]"
+                      name="WebsiteAlternateKey_BunOrders"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      name="CreatedOn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedOn]"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedOn]"
+                      name="ModifiedOn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserName]"
+                      length="256"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserName]"
+                      name="UserName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Email]"
+                      dataType="wstr"
+                      length="256"
+                      name="Email" />
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WebsiteCustomerAlternateKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="102"
+                      name="WebsiteCustomerAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WebsiteAlternateKey_BunOrders]"
+                      dataType="i4"
+                      name="WebsiteAlternateKey_BunOrders" />
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      name="CreatedOn" />
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedOn]"
+                      dataType="i4"
+                      name="ModifiedOn" />
+                    <externalMetadataColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserName]"
+                      dataType="wstr"
+                      length="256"
+                      name="UserName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WebsiteAlternateKey_BunOrders]"
+                      dataType="i4"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WebsiteAlternateKey_BunOrders]"
+                      name="WebsiteAlternateKey_BunOrders" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WebsiteCustomerAlternateKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="102"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WebsiteCustomerAlternateKey]"
+                      name="WebsiteCustomerAlternateKey" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      name="CreatedOn" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedOn]"
+                      dataType="i4"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedOn]"
+                      name="ModifiedOn" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      dataType="wstr"
+                      length="256"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Email]"
+                      name="Email" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserName]"
+                      dataType="wstr"
+                      length="256"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserName]"
+                      name="UserName" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage porteghal customers\WebsiteKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="WebsiteKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [WebsiteKey]
+      ,[WebsiteAlternateKey_BunOrders]
+  FROM [dbo].[DimWebsite]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [WebsiteKey]
+      ,[WebsiteAlternateKey_BunOrders]
+  FROM [dbo].[DimWebsite]) [refTable]
+where [refTable].[WebsiteAlternateKey_BunOrders] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="WebsiteKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WebsiteAlternateKey_BunOrders" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage porteghal customers\342:invalid};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage porteghal customers\WebsiteKey.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage porteghal customers\WebsiteKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage porteghal customers\WebsiteKey.Inputs[Lookup Input].Columns[WebsiteAlternateKey_BunOrders]"
+                      cachedDataType="i4"
+                      cachedName="WebsiteAlternateKey_BunOrders"
+                      lineageId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output].Columns[WebsiteAlternateKey_BunOrders]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">WebsiteAlternateKey_BunOrders</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage porteghal customers\WebsiteKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage porteghal customers\WebsiteKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage porteghal customers\WebsiteKey.Outputs[Lookup Match Output].Columns[WebsiteKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage porteghal customers\WebsiteKey.Outputs[Lookup Match Output].Columns[WebsiteKey]"
+                      name="WebsiteKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">WebsiteKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage porteghal customers\WebsiteKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage porteghal customers\WebsiteKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage porteghal customers\WebsiteKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage porteghal customers\WebsiteKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage porteghal customers\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage porteghal customers\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage porteghal customers\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage porteghal customers\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\stage porteghal customers.Paths[Lookup Match Output]"
+              endId="Package\stage porteghal customers\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\stage porteghal customers\WebsiteKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage porteghal customers.Paths[OLE DB Source Output]"
+              endId="Package\stage porteghal customers\WebsiteKey.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\stage porteghal customers\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate table Stage_Bun_Customer"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D0DEB9C5-8150-49D1-B3BC-40DDA7FA75CF}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate table Stage_Bun_Customer"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Stage].[Bun_Customer]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C482FEAC-36A4-4236-B484-22148C55CB13}"
+      DTS:From="Package\stage dimWebCustomer"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\stage porteghal customers" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6F27D6A9-7DB3-4306-90F6-077ED0A0F7A6}"
+      DTS:From="Package\truncate table Stage_Bun_Customer"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\stage dimWebCustomer" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{F1D60B0C-FDCB-4BBA-822E-1D3AD6A7F723}"
+      DTS:From="Package\stage porteghal customers"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\stage kheilisabz customers" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{81585625-59DF-4C2F-9604-0E0619483A06}"
+      DTS:From="Package\stage kheilisabz customers"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\DimWebsiteCustomer_Merge" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="215,42"
+          Id="Package\DimWebsiteCustomer_Merge"
+          TopLeft="22.5000000000001,385.5" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\stage dimWebCustomer"
+          TopLeft="32.5,109.5" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\stage kheilisabz customers"
+          TopLeft="27.5,304.5" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\stage porteghal customers"
+          TopLeft="26,208.5" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\truncate table Stage_Bun_Customer"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="128,151.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="129,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="128.75,250.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="129.75,346.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\stage dimWebCustomer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="134,42"
+          Id="Package\stage dimWebCustomer\WebsiteKey"
+          TopLeft="24,107.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\stage dimWebCustomer\OLE DB Destination"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\stage dimWebCustomer\OLE DB Source"
+          TopLeft="16,4.5" />
+        <EdgeLayout
+          Id="Package\stage dimWebCustomer.Paths[OLE DB Source Output]"
+          TopLeft="91,46.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage dimWebCustomer.Paths[Lookup Match Output]"
+          TopLeft="91,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage dimWebCustomer\WebsiteKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage dimWebCustomer\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage dimWebCustomer\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\stage kheilisabz customers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="134,42"
+          Id="Package\stage kheilisabz customers\WebsiteKey"
+          TopLeft="398,119" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\stage kheilisabz customers\OLE DB Destination"
+          TopLeft="377,228" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\stage kheilisabz customers\OLE DB Source"
+          TopLeft="373,29" />
+        <EdgeLayout
+          Id="Package\stage kheilisabz customers.Paths[OLE DB Source Output]"
+          TopLeft="451.5,71">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.5,48"
+              Start="0,0"
+              End="13.5,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
+                  <mssgle:LineSegment
+                    End="9.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.5,24"
+                    Point2="13.5,24"
+                    Point3="13.5,28" />
+                  <mssgle:LineSegment
+                    End="13.5,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage kheilisabz customers.Paths[Lookup Match Output]"
+          TopLeft="463.75,161">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67"
+              Start="0,0"
+              End="0,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,23.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage kheilisabz customers\WebsiteKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage kheilisabz customers\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\stage porteghal customers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="134,42"
+          Id="Package\stage porteghal customers\WebsiteKey"
+          TopLeft="398,119" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\stage porteghal customers\OLE DB Destination"
+          TopLeft="377,228" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\stage porteghal customers\OLE DB Source"
+          TopLeft="373,29" />
+        <EdgeLayout
+          Id="Package\stage porteghal customers.Paths[OLE DB Source Output]"
+          TopLeft="451.5,71">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.5,48"
+              Start="0,0"
+              End="13.5,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
+                  <mssgle:LineSegment
+                    End="9.5,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.5,24"
+                    Point2="13.5,24"
+                    Point3="13.5,28" />
+                  <mssgle:LineSegment
+                    End="13.5,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage porteghal customers.Paths[Lookup Match Output]"
+          TopLeft="463.75,161">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67"
+              Start="0,0"
+              End="0,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,23.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage porteghal customers\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage porteghal customers\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

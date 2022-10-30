@@ -1,0 +1,555 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="bad96ae8-6062-49f0-a30e-6a184e553e2a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Account</ID>
+  <Name>Account</Name>
+  <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1060" scrolltop="-583" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="10186" y="16828" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DimAccount" left="-176" top="3280" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="4953" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e00005913000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="fin_DimAccount" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-1060</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-583</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>-176</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>3280</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="243">
+            <Shape Id="Account Key" Expanded="true">
+              <Attributes>
+                <Attribute Id="Account Key" />
+                <Attribute Id="Account Description" />
+                <Attribute Id="Account Type Caption" />
+                <Attribute Id="General Account Code" />
+                <Attribute Id="General Account Name" />
+                <Attribute Id="Group Account Code" />
+                <Attribute Id="Group Account Name" />
+                <Attribute Id="Ledger Account Code" />
+                <Attribute Id="Ledger Account Name" />
+                <Attribute Id="Source Name Caption" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Source Name" Expanded="false">
+              <Attributes>
+                <Attribute Id="Source Name" />
+              </Attributes>
+              <Position x="328" y="20" />
+            </Shape>
+            <Shape Id="Group Account Alternate Key" Expanded="false">
+              <Attributes>
+                <Attribute Id="Group Account Alternate Key" />
+              </Attributes>
+              <Position x="328" y="68" />
+            </Shape>
+            <Shape Id="General Account Alternate Key" Expanded="false">
+              <Attributes>
+                <Attribute Id="General Account Alternate Key" />
+              </Attributes>
+              <Position x="328" y="116" />
+            </Shape>
+            <Shape Id="Ledger Account Alternate Key" Expanded="false">
+              <Attributes>
+                <Attribute Id="Ledger Account Alternate Key" />
+              </Attributes>
+              <Position x="328" y="164" />
+            </Shape>
+            <Shape Id="Account Type" Expanded="false">
+              <Attributes>
+                <Attribute Id="Account Type" />
+              </Attributes>
+              <Position x="328" y="212" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="eaa01f8e-0ee9-4b31-b00c-5b01ed30294d">
+    <DataSourceViewID>BunDW</DataSourceViewID>
+  </Source>
+  <Type>Accounts</Type>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="2c89ffbf-8258-4e94-b941-cf23a61b0fd7">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1065</Language>
+  <UnknownMemberName>طبقه بندی نشده</UnknownMemberName>
+  <Attributes>
+    <Attribute dwd:design-time-name="d926bc6e-002b-478b-8b41-ba7561d3bd91">
+      <ID>Account Key</ID>
+      <Name>Account Key</Name>
+      <Usage>Key</Usage>
+      <EstimatedCount>847</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="266b1f6f-3f2f-4667-ab8f-888a6ee37294">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="17497973-8d01-4c4c-b645-afe26965a092">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>AccountKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="4fda2cb9-be8f-4093-89e8-5459aaa99271">
+        <DataType>WChar</DataType>
+        <DataSize>200</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c62cdafe-31c6-40a9-9a41-21f8a86e504e">
+          <TableID>fin_DimAccount</TableID>
+          <ColumnID>LedgerAccountName</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="e6272ed9-6103-443c-a1fc-68f7e9713096">
+          <AttributeID>Ledger Account Code</AttributeID>
+          <Name>Ledger Account Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f0a90fc3-b72d-431e-915e-dad7298dab18">
+          <AttributeID>General Account Code</AttributeID>
+          <Name>General Account Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="97229b5d-692d-41bb-92c1-098751e7a1e9">
+          <AttributeID>Group Account Code</AttributeID>
+          <Name>Group Account Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1518b80b-5072-4163-af35-a8987146cb42">
+          <AttributeID>Account Description</AttributeID>
+          <Name>Account Description</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="56db1aa9-8106-44ca-8253-29b5b28ffaa7">
+          <AttributeID>Ledger Account Name</AttributeID>
+          <Name>Ledger Account Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1cd09a63-0579-4f32-8000-dcbaaa1b10c8">
+          <AttributeID>General Account Name</AttributeID>
+          <Name>General Account Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0d593fe5-ee6e-4fe1-a4b1-610ea82ecf9b">
+          <AttributeID>Group Account Name</AttributeID>
+          <Name>Group Account Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="34a1a871-b9ec-4f66-9937-af09cc57cf14">
+          <AttributeID>Account Type</AttributeID>
+          <Name>Account Type</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="edcb0ab5-556b-4ba3-a63a-94a6ade91c0c">
+          <AttributeID>Account Type Caption</AttributeID>
+          <Name>Account Type Caption</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3dbf289f-3898-4456-814d-cef84e3a12fc">
+          <AttributeID>Source Name Caption</AttributeID>
+          <Name>Source Name Caption</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="395628d2-43f7-49c7-ad50-96a78bdb901d">
+          <AttributeID>Ledger Account Alternate Key</AttributeID>
+          <Name>Ledger Account Alternate Key</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a4d9f345-8f76-4be5-ad20-628a2b82dc51">
+          <AttributeID>General Account Alternate Key</AttributeID>
+          <Name>General Account Alternate Key</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="2f6ee3f6-1832-4b4c-8f73-08fcd9fc4828">
+          <AttributeID>Group Account Alternate Key</AttributeID>
+          <Name>Group Account Alternate Key</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="09ce09cc-155a-4eac-aa33-48c5f8366761">
+          <AttributeID>Source Name</AttributeID>
+          <Name>Source Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7978d0df-bf87-4c67-93c5-815c6eaae299">
+          <AttributeID>Is PL</AttributeID>
+          <Name>Is PL</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0400d19e-6e3a-46a0-a504-61f8f7d4306a">
+      <ID>Ledger Account Alternate Key</ID>
+      <Name>Ledger Account Alternate Key</Name>
+      <Type>AccountNumber</Type>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="46a447ff-278a-4fee-82c8-4bfa996a7ef0">
+          <DataType>WChar</DataType>
+          <DataSize>150</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="983f1f19-78fa-4242-ae66-6f4f31a27d9d">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>LedgerAccountAlternateKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="1d3e1a06-fa4f-4e5d-8fa3-5adea5374c85">
+        <DataType>WChar</DataType>
+        <DataSize>200</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="adc0b5ec-7f9f-457a-942f-8526966e73ed">
+          <TableID>fin_DimAccount</TableID>
+          <ColumnID>LedgerAccountName</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1df855f9-ee75-43d3-8bad-5a9a2f43de51">
+      <ID>Ledger Account Code</ID>
+      <Name>Ledger Account Code</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c37609e6-9a0d-4b2f-9506-4fdba9f4c497">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="052fe887-9d29-4563-93d5-59969ecc87c1">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>LedgerAccountCode</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2c1a0219-18f5-433d-92fe-8af11f54dc15">
+      <ID>Ledger Account Name</ID>
+      <Name>Ledger Account Name</Name>
+      <Type>AccountName</Type>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="dad4550c-ca55-43dc-8a54-ae402ee2498d">
+          <DataType>WChar</DataType>
+          <DataSize>200</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bfffd397-12ae-426e-b1ee-7f83334574e3">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>LedgerAccountName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="691f3f5a-ea2c-4f14-817a-cc1fd9e22583">
+      <ID>General Account Alternate Key</ID>
+      <Name>General Account Alternate Key</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7777a2fa-d22c-4078-97b4-c8f33eeff94d">
+          <DataType>WChar</DataType>
+          <DataSize>101</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="36ee192a-9665-427a-abd6-fca0824a2bdd">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>GeneralAccountAlternateKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="4e82cc5e-86b1-4c27-93ac-fa8570fdf501">
+        <DataType>WChar</DataType>
+        <DataSize>255</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="9970daa5-ec74-4784-ba1c-b0b0a8073401">
+          <TableID>fin_DimAccount</TableID>
+          <ColumnID>GeneralAccountName</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <DefaultMember>null</DefaultMember>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="42832d23-59e7-471c-8aa9-216612f8119a">
+      <ID>General Account Code</ID>
+      <Name>General Account Code</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7725bfbc-dc61-48d6-96bd-650e1b1d85e9">
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bdf24e1f-14b3-4db5-9a99-51c0d8aa41b4">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>GeneralAccountCode</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7b7d6561-55c9-4508-8b66-58b9800af15c">
+      <ID>General Account Name</ID>
+      <Name>General Account Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5d4fc7bb-e259-437d-a115-bbcc37464011">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="104f47f8-c652-42f4-a037-652726a623d0">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>GeneralAccountName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f8f7fb9d-3e7c-4ec5-ae15-5b15bb429521">
+      <ID>Group Account Alternate Key</ID>
+      <Name>Group Account Alternate Key</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="70daa77d-3725-471c-bc19-d13d773871ee">
+          <DataType>WChar</DataType>
+          <DataSize>101</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f8177d50-36d3-453f-9633-afd69b8144e7">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>GroupAccountAlternateKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a73ea6e5-9a1c-4d06-9d94-a1a9a9f52a92">
+        <DataType>WChar</DataType>
+        <DataSize>255</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="85c515e7-c72f-4240-92e8-aa8495cb6dbb">
+          <TableID>fin_DimAccount</TableID>
+          <ColumnID>GroupAccountName</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="beafe8da-64a3-4dc5-b3ed-96115aa47684">
+      <ID>Group Account Code</ID>
+      <Name>Group Account Code</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a81eda31-f6e0-4cb8-91a6-6f631a790ca1">
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="582d0192-adea-47ac-8d03-9ac44f4ee8ca">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>GroupAccountCode</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="77406c0c-72d1-4bef-bf87-5d687edaa038">
+      <ID>Group Account Name</ID>
+      <Name>Group Account Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="34cc6447-43c3-4878-86c4-1e6ea1b4b777">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ab0b46fe-4f14-4f0b-a88c-8679713d7875">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>GroupAccountName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9a28f170-4180-4e83-85d0-f3cb7a77cc52">
+      <ID>Account Description</ID>
+      <Name>Account Description</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b07b5947-f1a6-4812-a10d-e6838b2d6308">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3697d8ba-c1df-4b73-b49b-4f88eead774d">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>AccountDescription</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="63432e41-ac36-48a4-be6d-15ddf425259b">
+      <ID>Source Name</ID>
+      <Name>Source Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c9382c43-c108-44c9-a27e-ba68f7f893a5">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a7035d20-78ea-4fe4-bc9c-64dfff27ea98">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>SourceName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f9887588-359b-4f91-b2c7-3cf298e8e3fd">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="396df196-758e-40b0-9423-e7b65539b5e2">
+          <TableID>fin_DimAccount</TableID>
+          <ColumnID>SourceNameCaption</ColumnID>
+        </Source>
+      </NameColumn>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="225bfe9a-3ad3-4234-8c09-ca97eab31436">
+      <ID>Account Type</ID>
+      <Name>Account Type</Name>
+      <EstimatedCount>2</EstimatedCount>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="713c2497-9fe8-4420-9c3b-af826cef1869">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6ea4a9f8-48de-4e5c-8810-90077c71ee46">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>AccountType</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="2594990b-eecd-4fc8-87bf-144d268bc66e">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2b330c6b-c639-4b2b-bdbc-64853330dd12">
+          <TableID>fin_DimAccount</TableID>
+          <ColumnID>AccountTypeCaption</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0c08da64-4ed3-4d9b-88ae-7a280a201d41">
+      <ID>Account Type Caption</ID>
+      <Name>Account Type Caption</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3e51cc4c-af0e-4d6b-b7c4-a3b4c22d57e0">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f6249fa0-1b45-4fa9-bb2a-22c5ddc0c62a">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>AccountType</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f9d7bfd0-57ac-4c45-8ed3-85b0e5117092">
+      <ID>Source Name Caption</ID>
+      <Name>Source Name Caption</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="26667362-e786-48a9-9142-a9c74e007406">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e0083aa8-6bf9-4c5d-8bb9-bacfc10ad014">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>SourceNameCaption</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="06ff05fa-63f0-4841-b504-e73b2bb221ff">
+      <ID>Is PL</ID>
+      <Name>Is PL</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a5637dca-2bed-4040-855f-f7bb293a8788">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="55e0c252-1e03-4da7-85ef-f83b5dd73450">
+            <TableID>fin_DimAccount</TableID>
+            <ColumnID>IsPL</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="eecc45e7-8d87-40c9-ac61-8f912975f72f">
+      <ID>Hierarchy 1</ID>
+      <Name>Account Heirarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="5f8ddb3a-248b-4f04-a1ba-ea34c0397522">
+          <ID>Account Type</ID>
+          <Name>Account Type</Name>
+          <SourceAttributeID>Account Type</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="aa28b5d7-33f5-425b-8322-ca837caefe69">
+          <ID>Group Account Alternate Key</ID>
+          <Name>Group Account Alternate Key</Name>
+          <SourceAttributeID>Group Account Alternate Key</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="b0e06ef4-aa47-47ef-9808-d91b8affe6b4">
+          <ID>General Account Alternate Key</ID>
+          <Name>General Account Alternate Key</Name>
+          <SourceAttributeID>General Account Alternate Key</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="bd11cc1e-78ee-47da-94df-2af57e62a304">
+          <ID>Source Name</ID>
+          <Name>Source Name</Name>
+          <SourceAttributeID>Source Name</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="0484c4dd-fa74-483c-a311-e5eeac301220">
+          <ID>Ledger Account Alternate Key</ID>
+          <Name>Ledger Account Alternate Key</Name>
+          <SourceAttributeID>Ledger Account Alternate Key</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

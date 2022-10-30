@@ -1,0 +1,2277 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/13/2021 9:54:24 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="B2C017"
+  DTS:CreatorName="KHEILISABZ\f.teimouri"
+  DTS:DTSID="{B963BBE2-9036-4925-AF8F-65BD81A2E4E3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FactReserve"
+  DTS:PackageType="5"
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{C62939FB-8F84-4256-B721-6FD6F0683E62}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1DC8C53C-C912-4EAC-9346-7764508281EA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastVersion">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4CF3AB96-BEAA-4C25-B1B6-30AB6A857BC5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastVersionOfReserverStateHistory">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\catch last version of Reserve table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{203D3BCF-3426-4D92-921A-1BC2C1729663}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="catch last version of Reserve table"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="select isnull((select max(Version) - 100&#xA;&#x9;&#x9;&#x9;&#x9;from dbo.FactReserve),0)"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::LastVersion" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\catch last version of ReserveStateHistory table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{d87920e6-bb93-498f-8a5d-c69966f08f76}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="catch last version of ReserveStateHistory table"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="select isnull((select max(Version) - 100&#xA;&#x9;&#x9;&#x9;&#x9;from dbo.FactReserveStateHistory),0)"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::LastVersionOfReserverStateHistory" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FactReserve - incremental load"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D6A02EEA-5709-4CE1-9930-8ACF4685528D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FactReserve - incremental load"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="exec [ETL].[FactReserve_Merge] ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Project::Reload"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FactReserveStateHistory - incremental load"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{c6ae06aa-1171-4bb5-8109-618b341e236c}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FactReserveStateHistory - incremental load"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="exec [ETL].[FactReserveStateHistory_Merge] ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Project::Reload"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\stage Reserve from Rahkaran"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9B581FD0-B6CC-4A1C-B824-DE37C2F083DB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="stage Reserve from Rahkaran"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\stage Reserve from Rahkaran\DimBranch"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="DimBranch"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimBranch]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimBranch]) [refTable]
+where [refTable].[BranchAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="BranchKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BranchAlternateKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Code" dataType="DT_WSTR" length="64" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="128" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsStatic" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchRef]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage Reserve from Rahkaran\DimBranch.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage Reserve from Rahkaran\DimBranch.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\DimBranch.Inputs[Lookup Input].Columns[BranchRef]"
+                      cachedDataType="i8"
+                      cachedName="BranchRef"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchRef]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">BranchAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage Reserve from Rahkaran\DimBranch.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage Reserve from Rahkaran\DimBranch.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\DimBranch.Outputs[Lookup Match Output].Columns[BranchKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage Reserve from Rahkaran\DimBranch.Outputs[Lookup Match Output].Columns[BranchKey]"
+                      name="BranchKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">BranchKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage Reserve from Rahkaran\DimBranch.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage Reserve from Rahkaran\DimBranch.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage Reserve from Rahkaran\DimBranch.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage Reserve from Rahkaran\DimBranch.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\DimBranch.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage Reserve from Rahkaran\DimBranch.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\DimBranch.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage Reserve from Rahkaran\DimBranch.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage Reserve from Rahkaran\DimPlant"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="DimPlant"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimPlant]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimPlant]) [refTable]
+where [refTable].[PlantAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="PlantKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PlantAlternateKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="128" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Number" dataType="DT_WSTR" length="64" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="State" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BranchKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PlantRef]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage Reserve from Rahkaran\DimPlant.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage Reserve from Rahkaran\DimPlant.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\DimPlant.Inputs[Lookup Input].Columns[PlantRef]"
+                      cachedDataType="i8"
+                      cachedName="PlantRef"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PlantRef]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">PlantAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage Reserve from Rahkaran\DimPlant.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage Reserve from Rahkaran\DimPlant.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\DimPlant.Outputs[Lookup Match Output].Columns[PlantKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage Reserve from Rahkaran\DimPlant.Outputs[Lookup Match Output].Columns[PlantKey]"
+                      name="PlantKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">PlantKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage Reserve from Rahkaran\DimPlant.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage Reserve from Rahkaran\DimPlant.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage Reserve from Rahkaran\DimPlant.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage Reserve from Rahkaran\DimPlant.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\DimPlant.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage Reserve from Rahkaran\DimPlant.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\DimPlant.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage Reserve from Rahkaran\DimPlant.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage Reserve from Rahkaran\DimStore"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="DimStore"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimStore]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimStore]) [refTable]
+where [refTable].[StoreAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="StoreKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StoreAlternateKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Code" dataType="DT_WSTR" length="64" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="128" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="State" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BranchKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PlantKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoreRef]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage Reserve from Rahkaran\DimStore.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage Reserve from Rahkaran\DimStore.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\DimStore.Inputs[Lookup Input].Columns[StoreRef]"
+                      cachedDataType="i8"
+                      cachedName="StoreRef"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoreRef]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">StoreAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage Reserve from Rahkaran\DimStore.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage Reserve from Rahkaran\DimStore.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\DimStore.Outputs[Lookup Match Output].Columns[StoreKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage Reserve from Rahkaran\DimStore.Outputs[Lookup Match Output].Columns[StoreKey]"
+                      name="StoreKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">StoreKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage Reserve from Rahkaran\DimStore.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage Reserve from Rahkaran\DimStore.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage Reserve from Rahkaran\DimStore.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage Reserve from Rahkaran\DimStore.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\DimStore.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage Reserve from Rahkaran\DimStore.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\DimStore.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage Reserve from Rahkaran\DimStore.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage Reserve from Rahkaran\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage].[Rahkaran_Reserve]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReserveID]"
+                      cachedDataType="i8"
+                      cachedName="ReserveID"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReserveID]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveID]" />
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedDataType="i4"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ExpirationDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ExpirationDate"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExpirationDate]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExpirationDate]" />
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Number]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="Number"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Number]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Number]" />
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReferenceRef]"
+                      cachedDataType="i8"
+                      cachedName="ReferenceRef"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReferenceRef]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReferenceRef]" />
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreationDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreationDate"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreationDate]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationDate]" />
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastModificationDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LastModificationDate"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastModificationDate]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastModificationDate]" />
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreationDateKey]"
+                      cachedDataType="i4"
+                      cachedName="CreationDateKey"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreationDateKey]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationDateKey]" />
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Version]"
+                      cachedDataType="bytes"
+                      cachedLength="8"
+                      cachedName="Version"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Version]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]" />
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PlantKey]"
+                      cachedDataType="i4"
+                      cachedName="PlantKey"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PlantKey]"
+                      lineageId="Package\stage Reserve from Rahkaran\DimPlant.Outputs[Lookup Match Output].Columns[PlantKey]" />
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StoreKey]"
+                      cachedDataType="i4"
+                      cachedName="StoreKey"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
+                      lineageId="Package\stage Reserve from Rahkaran\DimStore.Outputs[Lookup Match Output].Columns[StoreKey]" />
+                    <inputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BranchKey]"
+                      cachedDataType="i4"
+                      cachedName="BranchKey"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchKey]"
+                      lineageId="Package\stage Reserve from Rahkaran\DimBranch.Outputs[Lookup Match Output].Columns[BranchKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReserveID]"
+                      dataType="i8"
+                      name="ReserveID" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      dataType="i4"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbTimeStamp"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExpirationDate]"
+                      dataType="dbTimeStamp"
+                      name="ExpirationDate" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Number]"
+                      dataType="wstr"
+                      length="64"
+                      name="Number" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReferenceRef]"
+                      dataType="i8"
+                      name="ReferenceRef" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreationDate]"
+                      dataType="dbTimeStamp"
+                      name="CreationDate" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastModificationDate]"
+                      dataType="dbTimeStamp"
+                      name="LastModificationDate" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreationDateKey]"
+                      dataType="i4"
+                      name="CreationDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Version]"
+                      dataType="bytes"
+                      length="8"
+                      name="Version" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PlantKey]"
+                      dataType="i4"
+                      name="PlantKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
+                      dataType="i4"
+                      name="StoreKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchKey]"
+                      dataType="i4"
+                      name="BranchKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage Reserve from Rahkaran\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT ReserveID,
+       State,
+       PlantRef,
+       StoreRef,
+       Date,
+       ExpirationDate,
+       Number,
+       ReferenceRef,
+       CreationDate,
+	   CAST(FORMAT(CreationDate, 'yyyyMMdd') AS INT) CreationDateKey,
+       LastModificationDate,
+       BranchRef,
+	   r.Version
+FROM LGS3.Reserve r
+WHERE r.ReserveID IN
+      (
+          SELECT TargetRef
+          FROM [SYS3].[RecursiveEntityRelation]
+          WHERE SourceType = 102
+                AND TargetType = 165
+      )
+	  and cast(r.Version as bigint) &gt; ?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{1DC8C53C-C912-4EAC-9346-7764508281EA};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage Reserve from Rahkaran\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{39C9E0E1-261C-4A53-A5AB-28C7EDC58A55}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[KheiliSabz_sg3]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReserveID]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveID]"
+                      name="ReserveID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PlantRef]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PlantRef]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PlantRef]"
+                      name="PlantRef"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoreRef]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StoreRef]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoreRef]"
+                      name="StoreRef"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExpirationDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExpirationDate]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExpirationDate]"
+                      name="ExpirationDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Number]"
+                      length="64"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Number]"
+                      name="Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReferenceRef]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReferenceRef]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReferenceRef]"
+                      name="ReferenceRef"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreationDate]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationDate]"
+                      name="CreationDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastModificationDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastModificationDate]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastModificationDate]"
+                      name="LastModificationDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchRef]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BranchRef]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchRef]"
+                      name="BranchRef"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationDateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreationDateKey]"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationDateKey]"
+                      name="CreationDateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]"
+                      dataType="bytes"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Version]"
+                      length="8"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]"
+                      name="Version"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReserveID]"
+                      dataType="i8"
+                      name="ReserveID" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      dataType="i4"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PlantRef]"
+                      dataType="i8"
+                      name="PlantRef" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StoreRef]"
+                      dataType="i8"
+                      name="StoreRef" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      dataType="dbTimeStamp"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExpirationDate]"
+                      dataType="dbTimeStamp"
+                      name="ExpirationDate" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Number]"
+                      dataType="wstr"
+                      length="64"
+                      name="Number" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReferenceRef]"
+                      dataType="i8"
+                      name="ReferenceRef" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreationDate]"
+                      dataType="dbTimeStamp"
+                      name="CreationDate" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastModificationDate]"
+                      dataType="dbTimeStamp"
+                      name="LastModificationDate" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BranchRef]"
+                      dataType="i8"
+                      name="BranchRef" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreationDateKey]"
+                      dataType="i4"
+                      name="CreationDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Version]"
+                      dataType="bytes"
+                      length="8"
+                      name="Version" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReserveID]"
+                      dataType="i8"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReserveID]"
+                      name="ReserveID" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
+                      dataType="i4"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PlantRef]"
+                      dataType="i8"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PlantRef]"
+                      name="PlantRef" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StoreRef]"
+                      dataType="i8"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StoreRef]"
+                      name="StoreRef" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExpirationDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExpirationDate]"
+                      name="ExpirationDate" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Number]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Number]"
+                      name="Number" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReferenceRef]"
+                      dataType="i8"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReferenceRef]"
+                      name="ReferenceRef" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreationDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreationDate]"
+                      name="CreationDate" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreationDateKey]"
+                      dataType="i4"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreationDateKey]"
+                      name="CreationDateKey" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastModificationDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastModificationDate]"
+                      name="LastModificationDate" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BranchRef]"
+                      dataType="i8"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BranchRef]"
+                      name="BranchRef" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Version]"
+                      dataType="bytes"
+                      length="8"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Version]"
+                      name="Version" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\stage Reserve from Rahkaran.Paths[Lookup Match Output]"
+              endId="Package\stage Reserve from Rahkaran\DimStore.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\stage Reserve from Rahkaran\DimPlant.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage Reserve from Rahkaran.Paths[Lookup Match Output1]"
+              endId="Package\stage Reserve from Rahkaran\DimBranch.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\stage Reserve from Rahkaran\DimStore.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage Reserve from Rahkaran.Paths[Lookup Match Output2]"
+              endId="Package\stage Reserve from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\stage Reserve from Rahkaran\DimBranch.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage Reserve from Rahkaran.Paths[OLE DB Source Output]"
+              endId="Package\stage Reserve from Rahkaran\DimPlant.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\stage Reserve from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\stage ReserveStateHistory from rahkaran"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E89AC1A9-6267-4B87-B7A2-5E66466013E0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="stage ReserveStateHistory from rahkaran"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage].[Rahkaran_ReserveStateHistory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReserveID]"
+                      cachedDataType="i8"
+                      cachedName="ReserveID"
+                      externalMetadataColumnId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReserveID]"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveID]" />
+                    <inputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StateChangeDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="StateChangeDate"
+                      externalMetadataColumnId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateChangeDate]"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateChangeDate]" />
+                    <inputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Version]"
+                      cachedDataType="i8"
+                      cachedName="Version"
+                      externalMetadataColumnId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Version]"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]" />
+                    <inputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StateHistoryID]"
+                      cachedDataType="i8"
+                      cachedName="StateHistoryID"
+                      externalMetadataColumnId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateHistoryID]"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateHistoryID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReserveID]"
+                      dataType="i8"
+                      name="ReserveID" />
+                    <externalMetadataColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateChangeDate]"
+                      dataType="dbTimeStamp"
+                      name="StateChangeDate" />
+                    <externalMetadataColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Version]"
+                      dataType="i8"
+                      name="Version" />
+                    <externalMetadataColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateHistoryID]"
+                      dataType="i8"
+                      name="StateHistoryID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+	[t0].[StateHistoryID]
+   ,[t0].[RecordID] AS [ReserveID]
+   ,[t0].[ChangeDate] AS [StateChangeDate]
+   ,CAST(Version AS BIGINT) AS Version
+FROM [SYS3].[StateHistory] AS [t0]
+WHERE [t0].[EntityCode] = 165
+AND [t0].[TargetState] != 1
+AND CAST(Version AS BIGINT) &gt; ?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"Parameter0:Input",{4CF3AB96-BEAA-4C25-B1B6-30AB6A857BC5};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{39C9E0E1-261C-4A53-A5AB-28C7EDC58A55}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[KheiliSabz_sg3]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReserveID]"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReserveID]"
+                      name="ReserveID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateChangeDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateChangeDate]"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateChangeDate]"
+                      name="StateChangeDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Version]"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]"
+                      name="Version"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateHistoryID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateHistoryID]"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateHistoryID]"
+                      name="StateHistoryID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReserveID]"
+                      dataType="i8"
+                      name="ReserveID" />
+                    <externalMetadataColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateChangeDate]"
+                      dataType="dbTimeStamp"
+                      name="StateChangeDate" />
+                    <externalMetadataColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Version]"
+                      dataType="i8"
+                      name="Version" />
+                    <externalMetadataColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateHistoryID]"
+                      dataType="i8"
+                      name="StateHistoryID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateHistoryID]"
+                      dataType="i8"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateHistoryID]"
+                      name="StateHistoryID" />
+                    <outputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReserveID]"
+                      dataType="i8"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReserveID]"
+                      name="ReserveID" />
+                    <outputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateChangeDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateChangeDate]"
+                      name="StateChangeDate" />
+                    <outputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Version]"
+                      dataType="i8"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Version]"
+                      name="Version" />
+                    <outputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\stage ReserveStateHistory from rahkaran.Paths[OLE DB Source Output]"
+              endId="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\stage ReserveStateHistory from rahkaran\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate stage table - FactReverve"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A7E569F3-3872-4FDA-8B95-3DBD9AA37160}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate stage table - FactReverve"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="truncate table [Stage].[Rahkaran_Reserve]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate stage table - FactReverveStateHistory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{38581c01-631e-43c3-8259-8697d95b3918}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate stage table - FactReverveStateHistory"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="truncate table [Stage].[Rahkaran_ReserveStateHistory]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\update StatusChangeDate"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{449DF83B-8A58-4D45-BC91-C4DEE211B98A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="update StatusChangeDate"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="exec [ETL].[FactReserve_UpdateStatusChangeDate]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9055B726-2870-4AC0-B7FB-6C35F00ED19A}"
+      DTS:From="Package\catch last version of Reserve table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\stage Reserve from Rahkaran" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{E35972F8-A331-4B4E-9B9E-3C86539D362F}"
+      DTS:From="Package\truncate stage table - FactReverve"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\stage Reserve from Rahkaran" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{F5FCEFCF-6E96-4CF0-9A88-5C0516E2F7EA}"
+      DTS:From="Package\stage Reserve from Rahkaran"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\FactReserve - incremental load" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{B8900DCC-5CE1-48ED-8F08-5329EDEFF314}"
+      DTS:From="Package\catch last version of ReserveStateHistory table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\stage ReserveStateHistory from rahkaran" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{A245D9A2-1D26-4756-A04D-CC4115A82527}"
+      DTS:From="Package\truncate stage table - FactReverveStateHistory"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\stage ReserveStateHistory from rahkaran" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{0B7F487D-BB94-46C7-A8B4-E947F7C368F6}"
+      DTS:From="Package\stage ReserveStateHistory from rahkaran"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\FactReserveStateHistory - incremental load" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{D07935C0-5BBE-451C-A466-E307E8573C28}"
+      DTS:From="Package\FactReserve - incremental load"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\update StatusChangeDate" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{7B858BDD-3B1F-4987-ACFD-D32FE669C9A2}"
+      DTS:From="Package\FactReserveStateHistory - incremental load"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\update StatusChangeDate" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="247,42"
+          Id="Package\catch last version of Reserve table"
+          TopLeft="5.49999999999989,5.5" />
+        <NodeLayout
+          Size="307,42"
+          Id="Package\catch last version of ReserveStateHistory table"
+          TopLeft="621.5,5.49999999999989" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\FactReserve - incremental load"
+          TopLeft="336,209.5" />
+        <NodeLayout
+          Size="292,42"
+          Id="Package\FactReserveStateHistory - incremental load"
+          TopLeft="629,209.5" />
+        <NodeLayout
+          Size="225,42"
+          Id="Package\stage Reserve from Rahkaran"
+          TopLeft="324.5,107.5" />
+        <NodeLayout
+          Size="281,42"
+          Id="Package\stage ReserveStateHistory from rahkaran"
+          TopLeft="634.5,107.5" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\truncate stage table - FactReverve"
+          TopLeft="313.5,5.5" />
+        <NodeLayout
+          Size="307,42"
+          Id="Package\truncate stage table - FactReverveStateHistory"
+          TopLeft="989.5,5.49999999999989" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\update StatusChangeDate"
+          TopLeft="670.5,311.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="129,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="271.833333333333,60"
+              Start="0,0"
+              End="271.833333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7458075904678" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7458075904678"
+                    Point2="0,35.7458075904678"
+                    Point3="4,35.7458075904678" />
+                  <mssgle:LineSegment
+                    End="267.833333333333,35.7458075904678" />
+                  <mssgle:CubicBezierSegment
+                    Point1="267.833333333333,35.7458075904678"
+                    Point2="271.833333333333,35.7458075904678"
+                    Point3="271.833333333333,39.7458075904678" />
+                  <mssgle:LineSegment
+                    End="271.833333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="437,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.1666666666666,60"
+              Start="0,0"
+              End="36.1666666666666,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7458075904678" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7458075904678"
+                    Point2="0,35.7458075904678"
+                    Point3="4,35.7458075904678" />
+                  <mssgle:LineSegment
+                    End="32.1666666666666,35.7458075904678" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.1666666666666,35.7458075904678"
+                    Point2="36.1666666666666,35.7458075904678"
+                    Point3="36.1666666666666,39.7458075904678" />
+                  <mssgle:LineSegment
+                    End="36.1666666666666,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="437,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15,60"
+              Start="0,0"
+              End="15,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="11,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11,30"
+                    Point2="15,30"
+                    Point3="15,34" />
+                  <mssgle:LineSegment
+                    End="15,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="775,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-45.5,60"
+              Start="0,0"
+              End="-45.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.796178343949" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.796178343949"
+                    Point2="0,35.796178343949"
+                    Point3="-4,35.796178343949" />
+                  <mssgle:LineSegment
+                    End="-41.5,35.796178343949" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-41.5,35.796178343949"
+                    Point2="-45.5,35.796178343949"
+                    Point3="-45.5,39.796178343949" />
+                  <mssgle:LineSegment
+                    End="-45.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="1143,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-322.5,60"
+              Start="0,0"
+              End="-322.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.796178343949" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.796178343949"
+                    Point2="0,35.796178343949"
+                    Point3="-4,35.796178343949" />
+                  <mssgle:LineSegment
+                    End="-318.5,35.796178343949" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-318.5,35.796178343949"
+                    Point2="-322.5,35.796178343949"
+                    Point3="-322.5,39.796178343949" />
+                  <mssgle:LineSegment
+                    End="-322.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="775,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="452,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="289.5,59.9999999999999"
+              Start="0,0"
+              End="289.5,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7264957264957" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7264957264957"
+                    Point2="0,35.7264957264957"
+                    Point3="4,35.7264957264957" />
+                  <mssgle:LineSegment
+                    End="285.5,35.7264957264957" />
+                  <mssgle:CubicBezierSegment
+                    Point1="285.5,35.7264957264957"
+                    Point2="289.5,35.7264957264957"
+                    Point3="289.5,39.7264957264957" />
+                  <mssgle:LineSegment
+                    End="289.5,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="775,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="33.5,60"
+              Start="0,0"
+              End="33.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7264957264957" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7264957264957"
+                    Point2="0,35.7264957264957"
+                    Point3="4,35.7264957264957" />
+                  <mssgle:LineSegment
+                    End="29.5,35.7264957264957" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.5,35.7264957264957"
+                    Point2="33.5,35.7264957264957"
+                    Point3="33.5,39.7264957264957" />
+                  <mssgle:LineSegment
+                    End="33.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\stage Reserve from Rahkaran">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="124,42"
+          Id="Package\stage Reserve from Rahkaran\DimPlant"
+          TopLeft="32,107.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\stage Reserve from Rahkaran\OLE DB Destination"
+          TopLeft="5.50000000000004,413.5" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\stage Reserve from Rahkaran\DimStore"
+          TopLeft="31.5,209.5" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\stage Reserve from Rahkaran\DimBranch"
+          TopLeft="27.5,311.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\stage Reserve from Rahkaran\OLE DB Source"
+          TopLeft="15.5,5.5" />
+        <EdgeLayout
+          Id="Package\stage Reserve from Rahkaran.Paths[Lookup Match Output]"
+          TopLeft="94,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage Reserve from Rahkaran.Paths[OLE DB Source Output]"
+          TopLeft="94,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage Reserve from Rahkaran.Paths[Lookup Match Output2]"
+          TopLeft="94,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage Reserve from Rahkaran.Paths[Lookup Match Output1]"
+          TopLeft="94,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage Reserve from Rahkaran\DimPlant">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimPlant]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage Reserve from Rahkaran\DimStore">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimStore]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage Reserve from Rahkaran\DimBranch">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimBranch]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage Reserve from Rahkaran\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage Reserve from Rahkaran\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\stage ReserveStateHistory from rahkaran">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\stage ReserveStateHistory from rahkaran\OLE DB Source"
+          TopLeft="409,67" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination"
+          TopLeft="426,155" />
+        <EdgeLayout
+          Id="Package\stage ReserveStateHistory from rahkaran.Paths[OLE DB Source Output]"
+          TopLeft="487.5,109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27,46"
+              Start="0,0"
+              End="27,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="4,23" />
+                  <mssgle:LineSegment
+                    End="23,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23,23"
+                    Point2="27,23"
+                    Point3="27,27" />
+                  <mssgle:LineSegment
+                    End="27,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage ReserveStateHistory from rahkaran\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage ReserveStateHistory from rahkaran\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

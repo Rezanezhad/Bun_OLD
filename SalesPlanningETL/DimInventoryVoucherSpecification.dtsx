@@ -1,0 +1,1866 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/28/2020 11:23:21 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="B2C017"
+  DTS:CreatorName="KHEILISABZ\f.teimouri"
+  DTS:DTSID="{54D37A1D-81CD-4628-A80A-D87E22C19788}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DimInventoryVoucherSpecification"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{CA79381B-6B6C-4F5A-B041-40DC44F27130}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Insert InventoryVoucherSpecification from Rahkaran"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{98778E7E-D52A-48F8-9465-D5B91F5805F9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert InventoryVoucherSpecification from Rahkaran"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimInventoryVoucherSpecification]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[InventoryVoucherSpecificationID]"
+                      cachedDataType="i8"
+                      cachedName="InventoryVoucherSpecificationID"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryVoucherSpecificationAlternateKey]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVoucherSpecificationID]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[Code]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Code"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Code]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[Direction]"
+                      cachedDataType="i4"
+                      cachedName="Direction"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Direction]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Direction]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[directionType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="directionType"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DirectionType]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[directionType]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[IsReturn]"
+                      cachedDataType="bool"
+                      cachedName="IsReturn"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsReturn]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsReturn]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[StockCaption]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="StockCaption"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StockCaption]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StockCaption]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[Category]"
+                      cachedDataType="i4"
+                      cachedName="Category"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Category]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[HasDelivererOrReceiver]"
+                      cachedDataType="bool"
+                      cachedName="HasDelivererOrReceiver"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[HasDelivererOrReceiver]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasDelivererOrReceiver]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[DelivererOrReceiverCaption]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="DelivererOrReceiverCaption"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DelivererOrReceiverCaption]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DelivererOrReceiverCaption]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[HasCounterpartStock]"
+                      cachedDataType="bool"
+                      cachedName="HasCounterpartStock"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[HasCounterpartStock]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasCounterpartStock]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[CounterpartStockCaption]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="CounterpartStockCaption"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CounterpartStockCaption]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CounterpartStockCaption]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedDataType="i4"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[PartTypes]"
+                      cachedDataType="i4"
+                      cachedName="PartTypes"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PartTypes]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PartTypes]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[ReferencedVoucherSpecificationRef]"
+                      cachedDataType="i8"
+                      cachedName="ReferencedVoucherSpecificationRef"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReferencedVoucherSpecificationRef]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReferencedVoucherSpecificationRef]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[HasReference]"
+                      cachedDataType="bool"
+                      cachedName="HasReference"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[HasReference]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasReference]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[IsWithoutReference]"
+                      cachedDataType="bool"
+                      cachedName="IsWithoutReference"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsWithoutReference]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsWithoutReference]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryVoucherSpecificationkey]"
+                      dataType="i4"
+                      name="InventoryVoucherSpecificationkey" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryVoucherSpecificationAlternateKey]"
+                      dataType="i8"
+                      name="InventoryVoucherSpecificationAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Code]"
+                      dataType="wstr"
+                      length="50"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Direction]"
+                      dataType="i4"
+                      name="Direction" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DirectionType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="DirectionType" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsReturn]"
+                      dataType="bool"
+                      name="IsReturn" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StockCaption]"
+                      dataType="wstr"
+                      length="250"
+                      name="StockCaption" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category]"
+                      dataType="i4"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[HasDelivererOrReceiver]"
+                      dataType="bool"
+                      name="HasDelivererOrReceiver" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DelivererOrReceiverCaption]"
+                      dataType="wstr"
+                      length="250"
+                      name="DelivererOrReceiverCaption" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[HasCounterpartStock]"
+                      dataType="bool"
+                      name="HasCounterpartStock" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[CounterpartStockCaption]"
+                      dataType="wstr"
+                      length="250"
+                      name="CounterpartStockCaption" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      dataType="i4"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PartTypes]"
+                      dataType="i4"
+                      name="PartTypes" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReferencedVoucherSpecificationRef]"
+                      dataType="i8"
+                      name="ReferencedVoucherSpecificationRef" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[HasReference]"
+                      dataType="bool"
+                      name="HasReference" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsWithoutReference]"
+                      dataType="bool"
+                      name="IsWithoutReference" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimInventoryVoucherSpecification] SET [Category] = ?,[Code] = ?,[CounterpartStockCaption] = ?,[DelivererOrReceiverCaption] = ?,[Direction] = ?,[DirectionType] = ?,[HasCounterpartStock] = ?,[HasDelivererOrReceiver] = ?,[HasReference] = ?,[IsReturn] = ?,[IsWithoutReference] = ?,[Name] = ?,[PartTypes] = ?,[ReferencedVoucherSpecificationRef] = ?,[State] = ?,[StockCaption] = ? WHERE [InventoryVoucherSpecificationAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[Category]"
+                      cachedDataType="i4"
+                      cachedName="Category"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Category]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[Code]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Code"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[CounterpartStockCaption]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="CounterpartStockCaption"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CounterpartStockCaption]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[DelivererOrReceiverCaption]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="DelivererOrReceiverCaption"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DelivererOrReceiverCaption]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[Direction]"
+                      cachedDataType="i4"
+                      cachedName="Direction"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Direction]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[directionType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="directionType"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[directionType]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[HasCounterpartStock]"
+                      cachedDataType="bool"
+                      cachedName="HasCounterpartStock"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasCounterpartStock]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[HasDelivererOrReceiver]"
+                      cachedDataType="bool"
+                      cachedName="HasDelivererOrReceiver"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasDelivererOrReceiver]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[HasReference]"
+                      cachedDataType="bool"
+                      cachedName="HasReference"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasReference]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[InventoryVoucherSpecificationID]"
+                      cachedDataType="i8"
+                      cachedName="InventoryVoucherSpecificationID"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVoucherSpecificationID]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[IsReturn]"
+                      cachedDataType="bool"
+                      cachedName="IsReturn"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsReturn]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[IsWithoutReference]"
+                      cachedDataType="bool"
+                      cachedName="IsWithoutReference"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsWithoutReference]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[PartTypes]"
+                      cachedDataType="i4"
+                      cachedName="PartTypes"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PartTypes]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[ReferencedVoucherSpecificationRef]"
+                      cachedDataType="i8"
+                      cachedName="ReferencedVoucherSpecificationRef"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReferencedVoucherSpecificationRef]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[State]"
+                      cachedDataType="i4"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[StockCaption]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="StockCaption"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StockCaption]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="250"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="wstr"
+                      length="250"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="bool"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="bool"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      dataType="bool"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="bool"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="bool"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      dataType="wstr"
+                      length="250"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      dataType="i4"
+                      name="Param_12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      dataType="i8"
+                      name="Param_13">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      dataType="i4"
+                      name="Param_14">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_15]"
+                      dataType="wstr"
+                      length="250"
+                      name="Param_15">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_16]"
+                      dataType="i8"
+                      name="Param_16">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT InventoryVoucherSpecificationID,
+       Code,
+       Name,
+      Direction,
+      CASE
+           WHEN Direction = 1 THEN
+               'InPut'
+           WHEN Direction = 2 THEN
+               'OutPut'
+           --ELSE
+           --    0
+       END AS directionType,
+       IsReturn,
+       StockCaption,
+       Category,
+       HasDelivererOrReceiver,
+       DelivererOrReceiverCaption,
+       HasCounterpartStock,
+       CounterpartStockCaption,
+       State,
+       PartTypes,
+       ReferencedVoucherSpecificationRef,
+       HasReference,
+       IsWithoutReference
+FROM LGS3.InventoryVoucherSpecification</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{39C9E0E1-261C-4A53-A5AB-28C7EDC58A55}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[KheiliSabz_sg3]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVoucherSpecificationID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryVoucherSpecificationID]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVoucherSpecificationID]"
+                      name="InventoryVoucherSpecificationID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      length="50"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="250"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Direction]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Direction]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Direction]"
+                      name="Direction"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[directionType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[directionType]"
+                      length="6"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[directionType]"
+                      name="directionType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsReturn]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsReturn]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsReturn]"
+                      name="IsReturn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StockCaption]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StockCaption]"
+                      length="250"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StockCaption]"
+                      name="StockCaption"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Category]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Category]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Category]"
+                      name="Category"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasDelivererOrReceiver]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HasDelivererOrReceiver]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasDelivererOrReceiver]"
+                      name="HasDelivererOrReceiver"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DelivererOrReceiverCaption]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DelivererOrReceiverCaption]"
+                      length="250"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DelivererOrReceiverCaption]"
+                      name="DelivererOrReceiverCaption"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasCounterpartStock]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HasCounterpartStock]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasCounterpartStock]"
+                      name="HasCounterpartStock"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CounterpartStockCaption]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CounterpartStockCaption]"
+                      length="250"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CounterpartStockCaption]"
+                      name="CounterpartStockCaption"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PartTypes]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PartTypes]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PartTypes]"
+                      name="PartTypes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReferencedVoucherSpecificationRef]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReferencedVoucherSpecificationRef]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReferencedVoucherSpecificationRef]"
+                      name="ReferencedVoucherSpecificationRef"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasReference]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HasReference]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasReference]"
+                      name="HasReference"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsWithoutReference]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsWithoutReference]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsWithoutReference]"
+                      name="IsWithoutReference"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryVoucherSpecificationID]"
+                      dataType="i8"
+                      name="InventoryVoucherSpecificationID" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Code]"
+                      dataType="wstr"
+                      length="50"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Direction]"
+                      dataType="i4"
+                      name="Direction" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[directionType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="directionType" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsReturn]"
+                      dataType="bool"
+                      name="IsReturn" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StockCaption]"
+                      dataType="wstr"
+                      length="250"
+                      name="StockCaption" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Category]"
+                      dataType="i4"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HasDelivererOrReceiver]"
+                      dataType="bool"
+                      name="HasDelivererOrReceiver" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DelivererOrReceiverCaption]"
+                      dataType="wstr"
+                      length="250"
+                      name="DelivererOrReceiverCaption" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HasCounterpartStock]"
+                      dataType="bool"
+                      name="HasCounterpartStock" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CounterpartStockCaption]"
+                      dataType="wstr"
+                      length="250"
+                      name="CounterpartStockCaption" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      dataType="i4"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PartTypes]"
+                      dataType="i4"
+                      name="PartTypes" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReferencedVoucherSpecificationRef]"
+                      dataType="i8"
+                      name="ReferencedVoucherSpecificationRef" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[HasReference]"
+                      dataType="bool"
+                      name="HasReference" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsWithoutReference]"
+                      dataType="bool"
+                      name="IsWithoutReference" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryVoucherSpecificationID]"
+                      dataType="i8"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryVoucherSpecificationID]"
+                      name="InventoryVoucherSpecificationID" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Direction]"
+                      dataType="i4"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Direction]"
+                      name="Direction" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[directionType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[directionType]"
+                      name="directionType" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsReturn]"
+                      dataType="bool"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsReturn]"
+                      name="IsReturn" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StockCaption]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StockCaption]"
+                      name="StockCaption" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Category]"
+                      dataType="i4"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Category]"
+                      name="Category" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HasDelivererOrReceiver]"
+                      dataType="bool"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HasDelivererOrReceiver]"
+                      name="HasDelivererOrReceiver" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DelivererOrReceiverCaption]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DelivererOrReceiverCaption]"
+                      name="DelivererOrReceiverCaption" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HasCounterpartStock]"
+                      dataType="bool"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HasCounterpartStock]"
+                      name="HasCounterpartStock" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CounterpartStockCaption]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CounterpartStockCaption]"
+                      name="CounterpartStockCaption" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
+                      dataType="i4"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PartTypes]"
+                      dataType="i4"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PartTypes]"
+                      name="PartTypes" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReferencedVoucherSpecificationRef]"
+                      dataType="i8"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReferencedVoucherSpecificationRef]"
+                      name="ReferencedVoucherSpecificationRef" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HasReference]"
+                      dataType="bool"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[HasReference]"
+                      name="HasReference" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsWithoutReference]"
+                      dataType="bool"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsWithoutReference]"
+                      name="IsWithoutReference" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Category], [Code], [CounterpartStockCaption], [DelivererOrReceiverCaption], [Direction], [DirectionType], [HasCounterpartStock], [HasDelivererOrReceiver], [HasReference], [InventoryVoucherSpecificationAlternateKey], [IsReturn], [IsWithoutReference], [Name], [PartTypes], [ReferencedVoucherSpecificationRef], [State], [StockCaption] FROM [dbo].[DimInventoryVoucherSpecification]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Category]"
+                      cachedDataType="i4"
+                      cachedName="Category"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Category]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Category]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Code]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Code"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Code]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[CounterpartStockCaption]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="CounterpartStockCaption"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CounterpartStockCaption]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CounterpartStockCaption]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[DelivererOrReceiverCaption]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="DelivererOrReceiverCaption"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DelivererOrReceiverCaption]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DelivererOrReceiverCaption]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Direction]"
+                      cachedDataType="i4"
+                      cachedName="Direction"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Direction]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Direction]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[directionType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="directionType"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DirectionType]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[directionType]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[HasCounterpartStock]"
+                      cachedDataType="bool"
+                      cachedName="HasCounterpartStock"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[HasCounterpartStock]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasCounterpartStock]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[HasDelivererOrReceiver]"
+                      cachedDataType="bool"
+                      cachedName="HasDelivererOrReceiver"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[HasDelivererOrReceiver]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasDelivererOrReceiver]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[HasReference]"
+                      cachedDataType="bool"
+                      cachedName="HasReference"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[HasReference]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[HasReference]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[InventoryVoucherSpecificationID]"
+                      cachedDataType="i8"
+                      cachedName="InventoryVoucherSpecificationID"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[InventoryVoucherSpecificationAlternateKey]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVoucherSpecificationID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[IsReturn]"
+                      cachedDataType="bool"
+                      cachedName="IsReturn"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IsReturn]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsReturn]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[IsWithoutReference]"
+                      cachedDataType="bool"
+                      cachedName="IsWithoutReference"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IsWithoutReference]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsWithoutReference]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Name]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[PartTypes]"
+                      cachedDataType="i4"
+                      cachedName="PartTypes"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PartTypes]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PartTypes]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ReferencedVoucherSpecificationRef]"
+                      cachedDataType="i8"
+                      cachedName="ReferencedVoucherSpecificationRef"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ReferencedVoucherSpecificationRef]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReferencedVoucherSpecificationRef]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[State]"
+                      cachedDataType="i4"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[State]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[StockCaption]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="StockCaption"
+                      externalMetadataColumnId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StockCaption]"
+                      lineageId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StockCaption]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Category]"
+                      dataType="i4"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Code]"
+                      dataType="wstr"
+                      length="50"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CounterpartStockCaption]"
+                      dataType="wstr"
+                      length="250"
+                      name="CounterpartStockCaption" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DelivererOrReceiverCaption]"
+                      dataType="wstr"
+                      length="250"
+                      name="DelivererOrReceiverCaption" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Direction]"
+                      dataType="i4"
+                      name="Direction" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DirectionType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="DirectionType" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[HasCounterpartStock]"
+                      dataType="bool"
+                      name="HasCounterpartStock" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[HasDelivererOrReceiver]"
+                      dataType="bool"
+                      name="HasDelivererOrReceiver" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[HasReference]"
+                      dataType="bool"
+                      name="HasReference" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[InventoryVoucherSpecificationAlternateKey]"
+                      dataType="i8"
+                      name="InventoryVoucherSpecificationAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IsReturn]"
+                      dataType="bool"
+                      name="IsReturn" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[IsWithoutReference]"
+                      dataType="bool"
+                      name="IsWithoutReference" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[PartTypes]"
+                      dataType="i4"
+                      name="PartTypes" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ReferencedVoucherSpecificationRef]"
+                      dataType="i8"
+                      name="ReferencedVoucherSpecificationRef" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[State]"
+                      dataType="i4"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StockCaption]"
+                      dataType="wstr"
+                      length="250"
+                      name="StockCaption" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Insert InventoryVoucherSpecification from Rahkaran.Paths[Changing Attribute Updates Output]"
+              endId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\Insert InventoryVoucherSpecification from Rahkaran.Paths[New Output]"
+              endId="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\Insert InventoryVoucherSpecification from Rahkaran.Paths[OLE DB Source Output]"
+              endId="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="334,42"
+          Id="Package\Insert InventoryVoucherSpecification from Rahkaran"
+          TopLeft="213,61" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Insert InventoryVoucherSpecification from Rahkaran">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source"
+          TopLeft="239.5,5.49999999999989" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension"
+          TopLeft="210,107.5" />
+        <EdgeLayout
+          Id="Package\Insert InventoryVoucherSpecification from Rahkaran.Paths[OLE DB Source Output]"
+          TopLeft="318,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Insert InventoryVoucherSpecification from Rahkaran\Insert Destination"
+          TopLeft="5.50000000000006,209.5" />
+        <EdgeLayout
+          Id="Package\Insert InventoryVoucherSpecification from Rahkaran.Paths[New Output]"
+          TopLeft="283.333333333333,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-195.333333333333,60.0000000000001"
+              Start="0,0"
+              End="-195.333333333333,52.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.264705882353" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.264705882353"
+                    Point2="0,24.264705882353"
+                    Point3="-4,24.264705882353" />
+                  <mssgle:LineSegment
+                    End="-191.333333333333,24.264705882353" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-191.333333333333,24.264705882353"
+                    Point2="-195.333333333333,24.264705882353"
+                    Point3="-195.333333333333,28.264705882353" />
+                  <mssgle:LineSegment
+                    End="-195.333333333333,52.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-124.758053385417,29.264705882353,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Command"
+          TopLeft="231.5,209.5" />
+        <EdgeLayout
+          Id="Package\Insert InventoryVoucherSpecification from Rahkaran.Paths[Changing Attribute Updates Output]"
+          TopLeft="352.666666666667,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.6666666666666,60"
+              Start="0,0"
+              End="-34.6666666666666,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2647058823529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2647058823529"
+                    Point2="0,24.2647058823529"
+                    Point3="-4,24.2647058823529" />
+                  <mssgle:LineSegment
+                    End="-30.6666666666666,24.2647058823529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.6666666666666,24.2647058823529"
+                    Point2="-34.6666666666666,24.2647058823529"
+                    Point3="-34.6666666666666,28.2647058823529" />
+                  <mssgle:LineSegment
+                    End="-34.6666666666666,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-95.8672395833333,29.2647058823529,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert InventoryVoucherSpecification from Rahkaran\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert InventoryVoucherSpecification from Rahkaran\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimInventoryVoucherSpecification]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Category]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Category&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Code]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Code&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[CounterpartStockCaption]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;CounterpartStockCaption&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[DelivererOrReceiverCaption]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;DelivererOrReceiverCaption&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Direction]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Direction&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[directionType]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;DirectionType&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[HasCounterpartStock]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;HasCounterpartStock&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[HasDelivererOrReceiver]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;HasDelivererOrReceiver&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[HasReference]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;HasReference&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVoucherSpecificationID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;InventoryVoucherSpecificationAlternateKey&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[IsReturn]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;IsReturn&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[IsWithoutReference]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;IsWithoutReference&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[PartTypes]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PartTypes&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[ReferencedVoucherSpecificationRef]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ReferencedVoucherSpecificationRef&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[State]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;State&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[StockCaption]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;StockCaption&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

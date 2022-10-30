@@ -1,0 +1,620 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/29/2022 4:09:45 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ITL022"
+  DTS:CreatorName="KHEILISABZ\e.nevisandeh"
+  DTS:DTSID="{DFC28EDE-989D-445F-8E3A-54EB64BB977C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DimAddress"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{9B555B71-0995-41F7-A9CC-DD383E6D94ED}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DimAddress_Merge"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{769ABC05-48D5-478D-8AA2-C671975FCB51}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DimAddress_Merge"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="exec [ETL].[DimAddress_Merge]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\stage address"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A711A677-C9A0-4566-999A-30CA186D39D3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="stage address"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\stage address\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage].[CRM_Address]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage address\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bmsd_addressbaseId]"
+                      cachedDataType="guid"
+                      cachedName="bmsd_addressbaseId"
+                      externalMetadataColumnId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_addressbaseId]"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_addressbaseId]" />
+                    <inputColumn
+                      refId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bmsd_name]"
+                      cachedDataType="wstr"
+                      cachedLength="400"
+                      cachedName="bmsd_name"
+                      externalMetadataColumnId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_name]"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_name]" />
+                    <inputColumn
+                      refId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bmsd_CityBase]"
+                      cachedDataType="guid"
+                      cachedName="bmsd_CityBase"
+                      externalMetadataColumnId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_CityBase]"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_CityBase]" />
+                    <inputColumn
+                      refId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bmsd_PostalCodeBase]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="bmsd_PostalCodeBase"
+                      externalMetadataColumnId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_PostalCodeBase]"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_PostalCodeBase]" />
+                    <inputColumn
+                      refId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContactAlternateKey]"
+                      cachedDataType="guid"
+                      cachedName="ContactAlternateKey"
+                      externalMetadataColumnId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContactAlternateKey]"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContactAlternateKey]" />
+                    <inputColumn
+                      refId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CRMAccountAlternateKey]"
+                      cachedDataType="guid"
+                      cachedName="CRMAccountAlternateKey"
+                      externalMetadataColumnId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRMAccountAlternateKey]"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[CRMAccountAlternateKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_addressbaseId]"
+                      dataType="guid"
+                      name="bmsd_addressbaseId" />
+                    <externalMetadataColumn
+                      refId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_name]"
+                      dataType="wstr"
+                      length="400"
+                      name="bmsd_name" />
+                    <externalMetadataColumn
+                      refId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_CityBase]"
+                      dataType="guid"
+                      name="bmsd_CityBase" />
+                    <externalMetadataColumn
+                      refId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_PostalCodeBase]"
+                      dataType="wstr"
+                      length="20"
+                      name="bmsd_PostalCodeBase" />
+                    <externalMetadataColumn
+                      refId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContactAlternateKey]"
+                      dataType="guid"
+                      name="ContactAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRMAccountAlternateKey]"
+                      dataType="guid"
+                      name="CRMAccountAlternateKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage address\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage address\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage address\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage address\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [bmsd_addressbaseId],
+       [bmsd_name],
+       CASE
+           WHEN [bmsd_AccountorContactAddressOwnerBaseIdType] = 2 THEN
+               [bmsd_AccountorContactAddressOwnerBase]
+       END AS [ContactAlternateKey],
+       CASE
+           WHEN [bmsd_AccountorContactAddressOwnerBaseIdType] = 1 THEN
+               [bmsd_AccountorContactAddressOwnerBase]
+       END AS [CRMAccountAlternateKey],
+       [bmsd_CityBase],
+       [bmsd_PostalCodeBase]
+FROM [dbo].[bmsd_addressbaseBase]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage address\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{6BCB0132-5C8A-4A0A-9B5A-B482DE1D05B0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SabzCRM_MSCRM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_addressbaseId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_addressbaseId]"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_addressbaseId]"
+                      name="bmsd_addressbaseId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_name]"
+                      length="400"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_name]"
+                      name="bmsd_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_CityBase]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_CityBase]"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_CityBase]"
+                      name="bmsd_CityBase"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_PostalCodeBase]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_PostalCodeBase]"
+                      length="20"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_PostalCodeBase]"
+                      name="bmsd_PostalCodeBase"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContactAlternateKey]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContactAlternateKey]"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContactAlternateKey]"
+                      name="ContactAlternateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[CRMAccountAlternateKey]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CRMAccountAlternateKey]"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].Columns[CRMAccountAlternateKey]"
+                      name="CRMAccountAlternateKey"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_addressbaseId]"
+                      dataType="guid"
+                      name="bmsd_addressbaseId" />
+                    <externalMetadataColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_name]"
+                      dataType="wstr"
+                      length="400"
+                      name="bmsd_name" />
+                    <externalMetadataColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_CityBase]"
+                      dataType="guid"
+                      name="bmsd_CityBase" />
+                    <externalMetadataColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_PostalCodeBase]"
+                      dataType="wstr"
+                      length="20"
+                      name="bmsd_PostalCodeBase" />
+                    <externalMetadataColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContactAlternateKey]"
+                      dataType="guid"
+                      name="ContactAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CRMAccountAlternateKey]"
+                      dataType="guid"
+                      name="CRMAccountAlternateKey" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_addressbaseId]"
+                      dataType="guid"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_addressbaseId]"
+                      name="bmsd_addressbaseId" />
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_name]"
+                      dataType="wstr"
+                      length="400"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_name]"
+                      name="bmsd_name" />
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ContactAlternateKey]"
+                      dataType="guid"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ContactAlternateKey]"
+                      name="ContactAlternateKey" />
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CRMAccountAlternateKey]"
+                      dataType="guid"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CRMAccountAlternateKey]"
+                      name="CRMAccountAlternateKey" />
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_CityBase]"
+                      dataType="guid"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_CityBase]"
+                      name="bmsd_CityBase" />
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_PostalCodeBase]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_PostalCodeBase]"
+                      name="bmsd_PostalCodeBase" />
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\stage address.Paths[OLE DB Source Output]"
+              endId="Package\stage address\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\stage address\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate stage table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{28FD92EC-072C-4DA1-8818-70ABEC600BF7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate stage table"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Stage].[CRM_Address]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{CAB12945-D02B-47F4-AFFF-14ACAA649095}"
+      DTS:From="Package\truncate stage table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\stage address" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6EEC76ED-2C35-4A3F-A98F-540264186A58}"
+      DTS:From="Package\stage address"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DimAddress_Merge" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\DimAddress_Merge"
+          TopLeft="7.00000000000003,209.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\stage address"
+          TopLeft="20,107.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\truncate stage table"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="92,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="92,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\stage address">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\stage address\OLE DB Source"
+          TopLeft="221,32" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\stage address\OLE DB Destination"
+          TopLeft="224,132" />
+        <EdgeLayout
+          Id="Package\stage address.Paths[OLE DB Source Output]"
+          TopLeft="296,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.5,58"
+              Start="0,0"
+              End="13.5,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="4,29" />
+                  <mssgle:LineSegment
+                    End="9.5,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.5,29"
+                    Point2="13.5,29"
+                    Point3="13.5,33" />
+                  <mssgle:LineSegment
+                    End="13.5,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage address\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage address\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

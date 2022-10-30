@@ -1,0 +1,763 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/11/2021 12:42:12 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-3DLAB05"
+  DTS:CreatorName="DESKTOP-3DLAB05\strider"
+  DTS:DTSID="{607DBDF0-5FCF-4763-8DCE-B8594174DC28}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FactCRMQuote"
+  DTS:PackageType="5"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{D45CD309-69AC-45BB-851E-39624BED067A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F75343EE-0293-4EFD-AA67-4C614C6A4150}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastVersion">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\catch last version"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D82ED8C7-0819-408A-895B-291007B5C920}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="catch last version"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="[ETL].[FactCRMQuote_CatchLastVersion]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::LastVersion" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FactCRMQuote - incremental load"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DB84B758-9647-4B6B-805F-B04C8D8F5EB1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FactCRMQuote - incremental load"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="exec [ETL].[FactCRMQuote_Merge] ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Project::Reload"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\stage quote from CRM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CB474171-1C11-4F21-A029-2779952E0EEF}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="stage quote from CRM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\stage quote from CRM\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage].[CRM_Quote]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage quote from CRM\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Version]"
+                      cachedDataType="i8"
+                      cachedName="Version"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Version]"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]" />
+                    <inputColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[QuoteId]"
+                      cachedDataType="guid"
+                      cachedName="QuoteId"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QuoteId]"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[QuoteId]" />
+                    <inputColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bmsd_Number]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="bmsd_Number"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_Number]"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_Number]" />
+                    <inputColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bmsd_RahkaranID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="bmsd_RahkaranID"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_RahkaranID]"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_RahkaranID]" />
+                    <inputColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OpportunityId]"
+                      cachedDataType="guid"
+                      cachedName="OpportunityId"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OpportunityId]"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[OpportunityId]" />
+                    <inputColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AccountID]"
+                      cachedDataType="guid"
+                      cachedName="AccountID"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRMAccountID]"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountID]" />
+                    <inputColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContactID]"
+                      cachedDataType="guid"
+                      cachedName="ContactID"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContactID]"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContactID]" />
+                    <inputColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedBy]"
+                      cachedDataType="guid"
+                      cachedName="CreatedBy"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedBy]"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedBy]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Version]"
+                      dataType="i8"
+                      name="Version" />
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[QuoteId]"
+                      dataType="guid"
+                      name="QuoteId" />
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_Number]"
+                      dataType="wstr"
+                      length="150"
+                      name="bmsd_Number" />
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_RahkaranID]"
+                      dataType="wstr"
+                      length="100"
+                      name="bmsd_RahkaranID" />
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OpportunityId]"
+                      dataType="guid"
+                      name="OpportunityId" />
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRMAccountID]"
+                      dataType="guid"
+                      name="CRMAccountID" />
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContactID]"
+                      dataType="guid"
+                      name="ContactID" />
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedBy]"
+                      dataType="guid"
+                      name="CreatedBy" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage quote from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage quote from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage quote from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage quote from CRM\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Q].[QuoteId],
+       [Q].[bmsd_Number],
+       [Q].[bmsd_RahkaranID],
+       [Q].[OpportunityId],
+       CAST([Q].[VersionNumber] AS BIGINT) AS [Version],
+       CASE
+           WHEN [Q].[CustomerIdType] = 1 THEN
+               [Q].[CustomerId]
+       END AS [AccountID],
+       CASE
+           WHEN [Q].[CustomerIdType] = 2 THEN
+               [Q].[CustomerId]
+       END AS [ContactID],
+       [Q].[CreatedBy]
+FROM [dbo].[QuoteBase] AS [Q]
+WHERE CAST([Q].[VersionNumber] AS BIGINT) &gt; ?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{F75343EE-0293-4EFD-AA67-4C614C6A4150};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage quote from CRM\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{6BCB0132-5C8A-4A0A-9B5A-B482DE1D05B0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SabzCRM_MSCRM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Version]"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]"
+                      name="Version"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[QuoteId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[QuoteId]"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[QuoteId]"
+                      name="QuoteId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_Number]"
+                      length="150"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_Number]"
+                      name="bmsd_Number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_RahkaranID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_RahkaranID]"
+                      length="100"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_RahkaranID]"
+                      name="bmsd_RahkaranID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[OpportunityId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OpportunityId]"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[OpportunityId]"
+                      name="OpportunityId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AccountID]"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountID]"
+                      name="AccountID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContactID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContactID]"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContactID]"
+                      name="ContactID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedBy]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedBy]"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedBy]"
+                      name="CreatedBy"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Version]"
+                      dataType="i8"
+                      name="Version" />
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[QuoteId]"
+                      dataType="guid"
+                      name="QuoteId" />
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_Number]"
+                      dataType="wstr"
+                      length="150"
+                      name="bmsd_Number" />
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_RahkaranID]"
+                      dataType="wstr"
+                      length="100"
+                      name="bmsd_RahkaranID" />
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OpportunityId]"
+                      dataType="guid"
+                      name="OpportunityId" />
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AccountID]"
+                      dataType="guid"
+                      name="AccountID" />
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContactID]"
+                      dataType="guid"
+                      name="ContactID" />
+                    <externalMetadataColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedBy]"
+                      dataType="guid"
+                      name="CreatedBy" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[QuoteId]"
+                      dataType="guid"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[QuoteId]"
+                      name="QuoteId" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_Number]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_Number]"
+                      name="bmsd_Number" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_RahkaranID]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_RahkaranID]"
+                      name="bmsd_RahkaranID" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OpportunityId]"
+                      dataType="guid"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OpportunityId]"
+                      name="OpportunityId" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Version]"
+                      dataType="i8"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Version]"
+                      name="Version" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AccountID]"
+                      dataType="guid"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AccountID]"
+                      name="AccountID" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ContactID]"
+                      dataType="guid"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ContactID]"
+                      name="ContactID" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedBy]"
+                      dataType="guid"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedBy]"
+                      name="CreatedBy" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\stage quote from CRM.Paths[OLE DB Source Output]"
+              endId="Package\stage quote from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\stage quote from CRM\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate stage table - CRM quote"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0AAE77A7-CE80-4BA6-BD5F-7C43D6A6634D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate stage table - CRM quote"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Stage].[CRM_Quote]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2B3F3439-EDA5-49B0-876C-418D4D47017A}"
+      DTS:From="Package\truncate stage table - CRM quote"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\stage quote from CRM" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{8D68F175-A393-467C-8D3F-CF121F38E538}"
+      DTS:From="Package\stage quote from CRM"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\FactCRMQuote - incremental load" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{19902268-1DAB-460D-88B1-E7723E87B373}"
+      DTS:From="Package\catch last version"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\stage quote from CRM" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\catch last version"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\FactCRMQuote - incremental load"
+          TopLeft="233,207.5" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\stage quote from CRM"
+          TopLeft="253,107.5" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\truncate stage table - CRM quote"
+          TopLeft="227.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="345,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.3333333333334,60"
+              Start="0,0"
+              End="29.3333333333334,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.6896551724138" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.6896551724138"
+                    Point2="0,35.6896551724138"
+                    Point3="4,35.6896551724138" />
+                  <mssgle:LineSegment
+                    End="25.3333333333334,35.6896551724138" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.3333333333334,35.6896551724138"
+                    Point2="29.3333333333334,35.6896551724138"
+                    Point3="29.3333333333334,39.6896551724138" />
+                  <mssgle:LineSegment
+                    End="29.3333333333334,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="348.25,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="86,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="229.666666666667,60"
+              Start="0,0"
+              End="229.666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.6896551724138" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.6896551724138"
+                    Point2="0,35.6896551724138"
+                    Point3="4,35.6896551724138" />
+                  <mssgle:LineSegment
+                    End="225.666666666667,35.6896551724138" />
+                  <mssgle:CubicBezierSegment
+                    Point1="225.666666666667,35.6896551724138"
+                    Point2="229.666666666667,35.6896551724138"
+                    Point3="229.666666666667,39.6896551724138" />
+                  <mssgle:LineSegment
+                    End="229.666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\stage quote from CRM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\stage quote from CRM\OLE DB Source"
+          TopLeft="361,31" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\stage quote from CRM\OLE DB Destination"
+          TopLeft="354,122" />
+        <EdgeLayout
+          Id="Package\stage quote from CRM.Paths[OLE DB Source Output]"
+          TopLeft="437.75,73">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage quote from CRM\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage quote from CRM\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

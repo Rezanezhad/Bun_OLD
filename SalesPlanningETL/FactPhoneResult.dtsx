@@ -1,0 +1,1278 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/2/2021 2:09:42 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="B2C017"
+  DTS:CreatorName="KHEILISABZ\f.teimouri"
+  DTS:DTSID="{1F5E5196-C214-4E1E-9B3F-85EAC8DF08DF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FactPhoneResult"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{F6155F77-EEC6-4F31-849B-A223F3720F9B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Insert phoneresult from CRM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{45DF41DF-F1CB-4284-BB42-D3D39D7DEA04}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert phoneresult from CRM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Insert phoneresult from CRM\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[FactPhoneResult]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert phoneresult from CRM\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActivityId]"
+                      cachedDataType="guid"
+                      cachedName="ActivityId"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActivityId]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityId]" />
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[new_description]"
+                      cachedDataType="nText"
+                      cachedName="new_description"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_description]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_description]" />
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[new_opportunities]"
+                      cachedDataType="guid"
+                      cachedName="new_opportunities"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_opportunities]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_opportunities]" />
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[new_quote]"
+                      cachedDataType="guid"
+                      cachedName="new_quote"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_quote]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_quote]" />
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[new_order]"
+                      cachedDataType="guid"
+                      cachedName="new_order"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_order]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_order]" />
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Phoneresultstate]"
+                      cachedDataType="i4"
+                      cachedName="Phoneresultstate"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Phoneresultstate]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Phoneresultstate]" />
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Channel]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Channel"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Channel]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Channel]" />
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PhoneResultCreator]"
+                      cachedDataType="guid"
+                      cachedName="PhoneResultCreator"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PhoneResultCreator]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhoneResultCreator]" />
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PhoneResultCreatedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PhoneResultCreatedOn"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PhoneResultCreatedOn]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhoneResultCreatedOn]" />
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OwningBusinessUnit]"
+                      cachedDataType="guid"
+                      cachedName="OwningBusinessUnit"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OwningBusinessUnit]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[OwningBusinessUnit]" />
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bmsd_Contact]"
+                      cachedDataType="guid"
+                      cachedName="bmsd_Contact"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_Contact]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_Contact]" />
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bmsd_Account]"
+                      cachedDataType="guid"
+                      cachedName="bmsd_Account"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_Account]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_Account]" />
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Version]"
+                      cachedDataType="i8"
+                      cachedName="Version"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Version]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]" />
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ResultCategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="ResultCategoryKey"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ResultCategoryKey]"
+                      lineageId="Package\Insert phoneresult from CRM\ResultCategoty.Outputs[Lookup Match Output].Columns[ResultCategoryKey]" />
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ResultCategoryResponseKey]"
+                      cachedDataType="i4"
+                      cachedName="ResultCategoryResponseKey"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ResultCategoryResponseKey]"
+                      lineageId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Outputs[Lookup Match Output].Columns[ResultCategoryResponseKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActivityId]"
+                      dataType="guid"
+                      name="ActivityId" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_description]"
+                      dataType="nText"
+                      name="new_description" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_opportunities]"
+                      dataType="guid"
+                      name="new_opportunities" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_quote]"
+                      dataType="guid"
+                      name="new_quote" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_order]"
+                      dataType="guid"
+                      name="new_order" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Phoneresultstate]"
+                      dataType="i4"
+                      name="Phoneresultstate" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Channel]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Channel" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PhoneResultCreator]"
+                      dataType="guid"
+                      name="PhoneResultCreator" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PhoneResultCreatedOn]"
+                      dataType="dbTimeStamp"
+                      name="PhoneResultCreatedOn" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OwningBusinessUnit]"
+                      dataType="guid"
+                      name="OwningBusinessUnit" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_Contact]"
+                      dataType="guid"
+                      name="bmsd_Contact" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_Account]"
+                      dataType="guid"
+                      name="bmsd_Account" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Version]"
+                      dataType="i8"
+                      name="Version" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ResultCategoryKey]"
+                      dataType="i4"
+                      name="ResultCategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ResultCategoryResponseKey]"
+                      dataType="i4"
+                      name="ResultCategoryResponseKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert phoneresult from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert phoneresult from CRM\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT Phc.ActivityId,
+       Phr.new_resultcategoryId,
+       Phr.new_resultcategoryresponseId,
+       Phr.new_description,
+       Phr.new_opportunities,
+       Phr.new_quote,
+       Phr.new_order,
+       Phr.statecode Phoneresultstate,
+       SMP.Value AS Channel,
+       Phr.CreatedBy PhoneResultCreator,
+       Phr.CreatedOn PhoneResultCreatedOn,
+       Phr.OwningBusinessUnit,
+       Phc.bmsd_Contact,
+       Phc.bmsd_Account,
+       CAST(Phr.VersionNumber AS BIGINT) AS Version
+FROM dbo.PhoneCallBase Phc
+    LEFT JOIN dbo.new_phoneresultBase Phr
+        ON Phr.new_PhoneCallId = Phc.ActivityId
+    LEFT JOIN dbo.StringMapBase SMP
+        ON Phr.new_Channel = SMP.AttributeValue
+           AND AttributeName = 'new_channel'
+           AND SMP.ObjectTypeCode = 10142
+           AND SMP.LangId = 1033
+WHERE Phc.bmsd_Account IS NOT NULL</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert phoneresult from CRM\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{6BCB0132-5C8A-4A0A-9B5A-B482DE1D05B0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SabzCRM_MSCRM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActivityId]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityId]"
+                      name="ActivityId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_resultcategoryId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_resultcategoryId]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_resultcategoryId]"
+                      name="new_resultcategoryId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_resultcategoryresponseId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_resultcategoryresponseId]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_resultcategoryresponseId]"
+                      name="new_resultcategoryresponseId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_description]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_description]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_description]"
+                      name="new_description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_opportunities]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_opportunities]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_opportunities]"
+                      name="new_opportunities"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_quote]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_quote]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_quote]"
+                      name="new_quote"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_order]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_order]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_order]"
+                      name="new_order"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Phoneresultstate]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Phoneresultstate]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Phoneresultstate]"
+                      name="Phoneresultstate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Channel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Channel]"
+                      length="4000"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Channel]"
+                      name="Channel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhoneResultCreator]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PhoneResultCreator]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhoneResultCreator]"
+                      name="PhoneResultCreator"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhoneResultCreatedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PhoneResultCreatedOn]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhoneResultCreatedOn]"
+                      name="PhoneResultCreatedOn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[OwningBusinessUnit]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OwningBusinessUnit]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[OwningBusinessUnit]"
+                      name="OwningBusinessUnit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_Contact]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_Contact]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_Contact]"
+                      name="bmsd_Contact"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_Account]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_Account]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_Account]"
+                      name="bmsd_Account"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Version]"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]"
+                      name="Version"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActivityId]"
+                      dataType="guid"
+                      name="ActivityId" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_resultcategoryId]"
+                      dataType="guid"
+                      name="new_resultcategoryId" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_resultcategoryresponseId]"
+                      dataType="guid"
+                      name="new_resultcategoryresponseId" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_description]"
+                      dataType="nText"
+                      name="new_description" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_opportunities]"
+                      dataType="guid"
+                      name="new_opportunities" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_quote]"
+                      dataType="guid"
+                      name="new_quote" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_order]"
+                      dataType="guid"
+                      name="new_order" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Phoneresultstate]"
+                      dataType="i4"
+                      name="Phoneresultstate" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Channel]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Channel" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PhoneResultCreator]"
+                      dataType="guid"
+                      name="PhoneResultCreator" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PhoneResultCreatedOn]"
+                      dataType="dbTimeStamp"
+                      name="PhoneResultCreatedOn" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OwningBusinessUnit]"
+                      dataType="guid"
+                      name="OwningBusinessUnit" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_Contact]"
+                      dataType="guid"
+                      name="bmsd_Contact" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_Account]"
+                      dataType="guid"
+                      name="bmsd_Account" />
+                    <externalMetadataColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Version]"
+                      dataType="i8"
+                      name="Version" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActivityId]"
+                      dataType="guid"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActivityId]"
+                      name="ActivityId" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_resultcategoryId]"
+                      dataType="guid"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_resultcategoryId]"
+                      name="new_resultcategoryId" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_resultcategoryresponseId]"
+                      dataType="guid"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_resultcategoryresponseId]"
+                      name="new_resultcategoryresponseId" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_description]"
+                      dataType="nText"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_description]"
+                      name="new_description" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_opportunities]"
+                      dataType="guid"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_opportunities]"
+                      name="new_opportunities" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_quote]"
+                      dataType="guid"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_quote]"
+                      name="new_quote" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_order]"
+                      dataType="guid"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_order]"
+                      name="new_order" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Phoneresultstate]"
+                      dataType="i4"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Phoneresultstate]"
+                      name="Phoneresultstate" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Channel]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Channel]"
+                      name="Channel" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PhoneResultCreator]"
+                      dataType="guid"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PhoneResultCreator]"
+                      name="PhoneResultCreator" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PhoneResultCreatedOn]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PhoneResultCreatedOn]"
+                      name="PhoneResultCreatedOn" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OwningBusinessUnit]"
+                      dataType="guid"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OwningBusinessUnit]"
+                      name="OwningBusinessUnit" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_Contact]"
+                      dataType="guid"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_Contact]"
+                      name="bmsd_Contact" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_Account]"
+                      dataType="guid"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_Account]"
+                      name="bmsd_Account" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Version]"
+                      dataType="i8"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Version]"
+                      name="Version" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert phoneresult from CRM\ResultCategoryResponse"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="ResultCategoryResponse"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [ResultCategoryResponseKey],
+       [new_resultcategoryresponseId]
+FROM [dbo].[DimResultCategoryResponse]
+UNION ALL
+SELECT NULL,
+       NULL</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [ResultCategoryResponseKey],
+       [new_resultcategoryresponseId]
+FROM [dbo].[DimResultCategoryResponse]
+UNION ALL
+SELECT NULL,
+       NULL) [refTable]
+where [refTable].[new_resultcategoryresponseId] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ResultCategoryResponseKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="new_resultcategoryresponseId" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_resultcategoryresponseId]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Inputs[Lookup Input].Columns[new_resultcategoryresponseId]"
+                      cachedDataType="guid"
+                      cachedName="new_resultcategoryresponseId"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_resultcategoryresponseId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">new_resultcategoryresponseId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Outputs[Lookup Match Output].Columns[ResultCategoryResponseKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Outputs[Lookup Match Output].Columns[ResultCategoryResponseKey]"
+                      name="ResultCategoryResponseKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ResultCategoryResponseKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert phoneresult from CRM\ResultCategoty"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="ResultCategoty"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [ResultCategoryKey],
+       [new_resultcategoryId]
+FROM [dbo].[DimResultCategory]
+UNION ALL
+SELECT NULL,
+       NULL</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [ResultCategoryKey],
+       [new_resultcategoryId]
+FROM [dbo].[DimResultCategory]
+UNION ALL
+SELECT NULL,
+       NULL) [refTable]
+where [refTable].[new_resultcategoryId] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ResultCategoryKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="new_resultcategoryId" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_resultcategoryId]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert phoneresult from CRM\ResultCategoty.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert phoneresult from CRM\ResultCategoty.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert phoneresult from CRM\ResultCategoty.Inputs[Lookup Input].Columns[new_resultcategoryId]"
+                      cachedDataType="guid"
+                      cachedName="new_resultcategoryId"
+                      lineageId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_resultcategoryId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">new_resultcategoryId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert phoneresult from CRM\ResultCategoty.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Insert phoneresult from CRM\ResultCategoty.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\ResultCategoty.Outputs[Lookup Match Output].Columns[ResultCategoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Insert phoneresult from CRM\ResultCategoty.Outputs[Lookup Match Output].Columns[ResultCategoryKey]"
+                      name="ResultCategoryKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ResultCategoryKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert phoneresult from CRM\ResultCategoty.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Insert phoneresult from CRM\ResultCategoty.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert phoneresult from CRM\ResultCategoty.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Insert phoneresult from CRM\ResultCategoty.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\ResultCategoty.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert phoneresult from CRM\ResultCategoty.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert phoneresult from CRM\ResultCategoty.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert phoneresult from CRM\ResultCategoty.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Insert phoneresult from CRM.Paths[Lookup Match Output]"
+              endId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Insert phoneresult from CRM\ResultCategoty.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Insert phoneresult from CRM.Paths[Lookup Match Output1]"
+              endId="Package\Insert phoneresult from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\Insert phoneresult from CRM\ResultCategoryResponse.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Insert phoneresult from CRM.Paths[OLE DB Source Output]"
+              endId="Package\Insert phoneresult from CRM\ResultCategoty.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Insert phoneresult from CRM\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate FactPhoneResult"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EA6698DE-4C62-471A-9DB5-02DC865CCF2E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate FactPhoneResult"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE FactPhoneResult" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C7153B94-AE55-4CF3-85FC-ECB8F25BA8C2}"
+      DTS:From="Package\truncate FactPhoneResult"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Insert phoneresult from CRM" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Insert phoneresult from CRM"
+          TopLeft="117,204" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\truncate FactPhoneResult"
+          TopLeft="115,113" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="218,155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,49"
+              Start="0,0"
+              End="9,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="4,24.5" />
+                  <mssgle:LineSegment
+                    End="5,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,24.5"
+                    Point2="9,24.5"
+                    Point3="9,28.5" />
+                  <mssgle:LineSegment
+                    End="9,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Insert phoneresult from CRM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Insert phoneresult from CRM\ResultCategoryResponse"
+          TopLeft="5.50000000000003,209.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Insert phoneresult from CRM\OLE DB Destination"
+          TopLeft="19,311.5" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Insert phoneresult from CRM\ResultCategoty"
+          TopLeft="30.5,107.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Insert phoneresult from CRM\OLE DB Source"
+          TopLeft="29,5.5" />
+        <EdgeLayout
+          Id="Package\Insert phoneresult from CRM.Paths[Lookup Match Output1]"
+          TopLeft="107.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-80.51173828125,20.4453125,161.0234765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert phoneresult from CRM.Paths[Lookup Match Output]"
+          TopLeft="107.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-80.51173828125,20.4453125,161.0234765625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Insert phoneresult from CRM.Paths[OLE DB Source Output]"
+          TopLeft="107.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-27.78849609375,20.6357421875,55.5769921875,11.228515625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert phoneresult from CRM\ResultCategoryResponse">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert phoneresult from CRM\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert phoneresult from CRM\ResultCategoty">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert phoneresult from CRM\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="BunInventory"
+  DTS:DTSID="{7EC648F2-E553-44C3-A32D-B7A0A67472E5}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=172.16.50.55;User ID=SalesPlanningETL;Initial Catalog=BunInventory;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhjlbbmADF0GdFeslIg9TnwAAAAACAAAAAAADZgAAwAAAABAAAABNMOY8PPGN9QZv3ohK+/FBAAAAAASAAACgAAAAEAAAABm8e9ZyRjqY+CyOUB4zHZmAAAAAD64ed8cfHrCsrt/NdT7MOvdOhWezgCJSslrhTBkgKKMkH4P4iQ8c8ojti1PqyryzMGG5YKUzhxcIQXJNntFTVCJscRjuafiTKOxCURto0U1g9/W6PycpbAMEkHbFq3w4KeA1bZ/IiElx3h7/xbcsQOtU3B21G/jDMDokS4W/aEcUAAAAUwPRgJFTGJRkbII2fzmDcYpZ0LA=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

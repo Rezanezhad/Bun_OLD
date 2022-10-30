@@ -1,0 +1,479 @@
+﻿<Project xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <ProductVersion>15.0.19623.0</ProductVersion>
+  <SchemaVersion>9.0.2.10</SchemaVersion>
+  <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkZGwzMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAiIHhtbG5zOmRkbDMwMF8zMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAvMzAwIiB4bWxuczpkZGw0MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAiIHhtbG5zOmRkbDQwMF80MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAvNDAwIiB4bWxuczpkZGw1MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAiIHhtbG5zOmRkbDUwMF81MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAvNTAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD5mYWxzZTwvRW5hYmxlZD4NCiAgPFByb2plY3ROYW1lPjwvUHJvamVjdE5hbWU+DQogIDxBdXhQYXRoPjwvQXV4UGF0aD4NCiAgPExvY2FsUGF0aD48L0xvY2FsUGF0aD4NCiAgPFByb3ZpZGVyPjwvUHJvdmlkZXI+DQo8L1NvdXJjZUNvbnRyb2xJbmZvPg==</State>
+  <Database>
+    <Name>SABZ4.database</Name>
+    <FullPath>SABZ4.database</FullPath>
+  </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>GRL.cube</Name>
+      <FullPath>GRL.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>GRL.partitions</Name>
+          <FullPath>GRL.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MNG.cube</Name>
+      <FullPath>MNG.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>MNG.partitions</Name>
+          <FullPath>MNG.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB.cube</Name>
+      <FullPath>PUB.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>PUB.partitions</Name>
+          <FullPath>PUB.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
+  <Dimensions>
+    <ProjectItem>
+      <Name>Dim Sale Office.dim</Name>
+      <FullPath>Dim Sale Office.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GLR FIN DIM Type Forecast.dim</Name>
+      <FullPath>GLR FIN DIM Type Forecast.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GR CRM Dim Print Status.dim</Name>
+      <FullPath>GR CRM Dim Print Status.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Bank Or Person.dim</Name>
+      <FullPath>GRL FIN Dim Bank Or Person.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Base Line.dim</Name>
+      <FullPath>GRL FIN Dim Base Line.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Child Cost Forecast.dim</Name>
+      <FullPath>GRL FIN Dim Child Cost Forecast.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Child Income Forecast.dim</Name>
+      <FullPath>GRL FIN Dim Child Income Forecast.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim COA Detail Account.dim</Name>
+      <FullPath>GRL FIN Dim COA Detail Account.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim COA Ledger Account.dim</Name>
+      <FullPath>GRL FIN Dim COA Ledger Account.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Cost Forecast.dim</Name>
+      <FullPath>GRL FIN Dim Cost Forecast.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Estate.dim</Name>
+      <FullPath>GRL FIN Dim Estate.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Financial Item Mapping.dim</Name>
+      <FullPath>GRL FIN Dim Financial Item Mapping.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Financial Item.dim</Name>
+      <FullPath>GRL FIN Dim Financial Item.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Income Forecast.dim</Name>
+      <FullPath>GRL FIN Dim Income Forecast.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Parent Bank Or Person.dim</Name>
+      <FullPath>GRL FIN Dim Parent Bank Or Person.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Payable Chek.dim</Name>
+      <FullPath>GRL FIN Dim Payable Chek.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN DIM Payment Cause Category.dim</Name>
+      <FullPath>GRL FIN DIM Payment Cause Category.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN DIM Payment Cause Chek And Cash.dim</Name>
+      <FullPath>GRL FIN DIM Payment Cause Chek And Cash.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN DIM Payment Cause.dim</Name>
+      <FullPath>GRL FIN DIM Payment Cause.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN DIM Receipt Cause Category.dim</Name>
+      <FullPath>GRL FIN DIM Receipt Cause Category.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN DIM Receipt Cause.dim</Name>
+      <FullPath>GRL FIN DIM Receipt Cause.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Receivable Chek.dim</Name>
+      <FullPath>GRL FIN Dim Receivable Chek.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN DIM Receive Cause Chek And Cash.dim</Name>
+      <FullPath>GRL FIN DIM Receive Cause Chek And Cash.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Senario Fore Cast.dim</Name>
+      <FullPath>GRL FIN Dim Senario Fore Cast.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Type Value Loan.dim</Name>
+      <FullPath>GRL FIN Dim Type Value Loan.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Voucher Item Desc.dim</Name>
+      <FullPath>GRL FIN Dim Voucher Item Desc.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL FIN Dim Voucher State.dim</Name>
+      <FullPath>GRL FIN Dim Voucher State.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Alarm Qty.dim</Name>
+      <FullPath>GRL GNR Dim Alarm Qty.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Alarm Value.dim</Name>
+      <FullPath>GRL GNR Dim Alarm Value.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Bank.dim</Name>
+      <FullPath>GRL GNR Dim Bank.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Branch.dim</Name>
+      <FullPath>GRL GNR Dim Branch.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim City.dim</Name>
+      <FullPath>GRL GNR Dim City.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Company.dim</Name>
+      <FullPath>GRL GNR Dim Company.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Cost Center.dim</Name>
+      <FullPath>GRL GNR Dim Cost Center.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Country.dim</Name>
+      <FullPath>GRL GNR Dim Country.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Date Now.dim</Name>
+      <FullPath>GRL GNR Dim Date Now.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Dim Fact.dim</Name>
+      <FullPath>GRL GNR Dim Dim Fact.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Duration Base MIN.dim</Name>
+      <FullPath>GRL GNR Dim Duration Base MIN.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Duration.dim</Name>
+      <FullPath>GRL GNR Dim Duration.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Full Date To1399.dim</Name>
+      <FullPath>GRL GNR Dim Full Date To1399.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Full Date weekly.dim</Name>
+      <FullPath>GRL GNR Dim Full Date weekly.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Full Date.dim</Name>
+      <FullPath>GRL GNR Dim Full Date.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Holding.dim</Name>
+      <FullPath>GRL GNR Dim Holding.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Project.dim</Name>
+      <FullPath>GRL GNR Dim Project.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Province.dim</Name>
+      <FullPath>GRL GNR Dim Province.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL GNR Dim Unit.dim</Name>
+      <FullPath>GRL GNR Dim Unit.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL INV Dim Material Grouping.dim</Name>
+      <FullPath>GRL INV Dim Material Grouping.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL INV Dim Material Type.dim</Name>
+      <FullPath>GRL INV Dim Material Type.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL INV Dim Material.dim</Name>
+      <FullPath>GRL INV Dim Material.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL INV Dim Shit Or Roll.dim</Name>
+      <FullPath>GRL INV Dim Shit Or Roll.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL INV Dim Store.dim</Name>
+      <FullPath>GRL INV Dim Store.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL INV Dim Suplier.dim</Name>
+      <FullPath>GRL INV Dim Suplier.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL INV Dim Voucher Type.dim</Name>
+      <FullPath>GRL INV Dim Voucher Type.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL SLE Dim Cost Sale.dim</Name>
+      <FullPath>GRL SLE Dim Cost Sale.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL SLE Dim Sale Type.dim</Name>
+      <FullPath>GRL SLE Dim Sale Type.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL TSY Dim Chek Period.dim</Name>
+      <FullPath>GRL TSY Dim Chek Period.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL TSY Dim Chek Type.dim</Name>
+      <FullPath>GRL TSY Dim Chek Type.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL TSY Dim Current Status.dim</Name>
+      <FullPath>GRL TSY Dim Current Status.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>GRL TSY Dim Side Transaction.dim</Name>
+      <FullPath>GRL TSY Dim Side Transaction.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MNG Package Name.dim</Name>
+      <FullPath>MNG Package Name.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>MNG Package Source Name.dim</Name>
+      <FullPath>MNG Package Source Name.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB CRM Dim Color Number.dim</Name>
+      <FullPath>PUB CRM Dim Color Number.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB CRM Dim Format.dim</Name>
+      <FullPath>PUB CRM Dim Format.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB CRM Dim Last Faz.dim</Name>
+      <FullPath>PUB CRM Dim Last Faz.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB DIM Sales Amount Type.dim</Name>
+      <FullPath>PUB DIM Sales Amount Type.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB GNR Dim Category Product.dim</Name>
+      <FullPath>PUB GNR Dim Category Product.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB GNR Dim Launch Status.dim</Name>
+      <FullPath>PUB GNR Dim Launch Status.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB GNR Dim Product Group.dim</Name>
+      <FullPath>PUB GNR Dim Product Group.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB GNR Dim Product.dim</Name>
+      <FullPath>PUB GNR Dim Product.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB SLE Dim Customer.dim</Name>
+      <FullPath>PUB SLE Dim Customer.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB SLE Dim Sale Office.dim</Name>
+      <FullPath>PUB SLE Dim Sale Office.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB SLE Dim Sale Order State.dim</Name>
+      <FullPath>PUB SLE Dim Sale Order State.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB SLE Dim Sale Target Senario.dim</Name>
+      <FullPath>PUB SLE Dim Sale Target Senario.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB SLE Dim Sales Channel.dim</Name>
+      <FullPath>PUB SLE Dim Sales Channel.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>PUB SLE Dim Sales Organization.dim</Name>
+      <FullPath>PUB SLE Dim Sales Organization.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Viw GRL TSY Dim Chek Payable.dim</Name>
+      <FullPath>Viw GRL TSY Dim Chek Payable.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Viw GRL TSY Dim Chek Receivable.dim</Name>
+      <FullPath>Viw GRL TSY Dim Chek Receivable.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vw GRL FIN Dim Cash Deposit.dim</Name>
+      <FullPath>Vw GRL FIN Dim Cash Deposit.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vw GRL FIN Dim COA Detail Account Lvl5.dim</Name>
+      <FullPath>Vw GRL FIN Dim COA Detail Account Lvl5.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vw GRL FIN Dim COA Detail Account Lvl6.dim</Name>
+      <FullPath>Vw GRL FIN Dim COA Detail Account Lvl6.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vw GRL FIN Dim Loan Code.dim</Name>
+      <FullPath>Vw GRL FIN Dim Loan Code.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vw GRL FIN Dim Loan Type.dim</Name>
+      <FullPath>Vw GRL FIN Dim Loan Type.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vw PUB GNR Dim Entire Product.dim</Name>
+      <FullPath>Vw PUB GNR Dim Entire Product.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vw PUB SLE Dim Product First Month And AVG Net Sale.dim</Name>
+      <FullPath>Vw PUB SLE Dim Product First Month And AVG Net Sale.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vw PUB SLE Dim Sale.dim</Name>
+      <FullPath>Vw PUB SLE Dim Sale.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vwe PUB GNR Dim Parent Product.dim</Name>
+      <FullPath>Vwe PUB GNR Dim Parent Product.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vw PUB SLE Dim Sale For Discount Sanad.dim</Name>
+      <FullPath>Vw PUB SLE Dim Sale For Discount Sanad.dim</FullPath>
+    </ProjectItem>
+  </Dimensions>
+  <DataSources>
+    <ProjectItem>
+      <Name>SABZDW.ds</Name>
+      <FullPath>SABZDW.ds</FullPath>
+    </ProjectItem>
+  </DataSources>
+  <DataSourceViews>
+    <ProjectItem>
+      <Name>SABZDW.dsv</Name>
+      <FullPath>SABZDW.dsv</FullPath>
+    </ProjectItem>
+  </DataSourceViews>
+  <Roles>
+    <ProjectItem>
+      <Name>FULL.role</Name>
+      <FullPath>FULL.role</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Role 1.role</Name>
+      <FullPath>Role 1.role</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Role.role</Name>
+      <FullPath>Role.role</FullPath>
+    </ProjectItem>
+  </Roles>
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>SABZDW</Id>
+            <Name>SABZDW</Name>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=172.16.50.56;Integrated Security=SSPI;Initial Catalog=SABZDW</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>SABZDW</Id>
+            <Name>SABZDW</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+        <DeploymentServerEdition>Enterprise</DeploymentServerEdition>
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>Production</Name>
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>SABZDW</Id>
+            <Name>SABZDW</Name>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=172.16.50.56;Integrated Security=SSPI;Initial Catalog=SABZDW</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>SABZDW</Id>
+            <Name>SABZDW</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+        <DeploymentServerEdition>Enterprise</DeploymentServerEdition>
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>Test</Name>
+      <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>SABZDW</Id>
+            <Name>SABZDW</Name>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=172.16.50.56;Integrated Security=SSPI;Initial Catalog=SABZDW</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>SABZDW</Id>
+            <Name>SABZDW</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
+        <DeploymentServerEdition>Enterprise</DeploymentServerEdition>
+      </Options>
+    </Configuration>
+  </Configurations>
+</Project>

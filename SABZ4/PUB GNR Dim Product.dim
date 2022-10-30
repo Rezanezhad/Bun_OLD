@@ -1,0 +1,1769 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="70a5fae8-0e60-435b-836d-a1a677dfee6a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>PUB GNR Dim Product</ID>
+  <Name>PUB GNR Dim Product</Name>
+  <CreatedTimestamp>2020-02-29T07:25:09.843333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2022-02-21T14:57:41.413333Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="56" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4280" scrolltop="-7336" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="7144" y="20585" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="PUB_GNR_Dim_ProductGroup" left="91" top="12850" logicalid="28" controlid="1" masterid="0" hint1="0" hint2="0" width="4744" height="4913" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e00008812000031130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_pub_GNR_Dim_ProductGroup" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="GRL_GNR_Dim_Holding" left="12519" top="11679" logicalid="29" controlid="2" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000b80b000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_GRL_GNR_Dim_Holding" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="GRL_GNR_Dim_Company" left="5507" top="4279" logicalid="30" controlid="3" masterid="0" hint1="0" hint2="0" width="4524" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000ac11000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_GRL_GNR_Dim_Company" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="GRL_GNR_Dim_CompanyType" left="5917" top="0" logicalid="31" controlid="4" masterid="0" hint1="0" hint2="0" width="3704" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000780e000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_GRL_GNR_Dim_CompanyType" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="GRL_GNR_Dim_Industry" left="1342" top="4147" logicalid="32" controlid="5" masterid="0" hint1="0" hint2="0" width="3000" height="2302" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000b80b0000fe080000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_GRL_GNR_Dim_Industry" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="8019" top="8979" logicalid="33" controlid="6" masterid="0" hint1="0" hint2="0" width="6400" height="3200" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[GRL_GNR_Dim_Company-GRL_GNR_Dim_Holding]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="3" sourceattachpoint="4" destattachpoint="9" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="14019" y="11679" />
+              <point x="14019" y="10479" />
+              <point x="8319" y="10479" />
+              <point x="8319" y="9279" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="4207" top="2979" logicalid="34" controlid="7" masterid="0" hint1="0" hint2="0" width="2212" height="2550" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[GRL_GNR_Dim_Company-GRL_GNR_Dim_Company]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="3" sourceattachpoint="16" destattachpoint="0" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="5507" y="5129" />
+              <point x="4507" y="5129" />
+              <point x="4507" y="3279" />
+              <point x="6119" y="3279" />
+              <point x="6119" y="4279" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="4042" top="4279" logicalid="35" controlid="8" masterid="0" hint1="0" hint2="0" width="1765" height="869" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[GRL_GNR_Dim_Company-GRL_GNR_Dim_Industry]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="5" destid="3" sourceattachpoint="11" destattachpoint="14" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="4342" y="4748" />
+              <point x="4924" y="4748" />
+              <point x="4924" y="4579" />
+              <point x="5507" y="4579" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="7370" top="1380" logicalid="36" controlid="9" masterid="0" hint1="0" hint2="0" width="799" height="3199" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[GRL_GNR_Dim_Company-GRL_GNR_Dim_CompanyType]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="4" destid="3" sourceattachpoint="7" destattachpoint="6" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="7769" y="1879" />
+              <point x="7769" y="4279" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="PUB_GNR_Dim_Product" left="248" top="-4234" logicalid="37" controlid="10" masterid="0" hint1="0" hint2="0" width="4516" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000a411000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_PUB_GNR_Dim_Product" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="3856" top="466" logicalid="38" controlid="11" masterid="0" hint1="0" hint2="0" width="3763" height="4313" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[PUB_GNR_Dim_Product-GRL_GNR_Dim_Company]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="10" sourceattachpoint="4" destattachpoint="13" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="7219" y="4279" />
+              <point x="7219" y="2946" />
+              <point x="4156" y="2946" />
+              <point x="4156" y="766" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="Vwe_PUB_GNR_Dim_ParentProduct" left="8644" top="-7868" logicalid="39" controlid="12" masterid="0" hint1="0" hint2="0" width="4692" height="4480" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e00005412000080110000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_Vwe_PUB_GNR_Dim_ParentProduct" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="7920" top="-3688" logicalid="40" controlid="13" masterid="0" hint1="0" hint2="0" width="2270" height="8467" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Vwe_PUB_GNR_Dim_ParentProduct-GRL_GNR_Dim_Company]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="12" sourceattachpoint="8" destattachpoint="5" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="8319" y="4279" />
+              <point x="8319" y="446" />
+              <point x="9890" y="446" />
+              <point x="9890" y="-3388" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="PUB_GNR_Dim_ProductGrade" left="11218" top="-634" logicalid="41" controlid="14" masterid="0" hint1="0" hint2="0" width="4057" height="1940" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000d90f000094070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_PUB_GNR_Dim_ProductGrade" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="4464" top="-3134" logicalid="42" controlid="15" masterid="0" hint1="0" hint2="0" width="7054" height="3320" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[PUB_GNR_Dim_Product-PUB_GNR_Dim_ProductGrade]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="14" destid="10" sourceattachpoint="14" destattachpoint="19" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="11218" y="-214" />
+              <point x="8009" y="-214" />
+              <point x="8009" y="-2834" />
+              <point x="4764" y="-2834" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="PUB_GNR_Dim_Lesson" left="1764" top="-7444" logicalid="43" controlid="16" masterid="0" hint1="0" hint2="0" width="3033" height="1940" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000d90b000094070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_PUB_GNR_Dim_Lesson" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="1656" top="-6003" logicalid="44" controlid="17" masterid="0" hint1="0" hint2="0" width="924" height="2069" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[PUB_GNR_Dim_Product-PUB_GNR_Dim_Lesson]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="16" destid="10" sourceattachpoint="1" destattachpoint="4" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="2180" y="-5504" />
+              <point x="2180" y="-4634" />
+              <point x="1956" y="-4634" />
+              <point x="1956" y="-4234" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="11197" top="-3688" logicalid="45" controlid="18" masterid="0" hint1="0" hint2="0" width="2293" height="3554" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Vwe_PUB_GNR_Dim_ParentProduct-PUB_GNR_Dim_ProductGrade]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="14" destid="12" sourceattachpoint="0" destattachpoint="17" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="11596" y="-634" />
+              <point x="11596" y="-2011" />
+              <point x="13190" y="-2011" />
+              <point x="13190" y="-3388" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="4497" top="-7578" logicalid="46" controlid="19" masterid="0" hint1="0" hint2="0" width="4447" height="954" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Vwe_PUB_GNR_Dim_ParentProduct-PUB_GNR_Dim_Lesson]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="16" destid="12" sourceattachpoint="11" destattachpoint="18" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="4797" y="-7024" />
+              <point x="6720" y="-7024" />
+              <point x="6720" y="-7278" />
+              <point x="8644" y="-7278" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="4464" top="-4377" logicalid="47" controlid="20" masterid="0" hint1="0" hint2="0" width="4480" height="799" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[PUB_GNR_Dim_Product-Vwe_PUB_GNR_Dim_ParentProduct]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="12" destid="10" sourceattachpoint="30" destattachpoint="15" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="8644" y="-3978" />
+              <point x="6722" y="-3978" />
+              <point x="6722" y="-3934" />
+              <point x="4764" y="-3934" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="PUB_SLE_Dim_SalesOrganization" left="5610" top="-12488" logicalid="48" controlid="21" masterid="0" hint1="0" hint2="0" width="4692" height="1940" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e00005412000094070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="SLE_PUB_SLE_Dim_SalesOrganization" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="3856" top="-11047" logicalid="49" controlid="22" masterid="0" hint1="0" hint2="0" width="2300" height="7113" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[PUB_GNR_Dim_Product-PUB_SLE_Dim_SalesOrganization]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="21" destid="10" sourceattachpoint="1" destattachpoint="12" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="5756" y="-10548" />
+              <point x="5756" y="-6968" />
+              <point x="4156" y="-6968" />
+              <point x="4156" y="-4234" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="5907" top="-11047" logicalid="50" controlid="23" masterid="0" hint1="0" hint2="0" width="3183" height="3479" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Vwe_PUB_GNR_Dim_ParentProduct-PUB_SLE_Dim_SalesOrganization]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="21" destid="12" sourceattachpoint="3" destattachpoint="0" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="6306" y="-10548" />
+              <point x="6306" y="-9208" />
+              <point x="8790" y="-9208" />
+              <point x="8790" y="-7868" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="414" top="466" logicalid="51" controlid="24" masterid="0" hint1="0" hint2="0" width="3492" height="12884" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[PUB_GNR_Dim_Product-PUB_GNR_Dim_ProductGroup]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="10" sourceattachpoint="2" destattachpoint="11" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="813" y="12850" />
+              <point x="813" y="7038" />
+              <point x="3606" y="7038" />
+              <point x="3606" y="766" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="2614" top="-3688" logicalid="52" controlid="25" masterid="0" hint1="0" hint2="0" width="6476" height="17038" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[Vwe_PUB_GNR_Dim_ParentProduct-PUB_GNR_Dim_ProductGroup]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="12" sourceattachpoint="10" destattachpoint="1" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="3013" y="12850" />
+              <point x="3013" y="4537" />
+              <point x="8790" y="4537" />
+              <point x="8790" y="-3388" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="PUB_GNR_Dim_ProductGroupParent" left="8255" top="1976" logicalid="53" controlid="26" masterid="0" hint1="0" hint2="0" width="5009" height="1940" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e00009113000094070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_PUB_GNR_Dim_ProductGroupParent" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="513" top="3417" logicalid="54" controlid="27" masterid="0" hint1="0" hint2="0" width="12296" height="9733" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[PUB_GNR_Dim_ProductGroup-PUB_GNR_Dim_ProductGroupParent]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="26" destid="1" sourceattachpoint="15" destattachpoint="2" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="12409" y="3916" />
+              <point x="12409" y="8189" />
+              <point x="813" y="8189" />
+              <point x="813" y="12850" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-4280</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-7336</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>91</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>-12488</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>75</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="131">
+            <Shape Id="Product Id" Expanded="true">
+              <Attributes>
+                <Attribute Id="Product Id" />
+                <Attribute Id="First In Forecast Value" />
+                <Attribute Id="Product Fee" />
+                <Attribute Id="Product Group Parent Id" />
+                <Attribute Id="Product Id 1" />
+                <Attribute Id="Product Parent Id 1" />
+                <Attribute Id="Sdate" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Product Grade Group ID" Expanded="false">
+              <Attributes>
+                <Attribute Id="Product Grade Group ID" />
+              </Attributes>
+              <Position x="188" y="20" />
+            </Shape>
+            <Shape Id="Product Parent Id" Expanded="false">
+              <Attributes>
+                <Attribute Id="Product Parent Id" />
+              </Attributes>
+              <Position x="188" y="68" />
+            </Shape>
+            <Shape Id="Product Group Id 1 1" Expanded="false">
+              <Attributes>
+                <Attribute Id="Product Group Id 1 1" />
+              </Attributes>
+              <Position x="357" y="68" />
+            </Shape>
+            <Shape Id="Product Group Title" Expanded="false">
+              <Attributes>
+                <Attribute Id="Product Group Title" />
+              </Attributes>
+              <Position x="357" y="116" />
+            </Shape>
+            <Shape Id="Organization ID" Expanded="false">
+              <Attributes>
+                <Attribute Id="Organization ID" />
+              </Attributes>
+              <Position x="188" y="164" />
+            </Shape>
+            <Shape Id="Product Group Id 1" Expanded="false">
+              <Attributes>
+                <Attribute Id="Product Group Id 1" />
+              </Attributes>
+              <Position x="188" y="212" />
+            </Shape>
+            <Shape Id="Sales Organization Id" Expanded="false">
+              <Attributes>
+                <Attribute Id="Sales Organization Id" />
+              </Attributes>
+              <Position x="188" y="260" />
+            </Shape>
+            <Shape Id="Product Grade Id" Expanded="false">
+              <Attributes>
+                <Attribute Id="Product Grade Id" />
+              </Attributes>
+              <Position x="188" y="308" />
+            </Shape>
+            <Shape Id="Lesson Id" Expanded="false">
+              <Attributes>
+                <Attribute Id="Lesson Id" />
+              </Attributes>
+              <Position x="188" y="356" />
+            </Shape>
+            <Shape Id="Company Id" Expanded="false">
+              <Attributes>
+                <Attribute Id="Company Id" />
+              </Attributes>
+              <Position x="188" y="404" />
+            </Shape>
+            <Shape Id="Industry Id" Expanded="false">
+              <Attributes>
+                <Attribute Id="Industry Id" />
+              </Attributes>
+              <Position x="357" y="404" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>2022-02-22T03:10:54.76Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="733460fb-b97f-413b-953f-487bef2ac439">
+    <DataSourceViewID>SABZDW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="4a3e3f67-867e-4d89-8c60-d29769723d62">
+    <KeyNotFound>IgnoreError</KeyNotFound>
+    <NullKeyNotAllowed>IgnoreError</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1065</Language>
+  <UnknownMemberName>UnknownProduct</UnknownMemberName>
+  <UnknownMemberTranslations>
+    <UnknownMemberTranslation dwd:design-time-name="aa308675-5738-4068-9414-670f5193a1d0">
+      <Language>1065</Language>
+      <Caption>محصول نامشخص</Caption>
+    </UnknownMemberTranslation>
+  </UnknownMemberTranslations>
+  <Translations>
+    <Translation dwd:design-time-name="e978af6d-e47e-4ee0-810e-0400c366e51a">
+      <Language>1065</Language>
+      <Caption>محصولات</Caption>
+    </Translation>
+  </Translations>
+  <Attributes>
+    <Attribute dwd:design-time-name="28d778e8-7d28-455c-9f09-c9076e5c5534">
+      <ID>Product Id</ID>
+      <Name>Product Id</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1d3d44a3-8907-45d1-8820-52b9d56cdc79">
+          <DataType>BigInt</DataType>
+          <DataSize>16</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="81b4710b-9115-4426-b2f1-8952d32cb01c">
+            <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+            <ColumnID>Product_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d8db4e80-0f8b-4708-8c5a-0cf75331e25c">
+        <DataType>WChar</DataType>
+        <DataSize>200</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="f9937bf8-887b-4876-af69-f45ed0832c36">
+          <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+          <ColumnID>Product_Title</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="cb789bd0-4a26-459f-a1fd-ccd97b74b5a9">
+          <Language>1065</Language>
+          <Caption>عنوان محصول</Caption>
+        </Translation>
+      </Translations>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="6b646bd3-9a29-4690-afed-a5b07b64b31a">
+          <AttributeID>Company Id</AttributeID>
+          <Name>Company Id</Name>
+          <Translations>
+            <Translation dwd:design-time-name="90796243-38d9-4818-9929-64be5419bbfb">
+              <Language>1065</Language>
+              <Caption>نام شرکت</Caption>
+            </Translation>
+          </Translations>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9c94a9a7-c249-42f6-8889-2d0497486e56">
+          <AttributeID>Lesson Id</AttributeID>
+          <Name>Lesson Id</Name>
+          <Translations>
+            <Translation dwd:design-time-name="1352c99e-e3fe-4ec0-ac5a-4f8a9371be4b">
+              <Language>1065</Language>
+              <Caption>درس</Caption>
+            </Translation>
+          </Translations>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="cf64de3f-260d-4757-bb4d-8230be91eec1">
+          <AttributeID>Product Grade Id</AttributeID>
+          <Name>Product Grade Id</Name>
+          <Translations>
+            <Translation dwd:design-time-name="4288ac06-ed10-4df5-a0bd-bcd6451581a9">
+              <Language>1065</Language>
+              <Caption>پایه تحصیلی</Caption>
+            </Translation>
+          </Translations>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b0af9ac5-d69d-457f-9145-25cab10a30ef">
+          <AttributeID>Sales Organization Id</AttributeID>
+          <Name>Sales Organization Id</Name>
+          <Translations>
+            <Translation dwd:design-time-name="3f20852d-76ca-4ac7-83af-b2f479a30028">
+              <Language>1065</Language>
+              <Caption>سازمان</Caption>
+            </Translation>
+          </Translations>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="52f350c8-2619-45e8-a2f8-92b7596c16b2">
+          <AttributeID>Product Fee</AttributeID>
+          <Name>Product Fee</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c124df3e-e533-4654-9703-28c06df011d0">
+          <AttributeID>Product Id 1</AttributeID>
+          <Name>Product Id_Code</Name>
+          <Translations>
+            <Translation dwd:design-time-name="4f2ac844-a0f6-45a4-a02e-893936c33b00">
+              <Language>1065</Language>
+              <Caption>کد عددی محصول</Caption>
+            </Translation>
+          </Translations>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="45e02910-83a1-4791-a89c-92ea7450db2e">
+          <AttributeID>Product Parent Id 1</AttributeID>
+          <Name>Product Parent Id_Code</Name>
+          <Translations>
+            <Translation dwd:design-time-name="e0911f5a-77ba-4bad-ad6d-dd0b3e864140">
+              <Language>1065</Language>
+              <Caption>کد عددی محصول والد</Caption>
+            </Translation>
+          </Translations>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a20a46b2-beda-49e4-8947-4df4fe17e350">
+          <AttributeID>Sdate</AttributeID>
+          <Name>Sdate</Name>
+          <Translations>
+            <Translation dwd:design-time-name="62943981-33dc-4eae-a907-4d9d1217fec5">
+              <Language>1065</Language>
+              <Caption>تاریخ اولین ورود به انبار</Caption>
+            </Translation>
+          </Translations>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e4ef66f2-b283-4d7c-87be-1353160c3fc8">
+          <AttributeID>First In Forecast Value</AttributeID>
+          <Name>First In Forecast Value</Name>
+          <Translations>
+            <Translation dwd:design-time-name="4ed0b131-b866-458a-8631-c1138aa2f0c5">
+              <Language>1065</Language>
+              <Caption>اولین پیش بینی ورود به انبار crm</Caption>
+            </Translation>
+          </Translations>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="34965d2e-c0e7-49df-b7a9-81102d9983d7">
+          <AttributeID>Product Group Parent Id</AttributeID>
+          <Name>Product Group Parent Id</Name>
+          <Translations>
+            <Translation dwd:design-time-name="d47f62e6-5937-4fa4-bf54-5d01f872fefc">
+              <Language>1065</Language>
+              <Caption>عنوان نوع گروه محصول</Caption>
+            </Translation>
+          </Translations>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c45a0b58-9225-423f-99ec-5eccc96518c5">
+          <AttributeID>Product Group Id 1</AttributeID>
+          <Name>Product Group Id_Product</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3ee424db-1c35-48ea-97d3-4cb84497cb2f">
+          <AttributeID>Organization ID</AttributeID>
+          <Name>Organization ID</Name>
+          <Translations>
+            <Translation dwd:design-time-name="213f1faf-12ec-43aa-9228-0a3e542e93e2">
+              <Language>1065</Language>
+              <Caption>سازمان اصلی</Caption>
+            </Translation>
+          </Translations>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="71c58ff1-be0f-40b1-b1ea-0150bddf5604">
+          <AttributeID>Product Parent Id</AttributeID>
+          <Name>Product Parent Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="33a4b21d-56d1-47bf-80a8-eee1197f3167">
+          <AttributeID>Product Grade Group ID</AttributeID>
+          <Name>Product Grade Group ID</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ea924f64-42b8-43f2-afe1-5ba1d784e1b5">
+      <ID>Company Id</ID>
+      <Name>Company Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2a952c6b-2639-4b91-a8a5-2eab3aef57e8">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f3662adb-f626-4a5a-b8c4-87e8bf10e0ee">
+            <TableID>dbo_GRL_GNR_Dim_Company</TableID>
+            <ColumnID>Company_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d8048025-4650-480c-8c9b-ae464d97d42f">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="632c04e1-9432-453f-ae35-a4316cfc9168">
+          <TableID>dbo_GRL_GNR_Dim_Company</TableID>
+          <ColumnID>Company_Title</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="21e9cf5f-5620-474a-a1f7-b55429bda5fe">
+          <Language>1065</Language>
+          <Caption>نام شرکت</Caption>
+        </Translation>
+      </Translations>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="cc75c422-3b2f-42ee-92db-e3032a5b00fa">
+          <AttributeID>Industry Id</AttributeID>
+          <Name>Industry Id</Name>
+          <Translations>
+            <Translation dwd:design-time-name="87638924-65b7-4c70-a450-0373aba45301">
+              <Language>1065</Language>
+              <Caption>عنوان صنعت</Caption>
+            </Translation>
+          </Translations>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7ead102d-deb7-4329-b091-9bf0134b51f3">
+      <ID>Industry Id</ID>
+      <Name>Industry Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a63ca83a-cea3-4845-aa97-12817c2871a8">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="42be2e94-a7c9-4f28-b3f6-735bf8357b99">
+            <TableID>dbo_GRL_GNR_Dim_Industry</TableID>
+            <ColumnID>Industry_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="173e46e4-68bb-4baf-9458-ceed795c4815">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="db6f9d7d-1d19-41ce-8dd4-a804850d4d73">
+          <TableID>dbo_GRL_GNR_Dim_Industry</TableID>
+          <ColumnID>Industry_Title</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="907533da-f898-4015-95ac-babfa4c9ef07">
+          <Language>1065</Language>
+          <Caption>عنوان صنعت</Caption>
+        </Translation>
+      </Translations>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="bc1dff06-d13e-4487-9a10-2859e4c1ff4f">
+      <ID>Product Parent Id</ID>
+      <Name>Product Parent Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7885dece-e826-45fc-ab38-769b76daa285">
+          <DataType>BigInt</DataType>
+          <DataSize>16</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c693097b-fe0b-4ebf-9787-7ac935fa4361">
+            <TableID>dbo_Vwe_PUB_GNR_Dim_ParentProduct</TableID>
+            <ColumnID>ProductParent_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="f70c4a6a-d6bc-4baf-9045-3b267a072648">
+        <DataType>WChar</DataType>
+        <DataSize>200</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="2a4de41f-8577-4022-8190-b8cdd5226588">
+          <TableID>dbo_Vwe_PUB_GNR_Dim_ParentProduct</TableID>
+          <ColumnID>ProductParent_Title</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="25990aff-71c0-499f-9763-30abbe844349">
+          <Language>1065</Language>
+          <Caption>محصول والد</Caption>
+        </Translation>
+      </Translations>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="0eef9caf-7f36-4182-84c6-3c373baf916d">
+          <AttributeID>Product Group Title</AttributeID>
+          <Name>Product Group Title</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9ecea7ef-711d-4496-b12b-ea55baa579b9">
+          <AttributeID>Product Group Id 1 1</AttributeID>
+          <Name>Product Group Id</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="701b526a-1c35-43c6-8367-074d3dd604c5">
+      <ID>Product Grade Id</ID>
+      <Name>Product Grade Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6e619c65-1e9c-4e9d-8e40-3ff458e24633">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3db16c4f-4ce2-417c-ba5d-d054e222e461">
+            <TableID>dbo_PUB_GNR_Dim_ProductGrade</TableID>
+            <ColumnID>ProductGrade_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="66c04118-c660-4d01-8a3f-25fe5023a429">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a0b146f5-53e9-46b1-aa67-abef9f6f0994">
+          <TableID>dbo_PUB_GNR_Dim_ProductGrade</TableID>
+          <ColumnID>ProductGrade_Title</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="cddd7e21-142a-4709-9675-9f1556b4543d">
+          <Language>1065</Language>
+          <Caption>پایه تحصیلی</Caption>
+        </Translation>
+      </Translations>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b87a0d17-318c-41c0-9f90-d6f7a991d3e6">
+      <ID>Lesson Id</ID>
+      <Name>Lesson Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6e0db492-34e4-4c71-9b10-ac74c1f46757">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0aaa36cc-d42f-4181-b782-e316d730d578">
+            <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+            <ColumnID>Lesson_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="5a2444e9-c8fc-4b27-b793-9793988d9016">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="76b37d40-94a5-4387-b9bd-1f2a1984a5ba">
+          <TableID>dbo_PUB_GNR_Dim_Lesson</TableID>
+          <ColumnID>Lesson_Title</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="e9966cf0-ef8f-4475-88c1-917d19dac82c">
+          <Language>1065</Language>
+          <Caption>درس</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3cf1cff7-8c67-4202-9cbf-7e445fa4480e">
+      <ID>Sales Organization Id</ID>
+      <Name>Sales Organization Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2cbf0d02-5d2a-4c68-838b-60023f74f9c3">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3bd304fe-6f7d-453e-8ccb-a0ca7db77a33">
+            <TableID>SLE_PUB_SLE_Dim_SalesOrganization</TableID>
+            <ColumnID>SalesOrganization_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="77216b11-506a-4e62-a39d-966ecbbfdc6d">
+        <DataType>WChar</DataType>
+        <DataSize>500</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="99dfcf5a-6994-4321-928c-6fb568b54ea5">
+          <TableID>SLE_PUB_SLE_Dim_SalesOrganization</TableID>
+          <ColumnID>SalesOrganization_Title</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="eb031c59-86d7-4698-8218-72bf93fef34b">
+          <Language>1065</Language>
+          <Caption>سازمان</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a9fd5298-21f7-4090-8823-fd80ece481bb">
+      <ID>Product Fee</ID>
+      <Name>Product Fee</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c75dac7a-3927-4c21-8b8b-72232f0a0a63">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0b378481-3f4f-49ef-a849-79d1e773a669">
+            <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+            <ColumnID>Product_Fee</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="6770110e-6681-4012-ba1b-0cab480b55df">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="c464f722-ea7d-45ac-b1c7-452c7118e2d2">
+          <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+          <ColumnID>Product_Fee</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="93ba05e2-b5b6-4073-8ef0-acd6e371a4eb">
+      <ID>Product Id 1</ID>
+      <Name>Product Id_Code</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9886c01b-ef07-493e-9289-6af40989a7fd">
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9a560900-e513-4e36-b017-a3ca1ad128b7">
+            <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+            <ColumnID>Product_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="9d34759e-f165-4011-ac07-13f7823574e4">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a768f788-1642-444d-bde9-64b0ba7f8c42">
+          <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+          <ColumnID>Product_Code</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="55d61f0e-623e-4392-8a46-ed09d00a68b4">
+          <Language>1065</Language>
+          <Caption>کد عددی محصول</Caption>
+        </Translation>
+      </Translations>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="54740e19-751c-4b8d-9f6d-030083fa2fb3">
+      <ID>Product Parent Id 1</ID>
+      <Name>Product Parent Id_Code</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b8d90c9f-1ccc-4f7c-843d-9a5bddad6352">
+          <DataType>BigInt</DataType>
+          <DataSize>16</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ac1a5938-4b2b-4991-85e0-094dc65aebf1">
+            <TableID>dbo_Vwe_PUB_GNR_Dim_ParentProduct</TableID>
+            <ColumnID>ProductParent_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="65c6daec-3f43-4150-ad9c-925d73a5f1e7">
+        <DataType>WChar</DataType>
+        <DataSize>6</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="6c81a8cf-1bad-4804-8722-8a0c1a9adf17">
+          <TableID>dbo_Vwe_PUB_GNR_Dim_ParentProduct</TableID>
+          <ColumnID>ParentProduct_Code</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="3c62c4dc-48cc-482d-b774-898572576e22">
+          <Language>1065</Language>
+          <Caption>کد عددی محصول والد</Caption>
+        </Translation>
+      </Translations>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d47c2331-41cf-4542-a158-6d1149556d3b">
+      <ID>Sdate</ID>
+      <Name>Sdate</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a0263a18-bb4b-4480-9212-a7a26c7a7a81">
+          <DataType>WChar</DataType>
+          <DataSize>1024</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="01e71fb5-fe19-4bec-b817-00a5d4642073">
+            <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+            <ColumnID>sdate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="93d608e2-76b6-4d91-8e7b-8a7115f9a79f">
+        <DataType>WChar</DataType>
+        <DataSize>1024</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="b54a6517-a1f7-497c-ab72-8aff93e1ddc3">
+          <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+          <ColumnID>sdate</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="799a594b-1316-460c-a07a-78c5ea66530c">
+          <Language>1065</Language>
+          <Caption>تاریخ اولین ورود به انبار</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a4182608-54a2-4055-96d2-5a61ae115ab3">
+      <ID>First In Forecast Value</ID>
+      <Name>First In Forecast Value</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="b7b453ac-983d-4a69-98f1-68aa7afc3d76">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bb566f73-54d2-495c-90da-034957ba88ff">
+            <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+            <ColumnID>FirstInForecast_Value</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="900ca36d-7075-45ab-9a14-afe0651e2457">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a459c190-e01c-4f0e-adf8-a90ae5eff36a">
+          <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+          <ColumnID>FirstInForecast_Value</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="75181f30-ea56-4451-aa64-306b0c001f0d">
+          <Language>1065</Language>
+          <Caption>اولین پیش بینی ورود به انبار crm</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="316c7719-c56a-42cd-b35b-ad4a8a5fef9f">
+      <ID>Product Group Parent Id</ID>
+      <Name>Product Group Parent Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="138fab32-c496-4214-a063-202d9f6f3614">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3bc520e9-7d2e-4e3e-ad72-708c53964141">
+            <TableID>dbo_PUB_GNR_Dim_ProductGroupParent</TableID>
+            <ColumnID>ProductGroupParent_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="47f31880-36ad-41ee-83f7-a97e968f2bc9">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="d34f94f0-7556-49b5-a6fe-4de6319cbafa">
+          <TableID>dbo_PUB_GNR_Dim_ProductGroupParent</TableID>
+          <ColumnID>ProductGroupParent_Title</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="b98b6103-8648-4c88-b6ec-ab2fecd903e7">
+          <Language>1065</Language>
+          <Caption>عنوان نوع گروه محصول</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b6ceb6f9-6d55-41c3-b9ff-af9478b6c927">
+      <ID>Organization ID</ID>
+      <Name>Organization ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ba3f831f-1803-406b-ac3b-e73cdf80c21e">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="564c7384-fb27-4d46-af09-10a9f1f901a1">
+            <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+            <ColumnID>OrganizationID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="d5c9a4cb-48a2-469a-adf7-b04f0b369379">
+        <DataType>WChar</DataType>
+        <DataSize>500</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="41ab68da-3871-470e-bd71-d39b4fff3930">
+          <TableID>SLE_PUB_SLE_Dim_SalesOrganization</TableID>
+          <ColumnID>SalesOrganization_Title</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="2237a9d6-4ae3-4be4-b433-99f8eced6291">
+          <Language>1065</Language>
+          <Caption>سازمان اصلی</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f3cd3ff4-4f6c-4bf2-a0de-6ed10925f0b3">
+      <ID>Product Group Id 1</ID>
+      <Name>Product Group Id_Product</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9b2d4851-60f7-4183-adc5-74f2d6049bac">
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="fea6b66c-8e2b-42b0-90dd-142b42f6aff2">
+            <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+            <ColumnID>ProductGroup_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="a85bc9af-f44a-43db-b939-70a8ed0c28fa">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="51dc8453-44e1-47aa-bbac-d5d71e435dba">
+          <TableID>dbo_pub_GNR_Dim_ProductGroup</TableID>
+          <ColumnID>ProductGroup_Title</ColumnID>
+        </Source>
+      </NameColumn>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2fb23d05-ee3f-43c1-b81f-1be6f6594c9f">
+      <ID>Product Group Id 1 1</ID>
+      <Name>Product Group Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="96847e67-07f6-44cc-8be5-0f1ffacb8c01">
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0ff3a310-0e93-4af8-ac24-327df0bbed73">
+            <TableID>dbo_pub_GNR_Dim_ProductGroup</TableID>
+            <ColumnID>ProductGroup_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="9d3e7fec-3c1a-448e-9b34-a26327cc44a0">
+        <DataType>WChar</DataType>
+        <DataSize>100</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="a6f53854-abb7-4f8e-afe2-becccc053f51">
+          <TableID>dbo_pub_GNR_Dim_ProductGroup</TableID>
+          <ColumnID>ProductGroup_Title</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="6c89d878-5f82-4b28-87ce-84c91fdd7a51">
+          <Language>1065</Language>
+          <Caption>گروه محصول</Caption>
+        </Translation>
+      </Translations>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="aad93bfb-5c0b-4fde-84ba-63ae7704f312">
+      <ID>Product Group Title</ID>
+      <Name>Product Group Title</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0b226661-85a6-4434-8fea-9905f23001f8">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="acba5895-f490-4b49-b672-9af4510adbd8">
+            <TableID>dbo_pub_GNR_Dim_ProductGroup</TableID>
+            <ColumnID>ProductGroup_Title</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="588353b6-9126-4835-8ba0-1adb38182718">
+      <ID>Product Grade Group ID</ID>
+      <Name>Product Grade Group ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="be956b0f-39c4-4442-91ae-a40c402b577c">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bce26dd9-0a25-4720-8df2-0c6dd2216d70">
+            <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+            <ColumnID>ProductGrade_Group_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="8e49938b-fd60-453a-abc7-75ff0eafbff7">
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="aa5bbc12-f6f3-44e8-ac76-d853c1a7ca1d">
+          <TableID>PUB_GNR_Dim_ProductGrade_Group</TableID>
+          <ColumnID>ProductGrade_Group_Title</ColumnID>
+        </Source>
+      </NameColumn>
+      <Translations>
+        <Translation dwd:design-time-name="b54bebb5-8a3d-474e-9c1f-4e3f2781c916">
+          <Language>1065</Language>
+          <Caption>مقطع تحصیلی</Caption>
+        </Translation>
+      </Translations>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <AttributeAllMemberName>AllProduct</AttributeAllMemberName>
+  <AttributeAllMemberTranslations>
+    <AttributeAllMemberTranslation dwd:design-time-name="f57e3fbb-a8e5-4198-986e-d79daea548f7">
+      <Language>1065</Language>
+      <Caption>همه محصولات</Caption>
+    </AttributeAllMemberTranslation>
+  </AttributeAllMemberTranslations>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="f19577e4-bb1b-441c-a79a-2c0ef2e5967b">
+      <ID>Hierarchy</ID>
+      <Name>Product Group - Product</Name>
+      <Translations>
+        <Translation dwd:design-time-name="f4ec6b88-3227-4ea4-90f3-217bcdac4b14">
+          <Language>1065</Language>
+          <Caption>ساختار درختی گروه محصول - محصول</Caption>
+        </Translation>
+      </Translations>
+      <AllMemberName>همه موارد</AllMemberName>
+      <Levels>
+        <Level dwd:design-time-name="03c95c84-ffa8-44a2-9920-9696e0a02b6d">
+          <ID>Product Group Id 1</ID>
+          <Name>Product Group Id 1</Name>
+          <SourceAttributeID>Product Group Id 1 1</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="0cefafe3-e37f-4218-bf06-26ab1ae668f2">
+              <Language>1065</Language>
+              <Caption>گروه محصول</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="aca4d064-9254-4f73-9d3e-dbae18d6480c">
+          <ID>Product Id</ID>
+          <Name>Product Id</Name>
+          <SourceAttributeID>Product Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="97be3e75-2621-49e6-93bd-444d7bbe1822">
+              <Language>1065</Language>
+              <Caption>عنوان محصول</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="27b9b757-fe3e-46cf-b15c-6ef66aceccd6">
+      <ID>Hierarchy 1</ID>
+      <Name>Company - Product</Name>
+      <Translations>
+        <Translation dwd:design-time-name="7c746d8f-02b0-42a6-8402-91afa54a3494">
+          <Language>1065</Language>
+          <Caption>ساختار درختی شرکت - محصول</Caption>
+        </Translation>
+      </Translations>
+      <AllMemberName>همه موارد</AllMemberName>
+      <Levels>
+        <Level dwd:design-time-name="dcf0e01a-b77a-4597-bb12-39bb6dab1ad3">
+          <ID>Company Id</ID>
+          <Name>Company Id</Name>
+          <SourceAttributeID>Company Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="f48605f7-163b-4a65-a6b0-b418e9906ed8">
+              <Language>1065</Language>
+              <Caption>نام شرکت</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="d5816d0c-939d-4cb8-a81a-a0c661cdd8d2">
+          <ID>Product Id</ID>
+          <Name>Product Id</Name>
+          <SourceAttributeID>Product Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="45eb9f54-d604-446a-981e-deb33ac88bd7">
+              <Language>1065</Language>
+              <Caption>عنوان محصول</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="986fa3d6-1521-42f1-9749-a8ce5d842ece">
+      <ID>Hierarchy 2</ID>
+      <Name>Industry - Company - Product</Name>
+      <Translations>
+        <Translation dwd:design-time-name="b9178e51-590c-4172-b79a-dd4bd1ceee90">
+          <Language>1065</Language>
+          <Caption>ساختار درختی صنعت - شرکت - محصول</Caption>
+        </Translation>
+      </Translations>
+      <AllMemberName>همه موارد</AllMemberName>
+      <Levels>
+        <Level dwd:design-time-name="4ad1ab17-cefc-4209-a8dd-cc08763f96a6">
+          <ID>Industry Id</ID>
+          <Name>Industry Id</Name>
+          <SourceAttributeID>Industry Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="2567182e-d8c5-4946-9832-b27903bf39e3">
+              <Language>1065</Language>
+              <Caption>عنوان صنعت</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="b6a68b17-eaca-4a23-a502-586fa874781c">
+          <ID>Company Id</ID>
+          <Name>Company Id</Name>
+          <SourceAttributeID>Company Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="39a1dac9-3a67-4569-bb36-de20503c9fd7">
+              <Language>1065</Language>
+              <Caption>نام شرکت</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="f4f5efa8-e721-4538-b6ef-4b76010b91e7">
+          <ID>Product Id</ID>
+          <Name>Product Id</Name>
+          <SourceAttributeID>Product Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="061ec4a1-dadc-4b31-abf3-c06785d2c66b">
+              <Language>1065</Language>
+              <Caption>عنوان محصول</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="d0e0235c-7a47-4fad-b98a-1e939b5ed474">
+      <ID>Hierarchy 3</ID>
+      <Name>Company - ProductParent - Product</Name>
+      <Levels>
+        <Level dwd:design-time-name="9d8b6c3b-503d-4789-970f-8140db75a9f7">
+          <ID>Company Id</ID>
+          <Name>Company Id</Name>
+          <SourceAttributeID>Company Id</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="5f3a3674-68ce-404e-8193-b1f51966a345">
+          <ID>Product Parent Id</ID>
+          <Name>Product Parent Id</Name>
+          <SourceAttributeID>Product Parent Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="7588d18b-1a51-439b-af7f-34d45feea9cd">
+              <Language>1065</Language>
+              <Caption>محصول والد</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="c1b30b80-912c-41d0-b987-195f4f54c7de">
+          <ID>Product Id</ID>
+          <Name>Product Id</Name>
+          <SourceAttributeID>Product Id</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="30d58419-aaba-45c6-8064-d5e91477e1fe">
+      <ID>Hierarchy 1 1</ID>
+      <Name>ProductParent - Product</Name>
+      <Translations>
+        <Translation dwd:design-time-name="53cfa9af-95b4-4388-a50c-486c81dd42b4">
+          <Language>1065</Language>
+          <Caption>ساختار درختی محصول والد - محصول</Caption>
+        </Translation>
+      </Translations>
+      <Levels>
+        <Level dwd:design-time-name="2bd10bb6-c0eb-4a80-948f-da9caf57e3bb">
+          <ID>Product Parent Id</ID>
+          <Name>Product Parent Id</Name>
+          <SourceAttributeID>Product Parent Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="91c92ff1-42d9-47b6-8677-473a1e8c095c">
+              <Language>1065</Language>
+              <Caption>محصول والد</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="5bad7a91-13e0-4d99-b444-e0f25bf65470">
+          <ID>Product Id</ID>
+          <Name>Product Id</Name>
+          <SourceAttributeID>Product Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="306377e7-a3a1-4a3b-865e-c6b85244ab4b">
+              <Language>1065</Language>
+              <Caption>محصول</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="880ba510-4f21-4578-b869-39ae2ca7a864">
+      <ID>Hierarchy 4</ID>
+      <Name>ProductGroup - ProductParent - Product</Name>
+      <Translations>
+        <Translation dwd:design-time-name="1006e81e-f489-4da5-bffa-b7be2f539498">
+          <Language>1065</Language>
+          <Caption>ساختار درختی گروه محصول - محصول والد - محصول</Caption>
+        </Translation>
+      </Translations>
+      <Levels>
+        <Level dwd:design-time-name="6cce4b6b-08f3-477f-8f2f-2cf591b289d0">
+          <ID>Product Group Title</ID>
+          <Name>Product Group Title</Name>
+          <SourceAttributeID>Product Group Title</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="b75ac4cf-743c-4772-9fdb-eec90742726f">
+          <ID>Product Parent Id</ID>
+          <Name>Product Parent Id</Name>
+          <SourceAttributeID>Product Parent Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="3e05ec83-82a2-4da0-89ad-47f20a0c6722">
+              <Language>1065</Language>
+              <Caption>محصول والد</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="b35fc2c3-ebbc-4b51-a963-b60e53393814">
+          <ID>Product Id</ID>
+          <Name>Product Id</Name>
+          <SourceAttributeID>Product Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="94028284-998e-43db-b2ce-1542d4dc8f32">
+              <Language>1065</Language>
+              <Caption>محصول</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="b802405e-a717-4a5a-b8ee-3aab402af068">
+      <ID>Hierarchy 5</ID>
+      <Name>ProductGrade - Product</Name>
+      <Translations>
+        <Translation dwd:design-time-name="ef2081b9-3c60-4d63-89fc-75bf33bc8fe5">
+          <Language>1065</Language>
+          <Caption>ساختار درختی پایه تحصیلی - محصول</Caption>
+        </Translation>
+      </Translations>
+      <Levels>
+        <Level dwd:design-time-name="1e4c1775-68b8-4b9e-a77c-95cd11a2b6e3">
+          <ID>Product Grade Id</ID>
+          <Name>Product Grade Id</Name>
+          <SourceAttributeID>Product Grade Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="421e6793-084d-4b1c-bb71-0258b94abad6">
+              <Language>1065</Language>
+              <Caption>پایه تحصیلی</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="a39e5eb1-d45f-46c0-8003-cba2d3f68ad0">
+          <ID>Product Id</ID>
+          <Name>Product Id</Name>
+          <SourceAttributeID>Product Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="3dd50806-f9f0-446d-88e1-a122b603e08c">
+              <Language>1065</Language>
+              <Caption>محصول</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="db7dddb6-17a4-47b8-9195-ff5aadcce557">
+      <ID>Hierarchy 6</ID>
+      <Name>Lesson - Product</Name>
+      <Translations>
+        <Translation dwd:design-time-name="73583ca5-dd2d-4c36-9116-e89fb0baaf93">
+          <Language>1065</Language>
+          <Caption>ساختار درختی درس - محصول</Caption>
+        </Translation>
+      </Translations>
+      <Levels>
+        <Level dwd:design-time-name="3bd82f7d-f1ff-4e21-aa53-e55fa55c6726">
+          <ID>Lesson Id</ID>
+          <Name>Lesson Id</Name>
+          <SourceAttributeID>Lesson Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="d1ec1f2f-d674-499e-8bcd-36a255d2a845">
+              <Language>1065</Language>
+              <Caption>درس</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="55b60d76-0eaa-41b7-a42e-260d2f3a355c">
+          <ID>Product Id</ID>
+          <Name>Product Id</Name>
+          <SourceAttributeID>Product Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="75f90418-5cd4-4589-8182-4744b1e2f9e7">
+              <Language>1065</Language>
+              <Caption>محصول</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="18a8042a-7618-4edc-bee0-2d3c31a95ac5">
+      <ID>Hierarchy 7</ID>
+      <Name>Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="ac174227-72c9-4eeb-b82a-aeaa99b32af7">
+          <ID>Product Parent Id</ID>
+          <Name>Product Parent Id</Name>
+          <SourceAttributeID>Product Parent Id</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="8e44da5e-fe41-4b61-b218-f31acb3819a1">
+          <ID>Product Id</ID>
+          <Name>Product Id</Name>
+          <SourceAttributeID>Product Id</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="b6c8916c-44d0-41e9-9bb5-678ddda4e48a">
+      <ID>Hierarchy 1 2</ID>
+      <Name>Organization - ProductParent</Name>
+      <Translations>
+        <Translation dwd:design-time-name="bb93beec-9401-4f37-a65c-262daad084fd">
+          <Language>1065</Language>
+          <Caption>ساختار درختی سازمان - محصول والد</Caption>
+        </Translation>
+      </Translations>
+      <Levels>
+        <Level dwd:design-time-name="be9c0ee1-a248-47f7-ad07-0966cc04e0c8">
+          <ID>Sales Organization Id</ID>
+          <Name>Sales Organization Id</Name>
+          <SourceAttributeID>Sales Organization Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="9194f50e-6eb7-43f5-9e80-80953d72e518">
+              <Language>1065</Language>
+              <Caption>سازمان</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="04dc8458-ac01-494e-8b6d-f5f913c7efb2">
+          <ID>Product Parent Id</ID>
+          <Name>Product Parent Id</Name>
+          <SourceAttributeID>Product Parent Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="ca4938f4-f0ab-436e-aa91-e47566d46240">
+              <Language>1065</Language>
+              <Caption>محصول والد</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="319beec9-8a4c-4ae3-9277-8357527353a1">
+      <ID>Hierarchy 1 3</ID>
+      <Name>Hierarchy 1</Name>
+      <Levels>
+        <Level dwd:design-time-name="8516cf37-8e78-4eae-9941-1b8cdfe288b4">
+          <ID>Sales Organization Id</ID>
+          <Name>Sales Organization Id</Name>
+          <SourceAttributeID>Sales Organization Id</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="2bf2e927-91b0-48fb-a3d4-6c8e05ebe602">
+          <ID>Product Id</ID>
+          <Name>Product Id</Name>
+          <SourceAttributeID>Product Id</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="3be05b1a-b7da-44c1-97a8-6f6f53d83a10">
+      <ID>Hierarchy 2 1</ID>
+      <Name>organization - group - product</Name>
+      <Translations>
+        <Translation dwd:design-time-name="956c1724-953b-4dc3-9d3a-b00fd332f554">
+          <Language>1065</Language>
+          <Caption>ساختار درختی سازمان - گروه محصول - محصول</Caption>
+        </Translation>
+      </Translations>
+      <Levels>
+        <Level dwd:design-time-name="1c44c27b-3cdd-4f2e-bfdb-5c8aa9a398db">
+          <ID>Organization ID</ID>
+          <Name>Organization ID</Name>
+          <SourceAttributeID>Organization ID</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="d9c23cce-8da4-4a0c-a8b3-4fc283f1dd3c">
+              <Language>1065</Language>
+              <Caption>سازمان</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="e019879c-6178-4863-8293-57a376f20c3e">
+          <ID>Product Group Id_Product</ID>
+          <Name>Product Group Id_Product</Name>
+          <SourceAttributeID>Product Group Id 1</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="31dec83b-60f9-42ef-9ebe-5efd869ae8c3">
+          <ID>Product Id</ID>
+          <Name>Product Id</Name>
+          <SourceAttributeID>Product Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="a0bca431-8ad9-4769-b3c5-3d5984c2fd6b">
+              <Language>1065</Language>
+              <Caption>محصول</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="bcf44b44-838b-4065-92dc-6c881223703c">
+      <ID>Hierarchy 2 2</ID>
+      <Name>Org-Group-Parent-Product</Name>
+      <Translations>
+        <Translation dwd:design-time-name="ba53376c-77dc-440b-9737-f51f50693fc0">
+          <Language>1065</Language>
+          <Caption>ساختار درختی سازمان- گروه محصول - محصول والد - محصول</Caption>
+        </Translation>
+      </Translations>
+      <Levels>
+        <Level dwd:design-time-name="7dc99649-5100-4f16-af3f-e53fcc380d5d">
+          <ID>Sales Organization Id</ID>
+          <Name>Sales Organization Id</Name>
+          <SourceAttributeID>Sales Organization Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="29691a55-dc58-46d3-a907-8e23fe4ce950">
+              <Language>1065</Language>
+              <Caption>سازمان</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="df554266-5f16-4c1f-826b-19f7f7f0816e">
+          <ID>Product Group Id</ID>
+          <Name>Product Group Id</Name>
+          <SourceAttributeID>Product Group Id 1 1</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="eb43dee3-5066-4242-8b50-751686f3e949">
+              <Language>1065</Language>
+              <Caption>گروه محصول</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="7db4bbcc-0e75-46ca-8cc5-65f3e8b5e6e8">
+          <ID>Product Parent Id</ID>
+          <Name>Product Parent Id</Name>
+          <SourceAttributeID>Product Parent Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="404061ae-f155-469f-935c-a4efd9e381ad">
+              <Language>1065</Language>
+              <Caption>محصول والد</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="67474e7d-b370-43bf-8161-f87e09c11f1a">
+          <ID>Product Id</ID>
+          <Name>Product Id</Name>
+          <SourceAttributeID>Product Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="b940f692-bed9-4e8b-aff2-04313ae02692">
+              <Language>1065</Language>
+              <Caption>محصول</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+      </Levels>
+    </Hierarchy>
+    <Hierarchy dwd:design-time-name="9f409552-689b-4c00-a7e1-30549af73a79">
+      <ID>Hierarchy 2 3</ID>
+      <Name>GradeGroup-Garde-Product</Name>
+      <Translations>
+        <Translation dwd:design-time-name="149a9a2d-23ec-4320-9fd4-13b2337eff72">
+          <Language>1065</Language>
+          <Caption>ساختار درختی مقطع -پایه -محصول</Caption>
+        </Translation>
+      </Translations>
+      <Levels>
+        <Level dwd:design-time-name="a7da58df-ffad-4dbb-bbaa-13edee3661a3">
+          <ID>Product Grade Group ID</ID>
+          <Name>Product Grade Group ID</Name>
+          <SourceAttributeID>Product Grade Group ID</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="d5ec3d8e-5eca-49de-a99a-d0455365fd0e">
+              <Language>1065</Language>
+              <Caption>مقطع تحصیلی</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="6f2209b1-f278-4aeb-aa54-ddbaf1d634b9">
+          <ID>Product Grade Id</ID>
+          <Name>Product Grade Id</Name>
+          <SourceAttributeID>Product Grade Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="5cb85aae-e018-49f9-8d72-2f8cafc69680">
+              <Language>1065</Language>
+              <Caption>پایه تحصیلی</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+        <Level dwd:design-time-name="5144cd1f-89cc-418d-af23-061d08f4e41f">
+          <ID>Product Id</ID>
+          <Name>Product Id</Name>
+          <SourceAttributeID>Product Id</SourceAttributeID>
+          <Translations>
+            <Translation dwd:design-time-name="d6a38d50-9328-47fc-a4ec-d8755709ae68">
+              <Language>1065</Language>
+              <Caption>محصول</Caption>
+            </Translation>
+          </Translations>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ProactiveCaching dwd:design-time-name="0261758e-6c2b-4968-9f54-36b3556c333d">
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="df885811-da31-458e-8a8c-5fb1dfd31a21" />
+  </ProactiveCaching>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

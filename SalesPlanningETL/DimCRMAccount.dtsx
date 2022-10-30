@@ -1,0 +1,1668 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/11/2021 12:42:12 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-3DLAB05"
+  DTS:CreatorName="DESKTOP-3DLAB05\strider"
+  DTS:DTSID="{A394A618-25B0-4967-84C2-CB4DA7426206}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DimCRMAccount"
+  DTS:PackageType="5"
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{A7560DB7-96F9-4DC9-8CA7-2B02BDEA83FF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DimCRMAccountSCD"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{183B508C-D292-4CDB-825E-3D837EF84777}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DimCRMAccountSCD"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="exec [ETL].[DimCRMAccountSCD]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\stage account from CRM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1A848BEF-15AB-4B34-B591-1B2096076AF3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="stage account from CRM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\stage account from CRM\AccountType"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="AccountType"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimStringMap]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimStringMap]) [refTable]
+where [refTable].[AttributeValue] = ? and [refTable].[AttributeName] = ? and [refTable].[ObjectTypeCode] = ? and [refTable].[LangId] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ObjectTypeCode" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AttributeName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AttributeValue" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LangId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OrganizationId" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Value" dataType="DT_WSTR" length="4000" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DisplayOrder" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VersionNumber" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StringMapId" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_AccountType]};#{Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_AccountType_AttName]};#{Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ObjectTypeCode]};#{Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[LangId]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage account from CRM\AccountType.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage account from CRM\AccountType.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage account from CRM\AccountType.Inputs[Lookup Input].Columns[bmsd_AccountType]"
+                      cachedDataType="i4"
+                      cachedName="bmsd_AccountType"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_AccountType]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">AttributeValue</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\stage account from CRM\AccountType.Inputs[Lookup Input].Columns[bmsd_AccountType_AttName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="bmsd_AccountType_AttName"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_AccountType_AttName]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">AttributeName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\stage account from CRM\AccountType.Inputs[Lookup Input].Columns[ObjectTypeCode]"
+                      cachedDataType="i4"
+                      cachedName="ObjectTypeCode"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ObjectTypeCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ObjectTypeCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\stage account from CRM\AccountType.Inputs[Lookup Input].Columns[LangId]"
+                      cachedDataType="i4"
+                      cachedName="LangId"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[LangId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">LangId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage account from CRM\AccountType.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage account from CRM\AccountType.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage account from CRM\AccountType.Outputs[Lookup Match Output].Columns[AccountTypeID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage account from CRM\AccountType.Outputs[Lookup Match Output].Columns[AccountTypeID]"
+                      name="AccountTypeID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">StringMapId</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage account from CRM\AccountType.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage account from CRM\AccountType.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage account from CRM\AccountType.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage account from CRM\AccountType.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage account from CRM\AccountType.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage account from CRM\AccountType.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\AccountType.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage account from CRM\AccountType.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage account from CRM\MigrateFrom"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="MigrateFrom"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimStringMap]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimStringMap]) [refTable]
+where [refTable].[AttributeValue] = ? and [refTable].[AttributeName] = ? and [refTable].[ObjectTypeCode] = ? and [refTable].[LangId] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ObjectTypeCode" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AttributeName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AttributeValue" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LangId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OrganizationId" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Value" dataType="DT_WSTR" length="4000" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DisplayOrder" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VersionNumber" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StringMapId" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_MigrateFrom]};#{Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_MigrateFrom_AttName]};#{Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ObjectTypeCode]};#{Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[LangId]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage account from CRM\MigrateFrom.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage account from CRM\MigrateFrom.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage account from CRM\MigrateFrom.Inputs[Lookup Input].Columns[new_MigrateFrom]"
+                      cachedDataType="i4"
+                      cachedName="new_MigrateFrom"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_MigrateFrom]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">AttributeValue</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\stage account from CRM\MigrateFrom.Inputs[Lookup Input].Columns[ObjectTypeCode]"
+                      cachedDataType="i4"
+                      cachedName="ObjectTypeCode"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ObjectTypeCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ObjectTypeCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\stage account from CRM\MigrateFrom.Inputs[Lookup Input].Columns[LangId]"
+                      cachedDataType="i4"
+                      cachedName="LangId"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[LangId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">LangId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\stage account from CRM\MigrateFrom.Inputs[Lookup Input].Columns[new_MigrateFrom_AttName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="new_MigrateFrom_AttName"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_MigrateFrom_AttName]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">AttributeName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage account from CRM\MigrateFrom.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage account from CRM\MigrateFrom.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage account from CRM\MigrateFrom.Outputs[Lookup Match Output].Columns[MigrateFromID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage account from CRM\MigrateFrom.Outputs[Lookup Match Output].Columns[MigrateFromID]"
+                      name="MigrateFromID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">StringMapId</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage account from CRM\MigrateFrom.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage account from CRM\MigrateFrom.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage account from CRM\MigrateFrom.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage account from CRM\MigrateFrom.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage account from CRM\MigrateFrom.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage account from CRM\MigrateFrom.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\MigrateFrom.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage account from CRM\MigrateFrom.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage account from CRM\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage].[CRM_Account]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage account from CRM\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AccountId]"
+                      cachedDataType="guid"
+                      cachedName="AccountId"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountId]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountId]" />
+                    <inputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="160"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedOn"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]" />
+                    <inputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedBy]"
+                      cachedDataType="i4"
+                      cachedName="CreatedBy"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedBy]"
+                      lineageId="Package\stage account from CRM\UserKey.Outputs[Lookup Match Output].Columns[CreatedBy]" />
+                    <inputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bmsd_UniqueID]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="bmsd_UniqueID"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_UniqueID]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_UniqueID]" />
+                    <inputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MigrateFromID]"
+                      cachedDataType="guid"
+                      cachedName="MigrateFromID"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MigrateFromID]"
+                      lineageId="Package\stage account from CRM\MigrateFrom.Outputs[Lookup Match Output].Columns[MigrateFromID]" />
+                    <inputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AccountTypeID]"
+                      cachedDataType="guid"
+                      cachedName="AccountTypeID"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountTypeID]"
+                      lineageId="Package\stage account from CRM\AccountType.Outputs[Lookup Match Output].Columns[AccountTypeID]" />
+                    <inputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MobilePhone1]"
+                      cachedDataType="wstr"
+                      cachedLength="11"
+                      cachedName="MobilePhone1"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MobilePhone1]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[MobilePhone1]" />
+                    <inputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MobilePhone2]"
+                      cachedDataType="wstr"
+                      cachedLength="11"
+                      cachedName="MobilePhone2"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MobilePhone2]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[MobilePhone2]" />
+                    <inputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MobilePhone3]"
+                      cachedDataType="wstr"
+                      cachedLength="11"
+                      cachedName="MobilePhone3"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MobilePhone3]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[MobilePhone3]" />
+                    <inputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Telephone1]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Telephone1"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Telephone1]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Telephone1]" />
+                    <inputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Telephone2]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Telephone2"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Telephone2]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Telephone2]" />
+                    <inputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Telephone3]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Telephone3"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Telephone3]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Telephone3]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountId]"
+                      dataType="guid"
+                      name="AccountId" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="160"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      name="CreatedOn" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedBy]"
+                      dataType="i4"
+                      name="CreatedBy" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_UniqueID]"
+                      dataType="wstr"
+                      length="100"
+                      name="bmsd_UniqueID" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MigrateFromID]"
+                      dataType="guid"
+                      name="MigrateFromID" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AccountTypeID]"
+                      dataType="guid"
+                      name="AccountTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MobilePhone1]"
+                      dataType="wstr"
+                      length="11"
+                      name="MobilePhone1" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MobilePhone2]"
+                      dataType="wstr"
+                      length="11"
+                      name="MobilePhone2" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MobilePhone3]"
+                      dataType="wstr"
+                      length="11"
+                      name="MobilePhone3" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Telephone1]"
+                      dataType="wstr"
+                      length="50"
+                      name="Telephone1" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Telephone2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Telephone2" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Telephone3]"
+                      dataType="wstr"
+                      length="50"
+                      name="Telephone3" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage account from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage account from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage account from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage account from CRM\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [AccountId],
+       [Name],
+       [dbo].[fn_UTCToTzCodeSpecificLocalTime]([CreatedOn], 160) AS [CreatedOn],
+       [CreatedBy] AS [CRM_UserAlternateKey],
+       [new_MigrateFrom],
+       CAST('new_migratefrom' AS NVARCHAR(100)) AS [new_MigrateFrom_AttName],
+       [bmsd_AccountType],
+       CAST('bmsd_accounttype' AS NVARCHAR(100)) AS [bmsd_AccountType_AttName],
+       [bmsd_UniqueID],
+       (
+           SELECT TOP 1
+                  [ObjectTypeCode]
+           FROM [MetadataSchema].[Entity]
+           WHERE [BaseTableName] = 'AccountBase'
+       ) AS [ObjectTypeCode],
+       1033 AS [LangId],
+       [bmsd_MobilePhone1] AS [MobilePhone1],
+       [bmsd_MobilePhone2] AS [MobilePhone2],
+       [bmsd_MobilePhone3] AS [MobilePhone3],
+       [Telephone1],
+       [Telephone2],
+       [Telephone3]
+FROM [dbo].[AccountBase]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage account from CRM\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{6BCB0132-5C8A-4A0A-9B5A-B482DE1D05B0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SabzCRM_MSCRM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AccountId]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountId]"
+                      name="AccountId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="160"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      name="CreatedOn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_MigrateFrom]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_MigrateFrom]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_MigrateFrom]"
+                      name="new_MigrateFrom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_MigrateFrom_AttName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_MigrateFrom_AttName]"
+                      length="100"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_MigrateFrom_AttName]"
+                      name="new_MigrateFrom_AttName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_AccountType]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_AccountType]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_AccountType]"
+                      name="bmsd_AccountType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_AccountType_AttName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_AccountType_AttName]"
+                      length="100"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_AccountType_AttName]"
+                      name="bmsd_AccountType_AttName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_UniqueID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_UniqueID]"
+                      length="100"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_UniqueID]"
+                      name="bmsd_UniqueID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ObjectTypeCode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ObjectTypeCode]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ObjectTypeCode]"
+                      name="ObjectTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[LangId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LangId]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[LangId]"
+                      name="LangId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CRM_UserAlternateKey]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CRM_UserAlternateKey]"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CRM_UserAlternateKey]"
+                      name="CRM_UserAlternateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[MobilePhone1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MobilePhone1]"
+                      length="11"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[MobilePhone1]"
+                      name="MobilePhone1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[MobilePhone2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MobilePhone2]"
+                      length="11"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[MobilePhone2]"
+                      name="MobilePhone2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[MobilePhone3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MobilePhone3]"
+                      length="11"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[MobilePhone3]"
+                      name="MobilePhone3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Telephone1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Telephone1]"
+                      length="50"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Telephone1]"
+                      name="Telephone1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Telephone2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Telephone2]"
+                      length="50"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Telephone2]"
+                      name="Telephone2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Telephone3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Telephone3]"
+                      length="50"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Telephone3]"
+                      name="Telephone3"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AccountId]"
+                      dataType="guid"
+                      name="AccountId" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="160"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      name="CreatedOn" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_MigrateFrom]"
+                      dataType="i4"
+                      name="new_MigrateFrom" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_MigrateFrom_AttName]"
+                      dataType="wstr"
+                      length="100"
+                      name="new_MigrateFrom_AttName" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_AccountType]"
+                      dataType="i4"
+                      name="bmsd_AccountType" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_AccountType_AttName]"
+                      dataType="wstr"
+                      length="100"
+                      name="bmsd_AccountType_AttName" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_UniqueID]"
+                      dataType="wstr"
+                      length="100"
+                      name="bmsd_UniqueID" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ObjectTypeCode]"
+                      dataType="i4"
+                      name="ObjectTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LangId]"
+                      dataType="i4"
+                      name="LangId" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CRM_UserAlternateKey]"
+                      dataType="guid"
+                      name="CRM_UserAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MobilePhone1]"
+                      dataType="wstr"
+                      length="11"
+                      name="MobilePhone1" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MobilePhone2]"
+                      dataType="wstr"
+                      length="11"
+                      name="MobilePhone2" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MobilePhone3]"
+                      dataType="wstr"
+                      length="11"
+                      name="MobilePhone3" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Telephone1]"
+                      dataType="wstr"
+                      length="50"
+                      name="Telephone1" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Telephone2]"
+                      dataType="wstr"
+                      length="50"
+                      name="Telephone2" />
+                    <externalMetadataColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Telephone3]"
+                      dataType="wstr"
+                      length="50"
+                      name="Telephone3" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AccountId]"
+                      dataType="guid"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AccountId]"
+                      name="AccountId" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="160"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      name="CreatedOn" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CRM_UserAlternateKey]"
+                      dataType="guid"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CRM_UserAlternateKey]"
+                      name="CRM_UserAlternateKey" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_MigrateFrom]"
+                      dataType="i4"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_MigrateFrom]"
+                      name="new_MigrateFrom" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_MigrateFrom_AttName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_MigrateFrom_AttName]"
+                      name="new_MigrateFrom_AttName" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_AccountType]"
+                      dataType="i4"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_AccountType]"
+                      name="bmsd_AccountType" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_AccountType_AttName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_AccountType_AttName]"
+                      name="bmsd_AccountType_AttName" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_UniqueID]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_UniqueID]"
+                      name="bmsd_UniqueID" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ObjectTypeCode]"
+                      dataType="i4"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ObjectTypeCode]"
+                      name="ObjectTypeCode" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LangId]"
+                      dataType="i4"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LangId]"
+                      name="LangId" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MobilePhone1]"
+                      dataType="wstr"
+                      length="11"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MobilePhone1]"
+                      name="MobilePhone1" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MobilePhone2]"
+                      dataType="wstr"
+                      length="11"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MobilePhone2]"
+                      name="MobilePhone2" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MobilePhone3]"
+                      dataType="wstr"
+                      length="11"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MobilePhone3]"
+                      name="MobilePhone3" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Telephone1]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Telephone1]"
+                      name="Telephone1" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Telephone2]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Telephone2]"
+                      name="Telephone2" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Telephone3]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Telephone3]"
+                      name="Telephone3" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage account from CRM\UserKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="UserKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [UserKey],
+       [CRMAlternateKey]
+FROM [dbo].[DimUser]
+WHERE [CRMAlternateKey]IS NOT NULL</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [UserKey],
+       [CRMAlternateKey]
+FROM [dbo].[DimUser]
+WHERE [CRMAlternateKey]IS NOT NULL) [refTable]
+where [refTable].[CRMAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="UserKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CRMAlternateKey" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CRM_UserAlternateKey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage account from CRM\UserKey.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage account from CRM\UserKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage account from CRM\UserKey.Inputs[Lookup Input].Columns[CRM_UserAlternateKey]"
+                      cachedDataType="guid"
+                      cachedName="CRM_UserAlternateKey"
+                      lineageId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CRM_UserAlternateKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">CRMAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage account from CRM\UserKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage account from CRM\UserKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage account from CRM\UserKey.Outputs[Lookup Match Output].Columns[CreatedBy]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage account from CRM\UserKey.Outputs[Lookup Match Output].Columns[CreatedBy]"
+                      name="CreatedBy"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">UserKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage account from CRM\UserKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage account from CRM\UserKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage account from CRM\UserKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage account from CRM\UserKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage account from CRM\UserKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage account from CRM\UserKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage account from CRM\UserKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage account from CRM\UserKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\stage account from CRM.Paths[Lookup Match Output]"
+              endId="Package\stage account from CRM\AccountType.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\stage account from CRM\MigrateFrom.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage account from CRM.Paths[Lookup Match Output1]"
+              endId="Package\stage account from CRM\UserKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\stage account from CRM\AccountType.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage account from CRM.Paths[Lookup Match Output2]"
+              endId="Package\stage account from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\stage account from CRM\UserKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage account from CRM.Paths[OLE DB Source Output]"
+              endId="Package\stage account from CRM\MigrateFrom.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\stage account from CRM\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate stage table - CRMAccount"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{CB9D8DF4-C72D-4C8E-AD68-D4B7A0561C12}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate stage table - CRMAccount"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Stage].[CRM_Account]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9A58250F-5F60-4F60-8DB0-BC20412F1449}"
+      DTS:From="Package\truncate stage table - CRMAccount"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\stage account from CRM" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{CEAA907C-B6D5-4997-89EF-328E9E39B258}"
+      DTS:From="Package\stage account from CRM"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DimCRMAccountSCD" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\DimCRMAccountSCD"
+          TopLeft="39,209.5" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\stage account from CRM"
+          TopLeft="30,107.5" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\truncate stage table - CRMAccount"
+          TopLeft="5.50000000000001,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="127,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="127,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\stage account from CRM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\stage account from CRM\OLE DB Source"
+          TopLeft="16,5.5" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\stage account from CRM\AccountType"
+          TopLeft="21,209.5" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\stage account from CRM\MigrateFrom"
+          TopLeft="22,107.5" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\stage account from CRM\UserKey"
+          TopLeft="32.5,311.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\stage account from CRM\OLE DB Destination"
+          TopLeft="5.50000000000004,413.5" />
+        <EdgeLayout
+          Id="Package\stage account from CRM.Paths[Lookup Match Output]"
+          TopLeft="91,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage account from CRM.Paths[OLE DB Source Output]"
+          TopLeft="91,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage account from CRM.Paths[Lookup Match Output2]"
+          TopLeft="91,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage account from CRM.Paths[Lookup Match Output1]"
+          TopLeft="91,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage account from CRM\UserKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage account from CRM\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage account from CRM\AccountType">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimStringMap]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage account from CRM\MigrateFrom">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimStringMap]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage account from CRM\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

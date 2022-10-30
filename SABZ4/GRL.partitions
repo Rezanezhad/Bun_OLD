@@ -1,0 +1,1901 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="ab1d2868-715f-481f-8cb7-caf3cebe3ab4" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>GRL</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>GRL INV Fact Material Inventory</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ceba0f16-44d9-4df5-96ba-9f8e4747128e">
+          <ID>GRL INV Fact Material Inventory</ID>
+          <Name>GRL INV Fact Material Inventory</Name>
+          <CreatedTimestamp>2020-02-29T07:25:10.62Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:41.933333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:37.556667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="766eef43-954f-40ee-9b24-1324a940dd57">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_INV_Fact_MaterialInventory</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="869edb7f-7825-498c-9afb-558c09f74932">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="66fb1e10-3688-48ee-a306-0f8d6e57d1ac" />
+          </ProactiveCaching>
+          <EstimatedSize>27447443</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Voucher Item</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="684771d0-533f-45b4-a245-4bd9022db314">
+          <ID>GRL FIN Fact Voucher Item</ID>
+          <Name>GRL FIN Fact Voucher Item</Name>
+          <CreatedTimestamp>2020-02-29T07:25:10.64Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.093333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:31.826667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="ddd1ee2e-f34c-47f8-90a6-ab5384e78653">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Fact_VoucherItem</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="91854756-3c2a-4e83-9a87-17a91a94a810">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="ef886015-56c9-44ab-b4a1-cb354662938b" />
+          </ProactiveCaching>
+          <EstimatedSize>220495601</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Voucher Item Mapping</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="324c1ec9-8283-4e75-a446-6123aabc0708">
+          <ID>GRL FIN Fact Voucher Item Mapping</ID>
+          <Name>GRL FIN Fact Voucher Item Mapping</Name>
+          <CreatedTimestamp>2020-02-29T07:25:10.66Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.146667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:15:05.41Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="b0383b39-0b08-4ea7-8214-6e70656e1ea2">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_VoucherItem_Mapping</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="f795419f-40d9-4278-b431-31fdc93da567">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="0b9854d4-f680-4d52-b6ba-2fe599380ac7" />
+          </ProactiveCaching>
+          <EstimatedSize>49060437</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Voucher Item Mapping Bank</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="57b28e30-d474-4dac-81dc-0dca3c68feee">
+          <ID>GRL FIN Fact Voucher Item Mapping Bank</ID>
+          <Name>GRL FIN Fact Voucher Item Mapping Bank</Name>
+          <CreatedTimestamp>2020-02-29T07:25:10.68Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.196667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:41.24Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="80f85bf1-1914-4990-a507-e5641cae7a62">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_VoucherItem_Mapping_Bank</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="62daf431-d64b-487a-a1dc-d5e30100d48b">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="80962f77-0be9-4f71-a4ba-a9e6931d23bf" />
+          </ProactiveCaching>
+          <EstimatedSize>480298</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL TSY Fact Payable</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="6ac0b985-7272-414b-a873-766326737d8c">
+          <ID>GRL TSY Fact Payable</ID>
+          <Name>GRL TSY Fact Payable</Name>
+          <CreatedTimestamp>2020-02-29T07:25:10.986667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.246667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:03.85Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="1d2f38dc-f7f1-47cf-afcb-0bf8d9539c43">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_TSY_Fact_Payable</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="7d09c58f-090d-458e-bdfc-9f5733faea4a">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="45a47003-9e67-459e-8d21-696a2ef52bfb" />
+          </ProactiveCaching>
+          <EstimatedSize>899797</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL TSY Fact Receviables</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="c16024c6-5453-4968-be8d-2d5b75c26eaf">
+          <ID>GRL TSY Fact Receviables</ID>
+          <Name>GRL TSY Fact Receviables</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.006667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.293333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:06.836667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="739063c9-0621-4c13-ba52-ec3e73e488b0">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_TSY_Fact_Receviables</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="97db00ef-e0a9-43f4-9664-6140b7f2fe3a">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="73927126-4140-43a3-9b1d-ea2eca524f3a" />
+          </ProactiveCaching>
+          <EstimatedSize>462764</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL TSY Fact Not Receviables</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="0d12e854-09a5-4d6c-ad1e-a7d2418a8e0f">
+          <ID>GRL TSY Fact Not Receviables</ID>
+          <Name>GRL TSY Fact Not Receviables</Name>
+          <CreatedTimestamp>2020-03-03T10:10:44.84Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.343333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:24.713333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="023e3aab-2145-4fa8-987b-34be356a2515">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_TSY_Fact_NotReceviables</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="efb86616-0894-4425-a311-e32d2fad6d72">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="e5852a56-97e2-4868-944b-3dea9e36923f" />
+          </ProactiveCaching>
+          <EstimatedSize>838</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact First Quarter Cash Inventory</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3a8265f2-866f-47e2-875f-fef16bd451cf">
+          <ID>GRL FIN Fact First Quarter Cash Inventory</ID>
+          <Name>GRL FIN Fact First Quarter Cash Inventory</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.033333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.39Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:42.856667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="d2d95379-0f76-44c7-8e72-1dee7634eadb">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Fact_FirstQuarter_x0020_cash_x0020_inventory</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="f36d6533-8c71-4fb5-8bb3-d91f3d8cd7cb">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="4225e79b-2b7e-4717-8069-8c6f05ca0090" />
+          </ProactiveCaching>
+          <EstimatedSize>1450</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Mojoodi Naghd First Filter</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="13925a1b-9c57-4c34-86ad-601de9443d6a">
+          <ID>Mojoodi Naghd First Filter</ID>
+          <Name>Mojoodi Naghd First Filter</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.06Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.433333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:24.836667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="5a1a9e9b-0a57-4410-9748-a6dadae5562a">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_Mojoodi_x0020_Naghd_x0020_First_x0020_Filter</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="e3097938-74ea-4d21-a658-992f2935c705">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="ce01808c-ec96-4273-ba8e-e77ab081e7e6" />
+          </ProactiveCaching>
+          <EstimatedSize>658026</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Vw GRL FIN Fact Cash Deposit</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="c101bb43-03a8-4681-9a0e-63bdb1e6a3f6">
+          <ID>Vw GRL FIN Fact Cash Deposit</ID>
+          <Name>Vw GRL FIN Fact Cash Deposit</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.08Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.483333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:08.393333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="74b17f98-6926-47dc-aabc-b16bc3c0b052">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_Vw_GRL_FIN_Fact_CashDeposit</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="fba4967d-1a76-434d-8f33-52d2a9b2c193">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="ac067821-87de-4bf4-86e2-8268f9f84085" />
+          </ProactiveCaching>
+          <EstimatedSize>1491510</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Cost Forecast</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="4062d0ce-8816-4fe4-a356-e2402614630b">
+          <ID>GRL FIN Fact Cost Forecast</ID>
+          <Name>GRL FIN Fact Cost Forecast</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.103333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.54Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:06.2Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="2d5dae5b-228d-4261-9e8c-90830fc5e55b">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Fact_CostForecast</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="7860dbfd-a33a-44c3-9ec9-44c5e9f17e5f">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="a15bbf93-2aaa-4b19-91e7-4861c76bd201" />
+          </ProactiveCaching>
+          <EstimatedSize>182910</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Income Forecast</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3ae838cd-cf29-4b95-b72b-72f11d0704a0">
+          <ID>GRL FIN Fact Income Forecast</ID>
+          <Name>GRL FIN Fact Income Forecast</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.123333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.586667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:37.4Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="59a40d1a-4a79-414e-8999-bfe14f0b29fb">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Fact_IncomeForecast</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="c11fbcf5-3596-40cb-9e2e-dd362367af4d">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="55732474-9771-42d9-9a7b-493b32d54517" />
+          </ProactiveCaching>
+          <EstimatedSize>47737</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL TSY Fact Uncollected Late</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="5c9531c0-ab8d-4fa0-99a2-df91aa3e07b7">
+          <ID>GRL TSY Fact Uncollected Late</ID>
+          <Name>GRL TSY Fact Uncollected Late</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.14Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.63Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:30.616667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="d8592ec6-1e41-4ee3-98d1-be967533b52b">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_TSY_Fact_UncollectedLate</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="53f10465-8726-4bed-9153-0cd69fc90569">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="0a248b08-e5cf-4254-a19e-e2289007c2ce" />
+          </ProactiveCaching>
+          <EstimatedSize>25802</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL TSY Fact Uncollected Late With Side Transaction</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="611a9893-2c92-41db-ba84-5f0accd722a6">
+          <ID>GRL TSY Fact Uncollected Late With Side Transaction</ID>
+          <Name>GRL TSY Fact Uncollected Late With Side Transaction</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.16Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.673333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:03.426667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="7efa2c8e-de27-41ff-85c5-f60a96655a07">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_TSY_Fact_UncollectedLate_With_SideTransaction</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="c3c096c6-9967-494c-8725-300f59dabf23">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="85e9e097-f9a2-434a-9ccc-efbf22435f53" />
+          </ProactiveCaching>
+          <EstimatedSize>1305</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL INV Fact Paper Forecast</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="c7ea9ec8-aa88-4061-a1b0-3ce615ff7a16">
+          <ID>GRL INV Fact Paper Forecast</ID>
+          <Name>GRL INV Fact Paper Forecast</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.18Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.716667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:05.913333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="de946c59-a73e-4b6d-8021-af373ace94ac">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_INV_Fact_PaperForecast</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="4d99079a-c864-40af-b7f7-18d324f96aa0">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="6bb6154b-d8a2-4cf6-9b34-b2417177d7f9" />
+          </ProactiveCaching>
+          <EstimatedSize>298</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL INV Fact Material Inventory Sum Over</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="cc10c23b-1241-458b-a69d-958de764111f">
+          <ID>GRL INV Fact Material Inventory Sum Over</ID>
+          <Name>GRL INV Fact Material Inventory Sum Over</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.2Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.763333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:23.936667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="eabc3038-fd41-45fc-bc28-cbcafe9244dc">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_INV_Fact_MaterialInventory_SumOver</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="197accfc-518b-4eb7-a860-97285ef9e05a">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="26ed2e5c-07df-40e8-8584-0308f39f94af" />
+          </ProactiveCaching>
+          <EstimatedSize>171981</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL INV Fact Material Inventory Sum Over Buy</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="fe79e4ff-654d-4002-9773-eac4df11094c">
+          <ID>GRL INV Fact Material Inventory Sum Over Buy</ID>
+          <Name>GRL INV Fact Material Inventory Sum Over Buy</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.223333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.81Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:04.65Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="cacc37b9-7d44-4e51-a478-f33f58264c6d">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_INV_Fact_MaterialInventory_SumOverBuy</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="97f6efe7-29ba-43df-af56-026dc3142290">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="257ed4c0-df19-481c-b317-bdf0f00e7637" />
+          </ProactiveCaching>
+          <EstimatedSize>23638</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL INV Fact Material Inventory Sum Over Consumption</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="2c13b898-e464-4cba-980e-15720d9e1071">
+          <ID>GRL INV Fact Material Inventory Sum Over Consumption</ID>
+          <Name>GRL INV Fact Material Inventory Sum Over Consumption</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.243333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.856667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:10.233333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="830b1555-f9aa-481f-89e4-7eb15c78f89c">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_INV_Fact_MaterialInventory_SumOverConsumption</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="3c3487ce-212b-4977-a75b-e32de30f9e08">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="df1bca44-d291-47c8-805a-1736a753f915" />
+          </ProactiveCaching>
+          <EstimatedSize>32404</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL INV Fact Material Inventory Sum Over Buy97</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="8fb5f51a-1ead-432b-8e8f-88e4391487f6">
+          <ID>GRL INV Fact Material Inventory Sum Over Buy97</ID>
+          <Name>GRL INV Fact Material Inventory Sum Over Buy97</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.263333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.903333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:23.52Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="0fbe76ba-645a-4c91-af32-5ea9b68fdfc0">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_INV_Fact_MaterialInventory_SumOverBuy97</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="7160dd92-769f-46ad-885c-c069851ad5f5">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="c4cb0a1a-671e-4818-bbbb-5daa567ee569" />
+          </ProactiveCaching>
+          <EstimatedSize>3230</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL INV Fact Material Inventory Sum Over Consumptin97</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3374a7fb-6cfa-46c9-b942-20c90cdc67a3">
+          <ID>GRL INV Fact Material Inventory Sum Over Consumptin97</ID>
+          <Name>GRL INV Fact Material Inventory Sum Over Consumptin97</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.286667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:42.95Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:16.14Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="0b7c93f8-1a78-4b2f-b8f6-c5e9a21d1504">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_INV_Fact_MaterialInventory_SumOverConsumptin97</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="cce12dbe-befe-4105-9e52-3319ae297fe6">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="0065832a-7f9c-40fe-91a6-186fa5e5b1e9" />
+          </ProactiveCaching>
+          <EstimatedSize>3595</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL INV Fact Material Inventory First Course</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="d17d8385-bba5-4a85-a3f9-8987d452103f">
+          <ID>GRL INV Fact Material Inventory First Course</ID>
+          <Name>GRL INV Fact Material Inventory First Course</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.31Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.003333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:37.32Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="e55d56b4-4ec2-4535-b7b9-2ec0c405490d">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_INV_Fact_MaterialInventory_FirstCourse</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="f5b62191-7c60-45f5-88cf-969ac2a1f321">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="7cbf3730-ab87-495b-820c-59f577ccb5f8" />
+          </ProactiveCaching>
+          <EstimatedSize>2433</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL INV Fact Material Inventory By Year</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="4fd3f695-a9fe-493c-be7b-737beb5df40e">
+          <ID>GRL INV Fact Material Inventory By Year</ID>
+          <Name>GRL INV Fact Material Inventory By Year</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.33Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.053333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:03.413333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="af183ae0-4a35-497f-9145-7690714ac971">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_INV_Fact_MaterialInventory_ByYear</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="e10b69cd-480c-4d65-bee3-e43efe4e0ab0">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="970c9f34-13cb-46c1-a0c4-aede0fa35093" />
+          </ProactiveCaching>
+          <EstimatedSize>1270190</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL INV Fact Material Inventory Sum Over Final</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="58fd74f3-9fec-4d67-8cf3-5fc49a9fa955">
+          <ID>GRL INV Fact Material Inventory Sum Over Final</ID>
+          <Name>GRL INV Fact Material Inventory Sum Over Final</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.35Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.096667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:14:22.706667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="ea8f6e91-ec8b-4d07-90bc-fba1adc59be5">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_INV_Fact_MaterialInventory_SumOverFinal</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="21839dc0-599f-4c09-b2b4-72aebbf4737e">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="8f668d82-ff4c-4b90-91b5-9ff16322360c" />
+          </ProactiveCaching>
+          <EstimatedSize>9850414</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL INV Fact Paper Fore Cast Sum Over</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="d3853b39-d738-4233-84ac-12331549e1ff">
+          <ID>GRL INV Fact Paper Fore Cast Sum Over</ID>
+          <Name>GRL INV Fact Paper Fore Cast Sum Over</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.37Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.143333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:24.976667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="53312436-646f-4ad2-b947-59b56ebeb8e2">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_INV_Fact_PaperForeCast</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="a8c1214e-9f80-4829-a6f3-daba224be562">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="64829110-0f37-4113-b88e-f349dcbf67e9" />
+          </ProactiveCaching>
+          <EstimatedSize>263</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL INV Fact Paper Fore Cast Date Now</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="d7254e12-60bb-4ce5-985d-1c3fb972b704">
+          <ID>GRL INV Fact Paper Fore Cast Date Now</ID>
+          <Name>GRL INV Fact Paper Fore Cast Date Now</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.39Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.186667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:22.693333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="30e3a875-3d93-4acf-a98d-0de905134d13">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_INV_Fact_PaperForeCast_DateNow</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="91075435-2ad8-4fc8-9588-4cfec0433acc">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="da090921-b80f-4985-80a9-c99c057fb1a0" />
+          </ProactiveCaching>
+          <EstimatedSize>156</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>PUB SLE Fact Special Discount</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="0e90d9a3-246e-4aec-ae17-3b2247542fe6">
+          <ID>PUB SLE Fact Special Discount</ID>
+          <Name>PUB SLE Fact Special Discount</Name>
+          <CreatedTimestamp>2020-02-29T07:25:11.413333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.226667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:55.673333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="a5a5643e-92ba-4266-a7db-634981baec50">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_PUB_SLE_Fact_SpecialDiscount</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="9c18d96d-e984-4bee-b946-3be97a9e8ee2">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="88c4ce96-c72c-4e8f-91e3-f23534862204" />
+          </ProactiveCaching>
+          <EstimatedSize>228</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL TSY Fact Payment 1</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="b1e15495-b992-49dc-81a1-a572e4b37dc9">
+          <ID>GRL TSY Fact Payment 1</ID>
+          <Name>GRL TSY Fact Payment 1</Name>
+          <CreatedTimestamp>2020-03-03T10:10:45.376667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.273333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:27.773333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="f0c02d9a-3fe4-4832-b892-b560b91038f4">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_TSY_Fact_Payment</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="734395b2-62d2-4f87-8b62-1b9e54a7bb47">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="1b6778ab-d187-48bc-be00-45e17cf54b24" />
+          </ProactiveCaching>
+          <EstimatedSize>53320</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL TSY Fact Reciveable With Transferred 1</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="7c93ee70-375b-4d5c-94b9-748cfba42e0f">
+          <ID>GRL TSY Fact Reciveable With Transferred 1</ID>
+          <Name>GRL TSY Fact Reciveable With Transferred 1</Name>
+          <CreatedTimestamp>2020-03-03T10:10:45.396667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.316667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:16.19Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="c46c5f03-7638-49e1-ba23-2e9fd02baa9f">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_TSY_Fact_Reciveable_WithTransferred</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="90dea4d6-f08b-4a33-a886-8c0848beba74">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="114ee646-aa43-4464-8cc9-0cc737c74185" />
+          </ProactiveCaching>
+          <EstimatedSize>33388</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL TSY Fact Receviables Ras Date</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="cf17ee46-a7b3-47d8-8a81-a0c303383777">
+          <ID>GRL TSY Fact Receviables Ras Date</ID>
+          <Name>GRL TSY Fact Receviables Ras Date</Name>
+          <CreatedTimestamp>2020-04-15T10:26:01.606667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.356667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:06.47Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="c1f366a8-a4fe-40f9-b31a-09e18ac44b31">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_TSY_Fact_Receviables_Ras_Date</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="1e69df81-e298-4393-b02d-bc0fdb379827">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="456557c5-b7d5-4497-b807-87202e88969a" />
+          </ProactiveCaching>
+          <EstimatedSize>313</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL TSY Fact Receviables Ras Date With Side Transacti</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="e4ef2139-1430-4fde-b46a-603e5fed6769">
+          <ID>GRL TSY Fact Receviables Ras Date With Side Transacti</ID>
+          <Name>GRL TSY Fact Receviables Ras Date With Side Transacti</Name>
+          <CreatedTimestamp>2020-04-18T07:20:21.903333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.403333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:59.036667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="3240b90b-da90-4182-906e-763b4c34ae48">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>y</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="767acee9-0036-4e7d-a16f-cc230174cccc">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="f6ef1fbf-1402-42eb-858c-0e1203460f75" />
+          </ProactiveCaching>
+          <EstimatedSize>3583</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>RL TSY Fact Receviables Details All Chek</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="221f9eb7-3cff-4d54-afde-45b4a0e4ca0a">
+          <ID>RL TSY Fact Receviables Details All Chek</ID>
+          <Name>RL TSY Fact Receviables Details All Chek</Name>
+          <CreatedTimestamp>2020-04-19T10:44:02.286667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.443333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:04.803333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="6db9fc00-bdf5-4de0-b043-cdcc65337a42">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>RL_TSY_Fact_Receviables_Details_AllChek</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="6aa05258-0b01-420f-a7d9-12d35bd09d5c">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="5930498d-3b13-4004-88e7-6d9f9091dc39" />
+          </ProactiveCaching>
+          <EstimatedSize>136718</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL TSY Fact Payable With Transferred</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="f0ce2236-e829-4acc-8f48-cd41dae12ed5">
+          <ID>GRL TSY Fact Payable With Transferred</ID>
+          <Name>GRL TSY Fact Payable With Transferred</Name>
+          <CreatedTimestamp>2020-05-02T08:05:04.496667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.49Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:48.793333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="99d20d6f-9fae-44a6-bf24-c4b1375e2129">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_TSY_Fact_Payable_With_Transferred</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="41253bf7-f737-4385-866f-c12aa124d6cc">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="c0ede5a6-c8d0-4177-a68e-494c5780c6dc" />
+          </ProactiveCaching>
+          <EstimatedSize>899773</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Vw GRL FIN Fact Voucher Item Mappnig First Day Of Year</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="0502cd88-1f3f-4c8f-a6c8-50b485f6ce31">
+          <ID>Vw GRL FIN Fact Voucher Item Mappnig First Day Of Year</ID>
+          <Name>Vw GRL FIN Fact Voucher Item Mappnig First Day Of Year</Name>
+          <CreatedTimestamp>2020-05-16T09:23:00.826667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.536667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:56.916667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="d0fb07d0-6833-47ad-9143-116748234e50">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_Vw_GRL_FIN_Fact_VoucherItem_Mappnig_FirstDayOfYear</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="14086635-a0f9-4bf6-a6bd-ad3b7dfdc95d">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="53f4d77d-f050-48b7-ba5a-c5a3d3c403e9" />
+          </ProactiveCaching>
+          <EstimatedSize>466</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Vw GRL FIN Fact Loan</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="c0467022-e862-4cc0-b93f-0f35ceba6b83">
+          <ID>Vw GRL FIN Fact Loan</ID>
+          <Name>Vw GRL FIN Fact Loan</Name>
+          <CreatedTimestamp>2020-05-23T08:03:15.956667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.58Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:12.813333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="09101198-4855-4e60-933b-1b4630a427c2">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_Vw_GRL_FIN_Fact_Loan</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="a3462844-4e09-44de-8366-cb99bc77e67d">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="5624a695-472c-4f3a-bc27-217cd48039e2" />
+          </ProactiveCaching>
+          <EstimatedSize>67724</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Loan For All Loan And Bank</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="7889f963-cb2b-40af-9c87-1f63bea64c6b">
+          <ID>GRL FIN Fact Loan For All Loan And Bank</ID>
+          <Name>GRL FIN Fact Loan For All Loan And Bank</Name>
+          <CreatedTimestamp>2020-07-21T07:43:42.326667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.623333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:03.766667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="17f5525e-b12b-4729-a94b-0e4b41dec302">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_Loan_ForAllLoanAndBank</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="20a1ac30-5fbc-4a98-bec8-969194461b67">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="7eae4fe5-04c9-47d2-b69f-ab1b024a71c7" />
+          </ProactiveCaching>
+          <EstimatedSize>279646</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Loan Start</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="30e63c37-9463-427c-a0e0-aaa84c4f6432">
+          <ID>GRL FIN Fact Loan Start</ID>
+          <Name>GRL FIN Fact Loan Start</Name>
+          <CreatedTimestamp>2020-05-23T11:02:44.26Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.84Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:18.946667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="e0e179e1-0926-4b3d-9d25-e990db46d1c1">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_Loan_Start</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="3dd80d0b-bd72-4b86-8150-99172376894f">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="95b6d834-088d-4b7e-af45-916ee707e7d5" />
+          </ProactiveCaching>
+          <EstimatedSize>14717</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Vw GRL FIN Fact Profit Loan</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="afcca2ac-1b41-48d1-8d42-247a60cf4978">
+          <ID>Vw GRL FIN Fact Profit Loan</ID>
+          <Name>Vw GRL FIN Fact Profit Loan</Name>
+          <CreatedTimestamp>2020-06-09T05:10:58.406667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.883333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:41.46Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="16c34b15-6f5a-4044-a4ea-8dee83ce5386">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_Vw_GRL_FIN_Fact_ProfitLoan</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="86cc4a34-7ead-4bdd-92f2-d0662f4f8f14">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="7ce26c40-a595-443c-ac35-8dd923a68ff9" />
+          </ProactiveCaching>
+          <EstimatedSize>25172</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Loan Balance</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="cd973aed-589a-4738-929a-1f7ab6a10567">
+          <ID>GRL FIN Fact Loan Balance</ID>
+          <Name>GRL FIN Fact Loan Balance</Name>
+          <CreatedTimestamp>2020-06-09T05:10:58.426667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.933333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:30.386667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="6847a1c5-3038-48ca-bebf-c3817221c9ef">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Fact_LoanBalance</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="2f660eb4-148a-4f6d-b48c-b24301d2cc26">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="96057d2a-d750-4183-8fb5-5f29b7ac14df" />
+          </ProactiveCaching>
+          <EstimatedSize>83556</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL TSY Fact Uncollected Late Total Today</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="55342df5-c70f-45fb-9489-ac2d0bf37e9b">
+          <ID>GRL TSY Fact Uncollected Late Total Today</ID>
+          <Name>GRL TSY Fact Uncollected Late Total Today</Name>
+          <CreatedTimestamp>2020-05-27T06:28:36.236667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:43.976667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:06.283333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="24cd4ef8-d23b-4fb7-87d1-c82aaa73030d">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_TSY_Fact_UncollectedLateTotal_Today</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="8f5a5f69-8e25-430e-bb5d-481ae2f45dfc">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="c5f60c71-3d4c-4f38-8c5a-9b52d89cc5f9" />
+          </ProactiveCaching>
+          <EstimatedSize>268</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL TSY Fact Uncollected Late Total Today And Month</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="8dc20a80-b0d5-43a7-be94-40dc85f21b36">
+          <ID>GRL TSY Fact Uncollected Late Total Today And Month</ID>
+          <Name>GRL TSY Fact Uncollected Late Total Today And Month</Name>
+          <CreatedTimestamp>2020-07-28T10:43:03.436667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.02Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:03.806667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="0dbaf101-c478-4cf9-a4b5-6b2e543e3bca">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_TSY_Fact_UncollectedLateTotal_TodayAndMonth</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="4d88a975-0130-4a1c-b354-5c34c19b9d59">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="a19e40bd-f16e-411c-a063-5626835e452b" />
+          </ProactiveCaching>
+          <EstimatedSize>1946</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Vw GRL FIN Fact Block Value</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="a2039c45-52a0-4861-8ba8-3eebbf1a0ba2">
+          <ID>Vw GRL FIN Fact Block Value</ID>
+          <Name>Vw GRL FIN Fact Block Value</Name>
+          <CreatedTimestamp>2020-07-14T10:28:28.89Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.063333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:42.733333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="f848798c-860c-4236-9bc4-01c72e7cddf1">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_Vw_GRL_FIN_Fact_BlockValue</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="d9f03696-dfdf-43f7-8279-8e1922a532ca">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="da783a60-7671-4642-ba58-a809fea2f37c" />
+          </ProactiveCaching>
+          <EstimatedSize>545</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Bail</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="72ffbc12-a379-480b-bd12-9a862037d385">
+          <ID>GRL FIN Fact Bail</ID>
+          <Name>GRL FIN Fact Bail</Name>
+          <CreatedTimestamp>2020-07-19T06:49:04.78Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.103333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:37.306667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="af963a1a-acdb-4ef7-afe1-876144a39152">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Fact_Bail</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="b6cb9030-5b2d-4709-8c1d-1d134ad1d351">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="18a9c7c9-e5b0-4b63-9e16-eb6a57d8f5e9" />
+          </ProactiveCaching>
+          <EstimatedSize>388</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Sale Target For Cahs Flow</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="adb0a9d0-2e20-4e6f-9dd6-a47638efd47b">
+          <ID>GRL FIN Fact Sale Target For Cahs Flow</ID>
+          <Name>GRL FIN Fact Sale Target For Cahs Flow</Name>
+          <CreatedTimestamp>2020-09-01T08:14:50.836667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.143333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:03.663333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="b8a414d9-347f-437a-b780-46bc0ad27731">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Fact_SaleTargetForCahsFlow</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="fc1d1c4c-9451-4ab4-ad91-6363d4391e0f">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="efad3d72-cdd4-4570-85d8-5a19f4546870" />
+          </ProactiveCaching>
+          <EstimatedSize>348</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Vw GRL FIN Fact Loan Start Overall</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="8d9b4054-96ae-4fb3-9faa-c32ae2936b35">
+          <ID>Vw GRL FIN Fact Loan Start Overall</ID>
+          <Name>Vw GRL FIN Fact Loan Start Overall</Name>
+          <CreatedTimestamp>2020-09-12T06:35:43.776667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.183333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:54.36Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="cac257bd-e934-4516-8341-4ec4909d0f48">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_Vw_GRL_FIN_Fact_Loan_Start_Overall</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="94bd9b9c-7645-4a3c-838c-2a2313f168d0">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="fe093712-4887-489d-a080-3cbdedeb0113" />
+          </ProactiveCaching>
+          <EstimatedSize>1016</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Block Loan Overall</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="0a44de99-3e73-490b-8a08-12a78ed511f8">
+          <ID>GRL FIN Fact Block Loan Overall</ID>
+          <Name>GRL FIN Fact Block Loan Overall</Name>
+          <CreatedTimestamp>2020-09-15T06:07:34.946667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.226667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:38.506667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="c2076905-9a23-4365-aa0e-409958f99240">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_BlockLoan_Overall</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="2cde53da-921f-4263-877c-f58c4ef5c122">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="50a58842-50f5-4ca3-9488-e548b535e5da" />
+          </ProactiveCaching>
+          <EstimatedSize>6626</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Duration Loan</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="d3e21345-0153-42ff-ae43-2f4fa81aa29d">
+          <ID>GRL FIN Fact Duration Loan</ID>
+          <Name>GRL FIN Fact Duration Loan</Name>
+          <CreatedTimestamp>2020-09-16T07:45:58.803333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.27Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:32.946667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="6c01773b-fe44-4182-94f1-29652b3b30c6">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_DurationLoan</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="8a94802d-0678-4405-810c-d4b07b158802">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="15354930-7da6-4e6c-8d34-28eec00efd56" />
+          </ProactiveCaching>
+          <EstimatedSize>2506</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Vw GRL FIN Fact Loan Start Overall By Year</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ebd7ba9e-9f0c-43d7-800f-43081ec092c1">
+          <ID>Vw GRL FIN Fact Loan Start Overall By Year</ID>
+          <Name>Vw GRL FIN Fact Loan Start Overall By Year</Name>
+          <CreatedTimestamp>2020-09-22T13:15:55.79Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.316667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:36.136667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="8b301ed7-320b-4cd5-a6b4-3ecb198d796a">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>Vw_GRL_FIN_Fact_Loan_Start_Overall_ByYear</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="cb43ee55-f506-4e46-849f-4fae8eaf0e6e">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="41b396b6-6018-40b5-8286-250a70a09385" />
+          </ProactiveCaching>
+          <EstimatedSize>276</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Loan For PRC Ratio Loan</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="025048fa-17a5-4923-b3e6-3d22aa8d9ea8">
+          <ID>GRL FIN Fact Loan For PRC Ratio Loan</ID>
+          <Name>GRL FIN Fact Loan For PRC Ratio Loan</Name>
+          <CreatedTimestamp>2020-09-26T13:00:42.903333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.37Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:22:31.596667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="4ce9d476-2a41-47b0-9084-fac8522490d5">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Fact_LoanForPRC_RatioLoan</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="a4a9b8b6-6107-41a3-810e-a65d9335534e">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="9a2625e0-98a0-4041-9312-2e240ba84a1b" />
+          </ProactiveCaching>
+          <EstimatedSize>4050</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Fore Cast Loan</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="80d1d870-70b3-4f91-897f-02314e569fa4">
+          <ID>GRL FIN Fact Fore Cast Loan</ID>
+          <Name>GRL FIN Fact Fore Cast Loan</Name>
+          <CreatedTimestamp>2020-10-28T11:08:48.57Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.41Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:26.173333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="d740c664-9d0a-4b72-9f1c-8052bdef1ab4">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Fact_ForeCastLoan</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="687c1422-8ec8-4fca-9711-2f61b0381e19">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="69b18fd6-7b6c-496c-9d6a-798546bf84b0" />
+          </ProactiveCaching>
+          <EstimatedSize>156</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Cost Fore Cast Loan</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3300628e-1bc9-4787-8fd7-25c4a9d9f423">
+          <ID>GRL FIN Fact Cost Fore Cast Loan</ID>
+          <Name>GRL FIN Fact Cost Fore Cast Loan</Name>
+          <CreatedTimestamp>2021-06-21T06:57:05.92Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.453333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:35.08Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="f27cf4af-be79-44d9-80fc-7951be64f93d">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_CostForeCastLoan</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="8a67f9b3-c1f5-40ce-ae0d-75805c80d3d6">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="e634d8bc-d343-4b36-a60d-26085f5a3d1e" />
+          </ProactiveCaching>
+          <EstimatedSize>3084</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Fore Cast Loan Limit</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ad1e39ef-58fa-4598-a136-0edd520896e2">
+          <ID>GRL FIN Fact Fore Cast Loan Limit</ID>
+          <Name>GRL FIN Fact Fore Cast Loan Limit</Name>
+          <CreatedTimestamp>2021-06-22T06:29:40.093333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.496667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:55.963333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="3b82451c-b3b7-450a-a459-2548250a21ed">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_ForeCastLoanLimit</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="9f2ab653-2c12-493b-9db4-534a29d34dab">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="e117ae6a-0dee-4fca-a5e4-28ccce14c2d4" />
+          </ProactiveCaching>
+          <EstimatedSize>2686</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Remainig Fore Cast Loan</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="cc2631ba-ae5c-4cb2-ab69-21825e20607d">
+          <ID>GRL FIN Fact Remainig Fore Cast Loan</ID>
+          <Name>GRL FIN Fact Remainig Fore Cast Loan</Name>
+          <CreatedTimestamp>2021-06-22T11:05:16.253333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.536667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:20.713333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="cbfec5dc-696f-44b9-bdd9-814fca645a0d">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_RemainigForeCastLoan</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="60c41946-7dcf-4dfb-b235-b5c4011833c8">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="9cc99055-dbab-4644-8961-a72055c8f697" />
+          </ProactiveCaching>
+          <EstimatedSize>3098</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Vw GRL FIN Fact Loan Start 2</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ae3b9e5a-e472-4693-8e58-52f8a9951c84">
+          <ID>Vw GRL FIN Fact Loan Start 2</ID>
+          <Name>Vw GRL FIN Fact Loan Start 2</Name>
+          <CreatedTimestamp>2021-11-02T23:07:44.37Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.583333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:14:54.193333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="c158cf36-cb01-4425-9253-db6787008c64">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_Vw_GRL_FIN_Fact_Loan_Start_2</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="e9cc3ef6-8b9b-47ec-ae03-5fca743a2b35">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="da0955f5-092e-4a8a-93d6-e8fb6f9aafaa" />
+          </ProactiveCaching>
+          <EstimatedSize>8523</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Vw GRL FIN Fact Loan 2</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="4a3a6a36-6491-4c6b-ac5f-5d0f38b10a3f">
+          <ID>Vw GRL FIN Fact Loan 2</ID>
+          <Name>Vw GRL FIN Fact Loan 2</Name>
+          <CreatedTimestamp>2021-11-02T23:23:58.4Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.63Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:34.453333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="3b023df9-99ae-443d-9aa1-ffd30d8e9f21">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_Vw_GRL_FIN_Fact_Loan_2</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="f85b0a0d-065b-4524-8a62-7036447a6420">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="44f3a258-1b87-4a1f-8d00-eddecda8d4df" />
+          </ProactiveCaching>
+          <EstimatedSize>28923</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Income Forecast Recieve Cause</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="0b9ac7bb-0f95-452b-add2-ee4972507e35">
+          <ID>GRL FIN Fact Income Forecast Recieve Cause</ID>
+          <Name>GRL FIN Fact Income Forecast Recieve Cause</Name>
+          <CreatedTimestamp>2021-12-07T23:18:55.773333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.673333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:41.576667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="43a086de-d8b2-4635-a5ba-de34c3596bd4">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_IncomeForecastRecieveCause</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="004b2c8c-f552-4f1b-b159-f534d25c24aa">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="9984cbb3-dede-4e1e-ae76-977751baea82" />
+          </ProactiveCaching>
+          <EstimatedSize>360127</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Pay Cause Category</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="f2a0eb42-c7e9-451b-8934-1b8d95192c67">
+          <ID>GRL FIN Fact Pay Cause Category</ID>
+          <Name>GRL FIN Fact Pay Cause Category</Name>
+          <CreatedTimestamp>2021-12-13T13:29:23.87Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.716667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:24.803333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="6aca50e3-f013-4b83-ba68-0c86efbc4724">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_PayCauseCategory</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="b931a180-9c8a-475e-a41a-6ed16a1e4782">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="f3384227-3bfc-461b-bcac-a909ea8047df" />
+          </ProactiveCaching>
+          <EstimatedSize>111361</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Recieve Cause Category</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="aaead858-27e5-4c7b-bec5-4cbc263c651b">
+          <ID>GRL FIN Fact Recieve Cause Category</ID>
+          <Name>GRL FIN Fact Recieve Cause Category</Name>
+          <CreatedTimestamp>2021-12-13T21:26:48.326667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.76Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:37.29Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="457482ed-4efe-444d-b69a-3a07cc3bb063">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_RecieveCompanyCause</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="cbcca676-0ec4-495c-b666-bc92bef7fc77">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="87f1c67b-9f20-4642-b892-dfd5a63c9e51" />
+          </ProactiveCaching>
+          <EstimatedSize>122560</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Fore Cast Loan Untill Currend Date</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="7a9c6fa3-7431-4359-997e-b90b8f4b30af">
+          <ID>GRL FIN Fact Fore Cast Loan Untill Currend Date</ID>
+          <Name>GRL FIN Fact Fore Cast Loan Untill Currend Date</Name>
+          <CreatedTimestamp>2021-12-13T22:14:47.146667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.8Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:27.61Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="9df4abeb-5b09-4dfa-ab0a-be2e55a136ad">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_ForeCastLoan_UntillCurrendDate</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="3b547d9d-0b92-44d0-b589-5eb3d5e67f25">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="94449b7e-cd43-4c52-8b46-88542d7924ab" />
+          </ProactiveCaching>
+          <EstimatedSize>218</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Recieve Cause</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="0c7079fc-a977-43a7-82ab-eb8d3ddb219f">
+          <ID>GRL FIN Fact Recieve Cause</ID>
+          <Name>GRL FIN Fact Recieve Cause</Name>
+          <CreatedTimestamp>2021-12-19T21:29:57.546667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:44.973333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:37.736667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="37aa827f-044a-43c2-b49d-2110c66c46ae">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_RecieveCause</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="401c9955-6682-413d-8c31-383b513e96de">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="cc6e208c-b6d4-488f-87bb-a1204cabc9b2" />
+          </ProactiveCaching>
+          <EstimatedSize>139742</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>Vw GRL FIN Fact Voucher Item Mappnig First Day Of Year New</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="bd43b8bf-e27a-4dbf-9305-af5c8c34dcf3">
+          <ID>Vw GRL FIN Fact Voucher Item Mappnig First Day Of Year New</ID>
+          <Name>Vw GRL FIN Fact Voucher Item Mappnig First Day Of Year New</Name>
+          <CreatedTimestamp>2022-01-12T20:56:46.86Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:45.023333Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:30.346667Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="0ad00f82-2c23-4fa8-ba53-05b73d22a132">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_Vw_GRL_FIN_Fact_VoucherItem_Mappnig_FirstDayOfYearNew</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="16f68902-ee25-4ba5-b6c5-d31ce81373bf">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="25e87614-12c7-4869-b119-b322e1e81e3b" />
+          </ProactiveCaching>
+          <EstimatedSize>456</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Payment Cause Chek And Cash</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="67b4cd44-5c0c-4256-94b7-496cfe89cd2f">
+          <ID>GRL FIN Fact Payment Cause Chek And Cash</ID>
+          <Name>GRL FIN Fact Payment Cause Chek And Cash</Name>
+          <CreatedTimestamp>2022-01-15T11:29:01.183333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:45.066667Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:12:55.36Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="1f3cd708-5c79-4417-9ddd-ca294ad31272">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_PayCauseChekAndCash</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="511c64c0-003b-49c2-871a-7e52338f8c36">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="f4e103d7-82ee-401b-aeab-fadfbaf393c9" />
+          </ProactiveCaching>
+          <EstimatedSize>163357</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>G Rl FIN Fact Map Cost Fore Cast Number View</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="2e5fb021-5eb5-4b60-b341-d98a6d48e6a3">
+          <ID>G Rl FIN Fact Map Cost Fore Cast Number View</ID>
+          <Name>G Rl FIN Fact Map Cost Fore Cast Number View</Name>
+          <CreatedTimestamp>2022-02-21T14:04:36.853333Z</CreatedTimestamp>
+          <LastSchemaUpdate>2022-02-21T14:57:45.12Z</LastSchemaUpdate>
+          <LastProcessed>2022-02-22T03:13:22.773333Z</LastProcessed>
+          <State>Processed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="de1d299b-a0f5-4718-a1ad-a2185f65d09f">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRl_FIN_Fact_Map_CostForeCast_NumberView</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="dd586793-7044-44ec-a54b-cdd9f0a82553">
+            <SilenceInterval>-PT1S</SilenceInterval>
+            <Latency>-PT1S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="0fd24399-f911-494a-8834-2bff77c48d32" />
+          </ProactiveCaching>
+          <EstimatedSize>556835</EstimatedSize>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Payable Babat View</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="cc8c6d11-4e89-4fa0-9e8c-02d5e786bdd8">
+          <ID>GRL FIN Fact Payable Babat View</ID>
+          <Name>GRL FIN Fact Payable Babat View</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="3e981333-4371-4a9b-946b-ee69ef35bed4">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Fact_PayableBabatView</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Payment Babat View</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="853332fc-8360-4b67-a7f0-a1b0e1561d47">
+          <ID>GRL FIN Fact Payment Babat View</ID>
+          <Name>GRL FIN Fact Payment Babat View</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="797774da-3325-4bb8-9a66-81b49db4101a">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Fact_PaymentBabatView</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Receivable Pay Babat View</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="a443ccbb-ed5e-4a91-b774-1bd0251f10b9">
+          <ID>GRL FIN Fact Receivable Pay Babat View</ID>
+          <Name>GRL FIN Fact Receivable Pay Babat View</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="c1f8cf84-002d-4132-a48d-c58e9943b27f">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Fact_ReceivablePayBabatView</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>G Rl FIN Fact Map Income Fore Cast Number View</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="dfc73116-3b0a-4bb7-bf79-fc3eb17fd0d9">
+          <ID>G Rl FIN Fact Map Income Fore Cast Number View</ID>
+          <Name>G Rl FIN Fact Map Income Fore Cast Number View</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="1875fa6b-aefe-4557-b555-ee2f50c441a4">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRl_FIN_Fact_Map_IncomeForeCast_NumberView</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Dim COA Group Account</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="a6e2f89b-bcf4-4960-8779-9c2be2834b5d">
+          <ID>GRL FIN Dim COA Group Account</ID>
+          <Name>GRL FIN Dim COA Group Account</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="90885099-2f88-46c7-95bd-5cdb483c83f2">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Dim_COA_GroupAccount</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Receipt Babat View</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="eae4f74c-6879-447d-8483-7b47fe5b8998">
+          <ID>GRL FIN Fact Receipt Babat View</ID>
+          <Name>GRL FIN Fact Receipt Babat View</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="302ee927-57fa-45a2-8461-e1445dfe1b82">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Fact_ReceiptBabatView</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Receivable Babat View</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="3be3fe92-13bf-449d-8ca4-9cbeab94d8dd">
+          <ID>GRL FIN Fact Receivable Babat View</ID>
+          <Name>GRL FIN Fact Receivable Babat View</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="45347495-dd2f-4d71-80db-8e826f99d6c7">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>dbo_GRL_FIN_Fact_ReceivableBabatView</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+    <MeasureGroup>
+      <ID>GRL FIN Fact Remaining Forecast Loan Base Line</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ff603eb2-572b-447f-8384-4504abcba034">
+          <ID>GRL FIN Fact Remaining Forecast Loan Base Line</ID>
+          <Name>GRL FIN Fact Remaining Forecast Loan Base Line</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="589bde50-5807-495d-8e5d-75169b1e6aaf">
+            <DataSourceViewID>SABZDW</DataSourceViewID>
+            <TableID>GRL_FIN_Fact_RemainingForecastLoan_BaseLine</TableID>
+          </Source>
+          <StorageMode>Molap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+        </Partition>
+      </Partitions>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

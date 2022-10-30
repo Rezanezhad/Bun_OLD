@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="KS_MSCRM"
+  DTS:DTSID="{8BCA8160-5BE9-463D-B7BD-0225D53CEFA1}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=172.16.50.21;User ID=SalesPlanningETL;Initial Catalog=KS_MSCRM;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhjlbbmADF0GdFeslIg9TnwAAAAACAAAAAAADZgAAwAAAABAAAABOZiqaDcQnmDx585yqGQazAAAAAASAAACgAAAAEAAAAPNNJdxu0Ta8HqTEGMgjYSiAAAAAILqRkB+A8v1HdkXLwx9ZePnBxNF4PBcLkIrD1VBeX2il4YnKqul8SbeAfymay0oBS1X+I4M7uM2T16TvPESc9gPA/1wyQ/jFlbiad4/C0xgQZlJM7QmT1+UQCoJXO+vInU8cag6/lUZvsexjYyLwBux01dO8Cd74YVHmRsv5rSQUAAAAl0PJu5r2Jk4/MbKQVC1qxnC8xes=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

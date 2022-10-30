@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Porteghaal"
+  DTS:DTSID="{984C473F-F059-445A-8971-F6A39FE49D50}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=150.150.200.101;User ID=SalesPlanningETL;Initial Catalog=porteghaal_com_db;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhjlbbmADF0GdFeslIg9TnwAAAAACAAAAAAADZgAAwAAAABAAAAAOUQVY+SdU3MsXlwzhy/Q4AAAAAASAAACgAAAAEAAAAGAAXOjN2VeD1Td5/v/g/nqAAAAADIYWDhr15E8K0ZntQkh9IrpvrIi1mswkX3Lt5H/X0WkwpP9gZkExv7kloTLjDbRPpT/FgB1PC8+/UYvs7E8rR1+0gzEn3TTIlD4wlhOT/iUXMd6mQyFCobHGMLRx622HAmaNprjusOVDbBBiRrOd9xm/MPhNgZJZh1/+Oe4q8swUAAAAAzXM0oaCF+KO2pTPqkqjzHBQSNI=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

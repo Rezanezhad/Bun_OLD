@@ -1,0 +1,1063 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/16/2022 1:37:55 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ITL022"
+  DTS:CreatorName="KHEILISABZ\e.nevisandeh"
+  DTS:DTSID="{1409C929-5127-47A1-880A-75CD6C9BFD11}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FactPrintRequestsItem"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{28A5C2F5-8A3A-40C4-9329-529307F73848}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\insert from print"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{517F072B-C958-4E98-B2DC-6B97065E0B1A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="insert from print"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\insert from print\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[FactPrintRequestItem]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\insert from print\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PrintRequestItemCode]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="PrintRequestItemCode"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrintRequestItemCode]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrintRequestItemCode]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PrintRequestCode]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="PrintRequestCode"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrintRequestCode]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrintRequestCode]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Product]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Product"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="118"
+                      cachedName="ProductName"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductName]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LatProduct]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="LatProduct"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LatProduct]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[LatProduct]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LatProductName]"
+                      cachedDataType="wstr"
+                      cachedLength="118"
+                      cachedName="LatProductName"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LatProductName]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[LatProductName]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TurnFrom]"
+                      cachedDataType="wstr"
+                      cachedLength="11"
+                      cachedName="TurnFrom"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TurnFrom]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[TurnFrom]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TurnTo]"
+                      cachedDataType="wstr"
+                      cachedLength="11"
+                      cachedName="TurnTo"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TurnTo]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[TurnTo]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastFaz]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="LastFaz"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastFaz]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastFaz]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[isprepared]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="isprepared"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[isprepared]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[isprepared]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[has_accessories]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="has_accessories"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[has_accessories]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[has_accessories]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Priority]"
+                      cachedDataType="i4"
+                      cachedName="Priority"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Priority]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[Priority]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[changecover]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="changecover"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[changecover]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[changecover]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gnr_hasedit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="gnr_hasedit"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gnr_hasedit]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[gnr_hasedit]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gnr_circulation]"
+                      cachedDataType="i4"
+                      cachedName="gnr_circulation"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gnr_circulation]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[gnr_circulation]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedOn"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[new_datedeliverid]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="new_datedeliverid"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_datedeliverid]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_datedeliverid]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[new_CoverFileDeliveryDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="new_CoverFileDeliveryDate"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_CoverFileDeliveryDate]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_CoverFileDeliveryDate]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gnr_pdfgenerationdate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="gnr_pdfgenerationdate"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gnr_pdfgenerationdate]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[gnr_pdfgenerationdate]" />
+                    <inputColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[new_finalpagenumber]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="new_finalpagenumber"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_finalpagenumber]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_finalpagenumber]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrintRequestItemCode]"
+                      dataType="wstr"
+                      length="100"
+                      name="PrintRequestItemCode" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PrintRequestCode]"
+                      dataType="wstr"
+                      length="100"
+                      name="PrintRequestCode" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product]"
+                      dataType="wstr"
+                      length="100"
+                      name="Product" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="118"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LatProduct]"
+                      dataType="wstr"
+                      length="100"
+                      name="LatProduct" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LatProductName]"
+                      dataType="wstr"
+                      length="118"
+                      name="LatProductName" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TurnFrom]"
+                      dataType="wstr"
+                      length="11"
+                      name="TurnFrom" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TurnTo]"
+                      dataType="wstr"
+                      length="11"
+                      name="TurnTo" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastFaz]"
+                      dataType="wstr"
+                      length="25"
+                      name="LastFaz" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[isprepared]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="isprepared" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[has_accessories]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="has_accessories" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Priority]"
+                      dataType="i4"
+                      name="Priority" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[changecover]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="changecover" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gnr_hasedit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="gnr_hasedit" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gnr_circulation]"
+                      dataType="i4"
+                      name="gnr_circulation" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      name="CreatedOn" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_datedeliverid]"
+                      dataType="dbTimeStamp"
+                      name="new_datedeliverid" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_CoverFileDeliveryDate]"
+                      dataType="dbTimeStamp"
+                      name="new_CoverFileDeliveryDate" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gnr_pdfgenerationdate]"
+                      dataType="dbTimeStamp"
+                      name="gnr_pdfgenerationdate" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_finalpagenumber]"
+                      dataType="dbTimeStamp"
+                      name="new_finalpagenumber" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\insert from print\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\insert from print\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\insert from print\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\insert from print\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Pri].[gnr_name] AS [PrintRequestItemCode],
+       [Pr].[gnr_name] AS [PrintRequestCode],
+       [Pb].[ProductNumber] AS [Product],
+       [Pb].[Name] AS [ProductName],
+       [Pb2].[ProductNumber] AS [LatProduct],
+       [Pb2].[Name] AS [LatProductName],
+       [Pri].[gnr_turn] AS [TurnFrom],
+       [Pri].[gnr_turnTo] AS [TurnTo],
+       [Pri].[gnr_lastfaz] AS [LastFaz],
+       (CASE
+            WHEN [gnr_isprepared] = 0 THEN
+                'No'
+            WHEN [gnr_isprepared] = 1 THEN
+                'Yes'
+        END
+       ) AS [isprepared],
+       (CASE
+            WHEN [gnr_has_accessories] = 0 THEN
+                'No'
+            WHEN [gnr_has_accessories] = 1 THEN
+                'Yes'
+        END
+       ) AS [has_accessories],
+       [gnr_priority] AS [Priority],
+       (CASE
+            WHEN [gnr_changecolor] = 0 THEN
+                'No'
+            WHEN [gnr_changecolor] = 1 THEN
+                'Yes'
+        END
+       ) AS [changecover],
+       (CASE
+            WHEN [gnr_hasedit] = 0 THEN
+                'No'
+            WHEN [gnr_hasedit] = 1 THEN
+                'Yes'
+        END
+       ) AS [gnr_hasedit],
+       [gnr_circulation],
+       [Pri].[CreatedOn],
+       [new_datedeliverid],
+       [Pri].[new_CoverFileDeliveryDate],
+       [Pri].[gnr_pdfgenerationdate],
+       [Pri].[new_importwarehousedate] AS [new_finalpagenumber]
+FROM [dbo].[gnr_print_request_itemBase] AS [Pri]
+    JOIN [dbo].[gnr_print_requestBase] AS [Pr]
+        ON [Pr].[gnr_print_requestId] = [Pri].[gnr_print_request]
+    LEFT JOIN [dbo].[ProductBase] AS [Pb]
+        ON [Pb].[ProductId] = [Pri].[gnr_productid]
+    LEFT JOIN [dbo].[ProductBase] AS [Pb2]
+        ON [Pb2].[ProductId] = [Pri].[new_LatFromProduct]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\insert from print\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{DF2FCF8A-4EF2-4298-9D7B-3CFE437536D7}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Print_MSCRM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrintRequestItemCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrintRequestItemCode]"
+                      length="100"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrintRequestItemCode]"
+                      name="PrintRequestItemCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrintRequestCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrintRequestCode]"
+                      length="100"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[PrintRequestCode]"
+                      name="PrintRequestCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product]"
+                      length="100"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[Product]"
+                      name="Product"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
+                      length="118"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductName]"
+                      name="ProductName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[LatProduct]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LatProduct]"
+                      length="100"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[LatProduct]"
+                      name="LatProduct"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[LatProductName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LatProductName]"
+                      length="118"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[LatProductName]"
+                      name="LatProductName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[TurnFrom]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TurnFrom]"
+                      length="11"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[TurnFrom]"
+                      name="TurnFrom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[TurnTo]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TurnTo]"
+                      length="11"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[TurnTo]"
+                      name="TurnTo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastFaz]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastFaz]"
+                      length="25"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastFaz]"
+                      name="LastFaz"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[isprepared]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[isprepared]"
+                      length="3"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[isprepared]"
+                      name="isprepared"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[has_accessories]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[has_accessories]"
+                      length="3"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[has_accessories]"
+                      name="has_accessories"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[Priority]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Priority]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[Priority]"
+                      name="Priority"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[changecover]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[changecover]"
+                      length="3"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[changecover]"
+                      name="changecover"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[gnr_hasedit]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gnr_hasedit]"
+                      length="3"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[gnr_hasedit]"
+                      name="gnr_hasedit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[gnr_circulation]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gnr_circulation]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[gnr_circulation]"
+                      name="gnr_circulation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      name="CreatedOn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_datedeliverid]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_datedeliverid]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_datedeliverid]"
+                      name="new_datedeliverid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_CoverFileDeliveryDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_CoverFileDeliveryDate]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_CoverFileDeliveryDate]"
+                      name="new_CoverFileDeliveryDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[gnr_pdfgenerationdate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gnr_pdfgenerationdate]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[gnr_pdfgenerationdate]"
+                      name="gnr_pdfgenerationdate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_finalpagenumber]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_finalpagenumber]"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_finalpagenumber]"
+                      name="new_finalpagenumber"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrintRequestItemCode]"
+                      dataType="wstr"
+                      length="100"
+                      name="PrintRequestItemCode" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PrintRequestCode]"
+                      dataType="wstr"
+                      length="100"
+                      name="PrintRequestCode" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Product]"
+                      dataType="wstr"
+                      length="100"
+                      name="Product" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="118"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LatProduct]"
+                      dataType="wstr"
+                      length="100"
+                      name="LatProduct" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LatProductName]"
+                      dataType="wstr"
+                      length="118"
+                      name="LatProductName" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TurnFrom]"
+                      dataType="wstr"
+                      length="11"
+                      name="TurnFrom" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TurnTo]"
+                      dataType="wstr"
+                      length="11"
+                      name="TurnTo" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastFaz]"
+                      dataType="wstr"
+                      length="25"
+                      name="LastFaz" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[isprepared]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="isprepared" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[has_accessories]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="has_accessories" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Priority]"
+                      dataType="i4"
+                      name="Priority" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[changecover]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="changecover" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gnr_hasedit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="gnr_hasedit" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gnr_circulation]"
+                      dataType="i4"
+                      name="gnr_circulation" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      name="CreatedOn" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_datedeliverid]"
+                      dataType="dbTimeStamp"
+                      name="new_datedeliverid" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_CoverFileDeliveryDate]"
+                      dataType="dbTimeStamp"
+                      name="new_CoverFileDeliveryDate" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gnr_pdfgenerationdate]"
+                      dataType="dbTimeStamp"
+                      name="gnr_pdfgenerationdate" />
+                    <externalMetadataColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_finalpagenumber]"
+                      dataType="dbTimeStamp"
+                      name="new_finalpagenumber" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrintRequestItemCode]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrintRequestItemCode]"
+                      name="PrintRequestItemCode" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrintRequestCode]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PrintRequestCode]"
+                      name="PrintRequestCode" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Product]"
+                      name="Product" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductName]"
+                      dataType="wstr"
+                      length="118"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductName]"
+                      name="ProductName" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LatProduct]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LatProduct]"
+                      name="LatProduct" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LatProductName]"
+                      dataType="wstr"
+                      length="118"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LatProductName]"
+                      name="LatProductName" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TurnFrom]"
+                      dataType="wstr"
+                      length="11"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TurnFrom]"
+                      name="TurnFrom" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TurnTo]"
+                      dataType="wstr"
+                      length="11"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TurnTo]"
+                      name="TurnTo" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastFaz]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastFaz]"
+                      name="LastFaz" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[isprepared]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[isprepared]"
+                      name="isprepared" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[has_accessories]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[has_accessories]"
+                      name="has_accessories" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Priority]"
+                      dataType="i4"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Priority]"
+                      name="Priority" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[changecover]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[changecover]"
+                      name="changecover" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gnr_hasedit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gnr_hasedit]"
+                      name="gnr_hasedit" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gnr_circulation]"
+                      dataType="i4"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gnr_circulation]"
+                      name="gnr_circulation" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      name="CreatedOn" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_datedeliverid]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_datedeliverid]"
+                      name="new_datedeliverid" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_CoverFileDeliveryDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_CoverFileDeliveryDate]"
+                      name="new_CoverFileDeliveryDate" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gnr_pdfgenerationdate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gnr_pdfgenerationdate]"
+                      name="gnr_pdfgenerationdate" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_finalpagenumber]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_finalpagenumber]"
+                      name="new_finalpagenumber" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\insert from print.Paths[OLE DB Source Output]"
+              endId="Package\insert from print\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\insert from print\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate fact table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7AACAF95-DB4D-443C-9083-74AD305A0547}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate fact table"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[FactPrintRequestItem]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{06672B8D-6EA6-4627-AC58-E4683DB52ABE}"
+      DTS:From="Package\truncate fact table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\insert from print" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\insert from print"
+          TopLeft="367,137" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\truncate fact table"
+          TopLeft="357,42" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="442.25,84">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\insert from print">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\insert from print\OLE DB Source"
+          TopLeft="461,59" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\insert from print\OLE DB Destination"
+          TopLeft="458,145" />
+        <EdgeLayout
+          Id="Package\insert from print.Paths[OLE DB Source Output]"
+          TopLeft="539.75,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\insert from print\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\insert from print\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

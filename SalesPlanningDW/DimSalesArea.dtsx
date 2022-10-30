@@ -1,0 +1,1217 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/11/2020 1:19:20 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="B2C017"
+  DTS:CreatorName="KHEILISABZ\f.teimouri"
+  DTS:DTSID="{BAF18C36-4C10-4744-8B19-F4232D9CA446}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DimSalesArea"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{B946039F-14B5-4101-AA6F-8F69A1C525B9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Insert SaleArea from Rahkaran"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{FAE9649C-6871-44BC-B373-7CA1A7CE03D0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Insert SaleArea from Rahkaran"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Insert SaleArea from Rahkaran\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimSalesArea]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[SalesAreaID]"
+                      cachedDataType="i8"
+                      cachedName="SalesAreaID"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesAreaAlternateKey]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAreaID]" />
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[SalesAreaName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="SalesAreaName"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesAreaName]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAreaName]" />
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[SalesOrganizationID]"
+                      cachedDataType="i8"
+                      cachedName="SalesOrganizationID"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrganizationID]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrganizationID]" />
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[SalesOrganizationName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="SalesOrganizationName"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrganizationName]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrganizationName]" />
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[SalesChannelID]"
+                      cachedDataType="i8"
+                      cachedName="SalesChannelID"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesChannelID]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesChannelID]" />
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[SalesChannelName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="SalesChannelName"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesChannelName]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesChannelName]" />
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[DivisionID]"
+                      cachedDataType="i8"
+                      cachedName="DivisionID"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DivisionID]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DivisionID]" />
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].Columns[DivisionName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="DivisionName"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DivisionName]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DivisionName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesAreaKey]"
+                      dataType="i4"
+                      name="SalesAreaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesAreaAlternateKey]"
+                      dataType="i8"
+                      name="SalesAreaAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesAreaName]"
+                      dataType="wstr"
+                      length="128"
+                      name="SalesAreaName" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrganizationID]"
+                      dataType="i8"
+                      name="SalesOrganizationID" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesOrganizationName]"
+                      dataType="wstr"
+                      length="128"
+                      name="SalesOrganizationName" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesChannelID]"
+                      dataType="i8"
+                      name="SalesChannelID" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesChannelName]"
+                      dataType="wstr"
+                      length="128"
+                      name="SalesChannelName" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DivisionID]"
+                      dataType="i8"
+                      name="DivisionID" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[DivisionName]"
+                      dataType="wstr"
+                      length="128"
+                      name="DivisionName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert SaleArea from Rahkaran\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert SaleArea from Rahkaran\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert SaleArea from Rahkaran\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[DimSalesArea] SET [DivisionID] = ?,[DivisionName] = ?,[SalesAreaName] = ?,[SalesChannelID] = ?,[SalesChannelName] = ?,[SalesOrganizationID] = ?,[SalesOrganizationName] = ? WHERE [SalesAreaAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[DivisionID]"
+                      cachedDataType="i8"
+                      cachedName="DivisionID"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DivisionID]" />
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[DivisionName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="DivisionName"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DivisionName]" />
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[SalesAreaID]"
+                      cachedDataType="i8"
+                      cachedName="SalesAreaID"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAreaID]" />
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[SalesAreaName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="SalesAreaName"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAreaName]" />
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[SalesChannelID]"
+                      cachedDataType="i8"
+                      cachedName="SalesChannelID"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesChannelID]" />
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[SalesChannelName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="SalesChannelName"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesChannelName]" />
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[SalesOrganizationID]"
+                      cachedDataType="i8"
+                      cachedName="SalesOrganizationID"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrganizationID]" />
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].Columns[SalesOrganizationName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="SalesOrganizationName"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrganizationName]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i8"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="wstr"
+                      length="128"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="wstr"
+                      length="128"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i8"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="wstr"
+                      length="128"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="i8"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="wstr"
+                      length="128"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="i8"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert SaleArea from Rahkaran\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT SA.SalesAreaID,
+       SA.Name SalesAreaName,
+       SO.SalesOrganizationID,
+       SO.Name SalesOrganizationName,
+       SC.SalesChannelID,
+       SC.Name SalesChannelName,
+       DE.DivisionID,
+       DE.Name DivisionName
+FROM SLS3.SalesArea AS SA
+    JOIN SLS3.SalesOrganization SO
+        ON SO.SalesOrganizationID = SA.SalesOrganizationRef
+    JOIN SLS3.SalesChannel SC
+        ON SC.SalesChannelID = SA.SalesChannelRef
+    JOIN SLS3.Division DE
+        ON DE.DivisionID = SA.DivisionRef</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{39C9E0E1-261C-4A53-A5AB-28C7EDC58A55}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[KheiliSabz_sg3]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAreaID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAreaID]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAreaID]"
+                      name="SalesAreaID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAreaName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAreaName]"
+                      length="128"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAreaName]"
+                      name="SalesAreaName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrganizationID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrganizationID]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrganizationID]"
+                      name="SalesOrganizationID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrganizationName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrganizationName]"
+                      length="128"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrganizationName]"
+                      name="SalesOrganizationName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesChannelID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesChannelID]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesChannelID]"
+                      name="SalesChannelID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesChannelName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesChannelName]"
+                      length="128"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesChannelName]"
+                      name="SalesChannelName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DivisionID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DivisionID]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DivisionID]"
+                      name="DivisionID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DivisionName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DivisionName]"
+                      length="128"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DivisionName]"
+                      name="DivisionName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAreaID]"
+                      dataType="i8"
+                      name="SalesAreaID" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesAreaName]"
+                      dataType="wstr"
+                      length="128"
+                      name="SalesAreaName" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrganizationID]"
+                      dataType="i8"
+                      name="SalesOrganizationID" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrganizationName]"
+                      dataType="wstr"
+                      length="128"
+                      name="SalesOrganizationName" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesChannelID]"
+                      dataType="i8"
+                      name="SalesChannelID" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesChannelName]"
+                      dataType="wstr"
+                      length="128"
+                      name="SalesChannelName" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DivisionID]"
+                      dataType="i8"
+                      name="DivisionID" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DivisionName]"
+                      dataType="wstr"
+                      length="128"
+                      name="DivisionName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAreaID]"
+                      dataType="i8"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAreaID]"
+                      name="SalesAreaID" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAreaName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesAreaName]"
+                      name="SalesAreaName" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrganizationID]"
+                      dataType="i8"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrganizationID]"
+                      name="SalesOrganizationID" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrganizationName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrganizationName]"
+                      name="SalesOrganizationName" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesChannelID]"
+                      dataType="i8"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesChannelID]"
+                      name="SalesChannelID" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesChannelName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesChannelName]"
+                      name="SalesChannelName" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DivisionID]"
+                      dataType="i8"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DivisionID]"
+                      name="DivisionID" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DivisionName]"
+                      dataType="wstr"
+                      length="128"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DivisionName]"
+                      name="DivisionName" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension"
+              componentClassID="Microsoft.SCD"
+              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
+              name="Slowly Changing Dimension"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SELECT statement used to create a schema rowset."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [DivisionID], [DivisionName], [SalesAreaAlternateKey], [SalesAreaName], [SalesChannelID], [SalesChannelName], [SalesOrganizationID], [SalesOrganizationName] FROM [dbo].[DimSalesArea]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
+                  name="CurrentRowWhere"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
+                  name="UpdateChangingAttributeHistory">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
+                  name="FailOnFixedAttributeChange">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the column name for the inferred member."
+                  name="InferredMemberIndicator"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether inferred member updates are detected."
+                  name="EnableInferredMember">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
+                  name="FailOnLookupFailure">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies that all rows in the input are new or the transformation detects the change type."
+                  name="IncomingRowChangeType"
+                  typeConverter="IncomingRowChangeType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Connections[LookupConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Defines the connection to use for lookups in the dimension table"
+                  name="LookupConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+                  name="Slowly Changing Dimension Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[DivisionID]"
+                      cachedDataType="i8"
+                      cachedName="DivisionID"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DivisionID]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DivisionID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[DivisionName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="DivisionName"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DivisionName]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DivisionName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[SalesAreaID]"
+                      cachedDataType="i8"
+                      cachedName="SalesAreaID"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesAreaAlternateKey]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAreaID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[SalesAreaName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="SalesAreaName"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesAreaName]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAreaName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[SalesChannelID]"
+                      cachedDataType="i8"
+                      cachedName="SalesChannelID"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesChannelID]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesChannelID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[SalesChannelName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="SalesChannelName"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesChannelName]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesChannelName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[SalesOrganizationID]"
+                      cachedDataType="i8"
+                      cachedName="SalesOrganizationID"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesOrganizationID]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrganizationID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[SalesOrganizationName]"
+                      cachedDataType="wstr"
+                      cachedLength="128"
+                      cachedName="SalesOrganizationName"
+                      externalMetadataColumnId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesOrganizationName]"
+                      lineageId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrganizationName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DivisionID]"
+                      dataType="i8"
+                      name="DivisionID" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[DivisionName]"
+                      dataType="wstr"
+                      length="128"
+                      name="DivisionName" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesAreaAlternateKey]"
+                      dataType="i8"
+                      name="SalesAreaAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesAreaName]"
+                      dataType="wstr"
+                      length="128"
+                      name="SalesAreaName" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesChannelID]"
+                      dataType="i8"
+                      name="SalesChannelID" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesChannelName]"
+                      dataType="wstr"
+                      length="128"
+                      name="SalesChannelName" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesOrganizationID]"
+                      dataType="i8"
+                      name="SalesOrganizationID" />
+                    <externalMetadataColumn
+                      refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[SalesOrganizationName]"
+                      dataType="wstr"
+                      length="128"
+                      name="SalesOrganizationName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Outputs[Unchanged Output]"
+                  description="Unchanged rows"
+                  exclusionGroup="1"
+                  name="Unchanged Output"
+                  synchronousInputId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Outputs[New Output]"
+                  description="New rows"
+                  exclusionGroup="1"
+                  name="New Output"
+                  synchronousInputId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
+                  description="Rows with changes in columns tagged FixedAttribute"
+                  exclusionGroup="1"
+                  name="Fixed Attribute Output"
+                  synchronousInputId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
+                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
+                  exclusionGroup="1"
+                  name="Changing Attribute Updates Output"
+                  synchronousInputId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
+                  description="HistoricalAttribute (Type 2) changes result in these new rows"
+                  exclusionGroup="2"
+                  name="Historical Attribute Inserts Output"
+                  synchronousInputId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
+                  description="Information to update unpopulated initial dimension row"
+                  exclusionGroup="1"
+                  name="Inferred Member Updates Output"
+                  synchronousInputId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Insert SaleArea from Rahkaran.Paths[Changing Attribute Updates Output]"
+              endId="Package\Insert SaleArea from Rahkaran\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Changing Attribute Updates Output"
+              startId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
+            <path
+              refId="Package\Insert SaleArea from Rahkaran.Paths[New Output]"
+              endId="Package\Insert SaleArea from Rahkaran\Insert Destination.Inputs[OLE DB Destination Input]"
+              name="New Output"
+              startId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Outputs[New Output]" />
+            <path
+              refId="Package\Insert SaleArea from Rahkaran.Paths[OLE DB Source Output]"
+              endId="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="OLE DB Source Output"
+              startId="Package\Insert SaleArea from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Insert SaleArea from Rahkaran"
+          TopLeft="100,68" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Insert SaleArea from Rahkaran">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Insert SaleArea from Rahkaran\OLE DB Source"
+          TopLeft="477.5,5.49999999999989" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension"
+          TopLeft="448,107.5" />
+        <EdgeLayout
+          Id="Package\Insert SaleArea from Rahkaran.Paths[OLE DB Source Output]"
+          TopLeft="556,47.4999999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Insert SaleArea from Rahkaran\Insert Destination"
+          TopLeft="243.5,209.5" />
+        <EdgeLayout
+          Id="Package\Insert SaleArea from Rahkaran.Paths[New Output]"
+          TopLeft="521.333333333333,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-195.333333333333,60"
+              Start="0,0"
+              End="-195.333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2647058823529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2647058823529"
+                    Point2="0,24.2647058823529"
+                    Point3="-4,24.2647058823529" />
+                  <mssgle:LineSegment
+                    End="-191.333333333333,24.2647058823529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-191.333333333333,24.2647058823529"
+                    Point2="-195.333333333333,24.2647058823529"
+                    Point3="-195.333333333333,28.2647058823529" />
+                  <mssgle:LineSegment
+                    End="-195.333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-124.758053385417,29.2647058823529,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Insert SaleArea from Rahkaran\OLE DB Command"
+          TopLeft="469.5,209.5" />
+        <EdgeLayout
+          Id="Package\Insert SaleArea from Rahkaran.Paths[Changing Attribute Updates Output]"
+          TopLeft="590.666666666667,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.6666666666666,60"
+              Start="0,0"
+              End="-34.6666666666666,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2647058823529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2647058823529"
+                    Point2="0,24.2647058823529"
+                    Point3="-4,24.2647058823529" />
+                  <mssgle:LineSegment
+                    End="-30.6666666666666,24.2647058823529" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.6666666666666,24.2647058823529"
+                    Point2="-34.6666666666666,24.2647058823529"
+                    Point3="-34.6666666666666,28.2647058823529" />
+                  <mssgle:LineSegment
+                    End="-34.6666666666666,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-95.8672395833333,29.2647058823529,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert SaleArea from Rahkaran\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Insert SaleArea from Rahkaran\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[DimSalesArea]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[DivisionID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;DivisionID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[DivisionName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;DivisionName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAreaID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;SalesAreaAlternateKey&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesAreaName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;SalesAreaName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesChannelID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;SalesChannelID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesChannelName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;SalesChannelName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrganizationID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;SalesOrganizationID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrganizationName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;SalesOrganizationName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;true&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

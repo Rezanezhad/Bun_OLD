@@ -1,0 +1,2621 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/28/2020 1:07:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="B2C017"
+  DTS:CreatorName="KHEILISABZ\f.teimouri"
+  DTS:DTSID="{641ED076-9FFA-4B95-8BFA-4CAE30B83610}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FactInventoryVoucher"
+  DTS:PackageType="5"
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{2B2405FC-4FAD-4CC2-A49A-C01735D3D74A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E359D1FA-C5F8-4266-A0C3-03921D5908B8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastVersion">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\catch last version"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{019C219A-B619-4EA2-8F25-EB65A28A4675}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="catch last version"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="exec [ETL].[FactInvetoryVoucher_CatchLastVersion]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::LastVersion" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FactInventoryVocher - incremental load"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8AB091A3-3A6B-44F2-861B-6DCE1847971E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FactInventoryVocher - incremental load"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="exec [ETL].[FactInventoryVoucher_Merge] ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Project::Reload"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\stage inventoryVoucher from Rahkaran"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{ee644f22-d090-442c-abde-ac736a8b87ae}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="stage inventoryVoucher from Rahkaran"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\stage inventoryVoucher from Rahkaran\branch"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="branch"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [BranchKey],
+       [BranchAlternateKey]
+FROM [dbo].[DimBranch]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [BranchKey],
+       [BranchAlternateKey]
+FROM [dbo].[DimBranch]) [refTable]
+where [refTable].[BranchAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="BranchKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BranchAlternateKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchRef]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage inventoryVoucher from Rahkaran\branch.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage inventoryVoucher from Rahkaran\branch.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\branch.Inputs[Lookup Input].Columns[BranchRef]"
+                      cachedDataType="i8"
+                      cachedName="BranchRef"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchRef]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">BranchAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\branch.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\branch.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\branch.Outputs[Lookup Match Output].Columns[BranchKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\branch.Outputs[Lookup Match Output].Columns[BranchKey]"
+                      name="BranchKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">BranchKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\branch.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\branch.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\branch.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\branch.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\branch.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\branch.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\branch.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\branch.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage inventoryVoucher from Rahkaran\Customer"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Customer"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CustomerKey],
+       [PartyAlternateKey]
+FROM [dbo].[DimCustomer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [CustomerKey],
+       [PartyAlternateKey]
+FROM [dbo].[DimCustomer]) [refTable]
+where [refTable].[PartyAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CustomerKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PartyAlternateKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PartyAlternateKey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage inventoryVoucher from Rahkaran\Customer.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage inventoryVoucher from Rahkaran\Customer.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\Customer.Inputs[Lookup Input].Columns[PartyAlternateKey]"
+                      cachedDataType="i8"
+                      cachedName="PartyAlternateKey"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PartyAlternateKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">PartyAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\Customer.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\Customer.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\Customer.Outputs[Lookup Match Output].Columns[CustomerKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\Customer.Outputs[Lookup Match Output].Columns[CustomerKey]"
+                      name="CustomerKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">CustomerKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\Customer.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\Customer.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\Customer.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\Customer.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\Customer.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\Customer.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\Customer.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\Customer.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage inventoryVoucher from Rahkaran\DestinationStore"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="DestinationStore"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [StoreKey],
+       [StoreAlternateKey]
+FROM [dbo].[DimStore]
+UNION ALL
+SELECT NULL,
+       NULL</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [StoreKey],
+       [StoreAlternateKey]
+FROM [dbo].[DimStore]
+UNION ALL
+SELECT NULL,
+       NULL) [refTable]
+where [refTable].[StoreAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="StoreKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StoreAlternateKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DestinationStoreRef]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Inputs[Lookup Input].Columns[DestinationStoreRef]"
+                      cachedDataType="i8"
+                      cachedName="DestinationStoreRef"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DestinationStoreRef]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">StoreAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Outputs[Lookup Match Output].Columns[DestinationStore]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Outputs[Lookup Match Output].Columns[DestinationStore]"
+                      name="DestinationStore"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">StoreKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="InventoryVoucherSpecification"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [InventoryVoucherSpecificationkey],
+       [InventoryVoucherSpecificationAlternateKey]
+FROM [DimInventoryVoucherSpecification]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [InventoryVoucherSpecificationkey],
+       [InventoryVoucherSpecificationAlternateKey]
+FROM [DimInventoryVoucherSpecification]) [refTable]
+where [refTable].[InventoryVoucherSpecificationAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="InventoryVoucherSpecificationkey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="InventoryVoucherSpecificationAlternateKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVoucherSpecificationRef]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Inputs[Lookup Input].Columns[InventoryVoucherSpecificationRef]"
+                      cachedDataType="i8"
+                      cachedName="InventoryVoucherSpecificationRef"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVoucherSpecificationRef]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">InventoryVoucherSpecificationAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Outputs[Lookup Match Output].Columns[InventoryVoucherSpecificationkey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Outputs[Lookup Match Output].Columns[InventoryVoucherSpecificationkey]"
+                      name="InventoryVoucherSpecificationkey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">InventoryVoucherSpecificationkey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage].[Rahkaran_InventoryVoucher]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InventoryVoucherID]"
+                      cachedDataType="i8"
+                      cachedName="InventoryVoucherID"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryVoucherID]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVoucherID]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InventoryVouchernumber]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="InventoryVouchernumber"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryVouchernumber]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVouchernumber]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="State"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Customer]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Customer"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Customer]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FiscalYearRef]"
+                      cachedDataType="i8"
+                      cachedName="FiscalYearRef"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FiscalYearRef]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[FiscalYearRef]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreationDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreationDate"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreationDate]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationDate]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CounterpartDLCode]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="CounterpartDLCode"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CounterpartDLCode]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CounterpartDLCode]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Version]"
+                      cachedDataType="i8"
+                      cachedName="Version"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Version]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StoreKey]"
+                      cachedDataType="i4"
+                      cachedName="StoreKey"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Outputs[Lookup Match Output].Columns[StoreKey]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerKey]"
+                      cachedDataType="i4"
+                      cachedName="CustomerKey"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\Customer.Outputs[Lookup Match Output].Columns[CustomerKey]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BranchKey]"
+                      cachedDataType="i4"
+                      cachedName="BranchKey"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchKey]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\branch.Outputs[Lookup Match Output].Columns[BranchKey]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserKey]"
+                      cachedDataType="i4"
+                      cachedName="UserKey"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserKey]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\user.Outputs[Lookup Match Output].Columns[UserKey]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Recipient]"
+                      cachedDataType="i4"
+                      cachedName="Recipient"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Recipient]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\Recipient.Outputs[Lookup Match Output].Columns[Recipient]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InventoryVoucherSpecificationkey]"
+                      cachedDataType="i4"
+                      cachedName="InventoryVoucherSpecificationkey"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryVoucherSpecificationkey]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Outputs[Lookup Match Output].Columns[InventoryVoucherSpecificationkey]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DestinationStore]"
+                      cachedDataType="i4"
+                      cachedName="DestinationStore"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DestinationStore]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Outputs[Lookup Match Output].Columns[DestinationStore]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreationDateKey]"
+                      cachedDataType="i4"
+                      cachedName="CreationDateKey"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreationDateKey]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationDateKey]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryVoucherID]"
+                      dataType="i8"
+                      name="InventoryVoucherID" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryVouchernumber]"
+                      dataType="wstr"
+                      length="50"
+                      name="InventoryVouchernumber" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customer]"
+                      dataType="wstr"
+                      length="100"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FiscalYearRef]"
+                      dataType="i8"
+                      name="FiscalYearRef" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreationDate]"
+                      dataType="dbTimeStamp"
+                      name="CreationDate" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CounterpartDLCode]"
+                      dataType="wstr"
+                      length="64"
+                      name="CounterpartDLCode" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Version]"
+                      dataType="i8"
+                      name="Version" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
+                      dataType="i4"
+                      name="StoreKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                      dataType="i4"
+                      name="CustomerKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchKey]"
+                      dataType="i4"
+                      name="BranchKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserKey]"
+                      dataType="i4"
+                      name="UserKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Recipient]"
+                      dataType="i4"
+                      name="Recipient" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryVoucherSpecificationkey]"
+                      dataType="i4"
+                      name="InventoryVoucherSpecificationkey" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DestinationStore]"
+                      dataType="i4"
+                      name="DestinationStore" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreationDateKey]"
+                      dataType="i4"
+                      name="CreationDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbDate"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [IV].[InventoryVoucherID],
+       [IV].[Number] AS [InventoryVouchernumber],
+       --(
+       --    SELECT TOP (1)
+       --           [IOI].[OrderRef]
+       --    FROM [LGS3].[InventoryVoucherItem] AS [IINI]
+       --        JOIN [SYS3].[RecursiveEntityRelation] AS [IRER]
+       --            ON [IRER].[TargetRef] = [IINI].[InventoryVoucherItemID]
+       --               AND [IRER].[TargetType] = 506
+       --        JOIN [SLS3].[OrderItem] AS [IOI]
+       --            ON [IOI].[OrderItemID] = [IRER].[SourceRef]
+       --               AND [IRER].[SourceType] = 123
+       --    WHERE [IINI].[InventoryVoucherRef] = [IV].[InventoryVoucherID]
+       --) AS [SalesOrderRef],
+       [IV].[InventoryVoucherSpecificationRef],
+       CASE
+           WHEN [IV].[State] = 1 THEN
+               'Draft'
+           WHEN [IV].[State] = 2 THEN
+               'Active'
+           WHEN [IV].[State] = 3 THEN
+               'Cancel'
+       END AS [State],
+       [IV].[StoreRef],
+       [IV].[DelivererOrReceiverPartyRef] AS [PartyAlternateKey],
+       [IV].[CounterpartEntityText] AS [Customer],
+       [IV].[CounterpartStoreRef] AS [DestinationStoreRef],
+       [IV].[FiscalYearRef],
+       [IV].[CreationDate],
+       [IV].[Date],
+       [IV].[BranchRef],
+       [IV].[Creator],
+       [IV].[CounterpartEntityRef] AS [RecipientRef],
+       [IV].[CounterpartDLCode],
+       CAST([IV].[Version] AS BIGINT) AS [Version],
+       CAST(FORMAT([IV].[CreationDate], 'yyyyMMdd') AS INT) AS [CreationDateKey],
+       CAST(FORMAT([IV].[Date], 'yyyyMMdd') AS INT) AS [DateKey]
+FROM [LGS3].[InventoryVoucher] AS [IV]
+WHERE CAST([IV].[Version] AS BIGINT) &gt; ?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{E359D1FA-C5F8-4266-A0C3-03921D5908B8};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{39C9E0E1-261C-4A53-A5AB-28C7EDC58A55}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[KheiliSabz_sg3]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVoucherID]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryVoucherID]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVoucherID]"
+                      name="InventoryVoucherID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVouchernumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryVouchernumber]"
+                      length="50"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVouchernumber]"
+                      name="InventoryVouchernumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVoucherSpecificationRef]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryVoucherSpecificationRef]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[InventoryVoucherSpecificationRef]"
+                      name="InventoryVoucherSpecificationRef"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      length="6"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoreRef]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StoreRef]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoreRef]"
+                      name="StoreRef"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Customer]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Customer]"
+                      length="100"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Customer]"
+                      name="Customer"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[FiscalYearRef]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FiscalYearRef]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[FiscalYearRef]"
+                      name="FiscalYearRef"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreationDate]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationDate]"
+                      name="CreationDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchRef]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BranchRef]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchRef]"
+                      name="BranchRef"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Creator]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Creator]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Creator]"
+                      name="Creator"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CounterpartDLCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CounterpartDLCode]"
+                      length="64"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CounterpartDLCode]"
+                      name="CounterpartDLCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PartyAlternateKey]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PartyAlternateKey]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[PartyAlternateKey]"
+                      name="PartyAlternateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Version]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]"
+                      name="Version"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DestinationStoreRef]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DestinationStoreRef]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DestinationStoreRef]"
+                      name="DestinationStoreRef"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[RecipientRef]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RecipientRef]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[RecipientRef]"
+                      name="RecipientRef"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationDateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreationDateKey]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreationDateKey]"
+                      name="CreationDateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryVoucherID]"
+                      dataType="i8"
+                      name="InventoryVoucherID" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryVouchernumber]"
+                      dataType="wstr"
+                      length="50"
+                      name="InventoryVouchernumber" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InventoryVoucherSpecificationRef]"
+                      dataType="i8"
+                      name="InventoryVoucherSpecificationRef" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StoreRef]"
+                      dataType="i8"
+                      name="StoreRef" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Customer]"
+                      dataType="wstr"
+                      length="100"
+                      name="Customer" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[FiscalYearRef]"
+                      dataType="i8"
+                      name="FiscalYearRef" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreationDate]"
+                      dataType="dbTimeStamp"
+                      name="CreationDate" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BranchRef]"
+                      dataType="i8"
+                      name="BranchRef" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Creator]"
+                      dataType="i8"
+                      name="Creator" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CounterpartDLCode]"
+                      dataType="wstr"
+                      length="64"
+                      name="CounterpartDLCode" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PartyAlternateKey]"
+                      dataType="i8"
+                      name="PartyAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Version]"
+                      dataType="i8"
+                      name="Version" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DestinationStoreRef]"
+                      dataType="i8"
+                      name="DestinationStoreRef" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RecipientRef]"
+                      dataType="i8"
+                      name="RecipientRef" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreationDateKey]"
+                      dataType="i4"
+                      name="CreationDateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                      dataType="dbTimeStamp"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryVoucherID]"
+                      dataType="i8"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryVoucherID]"
+                      name="InventoryVoucherID" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryVouchernumber]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryVouchernumber]"
+                      name="InventoryVouchernumber" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryVoucherSpecificationRef]"
+                      dataType="i8"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InventoryVoucherSpecificationRef]"
+                      name="InventoryVoucherSpecificationRef" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StoreRef]"
+                      dataType="i8"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StoreRef]"
+                      name="StoreRef" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PartyAlternateKey]"
+                      dataType="i8"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PartyAlternateKey]"
+                      name="PartyAlternateKey" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Customer]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Customer]"
+                      name="Customer" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DestinationStoreRef]"
+                      dataType="i8"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DestinationStoreRef]"
+                      name="DestinationStoreRef" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FiscalYearRef]"
+                      dataType="i8"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[FiscalYearRef]"
+                      name="FiscalYearRef" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreationDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreationDate]"
+                      name="CreationDate" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BranchRef]"
+                      dataType="i8"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BranchRef]"
+                      name="BranchRef" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Creator]"
+                      dataType="i8"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Creator]"
+                      name="Creator" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RecipientRef]"
+                      dataType="i8"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RecipientRef]"
+                      name="RecipientRef" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CounterpartDLCode]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CounterpartDLCode]"
+                      name="CounterpartDLCode" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Version]"
+                      dataType="i8"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Version]"
+                      name="Version" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreationDateKey]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreationDateKey]"
+                      name="CreationDateKey" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      name="DateKey" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage inventoryVoucher from Rahkaran\Recipient"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Recipient"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CustomerKey],
+       [PartyAlternateKey]
+FROM [dbo].[DimCustomer]
+UNION ALL
+SELECT NULL,
+       NULL</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [CustomerKey],
+       [PartyAlternateKey]
+FROM [dbo].[DimCustomer]
+UNION ALL
+SELECT NULL,
+       NULL) [refTable]
+where [refTable].[PartyAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CustomerKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PartyAlternateKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[RecipientRef]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage inventoryVoucher from Rahkaran\Recipient.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage inventoryVoucher from Rahkaran\Recipient.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\Recipient.Inputs[Lookup Input].Columns[RecipientRef]"
+                      cachedDataType="i8"
+                      cachedName="RecipientRef"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[RecipientRef]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">PartyAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\Recipient.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\Recipient.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\Recipient.Outputs[Lookup Match Output].Columns[Recipient]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\Recipient.Outputs[Lookup Match Output].Columns[Recipient]"
+                      name="Recipient"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">CustomerKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\Recipient.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\Recipient.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\Recipient.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\Recipient.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\Recipient.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\Recipient.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\Recipient.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\Recipient.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage inventoryVoucher from Rahkaran\StoreKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="StoreKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [StoreKey],
+       [StoreAlternateKey]
+FROM [dbo].[DimStore]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [StoreKey],
+       [StoreAlternateKey]
+FROM [dbo].[DimStore]) [refTable]
+where [refTable].[StoreAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="StoreKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StoreAlternateKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoreRef]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Inputs[Lookup Input].Columns[StoreRef]"
+                      cachedDataType="i8"
+                      cachedName="StoreRef"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoreRef]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">StoreAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Outputs[Lookup Match Output].Columns[StoreKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Outputs[Lookup Match Output].Columns[StoreKey]"
+                      name="StoreKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">StoreKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage inventoryVoucher from Rahkaran\user"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="user"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [UserKey],
+       [RahkaranAlternateKey]
+FROM [dbo].[DimUser]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [UserKey],
+       [RahkaranAlternateKey]
+FROM [dbo].[DimUser]) [refTable]
+where [refTable].[RahkaranAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="UserKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RahkaranAlternateKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Creator]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage inventoryVoucher from Rahkaran\user.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage inventoryVoucher from Rahkaran\user.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\user.Inputs[Lookup Input].Columns[Creator]"
+                      cachedDataType="i8"
+                      cachedName="Creator"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output].Columns[Creator]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">RahkaranAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\user.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\user.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\user.Outputs[Lookup Match Output].Columns[UserKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\user.Outputs[Lookup Match Output].Columns[UserKey]"
+                      name="UserKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">UserKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\user.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\user.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\stage inventoryVoucher from Rahkaran\user.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\stage inventoryVoucher from Rahkaran\user.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\user.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\user.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage inventoryVoucher from Rahkaran\user.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage inventoryVoucher from Rahkaran\user.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\stage inventoryVoucher from Rahkaran.Paths[Lookup Match Output]"
+              endId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage inventoryVoucher from Rahkaran.Paths[Lookup Match Output1]"
+              endId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\stage inventoryVoucher from Rahkaran\DestinationStore.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage inventoryVoucher from Rahkaran.Paths[Lookup Match Output2]"
+              endId="Package\stage inventoryVoucher from Rahkaran\Customer.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage inventoryVoucher from Rahkaran.Paths[Lookup Match Output3]"
+              endId="Package\stage inventoryVoucher from Rahkaran\branch.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\stage inventoryVoucher from Rahkaran\Recipient.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage inventoryVoucher from Rahkaran.Paths[Lookup Match Output4]"
+              endId="Package\stage inventoryVoucher from Rahkaran\user.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\stage inventoryVoucher from Rahkaran\branch.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage inventoryVoucher from Rahkaran.Paths[Lookup Match Output5]"
+              endId="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\stage inventoryVoucher from Rahkaran\user.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage inventoryVoucher from Rahkaran.Paths[Lookup Match Output6]"
+              endId="Package\stage inventoryVoucher from Rahkaran\Recipient.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\stage inventoryVoucher from Rahkaran\Customer.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\stage inventoryVoucher from Rahkaran.Paths[OLE DB Source Output]"
+              endId="Package\stage inventoryVoucher from Rahkaran\StoreKey.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\stage inventoryVoucher from Rahkaran\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate stage table - FactInventoryVoucher"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b0f1f876-b0dc-45e2-800a-51b80eaf39fc}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate stage table - FactInventoryVoucher"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Stage].[Rahkaran_InventoryVoucher]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{BED24B66-681C-4B96-BDB2-880A4CE7F0DC}"
+      DTS:From="Package\truncate stage table - FactInventoryVoucher"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\stage inventoryVoucher from Rahkaran" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{EEBB95FB-4CF8-4EBD-BFFA-4967580FA607}"
+      DTS:From="Package\stage inventoryVoucher from Rahkaran"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\FactInventoryVocher - incremental load" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{AC9A4DA1-E778-45C8-A2B7-B1968449C121}"
+      DTS:From="Package\catch last version"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\stage inventoryVoucher from Rahkaran" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\catch last version"
+          TopLeft="72.5,10.5" />
+        <NodeLayout
+          Size="265,42"
+          Id="Package\FactInventoryVocher - incremental load"
+          TopLeft="301.5,209.5" />
+        <NodeLayout
+          Size="263,42"
+          Id="Package\stage inventoryVoucher from Rahkaran"
+          TopLeft="303.5,108.5" />
+        <NodeLayout
+          Size="287,42"
+          Id="Package\truncate stage table - FactInventoryVoucher"
+          TopLeft="354.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="498,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-20.5,61"
+              Start="0,0"
+              End="-20.5,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.3786848072562" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.3786848072562"
+                    Point2="0,36.3786848072562"
+                    Point3="-4,36.3786848072562" />
+                  <mssgle:LineSegment
+                    End="-16.5,36.3786848072562" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16.5,36.3786848072562"
+                    Point2="-20.5,36.3786848072562"
+                    Point3="-20.5,40.3786848072562" />
+                  <mssgle:LineSegment
+                    End="-20.5,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="434.5,150.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="153,52.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="239.5,56"
+              Start="0,0"
+              End="239.5,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.3968253968254" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.3968253968254"
+                    Point2="0,33.3968253968254"
+                    Point3="4,33.3968253968254" />
+                  <mssgle:LineSegment
+                    End="235.5,33.3968253968254" />
+                  <mssgle:CubicBezierSegment
+                    Point1="235.5,33.3968253968254"
+                    Point2="239.5,33.3968253968254"
+                    Point3="239.5,37.3968253968254" />
+                  <mssgle:LineSegment
+                    End="239.5,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\stage inventoryVoucher from Rahkaran">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\stage inventoryVoucher from Rahkaran\OLE DB Source"
+          TopLeft="38,5.5" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\stage inventoryVoucher from Rahkaran\StoreKey"
+          TopLeft="56,107.5" />
+        <NodeLayout
+          Size="99,42"
+          Id="Package\stage inventoryVoucher from Rahkaran\user"
+          TopLeft="67.0000000000001,719.5" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\stage inventoryVoucher from Rahkaran\Customer"
+          TopLeft="54.5000000000001,413.5" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification"
+          TopLeft="5.50000000000004,311.5" />
+        <NodeLayout
+          Size="122,42"
+          Id="Package\stage inventoryVoucher from Rahkaran\Recipient"
+          TopLeft="55.5000000000001,515.5" />
+        <NodeLayout
+          Size="111,42"
+          Id="Package\stage inventoryVoucher from Rahkaran\branch"
+          TopLeft="61.0000000000001,617.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\stage inventoryVoucher from Rahkaran\DestinationStore"
+          TopLeft="38,209.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination"
+          TopLeft="31.0000000000001,821.5" />
+        <EdgeLayout
+          Id="Package\stage inventoryVoucher from Rahkaran.Paths[OLE DB Source Output]"
+          TopLeft="116.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage inventoryVoucher from Rahkaran.Paths[Lookup Match Output6]"
+          TopLeft="116.5,455.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage inventoryVoucher from Rahkaran.Paths[Lookup Match Output5]"
+          TopLeft="116.5,761.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage inventoryVoucher from Rahkaran.Paths[Lookup Match Output4]"
+          TopLeft="116.5,659.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage inventoryVoucher from Rahkaran.Paths[Lookup Match Output3]"
+          TopLeft="116.5,557.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage inventoryVoucher from Rahkaran.Paths[Lookup Match Output2]"
+          TopLeft="116.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage inventoryVoucher from Rahkaran.Paths[Lookup Match Output1]"
+          TopLeft="116.5,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\stage inventoryVoucher from Rahkaran.Paths[Lookup Match Output]"
+          TopLeft="116.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage inventoryVoucher from Rahkaran\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage inventoryVoucher from Rahkaran\StoreKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage inventoryVoucher from Rahkaran\user">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage inventoryVoucher from Rahkaran\Customer">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage inventoryVoucher from Rahkaran\InventoryVoucherSpecification">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage inventoryVoucher from Rahkaran\Recipient">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage inventoryVoucher from Rahkaran\branch">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage inventoryVoucher from Rahkaran\DestinationStore">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage inventoryVoucher from Rahkaran\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

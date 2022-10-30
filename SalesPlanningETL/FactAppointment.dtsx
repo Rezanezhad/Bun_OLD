@@ -1,0 +1,484 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/29/2021 9:02:57 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="B2C017"
+  DTS:CreatorName="KHEILISABZ\f.teimouri"
+  DTS:DTSID="{94D12824-FF94-44B0-A318-B139502638B5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FactAppointment"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{3E2BDE34-CDAD-489D-8B0A-949DF340878B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\insert Appointment from CRM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1eb99a55-8432-4c56-a9fe-b36b593cd66b}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="insert Appointment from CRM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\insert Appointment from CRM\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[FactAppointment]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\insert Appointment from CRM\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActivityId]"
+                      cachedDataType="guid"
+                      cachedName="ActivityId"
+                      externalMetadataColumnId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActivityId]"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityId]" />
+                    <inputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[new_Opportunity]"
+                      cachedDataType="guid"
+                      cachedName="new_Opportunity"
+                      externalMetadataColumnId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_Opportunity]"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_Opportunity]" />
+                    <inputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[new_AppointmentResult]"
+                      cachedDataType="nText"
+                      cachedName="new_AppointmentResult"
+                      externalMetadataColumnId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_AppointmentResult]"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_AppointmentResult]" />
+                    <inputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[new_NextAction]"
+                      cachedDataType="nText"
+                      cachedName="new_NextAction"
+                      externalMetadataColumnId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_NextAction]"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_NextAction]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActivityId]"
+                      dataType="guid"
+                      name="ActivityId" />
+                    <externalMetadataColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_Opportunity]"
+                      dataType="guid"
+                      name="new_Opportunity" />
+                    <externalMetadataColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_AppointmentResult]"
+                      dataType="nText"
+                      name="new_AppointmentResult" />
+                    <externalMetadataColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_NextAction]"
+                      dataType="nText"
+                      name="new_NextAction" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\insert Appointment from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\insert Appointment from CRM\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT app.ActivityId,
+       app.new_Opportunity,
+       app.new_AppointmentResult,
+       app.new_NextAction
+FROM dbo.AppointmentBase app</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{DE2868D7-CE62-4C49-8C99-7DD67549C689};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\insert Appointment from CRM\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{6BCB0132-5C8A-4A0A-9B5A-B482DE1D05B0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SabzCRM_MSCRM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActivityId]"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityId]"
+                      name="ActivityId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_Opportunity]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_Opportunity]"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_Opportunity]"
+                      name="new_Opportunity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_AppointmentResult]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_AppointmentResult]"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_AppointmentResult]"
+                      name="new_AppointmentResult"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_NextAction]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_NextAction]"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_NextAction]"
+                      name="new_NextAction"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActivityId]"
+                      dataType="guid"
+                      name="ActivityId" />
+                    <externalMetadataColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_Opportunity]"
+                      dataType="guid"
+                      name="new_Opportunity" />
+                    <externalMetadataColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_AppointmentResult]"
+                      dataType="nText"
+                      name="new_AppointmentResult" />
+                    <externalMetadataColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_NextAction]"
+                      dataType="nText"
+                      name="new_NextAction" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActivityId]"
+                      dataType="guid"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActivityId]"
+                      name="ActivityId" />
+                    <outputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_Opportunity]"
+                      dataType="guid"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_Opportunity]"
+                      name="new_Opportunity" />
+                    <outputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_AppointmentResult]"
+                      dataType="nText"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_AppointmentResult]"
+                      name="new_AppointmentResult" />
+                    <outputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_NextAction]"
+                      dataType="nText"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_NextAction]"
+                      name="new_NextAction" />
+                    <outputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\insert Appointment from CRM.Paths[OLE DB Source Output]"
+              endId="Package\insert Appointment from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\insert Appointment from CRM\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate FactAppointment"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2305711a-e1b9-4201-9fb8-6beed4bc31a0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate FactAppointment"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="truncate table [FactAppointment]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{dade7254-2357-4ce1-b076-93b5f72235c4}"
+      DTS:From="Package\truncate FactAppointment"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\insert Appointment from CRM" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="224,42"
+          Id="Package\insert Appointment from CRM"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\truncate FactAppointment"
+          TopLeft="15,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="117.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\insert Appointment from CRM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\insert Appointment from CRM\OLE DB Destination"
+          TopLeft="5.50000000000001,107.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\insert Appointment from CRM\OLE DB Source"
+          TopLeft="15.5,5.5" />
+        <EdgeLayout
+          Id="Package\insert Appointment from CRM.Paths[OLE DB Source Output]"
+          TopLeft="94,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\insert Appointment from CRM\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\insert Appointment from CRM\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

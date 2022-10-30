@@ -1,0 +1,841 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/11/2021 12:42:12 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-3DLAB05"
+  DTS:CreatorName="DESKTOP-3DLAB05\strider"
+  DTS:DTSID="{C76EE5D1-2E1F-4EC1-8B78-99AF3450AAC8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FactOpportunity"
+  DTS:PackageType="5"
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{1977B57C-5608-4218-B0AF-9337504D55AF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3EFE1F67-7219-4D72-9888-21FB3B4C98EB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastVersion">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\catch last version"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{34813463-918E-4C84-959E-CF2615E23960}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="catch last version"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="exec [ETL].[FactOpportunity_CatchLastVersion]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::LastVersion" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FactOpportunity_Merge"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B6FB9858-4C12-4E6B-912B-D440D03DFB62}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FactOpportunity_Merge"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="exec [ETL].[FactOpportunity_Merge] ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Project::Reload"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\stage opportunity from CRM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{33CE8D48-C28B-4A3E-97C8-3DFF7DEEE4C3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="stage opportunity from CRM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\stage opportunity from CRM\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage].[CRM_Opportunity]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage opportunity from CRM\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Version]"
+                      cachedDataType="i8"
+                      cachedName="Version"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Version]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]" />
+                    <inputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OpportunityId]"
+                      cachedDataType="guid"
+                      cachedName="OpportunityId"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OpportunityId]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[OpportunityId]" />
+                    <inputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedOn"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]" />
+                    <inputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bmsd_RahkaranCustomerId]"
+                      cachedDataType="guid"
+                      cachedName="bmsd_RahkaranCustomerId"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_RahkaranCustomerId]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_RahkaranCustomerId]" />
+                    <inputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bmsd_SalesOfficeId]"
+                      cachedDataType="guid"
+                      cachedName="bmsd_SalesOfficeId"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_SalesOfficeId]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_SalesOfficeId]" />
+                    <inputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerId]"
+                      cachedDataType="guid"
+                      cachedName="CustomerId"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerId]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerId]" />
+                    <inputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StatusCode]"
+                      cachedDataType="i4"
+                      cachedName="StatusCode"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StatusCode]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[StatusCode]" />
+                    <inputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UserAlternateKey]"
+                      cachedDataType="guid"
+                      cachedName="UserAlternateKey"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserAlternateKey]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserAlternateKey]" />
+                    <inputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bmsd_AddressId]"
+                      cachedDataType="guid"
+                      cachedName="bmsd_AddressId"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_AddressId]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_AddressId]" />
+                    <inputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerIdType]"
+                      cachedDataType="i4"
+                      cachedName="CustomerIdType"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerIdType]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerIdType]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Version]"
+                      dataType="i8"
+                      name="Version" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OpportunityId]"
+                      dataType="guid"
+                      name="OpportunityId" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="300"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      name="CreatedOn" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_RahkaranCustomerId]"
+                      dataType="guid"
+                      name="bmsd_RahkaranCustomerId" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_SalesOfficeId]"
+                      dataType="guid"
+                      name="bmsd_SalesOfficeId" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerId]"
+                      dataType="guid"
+                      name="CustomerId" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StatusCode]"
+                      dataType="i4"
+                      name="StatusCode" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UserAlternateKey]"
+                      dataType="guid"
+                      name="UserAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bmsd_AddressId]"
+                      dataType="guid"
+                      name="bmsd_AddressId" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerIdType]"
+                      dataType="i4"
+                      name="CustomerIdType" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage opportunity from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage opportunity from CRM\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [o].[Name],
+       [o].[CreatedOn],
+       [o].[CreatedBy] AS [UserAlternateKey],
+       [o].[OpportunityId],
+       [o].[bmsd_RahkaranCustomerId],
+       [o].[bmsd_SalesOfficeId],
+       [o].[CustomerId],
+       [o].[CustomerIdType],
+       [o].[StatusCode],
+       [o].[bmsd_AddressId],
+       CAST([o].[VersionNumber] AS BIGINT) AS [Version]
+FROM [dbo].[OpportunityBase] AS [o]
+WHERE CAST([o].[VersionNumber] AS BIGINT) &gt; ?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{3EFE1F67-7219-4D72-9888-21FB3B4C98EB};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage opportunity from CRM\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{6BCB0132-5C8A-4A0A-9B5A-B482DE1D05B0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SabzCRM_MSCRM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Version]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]"
+                      name="Version"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[OpportunityId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OpportunityId]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[OpportunityId]"
+                      name="OpportunityId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      length="300"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      name="CreatedOn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_RahkaranCustomerId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_RahkaranCustomerId]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_RahkaranCustomerId]"
+                      name="bmsd_RahkaranCustomerId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_SalesOfficeId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_SalesOfficeId]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_SalesOfficeId]"
+                      name="bmsd_SalesOfficeId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerId]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerId]"
+                      name="CustomerId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[StatusCode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StatusCode]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[StatusCode]"
+                      name="StatusCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserAlternateKey]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserAlternateKey]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[UserAlternateKey]"
+                      name="UserAlternateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_AddressId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_AddressId]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[bmsd_AddressId]"
+                      name="bmsd_AddressId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerIdType]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerIdType]"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CustomerIdType]"
+                      name="CustomerIdType"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Version]"
+                      dataType="i8"
+                      name="Version" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OpportunityId]"
+                      dataType="guid"
+                      name="OpportunityId" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="300"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      name="CreatedOn" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_RahkaranCustomerId]"
+                      dataType="guid"
+                      name="bmsd_RahkaranCustomerId" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_SalesOfficeId]"
+                      dataType="guid"
+                      name="bmsd_SalesOfficeId" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerId]"
+                      dataType="guid"
+                      name="CustomerId" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StatusCode]"
+                      dataType="i4"
+                      name="StatusCode" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UserAlternateKey]"
+                      dataType="guid"
+                      name="UserAlternateKey" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bmsd_AddressId]"
+                      dataType="guid"
+                      name="bmsd_AddressId" />
+                    <externalMetadataColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CustomerIdType]"
+                      dataType="i4"
+                      name="CustomerIdType" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      name="CreatedOn" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserAlternateKey]"
+                      dataType="guid"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UserAlternateKey]"
+                      name="UserAlternateKey" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OpportunityId]"
+                      dataType="guid"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OpportunityId]"
+                      name="OpportunityId" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_RahkaranCustomerId]"
+                      dataType="guid"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_RahkaranCustomerId]"
+                      name="bmsd_RahkaranCustomerId" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_SalesOfficeId]"
+                      dataType="guid"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_SalesOfficeId]"
+                      name="bmsd_SalesOfficeId" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerId]"
+                      dataType="guid"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerId]"
+                      name="CustomerId" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerIdType]"
+                      dataType="i4"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CustomerIdType]"
+                      name="CustomerIdType" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StatusCode]"
+                      dataType="i4"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StatusCode]"
+                      name="StatusCode" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_AddressId]"
+                      dataType="guid"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bmsd_AddressId]"
+                      name="bmsd_AddressId" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Version]"
+                      dataType="i8"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Version]"
+                      name="Version" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\stage opportunity from CRM.Paths[OLE DB Source Output]"
+              endId="Package\stage opportunity from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\stage opportunity from CRM\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate stage table - opportunity"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7804146E-3838-4C42-92F7-97714E8849CA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate stage table - opportunity"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Stage].[CRM_Opportunity]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{DFC163FA-94E9-429E-91B9-8792DB8199AF}"
+      DTS:From="Package\truncate stage table - opportunity"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\stage opportunity from CRM" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{DD2D4419-ACF9-4559-8AD5-6B9F155A0773}"
+      DTS:From="Package\stage opportunity from CRM"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\FactOpportunity_Merge" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{1537529C-C41A-420E-89EE-E446C4AFD2FA}"
+      DTS:From="Package\catch last version"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\stage opportunity from CRM" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\catch last version"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\FactOpportunity_Merge"
+          TopLeft="251.5,209.5" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\stage opportunity from CRM"
+          TopLeft="240,107.5" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\truncate stage table - opportunity"
+          TopLeft="227,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="346,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.0000000000001,60"
+              Start="0,0"
+              End="34.0000000000001,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7303370786517" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7303370786517"
+                    Point2="0,35.7303370786517"
+                    Point3="4,35.7303370786517" />
+                  <mssgle:LineSegment
+                    End="30.0000000000001,35.7303370786517" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.0000000000001,35.7303370786517"
+                    Point2="34.0000000000001,35.7303370786517"
+                    Point3="34.0000000000001,39.7303370786517" />
+                  <mssgle:LineSegment
+                    End="34.0000000000001,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="346,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="86,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="226,60"
+              Start="0,0"
+              End="226,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7303370786517" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7303370786517"
+                    Point2="0,35.7303370786517"
+                    Point3="4,35.7303370786517" />
+                  <mssgle:LineSegment
+                    End="222,35.7303370786517" />
+                  <mssgle:CubicBezierSegment
+                    Point1="222,35.7303370786517"
+                    Point2="226,35.7303370786517"
+                    Point3="226,39.7303370786517" />
+                  <mssgle:LineSegment
+                    End="226,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\stage opportunity from CRM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\stage opportunity from CRM\OLE DB Source"
+          TopLeft="21,5.5" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\stage opportunity from CRM\OLE DB Destination"
+          TopLeft="13,96" />
+        <EdgeLayout
+          Id="Package\stage opportunity from CRM.Paths[OLE DB Source Output]"
+          TopLeft="97.25,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.5"
+              Start="0,0"
+              End="0,41">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage opportunity from CRM\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage opportunity from CRM\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

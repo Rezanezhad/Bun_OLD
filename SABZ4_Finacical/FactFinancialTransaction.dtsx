@@ -1,0 +1,1081 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/1/2022 9:45:58 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="PMO038"
+  DTS:CreatorName="KHEILISABZ\m.peyrovian"
+  DTS:DTSID="{1ECE6C45-2D7F-45FD-A3EB-B76D1B7DB85A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{193BE7A6-86E4-4914-9ACF-585F3230BF26}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B6F67AA0-7528-4AE7-A898-571E1832E488}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D1118501-7631-4FD0-AC1F-926DD50BF8E6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="RowCount1">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{422D4EF8-E6CA-47F1-B997-0E19C17F9269}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Extract Data From Financial Transaction Data into FactFinancialTrasaction"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Add AccountMappingKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [FIN].[DimAccountMapping]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [FIN].[DimAccountMapping]) [refTable]
+where [refTable].[AccountMappingAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="AccountMappingKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AccountMappingAlternateKey" dataType="DT_WSTR" length="101" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AccountCode" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AccountKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IsPLAccount" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountCode]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Connections[OleDbConnection]"
+                  connectionManagerID="{938FC08E-73EB-4919-B53E-85302529450D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[172.16.50.56.SABZDW 1]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Inputs[Lookup Input].Columns[AccountCode]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="AccountCode"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">AccountMappingAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Outputs[Lookup Match Output].Columns[AccountMappingKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Outputs[Lookup Match Output].Columns[AccountMappingKey]"
+                      name="AccountMappingKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">AccountMappingKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column.Outputs[Derived Column Output].Columns[SourceName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column.Outputs[Derived Column Output].Columns[SourceName]"
+                      name="SourceName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)"Rahkaran"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)"Rahkaran"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column 1.Inputs[Derived Column Input].Columns[AccountMappingAlternateKey]"
+                      cachedDataType="wstr"
+                      cachedLength="64"
+                      cachedName="AccountCode"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountCode]"
+                      name="AccountMappingAlternateKey"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,50)"Rahkaran" + (DT_WSTR,50)1</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,50)"Rahkaran" + (DT_WSTR,50)1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column 1.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup 1"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [Share].[DimDate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [Share].[DimDate]) [refTable]
+where [refTable].[FullDateAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FullDateAlternateKey" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CDateTXT1" dataType="DT_STR" length="8" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CDateTXT2" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CMonth" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CMonthName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CDayOFWeek" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CDayOFWeekName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CDayOFYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CISHoliday" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CHolidayDesc" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SDate" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SDateTXT1" dataType="DT_WSTR" length="8" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SDateTXT2" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SYear" dataType="DT_STR" length="4" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SMonth" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SMonthName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SDayOFMonth" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SDayOFMonthTXT" dataType="DT_WSTR" length="2" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SWeekOfYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SWeekOfMonth" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SDayOfWeek" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SDayOfWeekName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SDayOfYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SSeassonNumber" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SSeassonName" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SISHoliday" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SISHolidayTXT" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SHolidayDesc" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CMonthNumberFiscal" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CQuarterNumberFiscal" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CQuarterNameFiscal" dataType="DT_WSTR" length="2" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CSemesterNumberFiscal" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CSemesterNameFiscal" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CYearFiscal" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[FullDateAlternateKey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Connections[OleDbConnection]"
+                  connectionManagerID="{938FC08E-73EB-4919-B53E-85302529450D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[172.16.50.56.SABZDW 1]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Inputs[Lookup Input].Columns[FullDateAlternateKey]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FullDateAlternateKey"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[FullDateAlternateKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">FullDateAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Outputs[Lookup Match Output].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Outputs[Lookup Match Output].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">DateKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT top(1000) * FROM (SELECT  cast(v.[Date] as datetime) AS date, ag.Code as General_Code ,ag.Title AS General_Title,
+  g.Code AS Group_Code, g.Title AS Group_Title,
+  s.Code AS Ledger_Code,s.Title AS Ledger_Title,
+  isnull(cast( 
+	b.BranchID as int) ,10) as Organization_Id,
+
+  b.Title as Organization_Title,
+  v.VoucherTypeRef, v.Number,vi.VoucherItemID,VI.[Description],SUM(vi.Credit) AS credit , SUM(vi.Debit) AS debit,DL4.Title AS 'DL4',DL4.Code as 'dl4cod',
+  DL5.Title AS 'DL5',DL5.Code as'dl5cod' ,DL6.Title AS 'DL6',dl6.Code AS 'dl6cod',dl4.DLTypeRef  AS 'dltyperef4',dl5.DLTypeRef AS 'dltyperef5',dl6.DLTypeRef AS 'dltyperef6'
+
+  FROM FIN3.VoucherItem vi
+  LEFT JOIN FIN3.Voucher v ON vi.VoucherRef=v.VoucherID
+  LEFT JOIN FIN3.SL s ON vi.SLRef=s.SLID
+  LEFT JOIN FIN3.GL g ON vi.GLRef=g.GLID
+  LEFT JOIN GNR3.Branch b ON vi.BranchRef=b.BranchID
+  --LEFT JOIN DimDate dd ON CAST(v.Date AS DATE)=CAST(dd.Date AS DATE)
+  LEFT JOIN FIN3.AccountGroup ag ON vi.AccountGroupRef=ag.AccountGroupID
+  FULL JOIN (SELECT DISTINCT VI1.VoucherItemID AS MM,D.Title,d.DLTypeRef,D.Code
+
+    FROM FIN3.VoucherItem vi1 LEFT JOIN FIN3.DL d ON vi1.DLLevel4=d.Code) AS DL4 ON DL4.MM=VI.VoucherItemID
+ 
+  FULL JOIN (SELECT DISTINCT VI2.VoucherItemID AS MM1 ,D1.Title,d1.DLTypeRef,D1.Code
+
+    FROM FIN3.VoucherItem vi2 LEFT JOIN FIN3.DL d1 ON vi2.DLLevel5=d1.Code) AS DL5 ON DL5.MM1=VI.VoucherItemID
+
+  FULL JOIN (SELECT DISTINCT VI3.VoucherItemID AS MM2 ,D2.Title,d2.Code,d2.DLTypeRef
+
+    FROM FIN3.VoucherItem vi3 LEFT JOIN FIN3.DL d2 ON vi3.DLLevel6=d2.Code) AS DL6 ON DL6.MM2=VI.VoucherItemID
+
+
+
+
+  WHERE  v.State &lt;&gt; 2
+  --AND s.Code IN (305001, 305008, 402001, 402002, 402003, 205010, 205011, 806003, 305003, 305009, 806001, 806002, 806009, 109011)
+  --AND LEFT(dd.PersianDateKey,4)&gt;=1399
+
+  GROUP BY v.Date ,s.Code,s.Title,dl4.DLTypeRef,dl5.DLTypeRef,dl6.DLTypeRef,dl6.Code,g.Code ,b.BranchID,b.Title,g.Title,ag.Code,ag.Title,v.VoucherTypeRef,v.Number,vi.VoucherItemID,VI.[Description],DL4.Title,DL4.Code,DL5.Title,DL5.Code,DL6.Title,DL6.Code) AS sff</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{E70B014E-CDA8-4071-AF8A-D44FB21F9D49}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[172.16.50.88.KheiliSabz_sg3.ETL_SSIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[credit]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[credit]"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[credit]"
+                      name="credit"
+                      precision="38"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[debit]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[debit]"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[debit]"
+                      name="debit"
+                      precision="38"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[FullDateAlternateKey]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date]"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[FullDateAlternateKey]"
+                      name="FullDateAlternateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[BussinesAlternateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Organization_Id]"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[BussinesAlternateKey]"
+                      name="BussinesAlternateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Ledger_Code]"
+                      length="64"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].Columns[AccountCode]"
+                      name="AccountCode"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VoucherTypeRef]"
+                      dataType="i8"
+                      name="VoucherTypeRef" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Number]"
+                      dataType="i4"
+                      name="Number" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[VoucherItemID]"
+                      dataType="i8"
+                      name="VoucherItemID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="512"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[credit]"
+                      dataType="numeric"
+                      name="credit"
+                      precision="38"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[debit]"
+                      dataType="numeric"
+                      name="debit"
+                      precision="38"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DL4]"
+                      dataType="wstr"
+                      length="512"
+                      name="DL4" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dl4cod]"
+                      dataType="wstr"
+                      length="64"
+                      name="dl4cod" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DL5]"
+                      dataType="wstr"
+                      length="512"
+                      name="DL5" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dl5cod]"
+                      dataType="wstr"
+                      length="64"
+                      name="dl5cod" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DL6]"
+                      dataType="wstr"
+                      length="512"
+                      name="DL6" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dl6cod]"
+                      dataType="wstr"
+                      length="64"
+                      name="dl6cod" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dltyperef4]"
+                      dataType="i8"
+                      name="dltyperef4" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dltyperef5]"
+                      dataType="i8"
+                      name="dltyperef5" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[dltyperef6]"
+                      dataType="i8"
+                      name="dltyperef6" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[date]"
+                      dataType="dbTimeStamp"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Organization_Id]"
+                      dataType="i4"
+                      name="Organization_Id" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Organization_Title]"
+                      dataType="wstr"
+                      length="128"
+                      name="Organization_Title" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[General_Code]"
+                      dataType="wstr"
+                      length="64"
+                      name="General_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[General_Title]"
+                      dataType="wstr"
+                      length="128"
+                      name="General_Title" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Group_Code]"
+                      dataType="wstr"
+                      length="64"
+                      name="Group_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Group_Title]"
+                      dataType="wstr"
+                      length="128"
+                      name="Group_Title" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Ledger_Code]"
+                      dataType="wstr"
+                      length="64"
+                      name="Ledger_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Ledger_Title]"
+                      dataType="wstr"
+                      length="128"
+                      name="Ledger_Title" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Ledger_Code]"
+                      dataType="wstr"
+                      length="64"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Ledger_Code]"
+                      name="Ledger_Code" />
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[credit]"
+                      dataType="numeric"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[credit]"
+                      name="credit"
+                      precision="38"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[debit]"
+                      dataType="numeric"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[debit]"
+                      name="debit"
+                      precision="38"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Organization_Id]"
+                      dataType="i4"
+                      lineageId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Organization_Id]"
+                      name="Organization_Id" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction.Paths[Derived Column Output]"
+              endId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column 1.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction.Paths[Derived Column Output1]"
+              endId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction.Paths[Lookup Match Output]"
+              endId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction.Paths[OLE DB Source Output]"
+              endId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="426,42"
+          Id="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction"
+          TopLeft="343,198" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="154,42"
+          Id="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column"
+          TopLeft="343,188" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Derived Column 1"
+          TopLeft="329,292" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey"
+          TopLeft="358,394" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source"
+          TopLeft="344,67" />
+        <EdgeLayout
+          Id="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction.Paths[OLE DB Source Output]"
+          TopLeft="419.5,109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,79"
+              Start="0,0"
+              End="0,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction.Paths[Derived Column Output1]"
+          TopLeft="410.5,334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="45,60"
+              Start="0,0"
+              End="45,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="41,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41,30"
+                    Point2="45,30"
+                    Point3="45,34" />
+                  <mssgle:LineSegment
+                    End="45,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction.Paths[Derived Column Output]"
+          TopLeft="420,230">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.5,62"
+              Start="0,0"
+              End="-9.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="-4,31" />
+                  <mssgle:LineSegment
+                    End="-5.5,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.5,31"
+                    Point2="-9.5,31"
+                    Point3="-9.5,35" />
+                  <mssgle:LineSegment
+                    End="-9.5,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="122,42"
+          Id="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1"
+          TopLeft="394,528" />
+        <EdgeLayout
+          Id="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction.Paths[Lookup Match Output]"
+          TopLeft="455.25,436">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,92"
+              Start="0,0"
+              End="0,84.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,84.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,36.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Add AccountMappingKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[FIN].[DimAccountMapping]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Data From Financial Transaction Data into FactFinancialTrasaction\Lookup 1">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[Share].[DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

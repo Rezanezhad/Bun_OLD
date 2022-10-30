@@ -1,0 +1,288 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="892474c0-0dfd-42bf-af0e-d2f8731589de" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Measure Category</ID>
+  <Name>Measure Category</Name>
+  <CreatedTimestamp>0001-01-01T05:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T05:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2269" scrolltop="-6840" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="10186" y="16828" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="DimMeasureCategory" left="20" top="0" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="5609" height="3149" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000e91500004d0c0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="gen_DimMeasureCategory" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-2269</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-6840</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="235">
+            <Shape Id="Measure Category Key" Expanded="true">
+              <Attributes>
+                <Attribute Id="Measure Category Key" />
+                <Attribute Id="Measure Category Name Caption" />
+                <Attribute Id="Measure Name Caption" />
+                <Attribute Id="Measure Sub Category Name Caption" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Measure Name" Expanded="false">
+              <Attributes>
+                <Attribute Id="Measure Name" />
+              </Attributes>
+              <Position x="318" y="20" />
+            </Shape>
+            <Shape Id="Measure Sub Category Name" Expanded="false">
+              <Attributes>
+                <Attribute Id="Measure Sub Category Name" />
+              </Attributes>
+              <Position x="318" y="68" />
+            </Shape>
+            <Shape Id="Measure Category Name" Expanded="false">
+              <Attributes>
+                <Attribute Id="Measure Category Name" />
+              </Attributes>
+              <Position x="318" y="116" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T05:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="7452d103-ecfa-4031-a257-234b546aebea">
+    <DataSourceViewID>BunDW</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="d788d7ec-a496-4e12-b612-fa2e5fc128d2">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1065</Language>
+  <Attributes>
+    <Attribute dwd:design-time-name="e8b6d22f-ca12-4152-beab-08c6730c3269">
+      <ID>Measure Category Key</ID>
+      <Name>Measure Category Key</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3311d0e2-2f5b-4da0-bdc8-248a662ac7d2">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f378eb01-60dc-4e02-a108-99ce1b0b85aa">
+            <TableID>gen_DimMeasureCategory</TableID>
+            <ColumnID>MeasureCategoryKey</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="3f933872-f7b1-42d2-ab65-d3295f4ffee1">
+          <AttributeID>Measure Category Name</AttributeID>
+          <Name>Measure Category Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7a4179af-a53b-46d5-9a23-28df67fbabdb">
+          <AttributeID>Measure Category Name Caption</AttributeID>
+          <Name>Measure Category Name Caption</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a7f7165a-5e2b-4193-a97a-2e8a4a2846fc">
+          <AttributeID>Measure Sub Category Name</AttributeID>
+          <Name>Measure Sub Category Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c17ff200-29f7-4514-8e7b-49635a2255a9">
+          <AttributeID>Measure Sub Category Name Caption</AttributeID>
+          <Name>Measure Sub Category Name Caption</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f23d9fca-585c-4438-b5be-9b05b9cacd42">
+          <AttributeID>Measure Name</AttributeID>
+          <Name>Measure Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f4dcd548-ac0e-43ed-a663-0672428f0994">
+          <AttributeID>Measure Name Caption</AttributeID>
+          <Name>Measure Name Caption</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7e68870b-544e-4adc-9973-69553da4172d">
+      <ID>Measure Category Name</ID>
+      <Name>Measure Category Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f9c8ebe2-74eb-480a-b4a5-fdb610ce0e4d">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="765b3d17-e440-4ec3-b911-43be5b5639aa">
+            <TableID>gen_DimMeasureCategory</TableID>
+            <ColumnID>MeasureCategoryName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <DefaultMember></DefaultMember>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7fb2b520-8e23-42f3-bf90-990094b50522">
+      <ID>Measure Category Name Caption</ID>
+      <Name>Measure Category Name Caption</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="adc8f62c-12b7-4025-a868-dbd861a91efe">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="88c365a2-560a-4725-baf8-4a8bc4ec0662">
+            <TableID>gen_DimMeasureCategory</TableID>
+            <ColumnID>MeasureCategoryNameCaption</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="eb85afcf-2099-40d8-b345-6b8c91d5b537">
+      <ID>Measure Sub Category Name</ID>
+      <Name>Measure Sub Category Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1f968245-180c-42d0-b714-9925e7ccdff0">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c6cb23f1-dff1-4f12-aa25-911257235b22">
+            <TableID>gen_DimMeasureCategory</TableID>
+            <ColumnID>MeasureSubCategoryName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3161c2ea-32bf-41aa-a696-442bfd1c95bf">
+      <ID>Measure Sub Category Name Caption</ID>
+      <Name>Measure Sub Category Name Caption</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6eec0125-27b7-4a39-8e1c-c9d92baf32f4">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="73a1b031-0726-40e3-be8d-74ac2c0a2d95">
+            <TableID>gen_DimMeasureCategory</TableID>
+            <ColumnID>MeasureSubCategoryNameCaption</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="bcaec9dc-76d7-4078-ad6f-92250f25cb1e">
+      <ID>Measure Name</ID>
+      <Name>Measure Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a360c630-25bb-4a38-b2af-36e47e902a02">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1e476837-69c2-4b19-a6b0-59b85d187461">
+            <TableID>gen_DimMeasureCategory</TableID>
+            <ColumnID>MeasureName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <DefaultMember>[Measure Category].[Measure Name].[All]</DefaultMember>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="41be0d66-45b2-4b45-8393-ec308426a3ce">
+      <ID>Measure Name Caption</ID>
+      <Name>Measure Name Caption</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0b0ecc75-1d2b-401b-b023-c452b36a4a07">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b8578cf8-f455-4609-a40a-0bfaf95b7106">
+            <TableID>gen_DimMeasureCategory</TableID>
+            <ColumnID>MeasureName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="690de296-57fe-44a9-a634-c625c2a177d9">
+      <ID>Hierarchy</ID>
+      <Name>Measure Heirarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="851f53c2-2462-481a-a851-e9651d789c53">
+          <ID>Measure Category Name</ID>
+          <Name>Measure Category Name</Name>
+          <SourceAttributeID>Measure Category Name</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="e0d1ada4-ab1c-4987-8d0d-539d10e5fecc">
+          <ID>Measure Sub Category Name</ID>
+          <Name>Measure Sub Category Name</Name>
+          <SourceAttributeID>Measure Sub Category Name</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="7c89de78-0308-4f70-b680-768ed84308a7">
+          <ID>Measure Name</ID>
+          <Name>Measure Name</Name>
+          <SourceAttributeID>Measure Name</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

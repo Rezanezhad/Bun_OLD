@@ -1,0 +1,1973 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/16/2020 9:57:17 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="B2C017"
+  DTS:CreatorName="KHEILISABZ\f.teimouri"
+  DTS:DTSID="{5B916979-BA8B-4D65-82A0-F1C9EF03D64F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Dim5DigitCode"
+  DTS:PackageType="5"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{1E6FBDAD-FFB0-4B1E-B4B4-99D2BFB65273}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\5DigitSCD"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F159B5BE-964A-44EF-AD27-984561702134}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="5DigitSCD"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="Exec [5DigitSCD]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Staging 5Digit"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2CE42D7E-247F-4584-AB21-79DB2F4536C3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Staging 5Digit"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Staging 5Digit\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage].[KS_5DigitCode]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Staging 5Digit\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BookName]"
+                      cachedDataType="wstr"
+                      cachedLength="131"
+                      cachedName="BookName"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BookName]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[BookName]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[new_ProductCode]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="new_ProductCode"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_ProductCode]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_ProductCode]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MainGroup]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="MainGroup"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MainGroup]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[MainGroup]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[grade]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="grade"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[grade]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[grade]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[subgrade]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="subgrade"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[subgrade]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[subgrade]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Field]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Field"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Field]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Field]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Lesson]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Lesson"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Lesson]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Lesson]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SubLesson]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="SubLesson"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubLesson]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubLesson]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BookType]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="BookType"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BookType]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[BookType]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[group_manager]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="group_manager"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[group_manager]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[group_manager]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AzmoonName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="AzmoonName"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AzmoonName]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[AzmoonName]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AzmoonDate]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="AzmoonDate"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AzmoonDate]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[AzmoonDate]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Cover]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Cover"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cover]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cover]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CoverName]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="CoverName"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverName]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoverName]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Size]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Size"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Size]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Size]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Weight]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Weight"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Weight]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Weight]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[new_ViewOnSite]"
+                      cachedDataType="i4"
+                      cachedName="new_ViewOnSite"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_ViewOnSite]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_ViewOnSite]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[new_SiteBookName]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="new_SiteBookName"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_SiteBookName]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_SiteBookName]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Format]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Format"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Format]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Format]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[colornumber]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="colornumber"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[colornumber]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[colornumber]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IsPanthon]"
+                      cachedDataType="bool"
+                      cachedName="IsPanthon"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsPanthon]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsPanthon]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PanthonName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="PanthonName"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PanthonName]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[PanthonName]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Price]"
+                      cachedDataType="cy"
+                      cachedName="Price"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[paperno]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="paperno"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[paperno]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[paperno]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[designtype]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="designtype"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[designtype]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[designtype]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[producttypecontent]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="producttypecontent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[producttypecontent]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[producttypecontent]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Covertype]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Covertype"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Covertype]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Covertype]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Mojeld]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="Mojeld"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Mojeld]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Mojeld]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[material]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="material"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[material]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[material]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[papertype]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="papertype"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[papertype]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[papertype]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[contentpapertype]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="contentpapertype"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contentpapertype]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[contentpapertype]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[bindingtype]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="bindingtype"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bindingtype]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[bindingtype]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[producttype]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="producttype"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[producttype]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[producttype]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[audience]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="audience"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audience]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[audience]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StoryType]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="StoryType"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoryType]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoryType]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[genre]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="genre"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[genre]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[genre]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[productiontype]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="productiontype"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[productiontype]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[productiontype]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[gametechnicalcode]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="gametechnicalcode"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gametechnicalcode]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[gametechnicalcode]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[statecode]"
+                      cachedDataType="i4"
+                      cachedName="statecode"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statecode]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[statecode]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedOn"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BranchName]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="BranchName"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchName]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchName]" />
+                    <inputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MainBookType]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="MainBookType"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MainBookType]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[MainBookType]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BookName]"
+                      dataType="wstr"
+                      length="131"
+                      name="BookName" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_ProductCode]"
+                      dataType="wstr"
+                      length="100"
+                      name="new_ProductCode" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MainGroup]"
+                      dataType="wstr"
+                      length="100"
+                      name="MainGroup" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[grade]"
+                      dataType="wstr"
+                      length="100"
+                      name="grade" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[subgrade]"
+                      dataType="wstr"
+                      length="100"
+                      name="subgrade" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Field]"
+                      dataType="wstr"
+                      length="100"
+                      name="Field" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Lesson]"
+                      dataType="wstr"
+                      length="100"
+                      name="Lesson" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SubLesson]"
+                      dataType="wstr"
+                      length="100"
+                      name="SubLesson" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BookType]"
+                      dataType="wstr"
+                      length="100"
+                      name="BookType" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[group_manager]"
+                      dataType="wstr"
+                      length="4000"
+                      name="group_manager" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AzmoonName]"
+                      dataType="wstr"
+                      length="100"
+                      name="AzmoonName" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AzmoonDate]"
+                      dataType="wstr"
+                      length="100"
+                      name="AzmoonDate" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cover]"
+                      dataType="wstr"
+                      length="100"
+                      name="Cover" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverName]"
+                      dataType="wstr"
+                      length="4000"
+                      name="CoverName" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Size]"
+                      dataType="wstr"
+                      length="100"
+                      name="Size" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Weight]"
+                      dataType="wstr"
+                      length="100"
+                      name="Weight" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_ViewOnSite]"
+                      dataType="i4"
+                      name="new_ViewOnSite" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[new_SiteBookName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="new_SiteBookName" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Format]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Format" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[colornumber]"
+                      dataType="wstr"
+                      length="4000"
+                      name="colornumber" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IsPanthon]"
+                      dataType="bool"
+                      name="IsPanthon" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PanthonName]"
+                      dataType="wstr"
+                      length="100"
+                      name="PanthonName" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      dataType="cy"
+                      name="Price" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[paperno]"
+                      dataType="wstr"
+                      length="4000"
+                      name="paperno" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[designtype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="designtype" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[producttypecontent]"
+                      dataType="wstr"
+                      length="4000"
+                      name="producttypecontent" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Covertype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Covertype" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Mojeld]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Mojeld" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[material]"
+                      dataType="wstr"
+                      length="4000"
+                      name="material" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[papertype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="papertype" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contentpapertype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="contentpapertype" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[bindingtype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="bindingtype" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[producttype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="producttype" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[audience]"
+                      dataType="wstr"
+                      length="4000"
+                      name="audience" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoryType]"
+                      dataType="wstr"
+                      length="100"
+                      name="StoryType" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="100"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[productiontype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="productiontype" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[gametechnicalcode]"
+                      dataType="wstr"
+                      length="100"
+                      name="gametechnicalcode" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      name="CreatedOn" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="BranchName" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MainBookType]"
+                      dataType="wstr"
+                      length="100"
+                      name="MainBookType" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Staging 5Digit\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Staging 5Digit\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Staging 5Digit\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Staging 5Digit\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT CG.new_name BookName,
+       CG.new_ProductCode,
+       GMG.new_name MainGroup,
+       new_GradeBase.new_name grade,
+       new_SubGradeBase.new_name subgrade,
+       new_FieldBase.new_name Field,
+       new_LessonBase.new_name Lesson,
+       new_BookNameBase.new_name SubLesson,
+       new_BranchName BranchName,
+       BT.new_MainClassification MainBookType,
+       BT.new_name BookType,
+       smp.Value group_manager,
+       new_azmoongroupBase.new_name AzmoonName,
+       new_azmoondateBase.new_name AzmoonDate,
+       new_CoverBase.new_name Cover,
+       smp3.Value CoverName,
+       new_SubstanceSIzeBase.new_name Size,
+       new_SubstanceWeightBase.new_name Weight,
+       CG.new_ViewOnSite,
+       CG.new_SiteBookName,
+       smp1.Value Format,
+       smp2.Value colornumber,
+       CG.new_ispanton IsPanthon,
+       new_PanthonCodeBase.new_name PanthonName,
+       --smp4.Value consumable,
+       CG.new_price Price,
+       smp5.Value paperno,
+       smp6.Value designtype,
+       smp12.Value producttypecontent,
+       smp7.Value Covertype,
+       smp8.Value Mojeld,
+       smp9.Value material,
+       smp10.Value papertype,
+       smp11.Value contentpapertype,
+       smp13.Value bindingtype,
+       smp14.Value producttype,
+       smp15.Value audience,
+       new_maintypeBase.new_name StoryType,
+       new_genreBase.new_name genre,
+       smp16.Value productiontype,
+       (
+           SELECT [i].[new_code]
+           FROM [dbo].[new_gametechnicalcodesBase] AS [i]
+           WHERE [i].[new_gametechnicalcodesId] = CG.[new_danimoontechcode]
+       ) AS [gametechnicalcode],
+       --new_gridBase.new_name Grid,
+       --new_ZinkTypeBase.new_name Zinkname,
+       --new_StateBase.new_name,
+       CG.statecode,
+       CG.CreatedOn
+FROM dbo.new_CodeGeneratorBase CG
+    JOIN new_Good_Main_GroupBase GMG
+        ON GMG.new_Good_Main_GroupId = CG.new_Good_Main_Group
+    LEFT JOIN new_GradeBase
+        ON new_GradeBase.new_GradeId = CG.new_Grade
+    LEFT JOIN new_SubGradeBase
+        ON new_SubGradeBase.new_SubGradeId = CG.new_SubGrade
+    LEFT JOIN new_LessonBase
+        ON new_LessonBase.new_LessonId = CG.new_Lesson
+    LEFT JOIN new_FieldBase
+        ON new_FieldBase.new_FieldId = CG.new_Field
+    LEFT JOIN dbo.new_BookTypeBase BT
+        ON BT.new_BookTypeId = CG.new_BookType
+    LEFT JOIN dbo.new__Codegenerator_BranchBase GBr
+        ON GBr.new_new_codegenerator = CG.new_CodeGeneratorId
+    LEFT JOIN dbo.new_BranchBase Br
+        ON Br.new_BranchId = GBr.new_new_branch
+    --LEFT JOIN dbo.new_Branch_BooktypeBase
+    --    ON new_Branch_BooktypeBase.new_new_booktype = new_BookTypeBase.new_BookTypeId
+    --LEFT JOIN dbo.new_BranchBase
+    --    ON new_BranchBase.new_BranchId = new_Branch_BooktypeBase.new_new_branch
+    LEFT JOIN new_azmoongroupBase
+        ON new_azmoongroupBase.new_azmoongroupId = CG.new_azmoongroup
+    LEFT JOIN new_azmoondateBase
+        ON new_azmoondateBase.new_azmoondateId = CG.new_azmoondate
+    LEFT JOIN new_CoverBase
+        ON new_CoverBase.new_CoverId = CG.new_Cover
+    LEFT JOIN new_maintypeBase
+        ON new_maintypeBase.new_maintypeId = CG.new_maintype
+    LEFT JOIN new_SubstanceSIzeBase
+        ON new_SubstanceSIzeBase.new_SubstanceSIzeId = CG.new_Size
+    LEFT JOIN new_SubstanceWeightBase
+        ON new_SubstanceWeightBase.new_SubstanceWeightId = CG.new_Weight
+    LEFT JOIN new_PanthonCodeBase
+        ON new_PanthonCodeBase.new_PanthonCodeId = CG.new_PanthonCode
+    --LEFT JOIN new_gridBase
+    --    ON new_gridBase.new_gridId = CG.new_grid
+    --LEFT JOIN new_ZinkTypeBase
+    --    ON new_ZinkTypeBase.new_ZinkTypeId = CG.new_ZinkType
+    LEFT JOIN new_brandBase
+        ON new_brandBase.new_brandId = CG.new_Brand
+    --LEFT JOIN new_StateBase
+    --    ON new_StateBase.new_StateId = CG.new_State
+    LEFT JOIN new_BookNameBase
+        ON new_BookNameBase.new_BookNameId = CG.new_BookName
+    LEFT JOIN dbo.new_genreBase
+        ON new_genreBase.new_genreId = CG.new_genre
+    LEFT JOIN dbo.StringMapBase smp
+        ON CG.new_group_manager = smp.AttributeValue
+           AND smp.AttributeName = 'new_group_manager'
+           AND smp.LangId = '1033'
+           AND smp.ObjectTypeCode = '1024'
+    LEFT JOIN dbo.StringMapBase smp1
+        ON CG.new_format = smp1.AttributeValue
+           AND smp1.AttributeName = 'new_format'
+           AND smp1.LangId = '1033'
+           AND smp1.ObjectTypeCode = '10099'
+    LEFT JOIN dbo.StringMapBase smp2
+        ON CG.new_colornumber = smp2.AttributeValue
+           AND smp2.AttributeName = 'new_colornumber'
+           AND smp2.LangId = '1033'
+           AND smp2.ObjectTypeCode = '1024'
+    LEFT JOIN dbo.StringMapBase smp3
+        ON CG.new_Cover_name = smp3.AttributeValue
+           AND smp3.AttributeName = 'new_cover_name'
+           AND smp3.LangId = '1033'
+           AND smp3.ObjectTypeCode = '10067'
+    --LEFT JOIN dbo.StringMapBase smp4
+    --    ON CG.new_ConsumableCode = smp4.AttributeValue
+    --       AND smp4.AttributeName = 'new_consumablecode'
+    --       AND smp4.LangId = '1033'
+    --       AND smp4.ObjectTypeCode = '10067'
+    LEFT JOIN dbo.StringMapBase smp5
+        ON CG.new_paperno = smp5.AttributeValue
+           AND smp5.AttributeName = 'new_paperno'
+           AND smp5.LangId = '1033'
+           AND smp5.ObjectTypeCode = '10067'
+    LEFT JOIN dbo.StringMapBase smp6
+        ON CG.new_designtype = smp6.AttributeValue
+           AND smp6.AttributeName = 'new_designtype'
+           AND smp6.LangId = '1033'
+           AND smp6.ObjectTypeCode = '10067'
+    LEFT JOIN dbo.StringMapBase smp7
+        ON CG.new_covertype = smp7.AttributeValue
+           AND smp7.AttributeName = 'new_covertype'
+           AND smp7.LangId = '1033'
+           AND smp7.ObjectTypeCode = '10067'
+    LEFT JOIN dbo.StringMapBase smp8
+        ON CG.new_mojeld = smp8.AttributeValue
+           AND smp8.AttributeName = 'new_mojeld'
+           AND smp8.LangId = '1033'
+           AND smp8.ObjectTypeCode = '10067'
+    LEFT JOIN dbo.StringMapBase smp9
+        ON CG.new_material = smp9.AttributeValue
+           AND smp9.AttributeName = 'new_material'
+           AND smp9.LangId = '1033'
+           AND smp9.ObjectTypeCode = '10067'
+    LEFT JOIN dbo.StringMapBase smp10
+        ON CG.new_PaperType = smp10.AttributeValue
+           AND smp10.AttributeName = 'new_papertype'
+           AND smp10.LangId = '1033'
+           AND smp10.ObjectTypeCode = '10067'
+    LEFT JOIN dbo.StringMapBase smp11
+        ON CG.new_contentpapertype = smp11.AttributeValue
+           AND smp11.AttributeName = 'new_contentpapertype'
+           AND smp11.LangId = '1033'
+           AND smp11.ObjectTypeCode = '10067'
+    LEFT JOIN dbo.StringMapBase smp12
+        ON CG.new_ProductTypeContent = smp12.AttributeValue
+           AND smp12.AttributeName = 'new_producttypecontent'
+           AND smp12.LangId = '1033'
+           AND smp12.ObjectTypeCode = '10067'
+    LEFT JOIN dbo.StringMapBase smp13
+        ON CG.new_bindingtype = smp13.AttributeValue
+           AND smp13.AttributeName = 'new_bindingtype'
+           AND smp13.LangId = '1033'
+           AND smp13.ObjectTypeCode = '10067'
+    LEFT JOIN dbo.StringMapBase smp14
+        ON CG.new_producttype = smp14.AttributeValue
+           AND smp14.AttributeName = 'new_producttype'
+           AND smp14.LangId = '1033'
+           AND smp14.ObjectTypeCode = '10067'
+    LEFT JOIN dbo.StringMapBase smp15
+        ON CG.new_audience = smp15.AttributeValue
+           AND smp15.AttributeName = 'new_audience'
+           AND smp15.LangId = '1033'
+           AND smp15.ObjectTypeCode = '10067'
+    LEFT JOIN dbo.StringMapBase smp16
+        ON CG.new_productiontype = smp16.AttributeValue
+           AND smp16.AttributeName = 'new_productiontype'
+           AND smp16.LangId = '1033'
+           AND smp16.ObjectTypeCode = '10067'
+WHERE CG.new_ProductCode IS NOT NULL</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Staging 5Digit\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{8BCA8160-5BE9-463D-B7BD-0225D53CEFA1}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[KS_MSCRM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[BookName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BookName]"
+                      length="131"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[BookName]"
+                      name="BookName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_ProductCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_ProductCode]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_ProductCode]"
+                      name="new_ProductCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[MainGroup]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MainGroup]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[MainGroup]"
+                      name="MainGroup"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[grade]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[grade]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[grade]"
+                      name="grade"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[subgrade]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[subgrade]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[subgrade]"
+                      name="subgrade"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Field]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Field]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Field]"
+                      name="Field"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Lesson]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Lesson]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Lesson]"
+                      name="Lesson"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubLesson]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SubLesson]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[SubLesson]"
+                      name="SubLesson"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[BookType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BookType]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[BookType]"
+                      name="BookType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[group_manager]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[group_manager]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[group_manager]"
+                      name="group_manager"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[AzmoonName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AzmoonName]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[AzmoonName]"
+                      name="AzmoonName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[AzmoonDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AzmoonDate]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[AzmoonDate]"
+                      name="AzmoonDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cover]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cover]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Cover]"
+                      name="Cover"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoverName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CoverName]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[CoverName]"
+                      name="CoverName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Size]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Size]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Size]"
+                      name="Size"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Weight]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Weight]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Weight]"
+                      name="Weight"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_ViewOnSite]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_ViewOnSite]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_ViewOnSite]"
+                      name="new_ViewOnSite"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_SiteBookName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_SiteBookName]"
+                      length="1000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[new_SiteBookName]"
+                      name="new_SiteBookName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Format]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Format]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Format]"
+                      name="Format"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[colornumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[colornumber]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[colornumber]"
+                      name="colornumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsPanthon]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsPanthon]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsPanthon]"
+                      name="IsPanthon"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[PanthonName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PanthonName]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[PanthonName]"
+                      name="PanthonName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Price]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]"
+                      name="Price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[paperno]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[paperno]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[paperno]"
+                      name="paperno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[designtype]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[designtype]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[designtype]"
+                      name="designtype"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[producttypecontent]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[producttypecontent]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[producttypecontent]"
+                      name="producttypecontent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Covertype]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Covertype]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Covertype]"
+                      name="Covertype"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Mojeld]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Mojeld]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[Mojeld]"
+                      name="Mojeld"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[material]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[material]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[material]"
+                      name="material"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[papertype]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[papertype]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[papertype]"
+                      name="papertype"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[contentpapertype]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[contentpapertype]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[contentpapertype]"
+                      name="contentpapertype"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[bindingtype]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bindingtype]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[bindingtype]"
+                      name="bindingtype"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[producttype]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[producttype]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[producttype]"
+                      name="producttype"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[audience]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[audience]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[audience]"
+                      name="audience"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoryType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StoryType]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[StoryType]"
+                      name="StoryType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[genre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[genre]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[genre]"
+                      name="genre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[productiontype]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[productiontype]"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[productiontype]"
+                      name="productiontype"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[gametechnicalcode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gametechnicalcode]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[gametechnicalcode]"
+                      name="gametechnicalcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[statecode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[statecode]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[statecode]"
+                      name="statecode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      name="CreatedOn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BranchName]"
+                      length="1000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchName]"
+                      name="BranchName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[MainBookType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MainBookType]"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].Columns[MainBookType]"
+                      name="MainBookType"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BookName]"
+                      dataType="wstr"
+                      length="131"
+                      name="BookName" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_ProductCode]"
+                      dataType="wstr"
+                      length="100"
+                      name="new_ProductCode" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MainGroup]"
+                      dataType="wstr"
+                      length="100"
+                      name="MainGroup" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[grade]"
+                      dataType="wstr"
+                      length="100"
+                      name="grade" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[subgrade]"
+                      dataType="wstr"
+                      length="100"
+                      name="subgrade" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Field]"
+                      dataType="wstr"
+                      length="100"
+                      name="Field" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Lesson]"
+                      dataType="wstr"
+                      length="100"
+                      name="Lesson" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SubLesson]"
+                      dataType="wstr"
+                      length="100"
+                      name="SubLesson" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BookType]"
+                      dataType="wstr"
+                      length="100"
+                      name="BookType" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[group_manager]"
+                      dataType="wstr"
+                      length="4000"
+                      name="group_manager" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AzmoonName]"
+                      dataType="wstr"
+                      length="100"
+                      name="AzmoonName" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AzmoonDate]"
+                      dataType="wstr"
+                      length="100"
+                      name="AzmoonDate" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Cover]"
+                      dataType="wstr"
+                      length="100"
+                      name="Cover" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CoverName]"
+                      dataType="wstr"
+                      length="4000"
+                      name="CoverName" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Size]"
+                      dataType="wstr"
+                      length="100"
+                      name="Size" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Weight]"
+                      dataType="wstr"
+                      length="100"
+                      name="Weight" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_ViewOnSite]"
+                      dataType="i4"
+                      name="new_ViewOnSite" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[new_SiteBookName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="new_SiteBookName" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Format]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Format" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[colornumber]"
+                      dataType="wstr"
+                      length="4000"
+                      name="colornumber" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsPanthon]"
+                      dataType="bool"
+                      name="IsPanthon" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PanthonName]"
+                      dataType="wstr"
+                      length="100"
+                      name="PanthonName" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Price]"
+                      dataType="cy"
+                      name="Price" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[paperno]"
+                      dataType="wstr"
+                      length="4000"
+                      name="paperno" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[designtype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="designtype" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[producttypecontent]"
+                      dataType="wstr"
+                      length="4000"
+                      name="producttypecontent" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Covertype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Covertype" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Mojeld]"
+                      dataType="wstr"
+                      length="4000"
+                      name="Mojeld" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[material]"
+                      dataType="wstr"
+                      length="4000"
+                      name="material" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[papertype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="papertype" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[contentpapertype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="contentpapertype" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[bindingtype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="bindingtype" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[producttype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="producttype" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[audience]"
+                      dataType="wstr"
+                      length="4000"
+                      name="audience" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StoryType]"
+                      dataType="wstr"
+                      length="100"
+                      name="StoryType" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[genre]"
+                      dataType="wstr"
+                      length="100"
+                      name="genre" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[productiontype]"
+                      dataType="wstr"
+                      length="4000"
+                      name="productiontype" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[gametechnicalcode]"
+                      dataType="wstr"
+                      length="100"
+                      name="gametechnicalcode" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      name="CreatedOn" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BranchName]"
+                      dataType="wstr"
+                      length="1000"
+                      name="BranchName" />
+                    <externalMetadataColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MainBookType]"
+                      dataType="wstr"
+                      length="100"
+                      name="MainBookType" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BookName]"
+                      dataType="wstr"
+                      length="131"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BookName]"
+                      name="BookName" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_ProductCode]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_ProductCode]"
+                      name="new_ProductCode" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MainGroup]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MainGroup]"
+                      name="MainGroup" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[grade]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[grade]"
+                      name="grade" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[subgrade]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[subgrade]"
+                      name="subgrade" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Field]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Field]"
+                      name="Field" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Lesson]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Lesson]"
+                      name="Lesson" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SubLesson]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SubLesson]"
+                      name="SubLesson" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BranchName]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BranchName]"
+                      name="BranchName" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MainBookType]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MainBookType]"
+                      name="MainBookType" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BookType]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BookType]"
+                      name="BookType" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[group_manager]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[group_manager]"
+                      name="group_manager" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AzmoonName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AzmoonName]"
+                      name="AzmoonName" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AzmoonDate]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AzmoonDate]"
+                      name="AzmoonDate" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cover]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Cover]"
+                      name="Cover" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CoverName]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CoverName]"
+                      name="CoverName" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Size]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Size]"
+                      name="Size" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Weight]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Weight]"
+                      name="Weight" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_ViewOnSite]"
+                      dataType="i4"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_ViewOnSite]"
+                      name="new_ViewOnSite" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_SiteBookName]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[new_SiteBookName]"
+                      name="new_SiteBookName" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Format]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Format]"
+                      name="Format" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[colornumber]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[colornumber]"
+                      name="colornumber" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsPanthon]"
+                      dataType="bool"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsPanthon]"
+                      name="IsPanthon" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PanthonName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PanthonName]"
+                      name="PanthonName" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Price]"
+                      dataType="cy"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Price]"
+                      name="Price" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[paperno]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[paperno]"
+                      name="paperno" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[designtype]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[designtype]"
+                      name="designtype" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[producttypecontent]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[producttypecontent]"
+                      name="producttypecontent" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Covertype]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Covertype]"
+                      name="Covertype" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Mojeld]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Mojeld]"
+                      name="Mojeld" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[material]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[material]"
+                      name="material" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[papertype]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[papertype]"
+                      name="papertype" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contentpapertype]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contentpapertype]"
+                      name="contentpapertype" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bindingtype]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[bindingtype]"
+                      name="bindingtype" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[producttype]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[producttype]"
+                      name="producttype" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[audience]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[audience]"
+                      name="audience" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StoryType]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StoryType]"
+                      name="StoryType" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[genre]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[genre]"
+                      name="genre" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[productiontype]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[productiontype]"
+                      name="productiontype" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gametechnicalcode]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[gametechnicalcode]"
+                      name="gametechnicalcode" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecode]"
+                      dataType="i4"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[statecode]"
+                      name="statecode" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      name="CreatedOn" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Staging 5Digit.Paths[OLE DB Source Output]"
+              endId="Package\Staging 5Digit\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Staging 5Digit\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Stage5DigitCode"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{563DA352-12AE-411B-9982-232FAA6E1D7B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Stage5DigitCode"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Stage].[KS_5DigitCode]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{DC4F9D6F-6FFF-481A-9524-4A30AAF50BCE}"
+      DTS:From="Package\Truncate Stage5DigitCode"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Staging 5Digit" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{0165D4ED-B58C-4591-B0EC-668C94ED4A6B}"
+      DTS:From="Package\Staging 5Digit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\5DigitSCD" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\5DigitSCD"
+          TopLeft="170,227" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Staging 5Digit"
+          TopLeft="164,138" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Truncate Stage5DigitCode"
+          TopLeft="140,35" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="241.25,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="236.5,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Staging 5Digit">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Staging 5Digit\OLE DB Source"
+          TopLeft="241,26" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Staging 5Digit\OLE DB Destination"
+          TopLeft="257,148" />
+        <EdgeLayout
+          Id="Package\Staging 5Digit.Paths[OLE DB Source Output]"
+          TopLeft="319.5,68">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26,80"
+              Start="0,0"
+              End="26,72.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36"
+                    Point2="0,40"
+                    Point3="4,40" />
+                  <mssgle:LineSegment
+                    End="22,40" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22,40"
+                    Point2="26,40"
+                    Point3="26,44" />
+                  <mssgle:LineSegment
+                    End="26,72.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging 5Digit\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Staging 5Digit\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

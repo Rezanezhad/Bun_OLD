@@ -1,0 +1,1028 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/26/2021 4:26:31 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="B2C017"
+  DTS:CreatorName="KHEILISABZ\f.teimouri"
+  DTS:DTSID="{4B613BE4-D6DA-44A7-8BBE-1CBEBBA83154}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FactActivityPointer"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{40A599DC-D7B9-4C9E-8079-856F0664D223}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{881D192E-9389-44D9-87A3-135199AD8C68}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastVersion">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\catch last version"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2AC21AA2-763D-4FF6-B56B-BA1C346E3D47}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="catch last version"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="exec [ETL].[FactActivityPointer_CatchLastVersion]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::LastVersion" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FactActivityPointer_merge"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B3772EBE-27E8-400D-97B6-DE104456D35B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FactActivityPointer_merge"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="exec [ETL].[FactActivityPointer_merge] ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Project::Reload"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\stage ActivityPointer from CRM"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{92939BB1-1DB2-4F07-8836-55B7AF90EFE6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="stage ActivityPointer from CRM"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\stage ActivityPointer from CRM\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Stage].[CRM_ActivityPointer]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Subject]"
+                      cachedDataType="wstr"
+                      cachedLength="400"
+                      cachedName="Subject"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Subject]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Subject]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActivityTypeCode]"
+                      cachedDataType="i4"
+                      cachedName="ActivityTypeCode"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActivityTypeCode]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityTypeCode]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StatusCode]"
+                      cachedDataType="i4"
+                      cachedName="StatusCode"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StatusCode]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[StatusCode]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ScheduledStart]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ScheduledStart"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ScheduledStart]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ScheduledStart]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ScheduledEnd]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ScheduledEnd"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ScheduledEnd]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ScheduledEnd]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ApptIsAllDayEvent]"
+                      cachedDataType="bool"
+                      cachedName="ApptIsAllDayEvent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ApptIsAllDayEvent]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ApptIsAllDayEvent]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ScheduledDurationMinutes]"
+                      cachedDataType="i4"
+                      cachedName="ScheduledDurationMinutes"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ScheduledDurationMinutes]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ScheduledDurationMinutes]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RegardingObjectTypeCode]"
+                      cachedDataType="i4"
+                      cachedName="RegardingObjectTypeCode"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegardingObjectTypeCode]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[RegardingObjectTypeCode]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RegardingObjectId]"
+                      cachedDataType="guid"
+                      cachedName="RegardingObjectId"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegardingObjectId]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[RegardingObjectId]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Description]"
+                      cachedDataType="nText"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedBy]"
+                      cachedDataType="guid"
+                      cachedName="CreatedBy"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedBy]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedBy]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CreatedOn]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedOn"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActualStart]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ActualStart"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActualStart]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActualStart]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActualEnd]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ActualEnd"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActualEnd]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActualEnd]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PhoneDirectionCode]"
+                      cachedDataType="bool"
+                      cachedName="PhoneDirectionCode"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PhoneDirectionCode]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhoneDirectionCode]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Version]"
+                      cachedDataType="i8"
+                      cachedName="Version"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Version]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]" />
+                    <inputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActivityId]"
+                      cachedDataType="guid"
+                      cachedName="ActivityId"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActivityId]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityId]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Subject]"
+                      dataType="wstr"
+                      length="400"
+                      name="Subject" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActivityTypeCode]"
+                      dataType="i4"
+                      name="ActivityTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StatusCode]"
+                      dataType="i4"
+                      name="StatusCode" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ScheduledStart]"
+                      dataType="dbTimeStamp"
+                      name="ScheduledStart" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ScheduledEnd]"
+                      dataType="dbTimeStamp"
+                      name="ScheduledEnd" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ApptIsAllDayEvent]"
+                      dataType="bool"
+                      name="ApptIsAllDayEvent" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ScheduledDurationMinutes]"
+                      dataType="i4"
+                      name="ScheduledDurationMinutes" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegardingObjectTypeCode]"
+                      dataType="i4"
+                      name="RegardingObjectTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegardingObjectId]"
+                      dataType="guid"
+                      name="RegardingObjectId" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      dataType="nText"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedBy]"
+                      dataType="guid"
+                      name="CreatedBy" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      name="CreatedOn" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActualStart]"
+                      dataType="dbTimeStamp"
+                      name="ActualStart" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActualEnd]"
+                      dataType="dbTimeStamp"
+                      name="ActualEnd" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PhoneDirectionCode]"
+                      dataType="bool"
+                      name="PhoneDirectionCode" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Version]"
+                      dataType="i8"
+                      name="Version" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActivityId]"
+                      dataType="guid"
+                      name="ActivityId" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\stage ActivityPointer from CRM\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+       ActivityId,
+       Subject,
+       ActivityTypeCode,
+       StatusCode,
+       ScheduledStart,
+       ScheduledEnd,
+       ApptIsAllDayEvent,
+       ScheduledDurationMinutes,
+       RegardingObjectTypeCode,
+       RegardingObjectId,
+       Description,
+       CreatedBy,
+       CreatedOn,
+       ActualStart,
+       ActualEnd,
+       PhoneDirectionCode,
+	   cast (VersionNumber AS BIGINT) as Version
+FROM dbo.ActivityPointerBase
+WHERE cast (VersionNumber AS BIGINT) &gt; ?</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping">"0:Input",{881D192E-9389-44D9-87A3-135199AD8C68};</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\stage ActivityPointer from CRM\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{6BCB0132-5C8A-4A0A-9B5A-B482DE1D05B0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SabzCRM_MSCRM]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Subject]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Subject]"
+                      length="400"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Subject]"
+                      name="Subject"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityTypeCode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActivityTypeCode]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityTypeCode]"
+                      name="ActivityTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[StatusCode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StatusCode]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[StatusCode]"
+                      name="StatusCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ScheduledStart]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ScheduledStart]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ScheduledStart]"
+                      name="ScheduledStart"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ScheduledEnd]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ScheduledEnd]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ScheduledEnd]"
+                      name="ScheduledEnd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ApptIsAllDayEvent]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ApptIsAllDayEvent]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ApptIsAllDayEvent]"
+                      name="ApptIsAllDayEvent"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ScheduledDurationMinutes]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ScheduledDurationMinutes]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ScheduledDurationMinutes]"
+                      name="ScheduledDurationMinutes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[RegardingObjectTypeCode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RegardingObjectTypeCode]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[RegardingObjectTypeCode]"
+                      name="RegardingObjectTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[RegardingObjectId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RegardingObjectId]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[RegardingObjectId]"
+                      name="RegardingObjectId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Description]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedBy]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedBy]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedBy]"
+                      name="CreatedBy"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[CreatedOn]"
+                      name="CreatedOn"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActualStart]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActualStart]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActualStart]"
+                      name="ActualStart"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActualEnd]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActualEnd]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActualEnd]"
+                      name="ActualEnd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhoneDirectionCode]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PhoneDirectionCode]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[PhoneDirectionCode]"
+                      name="PhoneDirectionCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Version]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[Version]"
+                      name="Version"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityId]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActivityId]"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityId]"
+                      name="ActivityId"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Subject]"
+                      dataType="wstr"
+                      length="400"
+                      name="Subject" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActivityTypeCode]"
+                      dataType="i4"
+                      name="ActivityTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StatusCode]"
+                      dataType="i4"
+                      name="StatusCode" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ScheduledStart]"
+                      dataType="dbTimeStamp"
+                      name="ScheduledStart" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ScheduledEnd]"
+                      dataType="dbTimeStamp"
+                      name="ScheduledEnd" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ApptIsAllDayEvent]"
+                      dataType="bool"
+                      name="ApptIsAllDayEvent" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ScheduledDurationMinutes]"
+                      dataType="i4"
+                      name="ScheduledDurationMinutes" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RegardingObjectTypeCode]"
+                      dataType="i4"
+                      name="RegardingObjectTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RegardingObjectId]"
+                      dataType="guid"
+                      name="RegardingObjectId" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      dataType="nText"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedBy]"
+                      dataType="guid"
+                      name="CreatedBy" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      name="CreatedOn" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActualStart]"
+                      dataType="dbTimeStamp"
+                      name="ActualStart" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActualEnd]"
+                      dataType="dbTimeStamp"
+                      name="ActualEnd" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PhoneDirectionCode]"
+                      dataType="bool"
+                      name="PhoneDirectionCode" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Version]"
+                      dataType="i8"
+                      name="Version" />
+                    <externalMetadataColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActivityId]"
+                      dataType="guid"
+                      name="ActivityId" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActivityId]"
+                      dataType="guid"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActivityId]"
+                      name="ActivityId" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Subject]"
+                      dataType="wstr"
+                      length="400"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Subject]"
+                      name="Subject" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActivityTypeCode]"
+                      dataType="i4"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActivityTypeCode]"
+                      name="ActivityTypeCode" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StatusCode]"
+                      dataType="i4"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StatusCode]"
+                      name="StatusCode" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ScheduledStart]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ScheduledStart]"
+                      name="ScheduledStart" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ScheduledEnd]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ScheduledEnd]"
+                      name="ScheduledEnd" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ApptIsAllDayEvent]"
+                      dataType="bool"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ApptIsAllDayEvent]"
+                      name="ApptIsAllDayEvent" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ScheduledDurationMinutes]"
+                      dataType="i4"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ScheduledDurationMinutes]"
+                      name="ScheduledDurationMinutes" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RegardingObjectTypeCode]"
+                      dataType="i4"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RegardingObjectTypeCode]"
+                      name="RegardingObjectTypeCode" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RegardingObjectId]"
+                      dataType="guid"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RegardingObjectId]"
+                      name="RegardingObjectId" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      dataType="nText"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedBy]"
+                      dataType="guid"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedBy]"
+                      name="CreatedBy" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CreatedOn]"
+                      name="CreatedOn" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActualStart]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActualStart]"
+                      name="ActualStart" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActualEnd]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActualEnd]"
+                      name="ActualEnd" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PhoneDirectionCode]"
+                      dataType="bool"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PhoneDirectionCode]"
+                      name="PhoneDirectionCode" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Version]"
+                      dataType="i8"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Version]"
+                      name="Version" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\stage ActivityPointer from CRM.Paths[OLE DB Source Output]"
+              endId="Package\stage ActivityPointer from CRM\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\stage ActivityPointer from CRM\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Stage_ActivityPointer"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{81099257-2A78-4F24-9935-10726A2296A6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Stage_ActivityPointer"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Stage].[CRM_ActivityPointer]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A2F38E1D-D045-4522-A163-BFAFDC3A9EEF}"
+      DTS:From="Package\stage ActivityPointer from CRM"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\FactActivityPointer_merge" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{9E1AB84E-3C06-414E-B552-04C0A7E819E8}"
+      DTS:From="Package\Truncate Stage_ActivityPointer"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\stage ActivityPointer from CRM" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{2311C353-EF3D-42C9-B7C5-1F12CF19F97A}"
+      DTS:From="Package\catch last version"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\stage ActivityPointer from CRM" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\catch last version"
+          TopLeft="296.5,5.5" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\FactActivityPointer_merge"
+          TopLeft="274.5,209.5" />
+        <NodeLayout
+          Size="232,42"
+          Id="Package\stage ActivityPointer from CRM"
+          TopLeft="262.5,107.5" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Truncate Stage_ActivityPointer"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="378.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="120.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="220.666666666667,60"
+              Start="0,0"
+              End="220.666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7534246575342" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7534246575342"
+                    Point2="0,35.7534246575342"
+                    Point3="4,35.7534246575342" />
+                  <mssgle:LineSegment
+                    End="216.666666666667,35.7534246575342" />
+                  <mssgle:CubicBezierSegment
+                    Point1="216.666666666667,35.7534246575342"
+                    Point2="220.666666666667,35.7534246575342"
+                    Point3="220.666666666667,39.7534246575342" />
+                  <mssgle:LineSegment
+                    End="220.666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="378.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.3333333333334,60"
+              Start="0,0"
+              End="37.3333333333334,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7534246575342" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7534246575342"
+                    Point2="0,35.7534246575342"
+                    Point3="4,35.7534246575342" />
+                  <mssgle:LineSegment
+                    End="33.3333333333334,35.7534246575342" />
+                  <mssgle:CubicBezierSegment
+                    Point1="33.3333333333334,35.7534246575342"
+                    Point2="37.3333333333334,35.7534246575342"
+                    Point3="37.3333333333334,39.7534246575342" />
+                  <mssgle:LineSegment
+                    End="37.3333333333334,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\stage ActivityPointer from CRM">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\stage ActivityPointer from CRM\OLE DB Source"
+          TopLeft="181,35" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\stage ActivityPointer from CRM\OLE DB Destination"
+          TopLeft="180,135" />
+        <EdgeLayout
+          Id="Package\stage ActivityPointer from CRM.Paths[OLE DB Source Output]"
+          TopLeft="259.5,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,58"
+              Start="0,0"
+              End="9,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="4,29" />
+                  <mssgle:LineSegment
+                    End="5,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,29"
+                    Point2="9,29"
+                    Point3="9,33" />
+                  <mssgle:LineSegment
+                    End="9,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage ActivityPointer from CRM\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\stage ActivityPointer from CRM\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

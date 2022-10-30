@@ -1,0 +1,1633 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/11/2021 2:00:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SRV-EXAM-DW"
+  DTS:CreatorName="KHEILISABZ\e.nevisandeh"
+  DTS:DTSID="{756A6B36-B8BE-449A-99FF-07357CD89FD3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FactWebsiteProductPrice"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{6697F5EA-4869-4499-A9DC-CA676648E06C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\insert into FactWebsiteProductPrice"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6EB25F9F-B646-4B1E-87B6-0F1155F4972C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="insert into FactWebsiteProductPrice"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="BunInventoryErrors"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Errors].[BunInventoryErrors]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].Columns[Website]"
+                      cachedDataType="i2"
+                      cachedName="Website"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[Website]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Website]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedDataType="nText"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].Columns[Slug]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="Slug"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[Slug]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Slug]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].Columns[IsPublished]"
+                      cachedDataType="bool"
+                      cachedName="IsPublished"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[IsPublished]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsPublished]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].Columns[SalePrice]"
+                      cachedDataType="numeric"
+                      cachedName="SalePrice"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[SalePrice]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalePrice]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].Columns[Price]"
+                      cachedDataType="numeric"
+                      cachedName="Price"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].Columns[CrmCode]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="CrmCode"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[CrmCode]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[CrmCode]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].Columns[InStock]"
+                      cachedDataType="bool"
+                      cachedName="InStock"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[InStock]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[InStock]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].Columns[CrmStock]"
+                      cachedDataType="i4"
+                      cachedName="CrmStock"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[CrmStock]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[CrmStock]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].Columns[WebsiteKey]"
+                      cachedDataType="i4"
+                      cachedName="WebsiteKey"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteKey]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Outputs[Lookup Match Output].Columns[WebsiteKey]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].Columns[Error_Desc]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="Error_Desc"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[Error_Desc]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\Error_Desc.Outputs[Derived Column Output].Columns[Error_Desc]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].Columns[TimeKey]"
+                      cachedDataType="i4"
+                      cachedName="TimeKey"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[TimeKey]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeKey]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[Website]"
+                      dataType="i2"
+                      name="Website" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      dataType="nText"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[Slug]"
+                      dataType="wstr"
+                      length="500"
+                      name="Slug" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[IsPublished]"
+                      dataType="bool"
+                      name="IsPublished" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[SalePrice]"
+                      dataType="numeric"
+                      name="SalePrice"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      dataType="numeric"
+                      name="Price"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[CrmCode]"
+                      dataType="wstr"
+                      length="150"
+                      name="CrmCode" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[InStock]"
+                      dataType="bool"
+                      name="InStock" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[CrmStock]"
+                      dataType="i4"
+                      name="CrmStock" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteKey]"
+                      dataType="i4"
+                      name="WebsiteKey" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[Error_Desc]"
+                      dataType="wstr"
+                      length="16"
+                      name="Error_Desc" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[TimeKey]"
+                      dataType="i4"
+                      name="TimeKey" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\insert into FactWebsiteProductPrice\Error_Desc"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Error_Desc"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\insert into FactWebsiteProductPrice\Error_Desc.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\insert into FactWebsiteProductPrice\Error_Desc.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\insert into FactWebsiteProductPrice\Error_Desc.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\Error_Desc.Outputs[Derived Column Output].Columns[Error_Desc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="16"
+                      lineageId="Package\insert into FactWebsiteProductPrice\Error_Desc.Outputs[Derived Column Output].Columns[Error_Desc]"
+                      name="Error_Desc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"پیدا نکردن محصول"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"پیدا نکردن محصول"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\insert into FactWebsiteProductPrice\Error_Desc.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\insert into FactWebsiteProductPrice\Error_Desc.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\Error_Desc.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\Error_Desc.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\Error_Desc.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\Error_Desc.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="FactWebsiteProductPrice"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[FactWebsiteProductPrice]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].Columns[Slug]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="Slug"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[Slug]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Slug]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].Columns[IsPublished]"
+                      cachedDataType="bool"
+                      cachedName="IsPublished"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[IsPublished]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsPublished]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].Columns[SalePrice]"
+                      cachedDataType="numeric"
+                      cachedName="SalePrice"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[SalePrice]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalePrice]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].Columns[Price]"
+                      cachedDataType="numeric"
+                      cachedName="Price"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].Columns[InStock]"
+                      cachedDataType="bool"
+                      cachedName="InStock"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[InStock]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[InStock]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].Columns[CrmStock]"
+                      cachedDataType="i4"
+                      cachedName="CrmStock"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[CrmStock]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[CrmStock]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].Columns[WebsiteKey]"
+                      cachedDataType="i4"
+                      cachedName="WebsiteKey"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteKey]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Outputs[Lookup Match Output].Columns[WebsiteKey]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\ProductKey.Outputs[Lookup Match Output].Columns[ProductKey]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].Columns[TimeKey]"
+                      cachedDataType="i4"
+                      cachedName="TimeKey"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[TimeKey]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeKey]" />
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[WebsiteKey]"
+                      dataType="i4"
+                      name="WebsiteKey" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                      dataType="i4"
+                      name="ProductKey" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[Slug]"
+                      dataType="wstr"
+                      length="500"
+                      name="Slug" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[IsPublished]"
+                      dataType="bool"
+                      name="IsPublished" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[SalePrice]"
+                      dataType="numeric"
+                      name="SalePrice"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      dataType="numeric"
+                      name="Price"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[InStock]"
+                      dataType="bool"
+                      name="InStock" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[TimeKey]"
+                      dataType="i4"
+                      name="TimeKey" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input].ExternalColumns[CrmStock]"
+                      dataType="i4"
+                      name="CrmStock" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\insert into FactWebsiteProductPrice\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Website]
+      ,[Name]
+      ,[Slug]
+      ,[IsPublished]
+      ,[SalePrice]
+      ,[Price]
+      ,[CrmCode]
+      ,[InStock]
+      ,[CrmStock],
+	  cast(Convert(CHAR(8),[InventoryTime],112) as int) DateKey,
+	  DATEDIFF(second,0,cast([InventoryTime] as time)) TimeKey
+  FROM [dbo].[Products]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{7EC648F2-E553-44C3-A32D-B7A0A67472E5}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[BunInventory]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Website]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Website]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Website]"
+                      name="Website"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Slug]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Slug]"
+                      length="500"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Slug]"
+                      name="Slug"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsPublished]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsPublished]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[IsPublished]"
+                      name="IsPublished"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalePrice]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalePrice]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalePrice]"
+                      name="SalePrice"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Price]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Price]"
+                      name="Price"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[CrmCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CrmCode]"
+                      length="150"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[CrmCode]"
+                      name="CrmCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[InStock]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InStock]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[InStock]"
+                      name="InStock"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[CrmStock]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CrmStock]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[CrmStock]"
+                      name="CrmStock"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeKey]"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[TimeKey]"
+                      name="TimeKey"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Website]"
+                      dataType="i2"
+                      name="Website" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Name]"
+                      dataType="nText"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Slug]"
+                      dataType="wstr"
+                      length="500"
+                      name="Slug" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IsPublished]"
+                      dataType="bool"
+                      name="IsPublished" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalePrice]"
+                      dataType="numeric"
+                      name="SalePrice"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Price]"
+                      dataType="numeric"
+                      name="Price"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CrmCode]"
+                      dataType="wstr"
+                      length="150"
+                      name="CrmCode" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InStock]"
+                      dataType="bool"
+                      name="InStock" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CrmStock]"
+                      dataType="i4"
+                      name="CrmStock" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TimeKey]"
+                      dataType="i4"
+                      name="TimeKey" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Website]"
+                      dataType="i2"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Website]"
+                      name="Website" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      dataType="nText"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Slug]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Slug]"
+                      name="Slug" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsPublished]"
+                      dataType="bool"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IsPublished]"
+                      name="IsPublished" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalePrice]"
+                      dataType="numeric"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalePrice]"
+                      name="SalePrice"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Price]"
+                      dataType="numeric"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Price]"
+                      name="Price"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CrmCode]"
+                      dataType="wstr"
+                      length="150"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CrmCode]"
+                      name="CrmCode" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InStock]"
+                      dataType="bool"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InStock]"
+                      name="InStock" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CrmStock]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CrmStock]"
+                      name="CrmStock" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      name="DateKey" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeKey]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TimeKey]"
+                      name="TimeKey" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\insert into FactWebsiteProductPrice\ProductKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="ProductKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [ProductKey]
+      ,[SerialNumber]
+  FROM [dbo].[DimProduct]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT [ProductKey]
+      ,[SerialNumber]
+  FROM [dbo].[DimProduct]) [refTable]
+where [refTable].[SerialNumber] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ProductKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SerialNumber" dataType="DT_WSTR" length="64" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[CrmCode]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\insert into FactWebsiteProductPrice\ProductKey.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\insert into FactWebsiteProductPrice\ProductKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\ProductKey.Inputs[Lookup Input].Columns[CrmCode]"
+                      cachedDataType="wstr"
+                      cachedLength="150"
+                      cachedName="CrmCode"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[CrmCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SerialNumber</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\insert into FactWebsiteProductPrice\ProductKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\insert into FactWebsiteProductPrice\ProductKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\ProductKey.Outputs[Lookup Match Output].Columns[ProductKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\insert into FactWebsiteProductPrice\ProductKey.Outputs[Lookup Match Output].Columns[ProductKey]"
+                      name="ProductKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ProductKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\insert into FactWebsiteProductPrice\ProductKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\insert into FactWebsiteProductPrice\ProductKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\insert into FactWebsiteProductPrice\ProductKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\insert into FactWebsiteProductPrice\ProductKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\ProductKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\ProductKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\ProductKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\ProductKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\insert into FactWebsiteProductPrice\WebsiteKey"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="WebsiteKey"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimWebsite]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimWebsite]) [refTable]
+where [refTable].[WebsiteAlternateKey_BunInventory] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="WebsiteKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WebsiteAlternateKey_BunInventory" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WebsiteName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WebsiteURL" dataType="DT_WSTR" length="250" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Website]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Connections[OleDbConnection]"
+                  connectionManagerID="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SalesPlanningDW_Dev]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Inputs[Lookup Input].Columns[Website]"
+                      cachedDataType="i2"
+                      cachedName="Website"
+                      lineageId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output].Columns[Website]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">WebsiteAlternateKey_BunInventory</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Outputs[Lookup Match Output].Columns[WebsiteKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Outputs[Lookup Match Output].Columns[WebsiteKey]"
+                      name="WebsiteKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">WebsiteKey</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\insert into FactWebsiteProductPrice.Paths[Derived Column Output]"
+              endId="Package\insert into FactWebsiteProductPrice\BunInventoryErrors.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\insert into FactWebsiteProductPrice\Error_Desc.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\insert into FactWebsiteProductPrice.Paths[Lookup Match Output]"
+              endId="Package\insert into FactWebsiteProductPrice\ProductKey.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\insert into FactWebsiteProductPrice.Paths[Lookup Match Output1]"
+              endId="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\insert into FactWebsiteProductPrice\ProductKey.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\insert into FactWebsiteProductPrice.Paths[Lookup No Match Output]"
+              endId="Package\insert into FactWebsiteProductPrice\Error_Desc.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\insert into FactWebsiteProductPrice\ProductKey.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\insert into FactWebsiteProductPrice.Paths[OLE DB Source Output]"
+              endId="Package\insert into FactWebsiteProductPrice\WebsiteKey.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\insert into FactWebsiteProductPrice\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate table BunInventoryErrors"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{676B24AC-B1AA-4896-87E4-07EA0B5A7860}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate table BunInventoryErrors"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="truncate table [Errors].[BunInventoryErrors]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate table FactWebsiteProductPrice"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{92B17004-30FC-4766-AE4D-95F8C7D0726B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate table FactWebsiteProductPrice"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{14B5F1DD-8ACD-4EF5-A5A4-0B41C08CE63F}"
+          SQLTask:SqlStatementSource="truncate table [dbo].[FactWebsiteProductPrice]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{AC3B9D51-22A9-4BF2-83C0-D1D1C6D2D22F}"
+      DTS:From="Package\truncate table FactWebsiteProductPrice"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\insert into FactWebsiteProductPrice" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{DDBD11A6-FB28-4F41-81D3-E0C3FA58BB0C}"
+      DTS:From="Package\truncate table BunInventoryErrors"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\insert into FactWebsiteProductPrice" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="254,42"
+          Id="Package\insert into FactWebsiteProductPrice"
+          TopLeft="334,107.5" />
+        <NodeLayout
+          Size="273,42"
+          Id="Package\truncate table FactWebsiteProductPrice"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="243,42"
+          Id="Package\truncate table BunInventoryErrors"
+          TopLeft="339.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="142,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="278,60"
+              Start="0,0"
+              End="278,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7746478873239" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7746478873239"
+                    Point2="0,35.7746478873239"
+                    Point3="4,35.7746478873239" />
+                  <mssgle:LineSegment
+                    End="274,35.7746478873239" />
+                  <mssgle:CubicBezierSegment
+                    Point1="274,35.7746478873239"
+                    Point2="278,35.7746478873239"
+                    Point3="278,39.7746478873239" />
+                  <mssgle:LineSegment
+                    End="278,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="461,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41,60"
+              Start="0,0"
+              End="41,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7746478873239" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7746478873239"
+                    Point2="0,35.7746478873239"
+                    Point3="4,35.7746478873239" />
+                  <mssgle:LineSegment
+                    End="37,35.7746478873239" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37,35.7746478873239"
+                    Point2="41,35.7746478873239"
+                    Point3="41,39.7746478873239" />
+                  <mssgle:LineSegment
+                    End="41,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\insert into FactWebsiteProductPrice">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="136,42"
+          Id="Package\insert into FactWebsiteProductPrice\ProductKey"
+          TopLeft="254.5,209.5" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\insert into FactWebsiteProductPrice\WebsiteKey"
+          TopLeft="253.5,107.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\insert into FactWebsiteProductPrice\OLE DB Source"
+          TopLeft="244,5.5" />
+        <EdgeLayout
+          Id="Package\insert into FactWebsiteProductPrice.Paths[Lookup Match Output]"
+          TopLeft="322.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\insert into FactWebsiteProductPrice.Paths[OLE DB Source Output]"
+          TopLeft="322.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="135,42"
+          Id="Package\insert into FactWebsiteProductPrice\Error_Desc"
+          TopLeft="25,311.5" />
+        <EdgeLayout
+          Id="Package\insert into FactWebsiteProductPrice.Paths[Lookup No Match Output]"
+          TopLeft="301.166666666667,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-208.666666666667,60"
+              Start="0,0"
+              End="-208.666666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4186046511628" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4186046511628"
+                    Point2="0,24.4186046511628"
+                    Point3="-4,24.4186046511628" />
+                  <mssgle:LineSegment
+                    End="-204.666666666667,24.4186046511628" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-204.666666666667,24.4186046511628"
+                    Point2="-208.666666666667,24.4186046511628"
+                    Point3="-208.666666666667,28.4186046511628" />
+                  <mssgle:LineSegment
+                    End="-208.666666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-160.139720052083,29.4186046511628,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="174,42"
+          Id="Package\insert into FactWebsiteProductPrice\BunInventoryErrors"
+          TopLeft="5.50000000000006,413.5" />
+        <EdgeLayout
+          Id="Package\insert into FactWebsiteProductPrice.Paths[Derived Column Output]"
+          TopLeft="92.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="203,42"
+          Id="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice"
+          TopLeft="221,311.5" />
+        <EdgeLayout
+          Id="Package\insert into FactWebsiteProductPrice.Paths[Lookup Match Output1]"
+          TopLeft="343.833333333333,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.3333333333333,60"
+              Start="0,0"
+              End="-21.3333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4186046511628" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.4186046511628"
+                    Point2="0,24.4186046511628"
+                    Point3="-4,24.4186046511628" />
+                  <mssgle:LineSegment
+                    End="-17.3333333333333,24.4186046511628" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.3333333333333,24.4186046511628"
+                    Point2="-21.3333333333333,24.4186046511628"
+                    Point3="-21.3333333333333,28.4186046511628" />
+                  <mssgle:LineSegment
+                    End="-21.3333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-58.8580533854166,29.4186046511628,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\insert into FactWebsiteProductPrice\ProductKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\insert into FactWebsiteProductPrice\WebsiteKey">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimWebsite]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\insert into FactWebsiteProductPrice\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\insert into FactWebsiteProductPrice\BunInventoryErrors">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\insert into FactWebsiteProductPrice\FactWebsiteProductPrice">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
