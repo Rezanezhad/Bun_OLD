@@ -18381,7 +18381,7 @@
             <Name>PUB</Name>
             <DiagramLayout>
               <dds>
-                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="512" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="27203" scrolltop="104928" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="31512" y="21908" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="513" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="26342" scrolltop="104473" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="14155" y="14446" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                   <font>
                     <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                   </font>
@@ -22828,12 +22828,23 @@
                     <point x="197623" y="284776" />
                   </connector>
                 </ddscontrol>
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="Vw_PUB_SLE_Dim_ReturnSaleTaxNumber" left="31197" top="110744" logicalid="512" controlid="257" masterid="0" hint1="0" hint2="0" width="3995" height="1455" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                  <control>
+                    <ddsxmlobjectstreaminitwrapper binary="000e00009b0f0000af050000" />
+                  </control>
+                  <layoutobject>
+                    <ddsxmlobj>
+                      <property name="LogicalObject" value="Vw_PUB_SLE_Dim_ReturnSaleTaxSanad" vartype="8" />
+                    </ddsxmlobj>
+                  </layoutobject>
+                  <shape groupshapeid="0" groupnode="0" />
+                </ddscontrol>
               </dds>
 </DiagramLayout>
             <ShowRelationshipNames>False</ShowRelationshipNames>
             <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
-            <DiagramViewPortLeft>27203</DiagramViewPortLeft>
-            <DiagramViewPortTop>104928</DiagramViewPortTop>
+            <DiagramViewPortLeft>26342</DiagramViewPortLeft>
+            <DiagramViewPortTop>104473</DiagramViewPortTop>
             <DiagramBoundingLeft>-46588</DiagramBoundingLeft>
             <DiagramBoundingTop>-28390</DiagramBoundingTop>
             <DiagramZoom>100</DiagramZoom>
@@ -29363,6 +29374,13 @@
                   <xs:element name="ReturnSale_NetValue" msdata:ReadOnly="true" msprop:design-time-name="8e034d6b-5d81-4eae-a337-f4cce51e2bd6" msprop:DbColumnName="ReturnSale_NetValue" msprop:FriendlyName="ReturnSale_NetValue" type="xs:decimal" minOccurs="0" />
                   <xs:element name="SalesOfficeRef" msprop:design-time-name="8b40b732-2b81-4c9b-9440-df7ab11669e0" msprop:DbColumnName="SalesOfficeRef" type="xs:int" minOccurs="0" />
                   <xs:element name="SaleOffice_Id" msprop:design-time-name="16d4e786-81c2-4ed6-9440-1807ceaa5b26" msprop:DbColumnName="SaleOffice_Id" type="xs:int" minOccurs="0" />
+                  <xs:element name="ReturnInvoiceNumber" msprop:DbColumnName="ReturnInvoiceNumber" msprop:design-time-name="3a3e7633-12d4-48fa-9d11-b80c4f3dd99c" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -29419,7 +29437,7 @@
             <xs:element name="Vw_PUB_SLE_Fact_Sale_ForDiscountSanadNumber" msprop:design-time-name="6b6af7b9-8198-4cd5-b2a0-5b5eb06b4375" msprop:IsLogical="True" msprop:FriendlyName="Vw_PUB_SLE_Dim_Sale_ForDiscountSanad" msprop:DbTableName="Vw_PUB_SLE_Dim_Sale_ForDiscountSanad" msprop:TableType="View" msprop:Description="" msprop:QueryDefinition="SELECT DISTINCT SanadNumber&#xD;&#xA;FROM            Vw_PUB_SLE_Fact_Sale_ForDiscount" msprop:QueryBuilder="SpecificQueryBuilder">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="SanadNumber" msdata:ReadOnly="true" msprop:design-time-name="70bf084e-f6a6-4eaa-8ef2-07d74b88a6e4" msprop:DbColumnName="SanadNumber" msprop:FriendlyName="SanadNumber" type="xs:long" />
+                  <xs:element name="SanadNumber" msdata:ReadOnly="true" msprop:design-time-name="70bf084e-f6a6-4eaa-8ef2-07d74b88a6e4" msprop:DbColumnName="SanadNumber" msprop:FriendlyName="SanadNumber" type="xs:long" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -29464,6 +29482,19 @@
                   <xs:element name="SalesOrganization_Id" msprop:design-time-name="893b4487-5a2e-4415-82ef-90511f518377" msprop:DbColumnName="SalesOrganization_Id" msprop:FriendlyName="SalesOrganization_Id" type="xs:int" minOccurs="0" />
                   <xs:element name="SalesChannel_Id" msprop:design-time-name="d3308e0b-8f18-4f4c-a262-fefda067636c" msprop:DbColumnName="SalesChannel_Id" msprop:FriendlyName="SalesChannel_Id" type="xs:int" minOccurs="0" />
                   <xs:element name="SanadNumber" msprop:design-time-name="83cf5799-9848-45ed-a457-7462859f498c" msprop:DbColumnName="SanadNumber" msprop:FriendlyName="SanadNumber" type="xs:long" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="Vw_PUB_SLE_Dim_ReturnSaleTaxSanad" msprop:design-time-name="5fd2d674-3bed-4324-9af7-623da323c95a" msprop:IsLogical="True" msprop:FriendlyName="Vw_PUB_SLE_Dim_ReturnSaleTaxNumber" msprop:DbTableName="Vw_PUB_SLE_Dim_ReturnSaleTaxNumber" msprop:TableType="View" msprop:Description="" msprop:QueryDefinition="SELECT DISTINCT ReturnInvoiceNumber&#xD;&#xA;FROM            Vw_PUB_SLE_Fact_ReturnSaleTax AS v" msprop:QueryBuilder="SpecificQueryBuilder">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="ReturnInvoiceNumber" msprop:design-time-name="068e820a-0954-4bb1-a997-b19e83f01b17" msprop:DbColumnName="ReturnInvoiceNumber" msprop:FriendlyName="ReturnInvoiceNumber">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -30076,6 +30107,10 @@
           <xs:selector xpath=".//dbo_PUB_GNR_Dim_ProductMajor" />
           <xs:field xpath="Major_Id" />
         </xs:unique>
+        <xs:unique name="Vw_PUB_SLE_Dim_ReturnSaleTaxSanad_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//Vw_PUB_SLE_Dim_ReturnSaleTaxSanad" />
+          <xs:field xpath="ReturnInvoiceNumber" />
+        </xs:unique>
       </xs:element>
       <xs:annotation>
         <xs:appinfo>
@@ -30647,6 +30682,7 @@
           <msdata:Relationship name="Vw_PUB_SLE_Fact_Sale_ForDiscount-Vw_PUB_SLE_Dim_Sale_ForDiscountSanad" msdata:parent="Vw_PUB_SLE_Fact_Sale_ForDiscountSanadNumber" msdata:child="dbo_Vw_PUB_SLE_Fact_Sale_ForDiscount" msdata:parentkey="SanadNumber" msdata:childkey="SanadNumber" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="PUB_GNR_Dim_Product-PUB_GNR_Dim_ProductMajor" msdata:parent="dbo_PUB_GNR_Dim_ProductMajor" msdata:child="dbo_PUB_GNR_Dim_Product" msdata:parentkey="Major_Id" msdata:childkey="Major_Id" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="PUB_SLE_Fact_GiftsReturnSale-GRL_GNR_Dim_Company" msdata:parent="dbo_GRL_GNR_Dim_Company" msdata:child="PUB_SLE_Fact_GiftsReturnSale" msdata:parentkey="Company_Id" msdata:childkey="Company_Id" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="Vw_PUB_SLE_Fact_ReturnSaleTax-Vw_PUB_SLE_Dim_ReturnSaleTaxNumber" msdata:parent="Vw_PUB_SLE_Dim_ReturnSaleTaxSanad" msdata:child="dbo_Vw_PUB_SLE_Fact_ReturnSaleTax" msdata:parentkey="ReturnInvoiceNumber" msdata:childkey="ReturnInvoiceNumber" msprop:IsLogical="True" msprop:Description="" />
         </xs:appinfo>
       </xs:annotation>
     </xs:schema>
