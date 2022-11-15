@@ -33936,6 +33936,18 @@
             </Translation>
           </Translations>
         </Measure>
+        <Measure dwd:design-time-name="422a48bb-d3b0-4d18-bf9e-af51ad9e6527">
+          <ID>First Uncollectedlate Total Value</ID>
+          <Name>GRL TSY Fact Uncollected Late Total Today And Month Total First Value</Name>
+          <AggregateFunction>FirstNonEmpty</AggregateFunction>
+          <Source dwd:design-time-name="2bcf090b-ae9b-4678-a27e-805846914f67">
+            <DataType>BigInt</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="208548b9-0c2b-4fb8-9256-894ade1bb172">
+              <TableID>GRL_TSY_Fact_UncollectedLateTotal_TodayAndMonth</TableID>
+              <ColumnID>UncollectedlateTotal_Value</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
       </Measures>
       <StorageMode>Molap</StorageMode>
       <ErrorConfiguration dwd:design-time-name="9c9a4412-e452-4538-8d32-fb3becf6e8b5">
@@ -49193,7 +49205,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Output Value Without First Day F
 )
 +
 (
-[Measures].[GRL TSY Fact Uncollected Late Total Today Value]
+[Measures].[GRL TSY Fact Uncollected Late Total Today And Month Total First Value]
 )
 )
 *-1), 
@@ -49278,10 +49290,11 @@ aggregate(  {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Ye
 [Measures].[GRL TSY Fact Reciveable With Transferred Value])*-1)
 +
 (
+
 [Measures].[GRL TSY Fact Uncollected Late Total Today And Month Total Value]*-1
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                     
+VISIBLE = 1  ;                                                                                                     
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Input Value Without First Day Filter]
  AS ([Measures].[GRL TSY Fact Receviables Value]
 +
