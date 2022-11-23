@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="556" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4120" scrolltop="-2880" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="14711" y="12885" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="557" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4120" scrolltop="-2880" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="14711" y="12885" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -4875,6 +4875,17 @@
               <point x="5327" y="300" />
             </connector>
           </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="PUB_DIM_FiscalYearType" left="13779" top="7758" logicalid="556" controlid="279" masterid="0" hint1="0" hint2="0" width="5115" height="2364" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000fb1300003c090000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="PUB_DIM_FiscalYearType" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
         </dds>
       </Value>
     </Annotation>
@@ -7068,6 +7079,28 @@
       <Attributes>
         <Attribute dwd:design-time-name="149a0b09-2734-40f1-ae21-c60be0e92508">
           <AttributeID>Return Invoice Number</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="d85427ba-cb8d-405f-afdf-cc0a60ef1ada">
+      <ID>PUB DIM Fiscal Year Type</ID>
+      <Name>PUB DIM Fiscal Year Type</Name>
+      <Translations>
+        <Translation dwd:design-time-name="d85e4afc-923d-4194-beee-97fc08da15b6">
+          <Language>1065</Language>
+          <Caption>نوع سال مالی</Caption>
+        </Translation>
+      </Translations>
+      <DimensionID>PUB DIM Fiscal Year Type</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a3d56d5c-a043-435b-b9f6-dd397bde47c1">
+          <AttributeID>Fiscal Year Type ID</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6f9010fe-4b4f-4989-8d6d-ae3383fd95a4">
+          <AttributeID>Fiscal Year Type Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f09ce427-9f45-4911-950c-38e5930b072e">
+          <AttributeID>Fiscal Year Type Description</AttributeID>
         </Attribute>
       </Attributes>
     </Dimension>
@@ -40116,36 +40149,64 @@ CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Gift Net Sale Aggregation Qty
 FORMAT_STRING = "Percent", 
 VISIBLE = 1;      
 CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Sale Total Amount Value Aggregate]
- AS Sum(PeriodstoDate([GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[Year],
-                    [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].CurrentMember)
-,[Measures].[PUB SLE Fact Sale Total Amount Value]), 
-FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;  
-CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Sale Total Amount Value Aggregate and null]
- AS iif(
-[Measures].[PUB SLE Fact Sale Total Amount Value]=0,
-null
-,
-(
-Sum(PeriodstoDate([GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[Year],
+ AS Case 
+    When [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].currentmember is [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].&amp;[Farvardin]
+	then Sum(PeriodstoDate([GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[Year],
                     [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].CurrentMember)
 ,[Measures].[PUB SLE Fact Sale Total Amount Value])
-)
-), 
+else
+Sum(PeriodstoDate([GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].[Fiscal Year 4],
+                    [GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].CurrentMember)
+,[Measures].[PUB SLE Fact Sale Total Amount Value]) 
+end, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;   
+VISIBLE = 1  ;  
+CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Sale Total Amount Value Aggregate and null]
+ AS Case 
+    When [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].currentmember is [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].&amp;[Farvardin]
+	then 
+iif([Measures].[PUB SLE Fact Sale Total Amount Value]=0,null,
+(Sum(PeriodstoDate([GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[Year],
+                    [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].CurrentMember)
+					,[Measures].[PUB SLE Fact Sale Total Amount Value])
+))
+else
+iif([Measures].[PUB SLE Fact Sale Total Amount Value]=0,null,
+(Sum(PeriodstoDate([GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].[Fiscal Year 4],
+                    [GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].CurrentMember)
+					,[Measures].[PUB SLE Fact Sale Total Amount Value])
+))
+end, 
+FORMAT_STRING = "#,##;-#,##", 
+VISIBLE = 1  ;   
 CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Sale Target Total Amount Aggregate]
- AS Sum(PeriodstoDate([GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[Year],
+ AS Case 
+    When [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].currentmember is [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].&amp;[Farvardin]
+	then 
+Sum(PeriodstoDate([GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[Year],
                     [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].CurrentMember)
-,[Measures].[PUB SLE Fact Sale Target Total Amount]), 
+,[Measures].[PUB SLE Fact Sale Target Total Amount])
+else
+Sum(PeriodstoDate([GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].[Fiscal Year 4],
+                    [GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].CurrentMember)
+,[Measures].[PUB SLE Fact Sale Target Total Amount])
+end, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;   
+VISIBLE = 1  ;   
 CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Sale Total Amount Return and discount Aggregation]
- AS Sum(PeriodstoDate([GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[Year],
+ AS Case 
+    When [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].currentmember is [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].&amp;[Farvardin]
+	then 
+Sum(PeriodstoDate([GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[Year],
                     [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].CurrentMember)
-,[Measures].[PUB SLE Fact Sale Total Amount Return and discount]), 
+,[Measures].[PUB SLE Fact Sale Total Amount Return and discount])
+else
+Sum(PeriodstoDate([GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].[Fiscal Year 4],
+                    [GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].CurrentMember)
+,[Measures].[PUB SLE Fact Sale Total Amount Return and discount])
+end, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;     
+VISIBLE = 1  ;     
 CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Sale Total Amount Aggregation By Year Cumulative Deviation Prev1]
  AS iif
 ([Measures].[PUB SLE Fact Sale Total Amount Value Aggregate Prev1Year]=null,null,
@@ -40177,27 +40238,53 @@ CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Sale Total Amount Aggregation
 FORMAT_STRING = "#,##;-#,##", 
 VISIBLE = 1;    
 CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Sale Total Amount Value Aggregate Prev1Year]
- AS (
+ AS Case 
+    When [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].currentmember is [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].&amp;[Farvardin]
+	then 
+	(
 [Measures].[PUB SLE Fact Sale Total Amount Value Aggregate]
 ,
 ParallelPeriod(
 [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[Year] ,
              1,
           [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].currentmember
-)), 
+))
+else
+(
+[Measures].[PUB SLE Fact Sale Total Amount Value Aggregate]
+,
+ParallelPeriod(
+[GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].[Fiscal Year 4] ,
+             1,
+          [GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].currentmember
+)) 
+end, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;    
+VISIBLE = 1  ;    
 CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Sale Total Amount Value Aggregate Prev2Year]
- AS (
+ AS Case 
+    When [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].currentmember is [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].&amp;[Farvardin]
+	then 
+	(
 [Measures].[PUB SLE Fact Sale Total Amount Value Aggregate]
 ,
 ParallelPeriod(
 [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[Year] ,
              2,
           [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].currentmember
-)), 
+))
+else
+(
+[Measures].[PUB SLE Fact Sale Total Amount Value Aggregate]
+,
+ParallelPeriod(
+[GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].[Fiscal Year 4] ,
+             2,
+          [GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].currentmember
+)) 
+end, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;   
+VISIBLE = 1  ;   
 CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Sale Target Total Amount Target Achievement Percent]
  AS divide([Measures].[PUB SLE Fact Sale Total Amount Value Aggregate],[Measures].[PUB SLE Fact Sale Target Total Amount Aggregate],0)*100, 
 FORMAT_STRING = "#,##;-#,##", 
@@ -40208,7 +40295,10 @@ CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Sale Total Amount Aggregate G
 FORMAT_STRING = "#,##;-#,##", 
 VISIBLE = 1; 
 CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Sale Net Value With Out Return And Discount Aggregate By Year]
- AS (
+ AS Case 
+    When [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].currentmember is [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].&amp;[Farvardin]
+	then 
+(
 Sum(
 PeriodsToDate(
 [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[year]
@@ -40224,7 +40314,50 @@ PeriodsToDate(
 [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].currentmember),
 [Measures].[PUB SLE Fact Sale Total Amount Return and discount]
 )
-), 
+)
+else
+(
+Sum(
+PeriodsToDate(
+[GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].[Fiscal Year 4]
+,
+[GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].currentmember),
+[Measures].[PUB SLE Fact Sale Net Value]
+)
+-
+Sum(
+PeriodsToDate(
+[GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].[Fiscal Year 4]
+,
+[GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].currentmember),
+[Measures].[PUB SLE Fact Sale Total Amount Return and discount]
+)
+)
+end, 
+FORMAT_STRING = "#,##;-#,##", 
+VISIBLE = 1  ; 
+CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Sale Total Amount Value 1st Previous Year With Fiscal Year]
+ AS Case 
+    When [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].currentmember is [PUB DIM Fiscal Year Type].[Fiscal Year Type Name].&amp;[Farvardin]
+	then 
+Sum(PeriodstoDate([GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[Year],
+                        ParallelPeriod(
+                    [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[Year],
+                    1,
+                    [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].CurrentMember))
+,[Measures].[PUB SLE Fact Sale Total Amount Value])
+else
+Sum(PeriodstoDate([GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].[Fiscal Year 4],
+                        ParallelPeriod(
+                    [GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].[Fiscal Year 4],
+                    1,
+                    [GRL GNR Dim Full Date weekly].[Fiscal Year 4 - Month - Week - Date].CurrentMember))
+,[Measures].[PUB SLE Fact Sale Total Amount Value])
+end, 
+FORMAT_STRING = "#,##;-#,##", 
+VISIBLE = 1  ; 
+CREATE MEMBER CURRENTCUBE.[Measures].[PUB SLE Fact Sale Total Amount Value Year Over Year Growth 1st Previous Year % With FiscalYear]
+ AS (divide([Measures].[PUB SLE Fact Sale Total Amount Value],[Measures].[PUB SLE Fact Sale Total Amount Value 1st Previous Year With Fiscal Year],0)-1)*100, 
 FORMAT_STRING = "#,##;-#,##", 
 VISIBLE = 1  ;                            
 CREATE DYNAMIC SET CURRENTCUBE.[Sales Amount Type Name]
