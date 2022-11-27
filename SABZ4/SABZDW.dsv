@@ -18381,7 +18381,7 @@
             <Name>PUB</Name>
             <DiagramLayout>
               <dds>
-                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="515" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="3651" scrolltop="169822" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="16722" y="14446" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="515" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="37851" scrolltop="148970" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="32359" y="21908" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                   <font>
                     <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                   </font>
@@ -18760,26 +18760,6 @@
                     </ddsxmlobj>
                   </layoutobject>
                   <shape groupshapeid="0" groupnode="0" />
-                </ddscontrol>
-                <ddscontrol controlprogid="MSDDS.Polyline" left="55992" top="153460" logicalid="281" controlid="25" masterid="0" hint1="0" hint2="0" width="3000" height="5439" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-                  <control>
-                    <ddsxmlobj>
-                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
-                    </ddsxmlobj>
-                  </control>
-                  <layoutobject>
-                    <ddsxmlobj>
-                      <property name="LogicalObject" value="dataSet.Relations[pub_SLE_Fact_Sale-GRL_SLE_Dim_SaleType]" vartype="8" />
-                      <property name="Virtual" value="0" vartype="11" />
-                      <property name="VisibleAP" value="0" vartype="3" />
-                    </ddsxmlobj>
-                  </layoutobject>
-                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="24" destid="5" sourceattachpoint="12" destattachpoint="23" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                    <point x="58692" y="153859" />
-                    <point x="57492" y="153859" />
-                    <point x="57492" y="158599" />
-                    <point x="56292" y="158599" />
-                  </connector>
                 </ddscontrol>
                 <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="PUB_GNR_Dim_Product" left="208638" top="283288" logicalid="282" controlid="26" masterid="0" hint1="0" hint2="0" width="6615" height="10159" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                   <control>
@@ -22854,8 +22834,8 @@
 </DiagramLayout>
             <ShowRelationshipNames>False</ShowRelationshipNames>
             <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
-            <DiagramViewPortLeft>3651</DiagramViewPortLeft>
-            <DiagramViewPortTop>169822</DiagramViewPortTop>
+            <DiagramViewPortLeft>37851</DiagramViewPortLeft>
+            <DiagramViewPortTop>148970</DiagramViewPortTop>
             <DiagramBoundingLeft>-46588</DiagramBoundingLeft>
             <DiagramBoundingTop>-28390</DiagramBoundingTop>
             <DiagramZoom>100</DiagramZoom>
@@ -25399,10 +25379,10 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="SLE.PUB_SLE_Fact_Sale" msprop:design-time-name="615a797a-8822-4c0f-ad9e-54481c44dca1" msprop:IsLogical="True" msprop:FriendlyName="PUB_SLE_Fact_Sale" msprop:DbTableName="PUB_SLE_Fact_Sale" msprop:TableType="View" msprop:QueryDefinition="SELECT        62 AS DimFact_Id, Sale_Id, Sale_FirstQty, Sale_SecondQty, Sale_Value, Sale_NetValue, Sale_NetValue * Sale_SecondQty AS SaleValueQty, Sale_Add, Sale_Sub, Sale_CurrencyValue, Product_Id, Customer_Id, CurrencyType_Id, &#xD;&#xA;                         Company_Id, Date_Id, Province_Id, SaleType_Id, SalesOrganization_Id, ISNULL(SalesChannel_Id, 9999) AS SalesChannel_Id, Unit_Id, Sale_ValueGift, Sale_SubGift, ISNULL(SaleOffice_Id, 9999) AS SaleOffice_Id, Product_Fee, &#xD;&#xA;                         SanadNumber, Sale_ValueWatage, Sale_SubWatage, Sale_ValueRawMaterial, Sale_SubRawMaterial&#xD;&#xA;FROM            Vw_PUB_SLE_Fact_Sale" msprop:QueryBuilder="SpecificQueryBuilder">
+            <xs:element name="SLE.PUB_SLE_Fact_Sale" msprop:design-time-name="615a797a-8822-4c0f-ad9e-54481c44dca1" msprop:IsLogical="True" msprop:FriendlyName="PUB_SLE_Fact_Sale" msprop:DbTableName="PUB_SLE_Fact_Sale" msprop:TableType="View" msprop:QueryDefinition="SELECT        62 AS DimFact_Id, Sale_Id, Sale_FirstQty, Sale_SecondQty, Sale_Value, Sale_NetValue, Sale_NetValue * Sale_SecondQty AS SaleValueQty, Sale_Add, Sale_Sub, Sale_CurrencyValue, Product_Id, Customer_Id, CurrencyType_Id, &#xD;&#xA;                         Company_Id, Date_Id, Province_Id, SaleType_Id, SalesOrganization_Id, ISNULL(SalesChannel_Id, 9999) AS SalesChannel_Id, Unit_Id, Sale_ValueGift, Sale_SubGift, ISNULL(SaleOffice_Id, 9999) AS SaleOffice_Id, Product_Fee, &#xD;&#xA;                         SanadNumber, Sale_ValueWatage, Sale_SubWatage, Sale_ValueRawMaterial, Sale_SubRawMaterial, SpecialDiscountValueTashim&#xD;&#xA;FROM            Vw_PUB_SLE_Fact_Sale" msprop:QueryBuilder="SpecificQueryBuilder">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="Sale_Id" msprop:design-time-name="91b3fcfa-bdb2-4bd5-9041-fae75b412170" msprop:DbColumnName="Sale_Id" msprop:FriendlyName="Sale_Id" type="xs:decimal" />
+                  <xs:element name="Sale_Id" msprop:design-time-name="91b3fcfa-bdb2-4bd5-9041-fae75b412170" msprop:DbColumnName="Sale_Id" msprop:FriendlyName="Sale_Id" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Sale_FirstQty" msprop:design-time-name="1d3553b7-0cc2-4306-b8ae-2f4d8e2a78ef" msprop:DbColumnName="Sale_FirstQty" msprop:FriendlyName="Sale_FirstQty" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Sale_SecondQty" msprop:design-time-name="a9aaa2ce-ccb7-4311-aa59-0557a0af568d" msprop:DbColumnName="Sale_SecondQty" msprop:FriendlyName="Sale_SecondQty" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Sale_Value" msprop:design-time-name="e67cd334-4bbf-4d9c-8907-685af860d87b" msprop:DbColumnName="Sale_Value" msprop:FriendlyName="Sale_Value" type="xs:decimal" minOccurs="0" />
@@ -25410,9 +25390,9 @@
                   <xs:element name="Sale_Add" msprop:design-time-name="887c5082-41c8-451f-b672-0e243b8af495" msprop:DbColumnName="Sale_Add" msprop:FriendlyName="Sale_Add" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Sale_Sub" msprop:design-time-name="8ab90906-509b-4cb6-b5a0-84bf849e6fd6" msprop:DbColumnName="Sale_Sub" msprop:FriendlyName="Sale_Sub" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Customer_Id" msprop:design-time-name="7b7a29dd-5364-4e96-b205-a1c664ed7a37" msprop:DbColumnName="Customer_Id" msprop:FriendlyName="Customer_Id" type="xs:long" minOccurs="0" />
-                  <xs:element name="SaleType_Id" msprop:design-time-name="6c49bbcd-a35d-4817-95a4-cc14880eb512" msprop:DbColumnName="SaleType_Id" msprop:FriendlyName="SaleType_Id" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="SaleType_Id" msprop:design-time-name="6c49bbcd-a35d-4817-95a4-cc14880eb512" msprop:DbColumnName="SaleType_Id" msprop:FriendlyName="SaleType_Id" type="xs:int" minOccurs="0" />
                   <xs:element name="Product_Id" msprop:design-time-name="8f942253-067d-4f88-ab53-c32104070cf3" msprop:DbColumnName="Product_Id" msprop:FriendlyName="Product_Id" type="xs:long" minOccurs="0" />
-                  <xs:element name="CurrencyType_Id" msprop:design-time-name="a979050b-f1b4-4fe0-8e97-dd07ed520f6e" msprop:DbColumnName="CurrencyType_Id" msprop:FriendlyName="CurrencyType_Id" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="CurrencyType_Id" msprop:design-time-name="a979050b-f1b4-4fe0-8e97-dd07ed520f6e" msprop:DbColumnName="CurrencyType_Id" msprop:FriendlyName="CurrencyType_Id" type="xs:int" minOccurs="0" />
                   <xs:element name="Company_Id" msprop:design-time-name="697ce670-d706-4d0c-9e9d-56a037706226" msprop:DbColumnName="Company_Id" msprop:FriendlyName="Company_Id" type="xs:int" minOccurs="0" />
                   <xs:element name="Date_Id" msprop:design-time-name="d4fd6683-a3e5-468f-a2a2-85d98276558a" msprop:DbColumnName="Date_Id" msprop:FriendlyName="Date_Id" type="xs:int" minOccurs="0" />
                   <xs:element name="Province_Id" msprop:design-time-name="779a7b82-e43d-4b6e-83f4-d83256778c28" msprop:DbColumnName="Province_Id" msprop:FriendlyName="Province_Id" type="xs:long" minOccurs="0" />
@@ -25431,6 +25411,7 @@
                   <xs:element name="Sale_SubWatage" msprop:design-time-name="e079a2f3-0715-4283-8fc6-ee33769b2676" msprop:DbColumnName="Sale_SubWatage" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Sale_ValueRawMaterial" msprop:design-time-name="24508f36-ca7f-425f-9568-46aa390f8c3e" msprop:DbColumnName="Sale_ValueRawMaterial" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Sale_SubRawMaterial" msprop:design-time-name="edf3d65c-0c2b-4c0b-b015-1d292db6ed70" msprop:DbColumnName="Sale_SubRawMaterial" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="SpecialDiscountValueTashim" msprop:DbColumnName="SpecialDiscountValueTashim" msprop:design-time-name="2e90a6aa-9f16-4627-9a25-b98a41daa80a" type="xs:decimal" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -28786,11 +28767,11 @@
                   <xs:element name="Sale_CurrencyValue" msprop:design-time-name="3d973685-b75c-4896-a0ca-13ea5ec0c014" msprop:DbColumnName="Sale_CurrencyValue" msprop:FriendlyName="Sale_CurrencyValue" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Product_Id" msprop:design-time-name="b01e2a2d-9554-4dde-b66b-3526b2f610d7" msprop:DbColumnName="Product_Id" msprop:FriendlyName="Product_Id" type="xs:long" minOccurs="0" />
                   <xs:element name="Customer_Id" msprop:design-time-name="df057302-c0dd-48b5-ba35-aee35ad268fd" msprop:DbColumnName="Customer_Id" msprop:FriendlyName="Customer_Id" type="xs:long" minOccurs="0" />
-                  <xs:element name="CurrencyType_Id" msprop:design-time-name="cbad121d-e3cc-4201-aff7-02b10861e779" msprop:DbColumnName="CurrencyType_Id" msprop:FriendlyName="CurrencyType_Id" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="CurrencyType_Id" msprop:design-time-name="cbad121d-e3cc-4201-aff7-02b10861e779" msprop:DbColumnName="CurrencyType_Id" msprop:FriendlyName="CurrencyType_Id" type="xs:int" minOccurs="0" />
                   <xs:element name="Company_Id" msprop:design-time-name="454761e6-73d3-49b6-b522-f846a82d4fcb" msprop:DbColumnName="Company_Id" msprop:FriendlyName="Company_Id" type="xs:int" minOccurs="0" />
                   <xs:element name="Date_Id" msprop:design-time-name="abdcecc0-f2d5-4c94-92a7-1fb9ced7c767" msprop:DbColumnName="Date_Id" msprop:FriendlyName="Date_Id" type="xs:int" minOccurs="0" />
                   <xs:element name="Province_Id" msdata:ReadOnly="true" msprop:design-time-name="25d237fd-eab5-4025-bc1f-bfb3387e4b56" msprop:DbColumnName="Province_Id" msprop:FriendlyName="Province_Id" type="xs:long" minOccurs="0" />
-                  <xs:element name="SaleType_Id" msprop:design-time-name="46b23b75-c2ac-452e-a807-827f24e9e4c8" msprop:DbColumnName="SaleType_Id" msprop:FriendlyName="SaleType_Id" type="xs:unsignedByte" minOccurs="0" />
+                  <xs:element name="SaleType_Id" msprop:design-time-name="46b23b75-c2ac-452e-a807-827f24e9e4c8" msprop:DbColumnName="SaleType_Id" msprop:FriendlyName="SaleType_Id" type="xs:int" minOccurs="0" />
                   <xs:element name="SalesOrganization_Id" msprop:design-time-name="5c1dcb3b-cd9e-4699-b53f-469158ff5a5f" msprop:DbColumnName="SalesOrganization_Id" msprop:FriendlyName="SalesOrganization_Id" type="xs:int" minOccurs="0" />
                   <xs:element name="SalesChannel_Id" msdata:ReadOnly="true" msprop:design-time-name="acfeabea-e486-45e7-be89-530ab8f90325" msprop:DbColumnName="SalesChannel_Id" msprop:FriendlyName="SalesChannel_Id" type="xs:int" minOccurs="0" />
                   <xs:element name="Unit_Id" msdata:ReadOnly="true" msprop:design-time-name="1c9b54ca-e183-4420-80f6-4e5e5f8fffe1" msprop:DbColumnName="Unit_Id" msprop:FriendlyName="Unit_Id" type="xs:int" minOccurs="0" />
@@ -30241,7 +30222,6 @@
           <msdata:Relationship name="pub_SLE_Fact_Sale-GRL_GNR_Dim_Province" msdata:parent="dbo_GRL_GNR_Dim_Province" msdata:child="SLE.PUB_SLE_Fact_Sale" msdata:parentkey="Province_Id" msdata:childkey="Province_Id" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="pub_SLE_Fact_Export_Budget-GRL_GNR_Dim_Province" msdata:parent="dbo_GRL_GNR_Dim_Province" msdata:child="SLE.PUB_SLE_Fact_Export_Budget" msdata:parentkey="Province_Id" msdata:childkey="Province_Id" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="GRL_GNR_Dim_City-GRL_GNR_Dim_Province" msdata:parent="dbo_GRL_GNR_Dim_Province" msdata:child="dbo_GRL_GNR_Dim_City" msdata:parentkey="Province_Id" msdata:childkey="Province_Id" msprop:IsLogical="True" msprop:Description="" />
-          <msdata:Relationship name="pub_SLE_Fact_Sale-GRL_SLE_Dim_SaleType" msdata:parent="dbo_GRL_SLE_Dim_SaleType" msdata:child="SLE.PUB_SLE_Fact_Sale" msdata:parentkey="SaleType_Id" msdata:childkey="SaleType_Id" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="GRL_INV_Dim_VoucherType-GRL_INV_Dim_ParentVoucherType" msdata:parent="dbo_GRL_INV_Dim_ParentVoucherType" msdata:child="dbo_GRL_INV_Dim_VoucherType" msdata:parentkey="ParentVoucherType_Id" msdata:childkey="ParentVoucherType_Id" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="GRL_FIN_Fact_VoucherItem_Mapping_Bank-GRL_FIN_Dim_COA_LedgerAccount" msdata:parent="dbo_GRL_FIN_Dim_COA_LedgerAccount" msdata:child="GRL_FIN_Fact_VoucherItem_Mapping_Bank" msdata:parentkey="COA_LedgerAccount_Id" msdata:childkey="COA_LedgerAccount_Id" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="PUB_SLE_Fact_Sale-PUB_SLE_Dim_Customer" msdata:parent="SLE_PUB_SLE_Dim_Customer" msdata:child="SLE.PUB_SLE_Fact_Sale" msdata:parentkey="Customer_Id" msdata:childkey="Customer_Id" msprop:IsLogical="True" msprop:Description="" />
