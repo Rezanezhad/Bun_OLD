@@ -49435,7 +49435,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[Calculated Membertestdate]
 is [GRL GNR Dim Full Date].[Date After Now Status].&amp;[0]
 then ([Measures].[Val],[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember)
 else 
-[Measures].[GRL Treasury Day Balance Cumulative WithOut If]
+([Measures].[Vw GRL FIN Fact Voucher Item Mappnig First Day Of Year Value],Tail([SelectedDates]).Item([GRL GNR Dim Full Date].[Date Now Status].&amp;[1]))
 end, 
 VISIBLE = 1  ;              
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Treasury Day Balance Cumulative]
