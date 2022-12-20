@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="828" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="1817" scrolltop="-2783" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="14711" y="13123" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="828" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="1817" scrolltop="-2783" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="32068" y="20585" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -45538,35 +45538,35 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If the CALCULATE command is deleted or modified, the data within the cube is affected.
 You should edit this command only if you manually specify how the cube is aggregated.
 */
-CALCULATE;                                                                        
+CALCULATE;                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping NET PROFIT MARGIN]
  AS abs(
 [Measures].[GRL FIN Fact Voucher Item Mapping Net Profit]
 )
 /[Measures].[GRL FIN Fact Voucher Item Mapping Operating Income], 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;                                                                        
+VISIBLE = 1;                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping OPERATING PROFIT MARGIN]
  AS abs(
 [Measures].[GRL FIN Fact Voucher Item Mapping Operation profit]
 )
 /[Measures].[GRL FIN Fact Voucher Item Mapping Operating Income], 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;                                                                        
+VISIBLE = 1;                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping GROSS PROFIT MARGIN]
  AS abs([Measures].[GRL FIN Fact Voucher Item Mapping Gross profit])/[Measures].[GRL FIN Fact Voucher Item Mapping Operating Income], 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;                                                                        
+VISIBLE = 1;                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Net Profit]
  AS [Measures].[GRL FIN Fact Voucher Item Mapping Operation profit]
 +
 [Measures].[GRL FIN Fact Voucher Item Mapping Financial Cost], 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1;                                                                        
+VISIBLE = 1;                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Financial Cost]
  AS ([Measures].[GRL FIN Fact Voucher Mapping Value] ,[GRL FIN Dim Financial Item Mapping].[Financial Item Id].&amp;[49])*-1, 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1;                                                                        
+VISIBLE = 1;                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Operation profit]
  AS [Measures].[GRL FIN Fact Voucher Item Mapping Gross profit]
 +
@@ -45574,35 +45574,35 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Operatio
 +
 [Measures].[GRL FIN Fact Voucher Item Mapping Operating Income And Cost], 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1;                                                                        
+VISIBLE = 1;                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Operating Income And Cost]
  AS ([Measures].[GRL FIN Fact Voucher Mapping Value] ,[GRL FIN Dim Financial Item Mapping].[Financial Item Id].&amp;[46])*-1, 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1;                                                                        
+VISIBLE = 1;                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping General office sales]
  AS ([Measures].[GRL FIN Fact Voucher Mapping Value] ,[GRL FIN Dim Financial Item Mapping].[Financial Item Id].&amp;[45])*-1, 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1;                                                                        
+VISIBLE = 1;                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Gross profit]
  AS [Measures].[GRL FIN Fact Voucher Item Mapping Operating Income]
 +
 [Measures].[GRL FIN Fact Voucher Item Mapping Cost Total], 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1;                                                                        
+VISIBLE = 1;                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Cost Total]
  AS ([Measures].[GRL FIN Fact Voucher Mapping Value] ,[GRL FIN Dim Financial Item Mapping].[Financial Item Id].&amp;[43])*-1, 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1;                                                                                                                                                                                                                                                                       
+VISIBLE = 1;                                                                                                                                                                                                                                                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Operating Income]
  AS ([Measures].[GRL FIN Fact Voucher Mapping Value] ,[GRL FIN Dim Financial Item Mapping].[Financial Item Id].&amp;[280])*-1, 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                          
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                           
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Remainig Fore Cast Loan Value Aggregate]
  AS aggregate(  {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[GRL FIN Fact Remainig Fore Cast Loan Valu])
 +[Measures].[GRL FIN Fact Loan The balance of the principal of the loan For All], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                 
+VISIBLE = 1;                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Remainig Fore Cast Loan BaseLine Aggregate]
  AS iif([GRL GNR Dim Full Date].[Year].&amp;[1400],0,
 case when 
@@ -45616,7 +45616,7 @@ else
 )
 end ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                          
+VISIBLE = 1;                                                                           
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Cost Fore Cast Loan Value Positive Aggregate]
  AS (
 AGGREGATE(
@@ -45628,7 +45628,7 @@ PeriodsToDate(
 )
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                          
+VISIBLE = 1;                                                                           
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Start Value Fore Cast Aggregate]
  AS (
 AGGREGATE(
@@ -45640,7 +45640,7 @@ PeriodsToDate(
 )
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                           
+VISIBLE = 1;                                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Income Forecast Percentage]
  AS Divide
         (
@@ -45649,7 +45649,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Income Forecast Percentage]
 [Measures].[GRL FIN Fact Income Forecast - Income Forecast For Forecast Value]
 ,0), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;              
+VISIBLE = 1;               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRl FIN Fact Map Income Fore Cast Number Percentage]
  AS Divide
         (
@@ -45659,7 +45659,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRl FIN Fact Map Income Fore Cast Number P
 ,0), 
 FORMAT_STRING = "Percent", 
 NON_EMPTY_BEHAVIOR = { [GRl FIN Fact Map Income Fore Cast Number View Sumforeforecastvalue] }, 
-VISIBLE = 1;                                                                           
+VISIBLE = 1;                                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Cost Forecast Percentage]
  AS Divide
         (
@@ -45668,7 +45668,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Cost Forecast Percentage]
 [Measures].[GRL FIN Fact Cost Forecast - Cost Forecast For Fore Cast Value]
 ,0), 
 FORMAT_STRING = "Percent", 
-VISIBLE = 1;              
+VISIBLE = 1;               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRl FIN Fact Map Cost Fore Cast Number Percentage]
  AS Divide
         (
@@ -45678,7 +45678,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRl FIN Fact Map Cost Fore Cast Number Per
 ,0), 
 FORMAT_STRING = "Percent", 
 NON_EMPTY_BEHAVIOR = { [GRl FIN Fact Map Cost Fore Cast Number Sumforeforecastvalue] }, 
-VISIBLE = 1;                                                                           
+VISIBLE = 1;                                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[Voucher Item Value Perv]
  AS (
 [Measures].[Voucher Item Value]
@@ -45687,7 +45687,7 @@ ParallelPeriod([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].year 
              1,
           [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember)), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                            
+VISIBLE = 1;                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Total Income Percentage of deviation]
  AS iif(
 [Measures].[GRL FIN Fact Voucher Mapping Value Income ABS Perv]=null,null,
@@ -45699,7 +45699,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Total Income 
 )*100
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                            
+VISIBLE = 1;                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value Income ABS Perv]
  AS (
 [Measures].[GRL FIN Fact Voucher Mapping Value ABS Perv],
@@ -45721,7 +45721,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value Income 
 [GRL FIN Dim Financial Item Mapping].[Financial Item Id].&amp;[50]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                            
+VISIBLE = 1;                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value Income ABS]
  AS (
 [Measures].[GRL FIN Fact Voucher Mapping Value ABS],
@@ -45743,7 +45743,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value Income 
 [GRL FIN Dim Financial Item Mapping].[Financial Item Id].&amp;[50]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                            
+VISIBLE = 1;                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Total Cost Percentage of deviation]
  AS iif(
 [Measures].[GRL FIN Fact Voucher Mapping Value Cost ABS Perv]=null,null,
@@ -45755,7 +45755,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Total Cost Pe
 )*100
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                            
+VISIBLE = 1;                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value Cost ABS Perv]
  AS (
 [Measures].[GRL FIN Fact Voucher Mapping Value ABS Perv],
@@ -45802,7 +45802,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value Cost AB
 [GRL FIN Dim Financial Item Mapping].[Financial Item Id].&amp;[328]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                            
+VISIBLE = 1;                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value Cost ABS]
  AS (
 [Measures].[GRL FIN Fact Voucher Mapping Value ABS],
@@ -45849,7 +45849,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value Cost AB
 [GRL FIN Dim Financial Item Mapping].[Financial Item Id].&amp;[328]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                            
+VISIBLE = 1;                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Total  Percentage of deviation]
  AS iif(
 [Measures].[GRL FIN Fact Voucher Mapping Value ABS Perv]=null,null,
@@ -45861,7 +45861,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Total  Percen
 )*100
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                            
+VISIBLE = 1;                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value ABS Perv]
  AS (
 [Measures].[GRL FIN Fact Voucher Mapping Value ABS]
@@ -45871,18 +45871,18 @@ ParallelPeriod([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].Year 
           [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember)
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                             
+VISIBLE = 1;                                                                              
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value ABS]
  AS ABS([Measures].[GRL FIN Fact Voucher Mapping Value]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                              
+VISIBLE = 1;                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Value short term investment ACM]
  AS ([Measures].[GRL FIN Fact Voucher Value ACM]
 ,
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[102002]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                              
+VISIBLE = 1;                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Cost FIN With Forecat Pay Cash Loan]
  AS (
 [Measures].[GRL FIN Fact Cost Forecast Positive]
@@ -45891,7 +45891,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Cost FIN With Forecat Pa
 )
 + [Measures].[GRL FIN Fact Loan Cost FIN], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                           
+VISIBLE = 1;                                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Cost FIN With Forecat Pay Cash Loan Person]
  AS (
 [Measures].[GRL FIN Fact Cost Forecast Positive]
@@ -45900,7 +45900,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Cost FIN With Forecat Pa
 )
 + [Measures].[GRL FIN Fact Loan Cost FIN], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                              
+VISIBLE = 1;                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Cost Forecast Pay Cash Loan]
  AS (
 [Measures].[GRL FIN Fact Cost Forecast Positive]
@@ -45908,7 +45908,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Cost Forecast Pay Cash Loan]
 [GRL FIN Dim Cost Forecast].[Cost Forecast Id].&amp;[101]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                              
+VISIBLE = 1;                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Cost Forecast Pay Cash Loan Secondary]
  AS (
 [Measures].[GRL FIN Fact Cost Forecast Positive]
@@ -45922,11 +45922,11 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Cost Forecast Pay Cash Loan S
 [GRL FIN Dim Cost Forecast].[Cost Forecast Id].&amp;[121]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                              
+VISIBLE = 1;                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Cost FIN]
  AS [Measures].[GRL FIN Fact Loan Far Pardakhti For All], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                               
+VISIBLE = 1;                                                                                
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Receviables Details All Chek Value Vakhast]
  AS (
 [Measures].[RL TSY Fact Receviables Details All Chek Value]
@@ -45934,7 +45934,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Receviables Details All Chek 
 [GRL TSY Dim Current Status].[Current Status Id].&amp;[4]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                
+VISIBLE = 1;                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Total Income Percentage Of Deviation]
  AS iif(
 [Measures].[GRL FIN Fact Voucher Item Mapping Total Income Perv Year Positive]=null,null,
@@ -45946,7 +45946,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Total In
 )*100
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                
+VISIBLE = 1;                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Total Cost Percentage of deviation]
  AS iif(
 [Measures].[GRL FIN Fact Voucher Item Mapping Total Cost Perv Year Positive]=null,null,
@@ -45958,33 +45958,33 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Total Co
 )*100
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                
+VISIBLE = 1;                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Total Income Perv Year Positive]
  AS abs
 (
 [Measures].[GRL FIN Fact Voucher Item Mapping Total Income Perv Year]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                
+VISIBLE = 1;                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Total Income Positive]
  AS abs
 (
 [Measures].[GRL FIN Fact Voucher Item Mapping Total Income]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                 
+VISIBLE = 1;                                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Total Cost Perv Year Positive]
  AS abs(
 [Measures].[GRL FIN Fact Voucher Item Mapping Total Cost Perv Year]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                 
+VISIBLE = 1;                                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Total Cost Possitive]
  AS abs(
 [Measures].[GRL FIN Fact Voucher Item Mapping Total Cost]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                 
+VISIBLE = 1;                                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Total Income Perv Year]
  AS (
 [Measures].[GRL FIN Fact Voucher Item Mapping Total Income]
@@ -45994,7 +45994,7 @@ ParallelPeriod([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].Year 
           [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember)
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                 
+VISIBLE = 1;                                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Total Cost Perv Year]
  AS (
 [Measures].[GRL FIN Fact Voucher Item Mapping Total Cost]
@@ -46004,7 +46004,7 @@ ParallelPeriod([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].Year 
           [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember)
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                 
+VISIBLE = 1;                                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Percentage Profit Per Business]
  AS (
 [Measures].[GRL FIN Fact Voucher Item Mapping The difference Income-Cost]
@@ -46012,7 +46012,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Percenta
 [Measures].[GRL FIN Fact Voucher Item Mapping Total Income]
 )*100, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                 
+VISIBLE = 1;                                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Start Value Net Fore Cast]
  AS [Measures].[GRL FIN Fact Loan Start Value Fore Cast]
 -
@@ -46022,7 +46022,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Start Value Net Fore Cas
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[109011]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                 
+VISIBLE = 1;                                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Start Value Net Actual Aggregation]
  AS (
 AGGREGATE(
@@ -46036,7 +46036,7 @@ PeriodsToDate(
 -
 [Measures].[GRL FIN Fact Loan Value Bloack For All], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                 
+VISIBLE = 1;                                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Start Net]
  AS iif(
 [Measures].[GRL FIN Fact Loan Start Value Actual]=null,
@@ -46054,7 +46054,7 @@ null
 )
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                   
+VISIBLE = 1;                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Block Loan Overall Values ACM]
  AS IIF
  (AGGREGATE
@@ -46077,7 +46077,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Block Loan Overall Values ACM
 [Measures].[GRL FIN Fact Block Loan Overall Values]
 )), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                   
+VISIBLE = 1;                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[Vw GRL FIN Fact Loan Start Overall Percentage of facility interest]
  AS (
 [Measures].[GRL FIN Fact Loan Start Interest PRC Percent Value]*[Measures].[GRL FIN Fact Loan Net Value]
@@ -46086,7 +46086,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[Vw GRL FIN Fact Loan Start Overall Percent
 [Measures].[GRL FIN Fact Loan Net Value Overall]
 *100, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                   
+VISIBLE = 1;                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[Vw GRL FIN Fact Loan Start Overall Value Of Total]
  AS (
 [Measures].[GRL FIN Fact Loan Net Value]
@@ -46094,7 +46094,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[Vw GRL FIN Fact Loan Start Overall Value O
 [GRL FIN Fact Loan Net Value Overall]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                   
+VISIBLE = 1;                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Net Value Overall]
  AS iif(
 [Measures].[GRL FIN Fact Loan Start Value Actual]=null,
@@ -46107,7 +46107,7 @@ null
 )
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                   
+VISIBLE = 1;                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Net Value]
  AS (
 [Measures].[GRL FIN Fact Loan Start Value Actual]
@@ -46115,7 +46115,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Net Value]
 [Measures].[GRL FIN Fact Loan Value Bloack On Loan Start Value Actual]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                             
+VISIBLE = 1;                                                              
       
                                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Value Bloack On Loan Start Value Actual]
@@ -46128,12 +46128,12 @@ null
 [Measures].[GRL FIN Fact Loan Value Bloack]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                  
+VISIBLE = 1;                                                                   
                                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For All Loan And Bank Cost FIN]
  AS [Measures].[GRL FIN Fact Loan Remuneration fee For All]+[Measures].[GRL FIN Fact Loan The cost of getting a loan For All]+[Measures].[GRL FIN Fact Loan The cost is late For All], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                    
+VISIBLE = 1;                                                                                     
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For Loan Interest PRC Percent]
  AS ((
 [Measures].[GRL FIN Fact Loan Remuneration fee For All]
@@ -46152,7 +46152,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For Loan Interest PRC Pe
 ([Measures].[GRL FIN Fact Loan Start Duration])
 )*30, 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1;                                                                                     
+VISIBLE = 1;                                                                                      
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For All Loan And Bank Loan To Asset]
  AS (
 [Measures].[GRL FIN Fact Loan The balance of the principal of the loan For All]
@@ -46160,7 +46160,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For All Loan And Bank Lo
 2791883485709 
 ), 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1;                                                                                      
+VISIBLE = 1;                                                                                       
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For All Loan And Bank Leverage Ratio]
  AS (
 [Measures].[GRL FIN Fact Loan Balance of principal and interest For All]
@@ -46168,7 +46168,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For All Loan And Bank Le
 1818295105667
 ), 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1;                                                                                      
+VISIBLE = 1;                                                                                       
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For All Loan And Bank Interest PRC Percent]
  AS ((
 [Measures].[GRL FIN Fact Loan The cost is late For All]
@@ -46181,13 +46181,13 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For All Loan And Bank In
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Net Value Get Loan For All]
 )*100, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                       
+VISIBLE = 1;                                                                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For All Loan And Bank Net Value Get Loan For All]
  AS [Measures].[GRL FIN Fact Loan Start Value Actual]
 -
 [Measures].[Vw GRL FIN Fact Block Value ACM], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                       
+VISIBLE = 1;                                                                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For All Loan And Bank Value block For All]
  AS (
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Values]
@@ -46195,7 +46195,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For All Loan And Bank Va
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[109011]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                        
+VISIBLE = 1;                                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Far Pardakhti For All]
  AS (
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Debit Value]
@@ -46209,7 +46209,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Far Pardakhti For All]
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[305009]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                        
+VISIBLE = 1;                                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Far Pardakhti]
  AS (
 [Measures].[Vw GRL FIN Fact Loan Debit Value]
@@ -46223,7 +46223,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Far Pardakhti]
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[305009]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                        
+VISIBLE = 1;                                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Asl Pardakhti For All]
  AS (
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Debit Value]
@@ -46237,7 +46237,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Asl Pardakhti For All]
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[305008]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                 
+VISIBLE = 1;                                                                  
                                                                                       
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Asl Pardakhti]
  AS (
@@ -46252,7 +46252,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Asl Pardakhti]
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[305008]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                        
+VISIBLE = 1;                                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Asl And Far For All]
  AS (
 [Measures].[GRL FIN Fact Loan Start Value Actual]
@@ -46260,7 +46260,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Asl And Far For All]
 [Measures].[GRL FIN Fact Loan Remuneration fee For All]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                        
+VISIBLE = 1;                                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Asl And Far]
  AS (
 [Measures].[GRL FIN Fact Loan Start Value Actual]
@@ -46268,7 +46268,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Asl And Far]
 [Measures].[GRL FIN Fact Loan Remuneration fee]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                         
+VISIBLE = 1;                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For All Loan And Bank Values Profiting]
  AS ABS(AGGREGATE(PeriodsToDate(
 [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
@@ -46277,7 +46277,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For All Loan And Bank Va
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Values]
 ))), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                         
+VISIBLE = 1;                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For All Loan And Bank Values ACM]
  AS IIF
  (AGGREGATE
@@ -46288,7 +46288,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan For All Loan And Bank Va
  AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Values])), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                         
+VISIBLE = 1;                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[Vw GRL FIN Fact Block Value Profiting]
  AS ABS(AGGREGATE(PeriodsToDate(
 [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
@@ -46296,7 +46296,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[Vw GRL FIN Fact Block Value Profiting]
 ,([Measures].[Vw GRL FIN Fact Block Value]
 ))), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                         
+VISIBLE = 1;                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[Vw GRL FIN Fact Block Value ACM]
  AS IIF
  (AGGREGATE
@@ -46307,7 +46307,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[Vw GRL FIN Fact Block Value ACM]
  AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[Vw GRL FIN Fact Block Value])), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                          
+VISIBLE = 1;                                                                                           
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Start Credit Valuel Aggregation]
  AS iif(
 [Measures].[GRL FIN Fact Loan Start Credit Value]=null
@@ -46325,25 +46325,25 @@ PeriodsToDate(
 )
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                           
+VISIBLE = 1;                                                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Start Actual Aggregation]
  AS aggregate(  {Tail([SelectedDates],1).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[GRL FIN Fact Loan Start Value Actual]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                          
+VISIBLE = 1;                                                                                           
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Start ForeCast Aggregation]
  AS aggregate(  {Tail([SelectedDates],1).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[GRL FIN Fact Loan Start Value Fore Cast]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                         
+VISIBLE = 1;                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Balance of principal and interest For All]
  AS [Measures].[GRL FIN Fact Loan The balance of the principal of the loan For All]+[Measures].[GRL FIN Fact Loan interest balance For All], 
 FORMAT_STRING = "Standard", 
-VISIBLE = 1;                                                                                            
+VISIBLE = 1;                                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Balance of principal and interest]
  AS [Measures].[GRL FIN Fact Loan The balance of the principal of the loan]+[Measures].[GRL FIN Fact Loan interest balance], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                         
+VISIBLE = 1;                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The cost of getting a loan For All]
  AS (
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Values ACM]
@@ -46351,7 +46351,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The cost of getting a lo
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[806009]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                            
+VISIBLE = 1;                                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The cost of getting a loan]
  AS (
 [Measures].[Vw GRL FIN Fact Loan Values]
@@ -46359,7 +46359,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The cost of getting a lo
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[806009]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                         
+VISIBLE = 1;                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Value Bloack For All]
  AS (
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Values ACM]
@@ -46367,7 +46367,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Value Bloack For All]
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[109011]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                  
+VISIBLE = 1;                                                                   
                                                                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Value Bloack]
  AS (
@@ -46376,7 +46376,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Value Bloack]
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[109011]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                         
+VISIBLE = 1;                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The balance of the principal of the loan For All]
  AS (
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Values ACM]
@@ -46390,7 +46390,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The balance of the princ
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[305008]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                            
+VISIBLE = 1;                                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The balance of the principal of the loan]
  AS (
 (
@@ -46406,7 +46406,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The balance of the princ
 )
 )*-1, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                         
+VISIBLE = 1;                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan interest balance For All]
  AS (
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Values ACM]
@@ -46420,7 +46420,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan interest balance For All
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[305009]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                            
+VISIBLE = 1;                                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan interest balance]
  AS (
 (
@@ -46436,7 +46436,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan interest balance]
 )
 )*-1, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                         
+VISIBLE = 1;                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Financial expense balance For All]
  AS (
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Values ACM]
@@ -46450,7 +46450,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Financial expense balanc
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[806002]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                            
+VISIBLE = 1;                                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Financial expense balance]
  AS (
 [Measures].[Vw GRL FIN Fact Loan Values]
@@ -46464,7 +46464,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Financial expense balanc
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[806002]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                         
+VISIBLE = 1;                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The principle of the loan For All]
  AS (
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Credit Value]
@@ -46478,7 +46478,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The principle of the loa
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[305008]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                            
+VISIBLE = 1;                                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The principle of the loan]
  AS (
 [Measures].[Vw GRL FIN Fact Loan Credit Value]
@@ -46492,7 +46492,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The principle of the loa
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[305008]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                         
+VISIBLE = 1;                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The cost is late For All]
  AS (
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Values ACM]
@@ -46500,7 +46500,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The cost is late For All
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[806003]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                             
+VISIBLE = 1;                                                                                              
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The cost is late]
  AS (
 [Measures].[Vw GRL FIN Fact Loan Values]
@@ -46508,7 +46508,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The cost is late]
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[806003]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                         
+VISIBLE = 1;                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Remuneration fee For All]
  AS (
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Credit Value]
@@ -46522,7 +46522,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Remuneration fee For All
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[305009]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                             
+VISIBLE = 1;                                                                                              
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Remuneration fee]
  AS (
 [Measures].[Vw GRL FIN Fact Loan Credit Value]
@@ -46536,7 +46536,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Remuneration fee]
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[305009]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                         
+VISIBLE = 1;                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The cost of interest For All]
  AS (
 [Measures].[GRL FIN Fact Loan For All Loan And Bank Values ACM]
@@ -46550,7 +46550,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The cost of interest For
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[205011]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                             
+VISIBLE = 1;                                                                                              
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The cost of interest]
  AS (
 [Measures].[Vw GRL FIN Fact Loan Values]
@@ -46564,7 +46564,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The cost of interest]
 [GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[205011]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                              
+VISIBLE = 1;                                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Recivable Aggregate]
  AS ([Measures].[GRL TSY Fact Receviables Value]
 )
@@ -46573,7 +46573,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Recivable Aggregate]
 [Measures].[GRL TSY Fact Receviables Value First Year]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                              
+VISIBLE = 1;                                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable Aggregate]
  AS (
 (((
@@ -46600,7 +46600,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable Aggregate]
 )
 *-1, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                  
+VISIBLE = 1;                                                                                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Receviables Ras Date With Side Transacti Value Rass]
  AS iif(len([Measures].[GRL TSY Fact Receviables Ras Date With Side Transacti Value Ras])=8
 ,
@@ -46609,7 +46609,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Receviables Ras Date With Sid
 null
 ), 
 FORMAT_STRING = "0", 
-VISIBLE = 1;                                                                                                   
+VISIBLE = 1;                                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Receviables First Value Transferred]
  AS (
 [Measures].[GRL TSY Fact Receviables First Value]
@@ -46617,15 +46617,15 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Receviables First Value Trans
 [GRL TSY Dim Current Status].[Current Status Id].&amp;[6]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                   
+VISIBLE = 1;                                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Payment Value Without First Day]
  AS [Measures].[GRL TSY Fact Payment Value]-[Measures].[GRL TSY Fact Payment First Value], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                   
+VISIBLE = 1;                                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Cash Deposit Value Without First Day]
  AS [Measures].[Vw GRL FIN Fact Cash Deposit - Vw GRL FIN Fact Cash Deposit]-[Measures].[Vw GRL FIN Fact Cash Deposit First Val], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                   
+VISIBLE = 1;                                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable Value Without First Day With Transferred]
  AS [Measures].[GRL TSY Fact Payable Value Positive]-abs([Measures].[GRL TSY Fact Payable First Value])+(
 [Measures].[GRL TSY Fact Receviables Value]
@@ -46639,7 +46639,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable Value Without First D
 [GRL TSY Dim Current Status].[Current Status Id].&amp;[6]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                 
+VISIBLE = 1;                                                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable Value With Transferred]
  AS abs([Measures].[GRL TSY Fact Payable Value])
 +
@@ -46649,15 +46649,15 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable Value With Transferre
 [GRL TSY Dim Current Status].[Current Status Id].&amp;[6]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                   
+VISIBLE = 1;                                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable Value Without First Day]
  AS [Measures].[GRL TSY Fact Payable Value Positive]-abs([Measures].[GRL TSY Fact Payable First Value]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                   
+VISIBLE = 1;                                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Recivable Value Without First Day]
  AS [Measures].[GRL TSY Fact Receviables Value]-[Measures].[GRL TSY Fact Receviables First Value], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                    
+VISIBLE = 1;                                                                                                     
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Input Value With First of year Value]
  AS ([Measures].[GRL TSY Fact Receviables Value]
 +
@@ -46672,7 +46672,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Input Value With First of year V
 [Measures].[Vw GRL FIN Fact Cash Deposit Value First Year]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                    
+VISIBLE = 1;                                                                                                     
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Output Value With First of year Value]
  AS ((((
 ([Measures].[GRL TSY Fact Payment Value]
@@ -46709,19 +46709,19 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Output Value With First of year 
 )
 *-1, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                     
+VISIBLE = 1;                                                                                                      
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Cost Forecast Positive]
  AS [Measures].[GRL FIN Fact Cost Forecast - Cost Forecast Value]*-1, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                     
+VISIBLE = 1;                                                                                                      
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable Value Positive]
  AS [Measures].[GRL TSY Fact Payable Value]*-1, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                 
+VISIBLE = 1;                                                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable With Transferred Value Positive]
  AS [Measures].[GRL TSY Fact Payable With Transferred Value]*-1, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                      
+VISIBLE = 1;                                                                                                       
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Value Without Transferred]
  AS (
 [Measures].[GRL TSY Fact Receviables Value]
@@ -46729,7 +46729,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Value Without Transferred]
 [GRL TSY Dim Current Status].[Current Status Id].&amp;[6]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                             
+VISIBLE = 1;                                                                                                              
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Printers' warehouse balance]
  AS abs(
 [Measures].[GRL INV Fact Material Inventory Qty KG FirstCourse Real Date]
@@ -46747,7 +46747,7 @@ abs(
 [Measures].[GRL INV Fact Material Inventory Qty KG Consumption Real Date]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                      
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                       
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Value Without Transferred Without First Filter]
  AS (
 (
@@ -46763,7 +46763,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Value Without Transferred Without 
 )
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                             
+VISIBLE = 1;                                                                                                              
 CREATE MEMBER CURRENTCUBE.[Measures].[Material Inventory Qty KG Transfer receipt between warehouse]
  AS (
 [Measures].[Material Inventory Qty KG]
@@ -46771,7 +46771,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[Material Inventory Qty KG Transfer receipt
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000010004]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                             
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                              
 CREATE MEMBER CURRENTCUBE.[Measures].[Material Inventory Qty KGr Transfer between warehouses]
  AS (
 [Measures].[Material Inventory Qty KG]
@@ -46780,7 +46780,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[Material Inventory Qty KGr Transfer betwee
 
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                             
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                              
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Testtttt]
  AS (
 [Measures].[GRL INV Fact Material Inventory Qty KG FirstCourse Real Date]
@@ -46790,7 +46790,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Tes
 [Measures].[GRL INV Fact Material Inventory Qty KG Consumption Real Date]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                              
+VISIBLE = 1;                                                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Buy Percentage of in-app purchases SumOver]
  AS iif([Measures].[Buy Forecast QTY Sum Over - GRL INV Fact Paper Fore Cast Sum Over]=null,null,(
 [Measures].[GRL INV Fact Material Inventory Qty KG Buy]
@@ -46799,7 +46799,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Buy
 )*100
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                              
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Buy Percentage of in-app purchases]
  AS iif([Measures].[GRL INV Fact Paper Forecast Buy KG SumOver]=null,null,(
 [Measures].[GRL INV Fact Material Inventory Qty KG Buy]
@@ -46808,7 +46808,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Buy
 )*100
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                              
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Buy Qty KG Supply growth]
  AS iif([Measures].[GRL INV Fact Material Inventory SumOver Qty KG Buy With FirstCourse Perv Year]=null,null,
 Abs(((
@@ -46819,7 +46819,7 @@ Abs(((
 )*100)
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                              
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Percentage of usage to license]
  AS iif([Measures].[GRL INV Fact Material Inventory Qty KG Consumption]=null,null,
 (([Measures].[GRL INV Fact Material Inventory Qty KG Project Consumption]
@@ -46828,21 +46828,21 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Per
 )*100)
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                              
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Paper Forecast Consumption KG SumOver]
  AS AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
 [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember),
 [Measures].[GRL INV Fact Paper Forecast-Consumption Forecast QTY]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Paper Forecast';                                                                                                              
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Paper Forecast';                                                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Paper Forecast Buy KG SumOver]
  AS AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
 [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember),
 [Measures].[GRL INV Fact Paper Forecast-Buy Forecast QTY]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Paper Forecast';                                                                                                              
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Paper Forecast';                                                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Percentage of consumption]
  AS (
 ([Measures].[GRL INV Fact Material Inventory Qty KG Consumption]*-1)
@@ -46852,7 +46852,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Per
 )
 )*100, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[ GRL INV Fact Material Inventory First Course QTY KG ]
  AS AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
 [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember),(
@@ -46860,7 +46860,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[ GRL INV Fact Material Inventory First Cou
 )
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory First Course';                                                                                                                   
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory First Course';                                                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory SumOver Qty KG Buy With FirstCourse Perv Year]
  AS (
 [Measures].[GRL INV Fact Material Inventory SumOver Qty KG Buy With FirstCourse]
@@ -46869,13 +46869,13 @@ ParallelPeriod([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].Year 
              1,
           [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember)), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                   
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory SumOver Qty KG Buy With FirstCourse]
  AS [Measures].[GRL INV Fact Material Inventory Qty KG Buy]
 +
 [Measures].[GRL INV Fact Material Inventory Qty KG With FirstCourse], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                   
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Project Consumption Real Date]
  AS (
 [Measures].[Material Inventory Qty KG]
@@ -46883,7 +46883,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Pro
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000000053]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                   
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Consumption Real Date]
  AS (
 [Measures].[Material Inventory Qty KG]
@@ -46891,7 +46891,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Con
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000002000]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                   
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Buy Real Date]
  AS (
 [Measures].[Material Inventory Qty KG]
@@ -46917,7 +46917,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Buy
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000010011]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG FirstCourse Real Date]
  AS (
 [Measures].[Material Inventory Qty KG]
@@ -46925,7 +46925,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Fir
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000000001]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                            
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Parent Type FirstCourse Real Date]
  AS (
 [Measures].[Material Inventory Qty KG]
@@ -46933,7 +46933,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Par
 [GRL INV Dim Voucher Type].[ParentVoucherType - VoucherType].[Parent Voucher Type Id].&amp;[1]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                            
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Parent Type Buy Real Date]
  AS (
 [Measures].[Material Inventory Qty KG]
@@ -46941,7 +46941,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Par
 [GRL INV Dim Voucher Type].[ParentVoucherType - VoucherType].[Parent Voucher Type Id].&amp;[2]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                            
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Parent Type Project Consumption Real Date]
  AS (
 [Measures].[Material Inventory Qty KG]
@@ -46949,7 +46949,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Par
 [GRL INV Dim Voucher Type].[ParentVoucherType - VoucherType].[Parent Voucher Type Id].&amp;[3]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                            
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Parent Type Remittance between warehouses Real Date]
  AS (
 [Measures].[Material Inventory Qty KG]
@@ -46957,7 +46957,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Par
 [GRL INV Dim Voucher Type].[ParentVoucherType - VoucherType].[Parent Voucher Type Id].&amp;[4]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                            
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Parent Type Receipt between warehouses Real Date]
  AS (
 [Measures].[Material Inventory Qty KG]
@@ -46965,7 +46965,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Par
 [GRL INV Dim Voucher Type].[ParentVoucherType - VoucherType].[Parent Voucher Type Id].&amp;[5]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                            
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Parent Type Other extras Real Date]
  AS (
 [Measures].[Material Inventory Qty KG]
@@ -46979,7 +46979,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Par
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000000007]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                            
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Parent Type Other deductions Real Date]
  AS (
 [Measures].[Material Inventory Qty KG]
@@ -46989,7 +46989,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Par
 -
 [Measures].[GRL INV Fact Material Inventory Qty KG Project Consumption Real Date], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                            
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Parent Type Real Date]
  AS [Measures].[GRL INV Fact Material Inventory Qty KG Parent Type FirstCourse Real Date]
 +
@@ -47005,7 +47005,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Par
 +
 [Measures].[GRL INV Fact Material Inventory Qty KG Parent Type Other deductions Real Date], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                   
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Consumption Perv Year]
  AS (
 [Measures].[GRL INV Fact Material Inventory Qty KG Consumption]
@@ -47014,7 +47014,7 @@ ParallelPeriod([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].Year 
              1,
           [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember)), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                  
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Consumption Positive Perv Year]
  AS (
 [Measures].[GRL INV Fact Material Inventory Qty KG Consumption Positive]
@@ -47023,7 +47023,7 @@ ParallelPeriod([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].Year 
              1,
           [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember)), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                   
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Buy Perv Year]
  AS (
 [Measures].[GRL INV Fact Material Inventory Qty KG Buy]
@@ -47032,17 +47032,17 @@ ParallelPeriod([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].Year 
              1,
           [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember)), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                    
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                     
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory SumOver Qty KG Consumption  With FirstCourse]
  AS [Measures].[Material Inventory Qty KG - GRL INV Fact Material Inventory Sum Over Consumption], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                    
+VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                     
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory SumOver Qty KG Buy With FirstCourse t]
  AS [Measures].[Material Inventory Qty KG - GRL INV Fact Material Inventory Sum Over Buy]
 +
 [Measures].[Material Inventory Qty KG - GRL INV Fact Material Inventory First Course], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                    
+VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                     
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Consumption Positive]
  AS (
 [Measures].[GRL INV Fact Material Inventory Qty KG SUM]
@@ -47050,7 +47050,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Con
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000002000]
 )*-1, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                      
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                       
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Consumption]
  AS (
 [Measures].[GRL INV Fact Material Inventory Qty KG SUM]
@@ -47058,7 +47058,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Con
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000002000]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                      
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                       
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Buy]
  AS (
 [Measures].[GRL INV Fact Material Inventory Qty KG SUM]
@@ -47084,7 +47084,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Buy
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000010011]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                   
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                    
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Project Consumption]
  AS (
 [Measures].[GRL INV Fact Material Inventory Qty KG SUM]
@@ -47092,7 +47092,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Pro
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000000053]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                  
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Project Consumption Positive]
  AS (
 [Measures].[GRL INV Fact Material Inventory Qty KG SUM]
@@ -47100,7 +47100,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Pro
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000000053]
 )*-1, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                    
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                     
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG With FirstCourse]
  AS (
 [Measures].[GRL INV Fact Material Inventory Qty KG SUM]
@@ -47108,7 +47108,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Wit
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000000001]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                       
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Warehouse balance until desired day]
  AS (
 [Measures].[GRL INV Fact Material Inventory Qty KG With FirstCourse]
@@ -47124,7 +47124,7 @@ abs((
 [Measures].[GRL INV Fact Material Inventory Qty KG Consumption]
 )), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                       
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory QTY KG With Buy QTY Forecast]
  AS [Measures].[GRL INV Fact Material Inventory Qty KG Buy]
 +
@@ -47132,13 +47132,13 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory QTY KG Wit
 +
 [Measures].[GRL INV Fact Material Inventory Qty KG With FirstCourse], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                       
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory QTY KG With Consumption QTY Forecast]
  AS [Measures].[GRL INV Fact Material Inventory Qty KG Consumption]
 +
 [Measures].[GRL INV Fact Paper Forecast Consumption KG SumOver], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                        
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Value Raw material stock balance]
  AS (
 [Measures].[GRL INV Fact Material Inventory Value SUM]
@@ -47150,7 +47150,7 @@ abs((
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000000053]
 )), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                        
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty Raw material stock balance]
  AS ([Measures].[GRL INV Fact Material Inventory Qty SUM])
 +
@@ -47160,7 +47160,7 @@ abs((
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000000053]
 )), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                       
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG Raw material stock balance]
  AS ([Measures].[GRL INV Fact Material Inventory Qty KG SUM])
 -
@@ -47170,7 +47170,7 @@ abs((
 [GRL INV Dim Voucher Type].[Company - VoucherType].[Voucher Type Id].&amp;[100000000053]
 )), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                         
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Receviables Value Without Transferred]
  AS ([Measures].[GRL TSY Fact Receviables Value])
 -
@@ -47179,7 +47179,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Receviables Value Without Tra
 [GRL TSY Dim Current Status].[Current Status Id].&amp;[6]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL TSY Fact Receviables';                                                                                                                         
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL TSY Fact Receviables';                                                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable Value Without Transferred]
  AS (abs([Measures].[GRL TSY Fact Payable Value])
 -
@@ -47189,7 +47189,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable Value Without Transfe
 )
 )*-1, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL TSY Fact Payable';                                                                                                                               
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL TSY Fact Payable';                                                                                                                                
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Output Value]
  AS (
 ([Measures].[GRL TSY Fact Payable Value]*-1)
@@ -47199,7 +47199,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Output Value]
 ([Measures].[Uncollectedlate Value]*-1)
 )*-1, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                         
+VISIBLE = 1;                                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Output Value Without First Day Filter]
  AS ((((
 ([Measures].[GRL TSY Fact Payment Value]
@@ -47238,7 +47238,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Output Value Without First Day F
 )
 *-1), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;            
+VISIBLE = 1;             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Output Value Without First Day FilterWithMandeh]
  AS ((((
 ([Measures].[GRL TSY Fact Payment Value]
@@ -47277,7 +47277,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Output Value Without First Day F
 )
 *-1), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;               
+VISIBLE = 1;                
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Output Value Cumulative]
  AS aggregate(  {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[GRL TSY Fact Payable Value])
@@ -47296,26 +47296,7 @@ aggregate(  {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Ye
 [Measures].[GRL TSY Fact Uncollected Late Total Today And Month Total Value]*-1
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;  
-CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Output Value Cumulative WithOutIf]
- AS aggregate(  {Tail([Named SetNew]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
-[Measures].[GRL TSY Fact Payable Value])
-+
-(aggregate(  {Tail([Named SetNew]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
-[Measures].[GRL TSY Fact Payment Value])*-1)
-+
-aggregate(  {Tail([Named SetNew]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
-[Measures].[GRL FIN Fact Cost Forecast - Cost Forecast Value])
-+
-(aggregate(  {Tail([Named SetNew]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
-[Measures].[GRL TSY Fact Reciveable With Transferred Value])*-1)
-+
-(
-
-[Measures].[GRL TSY Fact Uncollected Late Total Today And Month Total Value]*-1
-), 
-FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1  ;                                                                                                         
+VISIBLE = 1;                                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Input Value Without First Day Filter]
  AS ([Measures].[GRL TSY Fact Receviables Value]
 +
@@ -47330,7 +47311,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Input Value Without First Day Fi
 [Measures].[Vw GRL FIN Fact Cash Deposit First Val]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;            
+VISIBLE = 1;             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Input Value Without First Day FilterWithMandeh]
  AS ([Measures].[GRL TSY Fact Receviables Value]
 +
@@ -47345,7 +47326,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Input Value Without First Day Fi
 [Measures].[Vw GRL FIN Fact Cash Deposit First Val]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;               
+VISIBLE = 1;                
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Input Value Cumulative]
  AS aggregate(  {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[GRL TSY Fact Receviables Value])
@@ -47356,18 +47337,7 @@ aggregate(  {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Ye
 aggregate(  {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[GRL FIN Fact Income Forecast - Income Forecast Value]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;  
-CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Input Value Cumulative WithOutIf]
- AS aggregate(  {Tail([Named SetNew]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
-[Measures].[GRL TSY Fact Receviables Value])
-+
-aggregate(  {Tail([Named SetNew]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
-[Measures].[Vw GRL FIN Fact Cash Deposit - Vw GRL FIN Fact Cash Deposit])
-+
-aggregate(  {Tail([Named SetNew]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
-[Measures].[GRL FIN Fact Income Forecast - Income Forecast Value]), 
-FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1  ;                                                                                                                               
+VISIBLE = 1;                                                                                                                                
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Input Value]
  AS [Measures].[GRL TSY Fact Receviables Value]
 +
@@ -47375,7 +47345,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Input Value]
 +
 [Measures].[GRL FIN Fact Income Forecast - Income Forecast Value], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                                                
+VISIBLE = 1;                                                                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Treasury Day Balance]
  AS [Measures].[Val]
 +
@@ -47383,7 +47353,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL Treasury Day Balance]
 -
 abs([Measures].[GRL Total Output Value]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                         
+VISIBLE = 1;                                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Treasury Day Balance Without First Day Filter]
  AS [Measures].[Val]
 +
@@ -47391,7 +47361,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL Treasury Day Balance Without First Day
 -
 abs([Measures].[GRL Total Output Value Without First Day Filter]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                                 
+VISIBLE = 1;                                                                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Treasury Day Balance CumulativeOld]
  AS (
 [Measures].[Vw GRL FIN Fact Voucher Item Mappnig First Day Of Year Value]
@@ -47418,36 +47388,7 @@ AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Da
 
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;  
-CREATE MEMBER CURRENTCUBE.[Measures].[GRL Treasury Day Balance Cumulative WithOut If]
- AS (
-([Measures].[Val],Tail([Named SetNew]).Item(0))
-+
-(
-[Measures].[GRL Total Input Value Cumulative WithOutIf]
-)
--
-abs
-(
-[Measures].[GRL Total Output Value Cumulative WithOutIf]
-)
-+
-aggregate( {Tail([Named SetNew]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
-[Measures].[GRL TSY Fact Payment First Value])
--
-aggregate( {Tail([Named SetNew]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
-[Measures].[Vw GRL FIN Fact Cash Deposit First Val])
-
-), 
-VISIBLE = 1  ;   
-CREATE MEMBER CURRENTCUBE.[Measures].[Calculated Membertestdate]
- AS case when [GRL GNR Dim Full Date].[Date After Now Status].currentmember
-is [GRL GNR Dim Full Date].[Date After Now Status].&amp;[0]
-then ([Measures].[Val],[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember)
-else 
-[GRL Treasury Day Balance Cumulative WithOut If]
-end, 
-VISIBLE = 1  ;               
+VISIBLE = 1;                
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Treasury Day Balance Cumulative]
  AS (
 ([Measures].[Vw GRL FIN Fact Voucher Item Mappnig First Day Of Year Value],Tail([SelectedDates]).Item(0))
@@ -47469,18 +47410,18 @@ aggregate( {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Yea
 
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;        
+VISIBLE = 1;         
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payment First Value Cumulative]
  AS aggregate( {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[GRL TSY Fact Payment First Value]), 
-VISIBLE = 1;        
+VISIBLE = 1;         
 CREATE MEMBER CURRENTCUBE.[Measures].[Vw GRL FIN Fact Cash Deposit First Val Cumulative]
  AS aggregate( {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[Vw GRL FIN Fact Cash Deposit First Val]), 
-VISIBLE = 1;               
+VISIBLE = 1;                
 CREATE MEMBER CURRENTCUBE.[Measures].FirstDayOfFirstYearMojoodi
  AS ([Measures].[Vw GRL FIN Fact Voucher Item Mappnig First Day Of Year Value],Tail([SelectedDates]).Item(0)), 
-VISIBLE = 1;                                                                                                                                
+VISIBLE = 1;                                                                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Treasury inventory at the moment n02]
  AS (
 [Measures].[GRL FIN Fact First Quarter Cash Inventory Value ACM]
@@ -47490,7 +47431,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[Treasury inventory at the moment n02]
 [Measures].[GRL TSY Fact Payable Value  Profit and Loss]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                
+VISIBLE = 1;                                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value ACM Cash]
  AS (
 [Measures].[GRL FIN Fact Voucher Mapping Value ACM]
@@ -47498,7 +47439,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value ACM Cas
 [GRL FIN Dim Financial Item Mapping].[Financial Item Id].&amp;[1]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                                                
+VISIBLE = 1;                                                                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact First Quarter Cash Inventory Value ACM]
  AS (
 (
@@ -47510,12 +47451,12 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact First Quarter Cash Inventory 
 [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember.parent.parent.parent.prevmember.lastchild
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                                                
+VISIBLE = 1;                                                                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Receviables Value ACM]
  AS AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},[Measures].[GRL TSY Fact Receviables Value]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL TSY Fact Receviables';                                                                                                                                
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL TSY Fact Receviables';                                                                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Treasury inventory at the moment]
  AS [Measures].[GRL FIN Fact First Quarter Cash Inventory Value ACM]
 +
@@ -47523,7 +47464,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[Treasury inventory at the moment]
 -
 abs([Measures].[GRL TSY Fact Payable Value  Profit and Loss]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                                                
+VISIBLE = 1;                                                                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Receviables Value Profit and Loss]
  AS AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
 [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember),(
@@ -47531,7 +47472,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Receviables Value Profit and 
 )
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL TSY Fact Receviables';                                                                                                                                
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL TSY Fact Receviables';                                                                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable Value  Profit and Loss]
  AS AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
 [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember),(
@@ -47539,20 +47480,20 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable Value  Profit and Los
 )
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                                                
+VISIBLE = 1;                                                                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable Value ACM]
  AS AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},[Measures].[GRL TSY Fact Payable Value]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL TSY Fact Payable';                                                                                                                                
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL TSY Fact Payable';                                                                                                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Receivables The difference between receiving and paying]
  AS [Measures].[GRL TSY Fact Receviables Value]-abs([Measures].[GRL TSY Fact Payable Value]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                                                                                                  
+VISIBLE = 1;                                                                                                                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping The difference Income-Cost]
  AS ([Measures].[GRL FIN Fact Voucher Item Mapping Total Income])-([Measures].[GRL FIN Fact Voucher Item Mapping Total Cost]*-1), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                  
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Total Income]
  AS (
 [Measures].[Voucher Item Value - GRL FIN Fact Voucher Item Mapping]
@@ -47560,7 +47501,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Total In
 [GRL FIN Dim Financial Item Mapping].[Financial Item Id].&amp;[325]
 )*-1, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                  
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Total Cost]
  AS (
 [Measures].[GRL FIN Fact Voucher Mapping Value]
@@ -47568,7 +47509,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Total Co
 [GRL FIN Dim Financial Item Mapping].[Financial Item Id].&amp;[324]
 )*-1, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                  
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Ratio of income to the total]
  AS (
 ([Measures].[Voucher Item Value - GRL FIN Fact Voucher Item Mapping],[GRL FIN Dim Financial Item Mapping].[Financial Item Id].&amp;[42])
@@ -47580,7 +47521,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Ratio of
 )
 )*100, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                       
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                        
               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Value Debit Remind]
  AS IIF([GRL FIN Dim COA Ledger Account].[COA Sheet Account Id].currentmember is [GRL FIN Dim COA Ledger Account].[COA Sheet Account Id].&amp;[1],
@@ -47591,7 +47532,7 @@ AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].curr
 [Measures].[Voucher Item Value])
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item';                                                                                                                                                                     
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item';                                                                                                                                                                      
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Value Debit Value]
  AS IIF([GRL FIN Dim COA Ledger Account].[COA Sheet Account Id].currentmember is [GRL FIN Dim COA Ledger Account].[COA Sheet Account Id].&amp;[1],
 AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
@@ -47601,7 +47542,7 @@ AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].curr
 [Measures].[Voucher Item Debit Value])
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item';                                                                                                                                                                     
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item';                                                                                                                                                                      
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Value Credit Value]
  AS IIF([GRL FIN Dim COA Ledger Account].[COA Sheet Account Id].currentmember is [GRL FIN Dim COA Ledger Account].[COA Sheet Account Id].&amp;[1],
 AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
@@ -47611,42 +47552,42 @@ AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].curr
 [Measures].[Voucher Item Credit Value])
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item';                                                                                                                                                                                                                                                                       
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item';                                                                                                                                                                                                                                                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Operating Income Growth Rate]
  AS abs(IIf([Measures].[GRL FIN Fact Voucher Item Mapping Operating Income perv] = NULL or [Measures].[GRL FIN Fact Voucher Item Mapping Operating Income perv] =0 
 ,NULL,
 (([Measures].[GRL FIN Fact Voucher Item Mapping Operating Income]-[Measures].[GRL FIN Fact Voucher Item Mapping Operating Income perv])
 /[Measures].[GRL FIN Fact Voucher Item Mapping Operating Income perv])*100)), 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                                                                                                                                       
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                                                                                                                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Operating Income perv]
  AS abs(([Measures].[GRL FIN Fact Voucher Item Mapping Operating Income],
 ParallelPeriod([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].year ,
              1,
           [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember))), 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                                                                                                                                                                                                                                                                                                  
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                                                                                                                                                                                                                                                                                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Value ACM]
  AS IIF (AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},[Measures].[Voucher Item Value])&lt;0,AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},[Measures].[Voucher Item Value])*-1,AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},[Measures].[Voucher Item Value])), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item';                                                                                                                                                                                                                                                                                                                                                                                                                             
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item';                                                                                                                                                                                                                                                                                                                                                                                                                              
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Value]
  AS ABS(AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
 [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember),([Measures].[Voucher Item Value]))), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item';                                                                                                                                                                                                                                                                                                       
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item';                                                                                                                                                                                                                                                                                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Values]
  AS ABS([Measures].[Voucher Item Value]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item';                                                                                                                                                                                                                                                                                                              
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item';                                                                                                                                                                                                                                                                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Item Mapping Debit Value]
  AS AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
 [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember),([Measures].[Voucher Item Debit Value - GRL FIN Fact Voucher Item Mapping])), 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                                                                                                                                                                                                                                                             
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                                                                                                                                                                                                                                                              
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value ACM]
  AS AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},[Measures].[Voucher Item Value - GRL FIN Fact Voucher Item Mapping]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                                                                                                                                                                           
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                                                                                                                                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value ACM Period Perv]
  AS ([Measures].[GRL FIN Fact Voucher Mapping Value ACM],
 
@@ -47654,11 +47595,11 @@ ParallelPeriod([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].Curre
              1,
           [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember)), 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                                                                                                                                                                                                                                                                                         
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                                                                                                                                                                                                                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty SUM]
  AS [Measures].[GRL INV Fact Material Inventory Qty ACM By Year], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                                 
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value ACM Year Perv]
  AS ([Measures].[GRL FIN Fact Voucher Mapping Value ACM],
 
@@ -47666,12 +47607,12 @@ ParallelPeriod([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].year 
              1,
           [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember)), 
 FORMAT_STRING = "#,##0.00;-#,##0.00", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                                                                                                                                                                                                                                                             
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                                                                                                                                                                                                                                                              
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value]
  AS AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
 [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember),([Measures].[Voucher Item Value - GRL FIN Fact Voucher Item Mapping])), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                                                                                                                                                                                                                                          
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                                                                                                                                                                                                                                                           
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Value Perv]
  AS ([Measures].[GRL FIN Fact Voucher Mapping Value],
 
@@ -47679,89 +47620,89 @@ ParallelPeriod([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].Curre
              1,
           [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember)), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                      
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping';                                                                                                                                       
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Bank All Value Total]
  AS AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},[Measures].[GRL FIN Fact Voucher Item Mapping Bank Voucher Item Net Value]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping Bank';                                                                                                                                                                                                                                                                                                                                      
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping Bank';                                                                                                                                                                                                                                                                                                                                       
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Bank Value]
  AS AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},[Measures].[GRL FIN Fact Voucher Item Mapping Bank Voucher Item Net Value]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping Bank';                                                                                                                                                                                                                                                                                                                                      
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping Bank';                                                                                                                                                                                                                                                                                                                                       
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Voucher Mapping Bank Value Cash]
  AS ([Measures].[GRL FIN Fact Voucher Mapping Bank Value],[GRL FIN Dim Financial Item Mapping].[Financial Type - Financial Item].[Financial Item Id].&amp;[1]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping Bank';                                                                                                                       
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Voucher Item Mapping Bank';                                                                                                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG SUM]
  AS [Measures].[GRL INV Fact Material Inventory Qty KG ACM By Year], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                                                                                                                                                                                                                                                           
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                                                                                                                                                                                                                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty ACM]
  AS AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},[Measures].[Material Inventory Qty]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                       
+VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG ACM]
  AS AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},[Measures].[Material Inventory Qty KG]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                                                                                                                                                                                                                                                           
+VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                                                                                                                                                                                                                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty ACM By Year]
  AS AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
 [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember),[Measures].[Material Inventory Qty]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                       
+VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Qty KG ACM By Year]
  AS AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
 [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember),
 [Measures].[Material Inventory Qty KG]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                                                                                                                                                                                                                                                                                                                         
+VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                                                                                                                                                                                                                                                                                                                          
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Value SUM]
  AS [Measures].[GRL INV Fact Material Inventory Value ACM By Year], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                                                                                                                                                                                                                                                           
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                                                                                                                                                                                                                                                                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Value ACM By Year]
  AS AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].[Year],
 [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember),[Measures].[Material Inventory Value]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                     
+VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                      
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Cost Forecast Compilition For Quarter]
  AS Divide
         ([Measures].[GRL FIN Fact Cost Forecast - Cost Forecast Real Value],[Measures].[GRL FIN Fact Cost Forecast - Quarter Base Line Total]
 ,0), 
 FORMAT_STRING = "Percent", 
 NON_EMPTY_BEHAVIOR = { [GRL FIN Fact Cost Forecast - Cost Forecast Real Value], [GRL FIN Fact Cost Forecast - Quarter Base Line Total] }, 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Cost Forecast';                                                                     
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Cost Forecast';                                                                      
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Income Forecast Compilition For Quarter]
  AS Divide
         ([Measures].[GRL FIN Fact Income Forecast - Income Forecast Real Value],[Measures].[GRL FIN Fact Income Forecast Quarter Base Line Total]
 ,0), 
 FORMAT_STRING = "Percent", 
 NON_EMPTY_BEHAVIOR = { [GRL FIN Fact Income Forecast - Income Forecast Real Value], [GRL FIN Fact Income Forecast Quarter Base Line Total] }, 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Income Forecast';              
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Income Forecast';               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRl FIN Fact Map Income Fore Cast Number Compilition For Quarter]
  AS Divide
         ([Measures].[GRl FIN Fact Map Income Fore Cast Number View Sum Realvalue],[Measures].[GRl FIN Fact Map Income Fore Cast Number View Sum Quarter Base Line Total]
 ,0), 
 FORMAT_STRING = "Percent", 
 NON_EMPTY_BEHAVIOR = { [GRl FIN Fact Map Income Fore Cast Number View Sum Quarter Base Line Total] }, 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'G Rl FIN Fact Map Income Fore Cast Number View';              
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'G Rl FIN Fact Map Income Fore Cast Number View';               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRl FIN Fact Map Cost Fore Cast Number Compilition For Quarter]
  AS Divide
         ([Measures].[GRl FIN Fact Map Cost Fore Cast Number Sum Realvalue],[Measures].[GRl FIN Fact Map Cost Fore Cast Number Sum Quarter Base Line Total]
 ,0), 
 FORMAT_STRING = "Percent", 
 NON_EMPTY_BEHAVIOR = { [GRl FIN Fact Map Cost Fore Cast Number Sum Quarter Base Line Total] }, 
-VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRl FIN Fact Map Cost Fore Cast Number View';                                                                                                                                                                                                                                                                                                                                                           
+VISIBLE = 1 ,  ASSOCIATED_MEASURE_GROUP = 'GRl FIN Fact Map Cost Fore Cast Number View';                                                                                                                                                                                                                                                                                                                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL INV Fact Material Inventory Value ACM]
  AS AGGREGATE({NULL:[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},[Measures].[Material Inventory Value]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                 
+VISIBLE = 0 ,  ASSOCIATED_MEASURE_GROUP = 'GRL INV Fact Material Inventory';                                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GrL Fin Fact Cost Forecast 12301]
  AS ([Measures].[GRL FIN Fact Cost Forecast - Cost Forecast Value],[GRL FIN Dim Child Cost Forecast].[Child Cost Forecast Id 1].&amp;[12301]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1 ,  DISPLAY_FOLDER = 'اطلاعات پیش بینی هزینه ها' ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Cost Forecast';                                                              
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'اطلاعات پیش بینی هزینه ها' ,  ASSOCIATED_MEASURE_GROUP = 'GRL FIN Fact Cost Forecast';                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Output Value Cumulative For Year New]
  AS AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year New - Month - Date].[Year New],
 [GRL GNR Dim Full Date].[Year New - Month - Date].currentmember),
@@ -47787,7 +47728,7 @@ AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year New - Month - Date].[Year 
 [Measures].[GRL TSY Fact Uncollected Late Total Today And Month Total Value]*-1
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                              
+VISIBLE = 1;                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Input Value Cumulative For Year New]
  AS AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year New - Month - Date].[Year New],
 [GRL GNR Dim Full Date].[Year New - Month - Date].currentmember),
@@ -47804,21 +47745,21 @@ AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year New - Month - Date].[Year 
 [Measures].[GRL FIN Fact Income Forecast - Income Forecast Value]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                
+VISIBLE = 1;                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payment First Value CumultiveForNewYear]
  AS AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year New - Month - Date].[Year New],
 [GRL GNR Dim Full Date].[Year New - Month - Date].currentmember),
 [Measures].[GRL TSY Fact Payment First Value]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                
+VISIBLE = 1;                                                 
 CREATE MEMBER CURRENTCUBE.[Measures].[Vw GRL FIN Fact Cash Deposit First Val CumulaiveForNewYear]
  AS AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year New - Month - Date].[Year New],
 [GRL GNR Dim Full Date].[Year New - Month - Date].currentmember),
 [Measures].[Vw GRL FIN Fact Cash Deposit First Val]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                              
+VISIBLE = 1;                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Treasury Day Balance Cumulative For Year New]
  AS (
 [Measures].[Vw GRL FIN Fact Voucher Item Mappnig First Day Of Year Value New]
@@ -47845,7 +47786,7 @@ AGGREGATE(PeriodsToDate([GRL GNR Dim Full Date].[Year New - Month - Date].[Year 
 
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                              
+VISIBLE = 1;                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Input Value With First of year Value For New Year]
  AS ([Measures].[GRL TSY Fact Receviables Value]
 +
@@ -47860,7 +47801,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Input Value With First of year V
 [Measures].[Vw GRL FIN Fact Cash Deposit Value First Year New]
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                              
+VISIBLE = 1;                                                               
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Output Value With First of year Value For New Year]
  AS ((((
 ([Measures].[GRL TSY Fact Payment Value]
@@ -47897,7 +47838,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL Total Output Value With First of year 
 )
 *-1, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                            
+VISIBLE = 1;                                                             
                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Asl Pardakhti For All With Loan Status]
  AS Case
@@ -47905,7 +47846,7 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Asl Pardakhti For All Wi
     Else 0
 End, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                           
+VISIBLE = 1;                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Net Value With Loan Status]
  AS Case
     When   Sgn([Measures].[Original Credit Count - GRL FIN Fact Loan Start])=1 and Sgn([Measures].[Vw GRL FIN Fact Loan Debit Count])=1 Then [Measures].[GRL FIN Fact Loan Net Value]*1
@@ -47914,14 +47855,14 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Net Value With Loan Stat
     Else [Measures].[GRL FIN Fact Loan Net Value] *0
 End, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                           
+VISIBLE = 1;                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The cost is late With Loan Status]
  AS Case
     When   Sgn([Measures].[Original Residue Count - GRL FIN Fact Loan For All Loan And Bank])=1 Then [Measures].[GRL FIN Fact Loan The cost is late]*1   
     Else [Measures].[GRL FIN Fact Loan The cost is late] *0
 End, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                           
+VISIBLE = 1;                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Asl And Far For All with Loan Status]
  AS Case
     When   Sgn([Measures].[Original Credit Count - GRL FIN Fact Loan Start])=1 and Sgn([Measures].[Original Residue Count - GRL FIN Fact Loan For All Loan And Bank])=1 Then [Measures].[GRL FIN Fact Loan Asl And Far For All]*1
@@ -47930,90 +47871,160 @@ CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Asl And Far For All with
     Else [Measures].[GRL FIN Fact Loan Asl And Far For All] *0
 End, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                           
+VISIBLE = 1;                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Far Pardakhti For All With Loan Status]
  AS Case
     When  Sgn([Measures].[Original Residue Count - GRL FIN Fact Loan For All Loan And Bank])=1 Then [Measures].[GRL FIN Fact Loan Far Pardakhti For All]*1
     Else [Measures].[GRL FIN Fact Loan The cost is late] *0
 End, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                           
+VISIBLE = 1;                                                            
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan The cost of getting a loan For All With Loan Status]
  AS Case
     When  Sgn([Measures].[Original Residue Count - GRL FIN Fact Loan For All Loan And Bank])=1 Then [Measures].[GRL FIN Fact Loan The cost of getting a loan For All]*1
     Else [Measures].[GRL FIN Fact Loan The cost is late] *0
 End, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                  
+VISIBLE = 1;                                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL_FIN_Fact_Map_CostForeCast_Number_Mandeh]
  AS case when [Measures].[GRL_FIN_Fact_Map_CostForeCast_Number_MandeheWithoutIf]&lt;0
 then 0
 else [Measures].[GRL_FIN_Fact_Map_CostForeCast_Number_MandeheWithoutIf]
 end, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                 
+VISIBLE = 1;                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL_FIN_Fact_Map_CostForeCast_Number_MandeheWithoutIf]
  AS [Measures].[GRl FIN Fact Map Cost Fore Cast Number Sumforeforecastvalue]-[Measures].[GRl FIN Fact Map Cost Fore Cast Number Sum Realvalue], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 0;                                                  
+VISIBLE = 0;                                                   
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL_FIN_Fact_Map_IncomeForeCast_Number_Mandeh]
  AS case when [Measures].[GRL_FIN_Fact_Map_IncomeForeCast_Number_MandeheWithoutIf]&lt;0
 then 0
 else [Measures].[GRL_FIN_Fact_Map_IncomeForeCast_Number_MandeheWithoutIf]
 end, 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                                 
+VISIBLE = 1;                                                  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL_FIN_Fact_Map_IncomeForeCast_Number_MandeheWithoutIf]
  AS [Measures].[GRl FIN Fact Map Income Fore Cast Number View Sumforeforecastvalue]-[Measures].[GRl FIN Fact Map Income Fore Cast Number View Sum Realvalue], 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 0;            
+VISIBLE = 0;             
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL_FIN_Fact_Map_IncomeForeCast_Number_Mandehsum]
  AS iif([GRL FIN Dim Income Forecast].[Income Forecast Id].currentmember is [GRL FIN Dim Income Forecast].[Income Forecast Id].[All],
 sum([measures].[GRL_FIN_Fact_Map_IncomeForeCast_Number_Mandeh]),1), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;                                          
-CREATE DYNAMIC SET CURRENTCUBE.[SelectedDates]
- AS Existing [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date]; 
-CREATE DYNAMIC SET CURRENTCUBE.[Named SetNew]
- AS exists([GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].members,[GRL GNR Dim Full Date].[Date Now Status].&amp;[1]) ;       
+VISIBLE = 1;        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payable Value Aggregate test]
  AS aggregate(  {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[GRL TSY Fact Payable Value]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;       
+VISIBLE = 1;        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Payment Value Aggregate test]
  AS (aggregate(  {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[GRL TSY Fact Payment Value])*-1), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1; 
+VISIBLE = 1;  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Receviables Value Aggregate test]
  AS aggregate(  {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[GRL TSY Fact Receviables Value]), 
-VISIBLE = 1  ; 
+VISIBLE = 1;  
 CREATE MEMBER CURRENTCUBE.[Measures].[Vw GRL FIN Fact Cash Deposit - Vw GRL FIN Fact Cash Deposit Aggregate test]
  AS aggregate(  {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[Vw GRL FIN Fact Cash Deposit - Vw GRL FIN Fact Cash Deposit]), 
-VISIBLE = 1  ; 
+VISIBLE = 1;  
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Income Forecast - Income Forecast Value Aggregate test]
  AS aggregate(  {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[GRL FIN Fact Income Forecast - Income Forecast Value]), 
-VISIBLE = 1  ;       
+VISIBLE = 1;        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Cost Forecast - Cost Forecast Value Aggregate test]
  AS aggregate(  {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[GRL FIN Fact Cost Forecast - Cost Forecast Value]), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;       
+VISIBLE = 1;        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Reciveable With Transferred Value Aggregate test]
  AS (aggregate(  {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
 [Measures].[GRL TSY Fact Reciveable With Transferred Value])*-1), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1;       
+VISIBLE = 1;        
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL TSY Fact Uncollected Late Total Today And Month Total Value test]
  AS (
 [Measures].[GRL TSY Fact Uncollected Late Total Today And Month Total Value]*-1
 ), 
 FORMAT_STRING = "#,##;-#,##", 
-VISIBLE = 1; </Text>
+VISIBLE = 1; 
+CREATE MEMBER CURRENTCUBE.[Measures].[Date After Now Status]
+ AS EXISTS(
+    [GRL GNR Dim Full Date].[Hierarchy].[Date After Now Status].members,
+   [GRL GNR Dim Full Date].[Hierarchy].CurrentMember
+  ).ITEM(0).Member_Caption, 
+VISIBLE = 0  ; 
+CREATE MEMBER CURRENTCUBE.[Measures].[Current Month And After Status]
+ AS EXISTS(
+    [GRL GNR Dim Full Date].[Hierarchy].[Current Month And After Status].members,
+   [GRL GNR Dim Full Date].[Hierarchy].CurrentMember
+  ).ITEM(0).Member_Caption, 
+VISIBLE = 0  ; 
+CREATE MEMBER CURRENTCUBE.[Measures].[GRL Treasury Day Balance Cumulative before]
+ AS (
+([Measures].[Vw GRL FIN Fact Voucher Item Mappnig First Day Of Year Value],Tail([SelectedDates]).Item(0))
++
+(
+[Measures].[GRL Total Input Value Cumulative]
+)
+-
+abs
+(
+[Measures].[GRL Total Output Value Cumulative]
+)
++
+aggregate( {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
+[Measures].[GRL TSY Fact Payment First Value])
+-
+aggregate( {Tail([SelectedDates]).Item(0):[GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date].currentmember},
+[Measures].[Vw GRL FIN Fact Cash Deposit First Val])
+
+), 
+VISIBLE = 1  ; 
+CREATE MEMBER CURRENTCUBE.[Measures].[GRL Treasury Day Balance Cumulative New]
+ AS case when [GRL GNR Dim Full Date].[Hierarchy].Level.name  = 'Month'
+then 
+
+case 
+when [Measures].[Current Month And After Status] = '0'
+then  ([Measures].[Val],[GRL GNR Dim Full Date].[Hierarchy].currentmember.LASTCHILD)
+when [Measures].[Current Month And After Status] = '1'
+then (aggregate(  {Tail([setNowDay]).Item(0):Tail([setLastDayOfCurrentMonth]).Item(0)},
+          [Measures].[GRL TSY Fact Receviables Value]))
+else  
+(aggregate(  {Tail([setNowDay]).Item(0):Tail([setLastDayOfCurrentMonth]).Item(0)},
+          [Measures].[GRL TSY Fact Receviables Value]))+(aggregate(  {head([setAfterNow]).Item(0):[GRL GNR Dim Full Date].[Hierarchy].currentmember},
+          [Measures].[GRL TSY Fact Receviables Value])) 
+end
+
+else
+iif([Measures].[Date After Now Status] = '1',
+    (aggregate(  {Tail([setNowDay]).Item(0):[GRL GNR Dim Full Date].[Hierarchy].currentmember},
+          [Measures].[GRL TSY Fact Receviables Value])),
+   ([Measures].[Val],[GRL GNR Dim Full Date].[Hierarchy].currentmember))
+
+   end, 
+VISIBLE = 1  ;                                           
+CREATE DYNAMIC SET CURRENTCUBE.[SelectedDates]
+ AS Existing [GRL GNR Dim Full Date].[Year-Half Year-Quarter-Month-Date]; 
+CREATE DYNAMIC SET CURRENTCUBE.[setNowDay]
+ AS EXISTS(
+   [GRL GNR Dim Full Date].[Hierarchy].members,
+   [GRL GNR Dim Full Date].[Date Now Status].&amp;[1]
+  ) ; 
+CREATE DYNAMIC SET CURRENTCUBE.[setLastDayOfCurrentMonth]
+ AS EXISTS(
+    [GRL GNR Dim Full Date].[Hierarchy].members,
+   [GRL GNR Dim Full Date].[Date Now Status].&amp;[2]
+  ) ; 
+CREATE DYNAMIC SET CURRENTCUBE.[setAfterNow]
+ AS EXISTS(
+       [GRL GNR Dim Full Date].[Hierarchy].[Month].members,
+   [GRL GNR Dim Full Date].[Current Month And After Status].&amp;[2]
+  ) ; </Text>
         </Command>
       </Commands>
       <CalculationProperties>
