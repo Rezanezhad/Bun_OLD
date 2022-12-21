@@ -47963,6 +47963,20 @@ CREATE MEMBER CURRENTCUBE.[Measures].[Current Month And After Status]
    [GRL GNR Dim Full Date].[Hierarchy].CurrentMember
   ).ITEM(0).Member_Caption, 
 VISIBLE = 0  ; 
+CREATE MEMBER CURRENTCUBE.[Measures].[GRL FIN Fact Loan Asl Pardakhti For All 2]
+ AS (
+[Measures].[GRL FIN Fact Loan For All Loan And Bank Credit Value]
+,
+[GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[305001]
+)
++
+(
+[Measures].[GRL FIN Fact Loan For All Loan And Bank Credit Value]
+,
+[GRL FIN Dim COA Ledger Account].[COA Ledger Account Code].&amp;[305008]
+), 
+FORMAT_STRING = "#,##;-#,##", 
+VISIBLE = 1;
 CREATE MEMBER CURRENTCUBE.[Measures].[GRL Treasury Day Balance Cumulative before]
  AS (
 ([Measures].[Vw GRL FIN Fact Voucher Item Mappnig First Day Of Year Value],Tail([SelectedDates]).Item(0))
