@@ -7,6 +7,10 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="0"
       DTS:ConnectRetryInterval="0"
-      DTS:ConnectionString="Data Source=172.16.60.89;User ID=ssas.connect@kheilisabz.local;Initial Catalog=Bun;Provider=MSOLAP.8;Persist Security Info=False;Impersonation Level=Impersonate;" />
+      DTS:ConnectionString="Data Source=SV016060031;User ID=ssas.connect@kheilisabz.local;Initial Catalog=BunSSASMD;Provider=MSOLAP.8;Persist Security Info=False;Impersonation Level=Impersonate;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA4zk6xxBkokSNgrewbMTyzgAAAAACAAAAAAADZgAAwAAAABAAAABC9YytxeaFpPXUHM5al4jWAAAAAASAAACgAAAAEAAAAL11jL2Nl6+1C3oNQV+kKGd4AAAAt3UtOGvNRF9cbXxvZTc1deDzHfnS8OQlFUoM9Y/BQ7YFFa5ztTnRRzqqWdxqhURAyBYQe2CFq3ctXJ6ouW8ZoLSSu3k+v8FZaFsJ6aTxdS+KPX4kSA5syl2g27lUpvgrF9TN/OhXDxUjP+uwHDBwgp8PaNx48CfVFAAAAHwLnDZqaMjm3GXjcR3bOaT9nGeG</DTS:Password>
+    </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
