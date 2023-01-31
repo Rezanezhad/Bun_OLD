@@ -18381,7 +18381,7 @@
             <Name>PUB</Name>
             <DiagramLayout>
               <dds>
-                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="550" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="21960" scrolltop="109127" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="17674" y="14446" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+                <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="552" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="41081" scrolltop="150398" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="17674" y="14446" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
                   <font>
                     <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
                   </font>
@@ -23112,9 +23112,9 @@
                     <point x="-2859" y="221605" />
                   </connector>
                 </ddscontrol>
-                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="PUB_SLE_Dim_First_Sale" left="36234" top="118494" logicalid="546" controlid="272" masterid="0" hint1="0" hint2="0" width="3916" height="2725" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="PUB_SLE_Dim_First_Sale" left="48193" top="156457" logicalid="550" controlid="276" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                   <control>
-                    <ddsxmlobjectstreaminitwrapper binary="000e00004c0f0000a50a0000" />
+                    <ddsxmlobjectstreaminitwrapper binary="000e0000b80b000057070000" />
                   </control>
                   <layoutobject>
                     <ddsxmlobj>
@@ -23123,7 +23123,7 @@
                   </layoutobject>
                   <shape groupshapeid="0" groupnode="0" />
                 </ddscontrol>
-                <ddscontrol controlprogid="MSDDS.Polyline" left="39850" top="120656" logicalid="547" controlid="273" masterid="0" hint1="0" hint2="0" width="169088" height="163161" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+                <ddscontrol controlprogid="MSDDS.Polyline" left="50893" top="156997" logicalid="551" controlid="277" masterid="0" hint1="0" hint2="0" width="1400" height="1202" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
                   <control>
                     <ddsxmlobj>
                       <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
@@ -23131,44 +23131,26 @@
                   </control>
                   <layoutobject>
                     <ddsxmlobj>
-                      <property name="LogicalObject" value="dataSet.Relations[PUB_SLE_Dim_First_Sale-PUB_GNR_Dim_Product]" vartype="8" />
+                      <property name="LogicalObject" value="dataSet.Relations[PUB_SLE_Fact_Sale-PUB_SLE_Dim_First_Sale]" vartype="8" />
                       <property name="Virtual" value="0" vartype="11" />
                       <property name="VisibleAP" value="0" vartype="3" />
                     </ddsxmlobj>
                   </layoutobject>
-                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="25" destid="272" sourceattachpoint="22" destattachpoint="23" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                    <point x="208638" y="283417" />
-                    <point x="124394" y="283417" />
-                    <point x="124394" y="120956" />
-                    <point x="40150" y="120956" />
-                  </connector>
-                </ddscontrol>
-                <ddscontrol controlprogid="MSDDS.Polyline" left="39542" top="-18010" logicalid="548" controlid="274" masterid="0" hint1="0" hint2="0" width="40914" height="136804" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
-                  <control>
-                    <ddsxmlobj>
-                      <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
-                    </ddsxmlobj>
-                  </control>
-                  <layoutobject>
-                    <ddsxmlobj>
-                      <property name="LogicalObject" value="dataSet.Relations[PUB_SLE_Dim_First_Sale-PUB_SLE_Dim_SalesOrganization]" vartype="8" />
-                      <property name="Virtual" value="0" vartype="11" />
-                      <property name="VisibleAP" value="0" vartype="3" />
-                    </ddsxmlobj>
-                  </layoutobject>
-                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="46" destid="272" sourceattachpoint="1" destattachpoint="12" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
-                    <point x="80056" y="-17511" />
-                    <point x="80056" y="50491" />
-                    <point x="39842" y="50491" />
-                    <point x="39842" y="118494" />
+                  <connector lineroutestyle="MSDDS.Rectilinear" sourceid="276" destid="5" sourceattachpoint="13" destattachpoint="18" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+                    <point x="51193" y="157396" />
+                    <point x="51593" y="157396" />
+                    <point x="51593" y="157899" />
+                    <point x="51993" y="157899" />
+                    <point x="51993" y="157499" />
+                    <point x="51318" y="157499" />
                   </connector>
                 </ddscontrol>
               </dds>
 </DiagramLayout>
             <ShowRelationshipNames>False</ShowRelationshipNames>
             <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
-            <DiagramViewPortLeft>21960</DiagramViewPortLeft>
-            <DiagramViewPortTop>109127</DiagramViewPortTop>
+            <DiagramViewPortLeft>41081</DiagramViewPortLeft>
+            <DiagramViewPortTop>150398</DiagramViewPortTop>
             <DiagramBoundingLeft>-46588</DiagramBoundingLeft>
             <DiagramBoundingTop>-28390</DiagramBoundingTop>
             <DiagramZoom>100</DiagramZoom>
@@ -25715,10 +25697,10 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="SLE.PUB_SLE_Fact_Sale" msprop:design-time-name="615a797a-8822-4c0f-ad9e-54481c44dca1" msprop:IsLogical="True" msprop:FriendlyName="PUB_SLE_Fact_Sale" msprop:DbTableName="PUB_SLE_Fact_Sale" msprop:TableType="View" msprop:QueryDefinition="SELECT        62 AS DimFact_Id, Sale_Id, Sale_FirstQty, Sale_SecondQty, Sale_Value, Sale_NetValue, Sale_NetValue * Sale_SecondQty AS SaleValueQty, Sale_Add, Sale_Sub, Sale_CurrencyValue, Product_Id, Customer_Id, CurrencyType_Id, &#xD;&#xA;                         Company_Id, Date_Id, Province_Id, SaleType_Id, SalesOrganization_Id, ISNULL(SalesChannel_Id, 9999) AS SalesChannel_Id, Unit_Id, Sale_ValueGift, Sale_SubGift, ISNULL(SaleOffice_Id, 9999) AS SaleOffice_Id, Product_Fee, &#xD;&#xA;                         SanadNumber, Sale_ValueWatage, Sale_SubWatage, Sale_ValueRawMaterial, Sale_SubRawMaterial, SpecialDiscountValueTashim&#xD;&#xA;FROM            Vw_PUB_SLE_Fact_Sale" msprop:QueryBuilder="SpecificQueryBuilder">
+            <xs:element name="SLE.PUB_SLE_Fact_Sale" msprop:design-time-name="615a797a-8822-4c0f-ad9e-54481c44dca1" msprop:IsLogical="True" msprop:FriendlyName="PUB_SLE_Fact_Sale" msprop:DbTableName="PUB_SLE_Fact_Sale" msprop:TableType="View" msprop:QueryDefinition="SELECT        62 AS DimFact_Id, Sale_Id, Sale_FirstQty, Sale_SecondQty, Sale_Value, Sale_NetValue, Sale_NetValue * Sale_SecondQty AS SaleValueQty, Sale_Add, Sale_Sub, Sale_CurrencyValue, Product_Id, Customer_Id, CurrencyType_Id, &#xD;&#xA;                         Company_Id, Date_Id, Province_Id, SaleType_Id, SalesOrganization_Id, ISNULL(SalesChannel_Id, 9999) AS SalesChannel_Id, Unit_Id, Sale_ValueGift, Sale_SubGift, ISNULL(SaleOffice_Id, 9999) AS SaleOffice_Id, Product_Fee, &#xD;&#xA;                         SanadNumber, Sale_ValueWatage, Sale_SubWatage, Sale_ValueRawMaterial, Sale_SubRawMaterial, SpecialDiscountValueTashim, OrgProductKey&#xD;&#xA;FROM            Vw_PUB_SLE_Fact_Sale" msprop:QueryBuilder="SpecificQueryBuilder">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="Sale_Id" msprop:design-time-name="91b3fcfa-bdb2-4bd5-9041-fae75b412170" msprop:DbColumnName="Sale_Id" msprop:FriendlyName="Sale_Id" type="xs:decimal" />
+                  <xs:element name="Sale_Id" msprop:design-time-name="91b3fcfa-bdb2-4bd5-9041-fae75b412170" msprop:DbColumnName="Sale_Id" msprop:FriendlyName="Sale_Id" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Sale_FirstQty" msprop:design-time-name="1d3553b7-0cc2-4306-b8ae-2f4d8e2a78ef" msprop:DbColumnName="Sale_FirstQty" msprop:FriendlyName="Sale_FirstQty" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Sale_SecondQty" msprop:design-time-name="a9aaa2ce-ccb7-4311-aa59-0557a0af568d" msprop:DbColumnName="Sale_SecondQty" msprop:FriendlyName="Sale_SecondQty" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Sale_Value" msprop:design-time-name="e67cd334-4bbf-4d9c-8907-685af860d87b" msprop:DbColumnName="Sale_Value" msprop:FriendlyName="Sale_Value" type="xs:decimal" minOccurs="0" />
@@ -25748,6 +25730,7 @@
                   <xs:element name="Sale_ValueRawMaterial" msprop:design-time-name="24508f36-ca7f-425f-9568-46aa390f8c3e" msprop:DbColumnName="Sale_ValueRawMaterial" type="xs:decimal" minOccurs="0" />
                   <xs:element name="Sale_SubRawMaterial" msprop:design-time-name="edf3d65c-0c2b-4c0b-b015-1d292db6ed70" msprop:DbColumnName="Sale_SubRawMaterial" type="xs:decimal" minOccurs="0" />
                   <xs:element name="SpecialDiscountValueTashim" msprop:design-time-name="2e90a6aa-9f16-4627-9a25-b98a41daa80a" msprop:DbColumnName="SpecialDiscountValueTashim" type="xs:decimal" minOccurs="0" />
+                  <xs:element name="OrgProductKey" msprop:DbColumnName="OrgProductKey" msprop:design-time-name="61bc2fe1-2cbe-4691-b676-88805c347c40" type="xs:long" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -29777,13 +29760,17 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="PUB_SLE_Dim_First_Sale" msprop:design-time-name="a9b400c7-8cae-4afc-af04-6c8f45b22c62" msprop:IsLogical="True" msprop:FriendlyName="PUB_SLE_Dim_First_Sale" msprop:DbTableName="PUB_SLE_Dim_First_Sale" msprop:TableType="View" msprop:Description="" msprop:QueryDefinition="SELECT        ROW_NUMBER() OVER (ORDER BY a.Product_Id, a.SalesOrganization_Id) AS RowNumber, a.*&#xD;&#xA;FROM            (SELECT        CAST(MIN(fd.sDateInt) AS INT) AS MinDate, d .Product_Id, d .SalesOrganization_Id&#xD;&#xA;                           FROM            Vw_PUB_SLE_Fact_Sale d LEFT JOIN&#xD;&#xA;                                                    GRL_GNR_Dim_FullDate fd ON d .Date_Id = fd.Date_Id&#xD;&#xA;                           GROUP BY d .Product_Id, d .SalesOrganization_Id) AS a" msprop:QueryBuilder="SpecificQueryBuilder">
+            <xs:element name="PUB_SLE_Dim_First_Sale" msprop:design-time-name="ce70cb09-0aa0-4324-8416-407db7472ae8" msprop:IsLogical="True" msprop:FriendlyName="PUB_SLE_Dim_First_Sale" msprop:DbTableName="PUB_SLE_Dim_First_Sale" msprop:TableType="View" msprop:Description="" msprop:QueryDefinition="SELECT        CAST(CAST(SalesOrganization_Id AS nvarchar(2)) + CAST(Product_Id AS nvarchar(20)) AS bigint) AS OrgProductId, MinDateSale&#xD;&#xA;FROM            (SELECT        CAST(MIN(fd.sDateInt) AS nvarchar(8)) AS MinDateSale, d.Product_Id, d.SalesOrganization_Id&#xD;&#xA;                           FROM            Vw_PUB_SLE_Fact_Sale AS d LEFT OUTER JOIN&#xD;&#xA;                                                    GRL_GNR_Dim_FullDate AS fd ON d.Date_Id = fd.Date_Id&#xD;&#xA;                           GROUP BY d.Product_Id, d.SalesOrganization_Id) AS w1" msprop:QueryBuilder="SpecificQueryBuilder">
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element name="RowNumber" msdata:ReadOnly="true" msprop:design-time-name="d86b07f6-c829-465b-a12a-c7b21d27285d" msprop:DbColumnName="RowNumber" msprop:FriendlyName="RowNumber" type="xs:long" minOccurs="0" />
-                  <xs:element name="MinDate" msdata:ReadOnly="true" msprop:design-time-name="903ad65f-8fa2-4cf3-a275-8c08d88a2c1e" msprop:DbColumnName="MinDate" msprop:FriendlyName="MinDate" type="xs:int" minOccurs="0" />
-                  <xs:element name="Product_Id" msdata:ReadOnly="true" msprop:design-time-name="c26ccaf5-5354-4d6f-a5b6-61d8c41ab4d9" msprop:DbColumnName="Product_Id" msprop:FriendlyName="Product_Id" type="xs:long" minOccurs="0" />
-                  <xs:element name="SalesOrganization_Id" msdata:ReadOnly="true" msprop:design-time-name="c2adc1e7-a62c-431f-aa89-ff5c8ad9cf6b" msprop:DbColumnName="SalesOrganization_Id" msprop:FriendlyName="SalesOrganization_Id" type="xs:int" minOccurs="0" />
+                  <xs:element name="OrgProductId" msdata:ReadOnly="true" msprop:design-time-name="55a0e3e9-9ee8-4a94-96db-01179917cb5c" msprop:DbColumnName="OrgProductId" msprop:FriendlyName="OrgProductId" type="xs:long" />
+                  <xs:element name="MinDateSale" msdata:ReadOnly="true" msprop:design-time-name="c95134ab-ab97-4203-9764-533e556b53c8" msprop:DbColumnName="MinDateSale" msprop:FriendlyName="MinDateSale" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="8" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -30404,6 +30391,10 @@
           <xs:selector xpath=".//dbo_Vw_PUB_GNR_Dim_EntireProduct" />
           <xs:field xpath="Product_Id" />
         </xs:unique>
+        <xs:unique name="PUB_SLE_Dim_First_Sale_Constraint1" msdata:ConstraintName="Constraint1" msprop:IsLogical="True" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//PUB_SLE_Dim_First_Sale" />
+          <xs:field xpath="OrgProductId" />
+        </xs:unique>
       </xs:element>
       <xs:annotation>
         <xs:appinfo>
@@ -30965,8 +30956,7 @@
           <msdata:Relationship name="Vw_PUB_GNR_Dim_EntireProduct-PUB_GNR_Dim_ProductGrade" msdata:parent="dbo_PUB_GNR_Dim_ProductGrade" msdata:child="dbo_Vw_PUB_GNR_Dim_EntireProduct" msdata:parentkey="ProductGrade_Id" msdata:childkey="Grade_Id" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="Vw_PUB_GNR_Dim_EntireProduct-PUB_GNR_Dim_ProductGrade_Group" msdata:parent="PUB_GNR_Dim_ProductGrade_Group" msdata:child="dbo_Vw_PUB_GNR_Dim_EntireProduct" msdata:parentkey="ProductGrade_Group_ID" msdata:childkey="ProductGrade_Group_ID" msprop:IsLogical="True" msprop:Description="" />
           <msdata:Relationship name="Vw_PUB_GNR_Dim_EntireProduct-PUB_GNR_Dim_ProductGroup" msdata:parent="dbo_pub_GNR_Dim_ProductGroup" msdata:child="dbo_Vw_PUB_GNR_Dim_EntireProduct" msdata:parentkey="ProductGroup_Id" msdata:childkey="ProductGroup_Id" msprop:IsLogical="True" msprop:Description="" />
-          <msdata:Relationship name="PUB_SLE_Dim_First_Sale-PUB_GNR_Dim_Product" msdata:parent="dbo_PUB_GNR_Dim_Product" msdata:child="PUB_SLE_Dim_First_Sale" msdata:parentkey="Product_Id" msdata:childkey="Product_Id" msprop:IsLogical="True" msprop:Description="" />
-          <msdata:Relationship name="PUB_SLE_Dim_First_Sale-PUB_SLE_Dim_SalesOrganization" msdata:parent="SLE_PUB_SLE_Dim_SalesOrganization" msdata:child="PUB_SLE_Dim_First_Sale" msdata:parentkey="SalesOrganization_Id" msdata:childkey="SalesOrganization_Id" msprop:IsLogical="True" msprop:Description="" />
+          <msdata:Relationship name="PUB_SLE_Fact_Sale-PUB_SLE_Dim_First_Sale" msdata:parent="PUB_SLE_Dim_First_Sale" msdata:child="SLE.PUB_SLE_Fact_Sale" msdata:parentkey="OrgProductId" msdata:childkey="OrgProductKey" msprop:IsLogical="True" msprop:Description="" />
         </xs:appinfo>
       </xs:annotation>
     </xs:schema>
