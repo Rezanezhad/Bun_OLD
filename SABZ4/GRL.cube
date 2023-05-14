@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="814" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-16104" scrolltop="-8197" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="32068" y="20585" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="814" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-16104" scrolltop="-8197" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="14711" y="12885" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -8131,28 +8131,6 @@
         </Hierarchy>
       </Hierarchies>
     </Dimension>
-    <Dimension dwd:design-time-name="368d1ed9-b163-4d3c-a8fd-1f202ac74efc">
-      <ID>GRL FIN Dim Voucher Item Desc</ID>
-      <Name>GRL FIN Dim Voucher Item Desc</Name>
-      <Translations>
-        <Translation dwd:design-time-name="89f91b86-3006-41ba-9046-94343cc20f05">
-          <Language>1065</Language>
-          <Caption>شرح اسناد مالی</Caption>
-        </Translation>
-      </Translations>
-      <DimensionID>GRL FIN Dim Voucher Item Desc</DimensionID>
-      <Attributes>
-        <Attribute dwd:design-time-name="90928a02-ae59-429d-bf5d-7e1a3553f0a2">
-          <AttributeID>Voucher Item Desc Id</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="acbdc6da-1867-4c50-9438-d9fee474c926">
-          <AttributeID>Date Id</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="490eb696-ac81-4d42-bc88-954bb1a446e5">
-          <AttributeID>Company Id</AttributeID>
-        </Attribute>
-      </Attributes>
-    </Dimension>
     <Dimension dwd:design-time-name="6d9573ae-e77e-4297-a0db-ddc8264d56a3">
       <ID>Vw GRL FIN Dim Cash Deposit</ID>
       <Name>Vw GRL FIN Dim Cash Deposit</Name>
@@ -10219,51 +10197,6 @@
                   <Source xsi:type="ColumnBinding" dwd:design-time-name="6442c693-a22c-4452-a870-5c235ff36021">
                     <TableID>dbo_GRL_GNR_Dim_ParentDimFact</TableID>
                     <ColumnID>ParentDimFact_Id</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-          </Attributes>
-        </Dimension>
-        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="a33ecc52-ab7b-4e86-a114-86cc07c6cdb9">
-          <CubeDimensionID>GRL FIN Dim Voucher Item Desc</CubeDimensionID>
-          <Cardinality>One</Cardinality>
-          <Attributes>
-            <Attribute dwd:design-time-name="919d5365-084e-45ed-b704-569682ae9b2b">
-              <AttributeID>Voucher Item Desc Id</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="dab82ca8-7501-4dbe-85c3-7f6f1cd38e70">
-                  <DataType>Double</DataType>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2633522d-c339-4e73-bf33-4f50815738fc">
-                    <TableID>dbo_GRL_FIN_Fact_VoucherItem</TableID>
-                    <ColumnID>VoucherItem_Id</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-              <Type>Granularity</Type>
-            </Attribute>
-            <Attribute dwd:design-time-name="583dcb2e-598b-456f-bcff-73df23e19309">
-              <AttributeID>Date Id</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="d9e44436-921e-4950-ba6b-553bb23f0ec1">
-                  <DataType>Integer</DataType>
-                  <NullProcessing>UnknownMember</NullProcessing>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4b2668ed-b73b-4705-8d6c-444782c68f07">
-                    <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
-                    <ColumnID>Date_Id</ColumnID>
-                  </Source>
-                </KeyColumn>
-              </KeyColumns>
-            </Attribute>
-            <Attribute dwd:design-time-name="c1f5c235-5d83-4857-a35a-b88158c7b509">
-              <AttributeID>Company Id</AttributeID>
-              <KeyColumns>
-                <KeyColumn dwd:design-time-name="226567de-9bb2-4492-938d-bdd998c42f1b">
-                  <DataType>Integer</DataType>
-                  <NullProcessing>UnknownMember</NullProcessing>
-                  <Source xsi:type="ColumnBinding" dwd:design-time-name="afe3a3d0-cfba-4780-908d-b41ec7483bb0">
-                    <TableID>dbo_GRL_GNR_Dim_Company</TableID>
-                    <ColumnID>Company_Id</ColumnID>
                   </Source>
                 </KeyColumn>
               </KeyColumns>
