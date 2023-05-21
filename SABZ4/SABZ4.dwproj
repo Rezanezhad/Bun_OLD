@@ -422,6 +422,12 @@
       <FullPath>Role.role</FullPath>
     </ProjectItem>
   </Roles>
+  <Miscellaneous>
+    <ProjectItem>
+      <Name>AS_SalesPlaning.sln</Name>
+      <FullPath>AS_SalesPlaning.sln</FullPath>
+    </ProjectItem>
+  </Miscellaneous>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
@@ -430,7 +436,7 @@
           <ConfigurationSetting>
             <Id>SABZDW</Id>
             <Name>SABZDW</Name>
-            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=172.16.50.56;Integrated Security=SSPI;Initial Catalog=SABZDW</Value>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=sabzdw;Integrated Security=SSPI;Initial Catalog=SABZDW</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
