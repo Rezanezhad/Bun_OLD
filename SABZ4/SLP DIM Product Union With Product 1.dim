@@ -1,0 +1,1136 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="07715375-c5be-475e-84d3-35a057f87444" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>SLP DIM Product Union With Product 1</ID>
+  <Name>SLP DIM Product Union With Product 1</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="2294ba22-191d-4f29-9859-1dd2340f4922">
+    <DataSourceViewID>SABZDW</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="33e0f0b2-9747-460b-89cf-7aa39ee17ce4">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="de2e947d-7179-4e93-8168-5c4faa4f7aa2">
+      <ID>Product Id</ID>
+      <Name>Product Id</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c01f5867-6f51-4871-b770-d69094818896">
+          <DataType>BigInt</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5d58b9ea-9c57-4c61-bbc3-0bf2f10a5396">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Product_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="ed1c0f18-1da6-4cf1-a0c5-8388a6af75dc">
+        <DataType>WChar</DataType>
+        <DataSize>200</DataSize>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="3014ab56-4a5b-42c1-969f-5b50cc9c162f">
+          <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+          <ColumnID>Product_Title</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="f1b3b04c-8c5c-4a69-89d0-ddf94fa40fbb">
+          <AttributeID>Product Code</AttributeID>
+          <Name>Product Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5aacf1aa-4ea9-4d94-a018-94e0efbb66a4">
+          <AttributeID>Sdate</AttributeID>
+          <Name>Sdate</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="da07ae09-41f5-4592-b66c-2403d6a19004">
+          <AttributeID>First In Forecast Value</AttributeID>
+          <Name>First In Forecast Value</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="46824a1d-a197-41da-a876-64572a998c63">
+          <AttributeID>Expr1</AttributeID>
+          <Name>Expr1</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="fb605b43-62aa-4be0-9b5a-1e7cef5ea3d7">
+          <AttributeID>Parent Product Id</AttributeID>
+          <Name>Parent Product Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b6d67626-7c4a-42b8-857f-0afde555e473">
+          <AttributeID>Product Iran Code</AttributeID>
+          <Name>Product Iran Code</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="67f3eecc-1747-4956-b0e3-9e2fcde4d81e">
+          <AttributeID>Product Group Id</AttributeID>
+          <Name>Product Group Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="c60cc4cc-0762-44bd-b7fa-891f3ce089de">
+          <AttributeID>Company Id</AttributeID>
+          <Name>Company Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1d1d0ada-4525-4215-a012-8212e4eee9c1">
+          <AttributeID>Product Origin Id</AttributeID>
+          <Name>Product Origin Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f4e19cf2-6493-43b1-ac0e-23b33e44734c">
+          <AttributeID>Unit Id</AttributeID>
+          <Name>Unit Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="cc0aee4b-99d4-46c0-b077-222c365386b5">
+          <AttributeID>Grade Id</AttributeID>
+          <Name>Grade Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a4ea670d-8031-482f-85a0-459d259d29f1">
+          <AttributeID>Lesson Id</AttributeID>
+          <Name>Lesson Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="fd9a6499-ebea-4ed4-b56b-8b530b386242">
+          <AttributeID>Product Parent Id</AttributeID>
+          <Name>Product Parent Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0ef9ab61-8edb-48f8-b94c-abbd9587cb04">
+          <AttributeID>Organization ID</AttributeID>
+          <Name>Organization ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="8e40289e-0e5a-4c16-9836-67017616a850">
+          <AttributeID>Product Fee</AttributeID>
+          <Name>Product Fee</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="3053fad9-d5d4-4dba-bead-c2ec04e13ac4">
+          <AttributeID>Product Grade Group ID</AttributeID>
+          <Name>Product Grade Group ID</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="73b97b72-4634-4015-a6b0-f93cbdd602e1">
+          <AttributeID>Major Id</AttributeID>
+          <Name>Major Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0c603996-2506-43af-b563-da9647931dff">
+          <AttributeID>Major Title</AttributeID>
+          <Name>Major Title</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="7836ab02-f7b8-486c-bf3f-838a0c84a89b">
+          <AttributeID>Code 5 Number</AttributeID>
+          <Name>Code 5 Number</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="47b69f0c-ba5d-4319-bab3-2a547767f795">
+          <AttributeID>Berand</AttributeID>
+          <Name>Berand</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0ede9059-37d3-4535-a654-090cc6630f1b">
+          <AttributeID>Small Name</AttributeID>
+          <Name>Small Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d66ef52e-b26b-4aca-b485-d0badad1891a">
+          <AttributeID>Eng Name</AttributeID>
+          <Name>Eng Name</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5089f0b8-f134-4aa2-9b8b-28ed2b45c9d1">
+          <AttributeID>Collections</AttributeID>
+          <Name>Collections</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6ffb86cc-1164-48a6-a650-2baf2345743b">
+          <AttributeID>GROUPS</AttributeID>
+          <Name>GROUPS</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="98ddb1e9-1958-45e7-a2aa-8c42c1fb7b7f">
+          <AttributeID>Detail Asli</AttributeID>
+          <Name>Detail Asli</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="80b81d01-fb41-489d-83ad-b080a1525214">
+          <AttributeID>Detail Far Ie 1</AttributeID>
+          <Name>Detail Far Ie 1</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="8e10f857-00d7-4695-a804-6cef7a661caa">
+          <AttributeID>Detail Far Ie 2</AttributeID>
+          <Name>Detail Far Ie 2</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="51f0ec00-795d-4b30-913a-8d2858eec069">
+          <AttributeID>Detail Far Ie 3</AttributeID>
+          <Name>Detail Far Ie 3</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ab0f8a2f-2b02-4cb5-80c9-14f6307424e3">
+          <AttributeID>Mahdude Senni</AttributeID>
+          <Name>Mahdude Senni</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5e4f0794-e5a0-4585-b888-f3d1513b8d1b">
+          <AttributeID>Rade Senni</AttributeID>
+          <Name>Rade Senni</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="fc859402-5860-42e4-8b5d-fcb0e39f82e1">
+          <AttributeID>Ghate Ketab</AttributeID>
+          <Name>Ghate Ketab</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4a2f3ecc-92e3-40b0-bfd4-5b914f8357fa">
+          <AttributeID>Jeld</AttributeID>
+          <Name>Jeld</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e622a7ef-0415-412b-8f50-624ca273bfed">
+          <AttributeID>Conut Barg</AttributeID>
+          <Name>Conut Barg</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5c671ad3-a49e-4962-a3d5-f478f5d9e7a6">
+          <AttributeID>Count Cartoon</AttributeID>
+          <Name>Count Cartoon</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b9146471-b59c-43a5-ba19-f82a0f85c535">
+          <AttributeID>Launch Time</AttributeID>
+          <Name>Launch Time</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="cf0dbb4e-0f58-4dea-b87d-4829c2310f8b">
+          <AttributeID>Modire Talif</AttributeID>
+          <Name>Modire Talif</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5a78622b-a67a-4804-811b-a8769b558520">
+          <AttributeID>Maghta</AttributeID>
+          <Name>Maghta</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="9aec379f-dd3d-4e8e-9977-bea81ea4b2ff">
+          <AttributeID>Paie</AttributeID>
+          <Name>Paie</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="363e5a13-48e7-418c-9a79-21bdfda41cbd">
+          <AttributeID>Sabad</AttributeID>
+          <Name>Sabad</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="e5ae4c0b-46b4-4708-a773-30cde34cc411">
+          <AttributeID>Reshteh</AttributeID>
+          <Name>Reshteh</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a89a418b-14f7-43bf-a369-aa852c521fa2">
+          <AttributeID>Dars</AttributeID>
+          <Name>Dars</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ed195fab-2186-4b31-8d15-e8077b08be16">
+          <AttributeID>Sabad Madar</AttributeID>
+          <Name>Sabad Madar</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="d8ab1fb6-1213-441d-a611-1b54e45016b6">
+          <AttributeID>Sabad Kala</AttributeID>
+          <Name>Sabad Kala</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="70618a96-2fd5-4a8e-b2b7-114e23499830">
+          <AttributeID>Business</AttributeID>
+          <Name>Business</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="1a06e00f-ee11-456f-b59c-06c0c793474c">
+          <AttributeID>Statuses</AttributeID>
+          <Name>Statuses</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5c761dd8-aa68-47c7-b011-e80c272e2459">
+          <AttributeID>Code Ref Product</AttributeID>
+          <Name>Code Ref Product</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="4475dcb5-c5f4-41f4-ba79-41c7b612bfcc">
+          <AttributeID>Product Group Title</AttributeID>
+          <Name>Product Group Title</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="70302fa7-1ec7-47fe-8947-ea2598e1da38">
+          <AttributeID>Product Grade Title</AttributeID>
+          <Name>Product Grade Title</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="0d47880c-e56a-41e4-83da-cfc04459e2f3">
+          <AttributeID>Sales Organization Title</AttributeID>
+          <Name>Sales Organization Title</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="cc8ee304-5eec-4837-bde6-a88a8307c641">
+          <AttributeID>Lesson Title</AttributeID>
+          <Name>Lesson Title</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="163223dd-e264-4394-b89a-06a7172af964">
+          <AttributeID>Unit Title</AttributeID>
+          <Name>Unit Title</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2b0ea94e-d935-47a9-ac14-56c78fa5d6f3">
+      <ID>Product Code</ID>
+      <Name>Product Code</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4e7669db-1980-425e-9fcd-16a04abe4e02">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e3cb25a0-85f5-4258-9a54-da8fe0a4f1fa">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Product_Code</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d0820cfe-a308-4a01-918e-2e29badd727f">
+      <ID>Sdate</ID>
+      <Name>Sdate</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e9172e44-f332-4e5d-b94d-e84b3ce21f9c">
+          <DataType>WChar</DataType>
+          <DataSize>1024</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="7ef1b1ec-f3e1-4855-930e-b61ea7e42004">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>sdate</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f6846b1f-9395-49fe-93dc-5a56d32debd0">
+      <ID>First In Forecast Value</ID>
+      <Name>First In Forecast Value</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1928a380-779c-4c99-b7bb-ee6ab05c1503">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="60ef95c9-f360-40b3-8d08-b6f158afc6dd">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>FirstInForecast_Value</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="098724fb-afc7-48c2-aab6-f88c30ec69d5">
+      <ID>Expr1</ID>
+      <Name>Expr1</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ed83e520-27bc-492b-87d9-5d37dd7b2907">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6b5ce618-921d-4373-927f-2a9448769002">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Expr1</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6e94bdf2-1e8b-4f95-b9ec-53390322628e">
+      <ID>Parent Product Id</ID>
+      <Name>Parent Product Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="03820179-e544-4f68-80ef-7a06f7c668ff">
+          <DataType>WChar</DataType>
+          <DataSize>16</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9b814eda-acd6-4428-9a67-e07277b04ff6">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>ParentProduct_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8c361c41-0413-4970-bd66-757b06debda9">
+      <ID>Product Iran Code</ID>
+      <Name>Product Iran Code</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="28d43217-27f9-42f3-814a-7fe898e300fc">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="dc0ebf32-b1bc-4a12-a656-1da0c969f1b2">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Product_IranCode</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9979e3e9-cce9-4b8b-9fe6-3fd028690a11">
+      <ID>Product Group Id</ID>
+      <Name>Product Group Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ae125bd9-7608-4945-b9ba-3e26e4904892">
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a7ad9086-7ef1-4ca0-91fa-5ff75f313bfd">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>ProductGroup_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="cfc6209b-a596-41fc-945d-b81b0a3804a4">
+      <ID>Company Id</ID>
+      <Name>Company Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="07077b4a-a06c-4cee-aac3-ac07bd0f6df2">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="86829cd8-6a13-49b8-9d74-e34b0b543e1e">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Company_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f4551f12-6292-4124-b084-c8cd20ffe795">
+      <ID>Product Origin Id</ID>
+      <Name>Product Origin Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="92f6d067-15b2-4c1a-ba41-d094daf1fbc1">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a66bab40-f7a8-42a3-bee1-9cb47c7c1c02">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>ProductOrigin_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="224bc040-6989-4dd3-8a75-9c0b9286728f">
+      <ID>Unit Id</ID>
+      <Name>Unit Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f7817028-a5c7-4693-8b67-7110a0ceb3a0">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="69f41da1-28c7-4139-a0a0-66f1cd3f2f90">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Unit_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7a4a0606-46de-4a81-80d5-35df309018b7">
+      <ID>Grade Id</ID>
+      <Name>Grade Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="533d356e-8bda-4701-b1ad-2b84046ac8d1">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3c7d5dad-6a15-433a-9480-26e5db14ee09">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Grade_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="292d3351-231e-40d6-93f6-6cb84b77c980">
+      <ID>Lesson Id</ID>
+      <Name>Lesson Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5eec5fce-fe9b-439a-8707-82b6c08391e7">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1ea4538b-0935-404a-9687-cac58676f397">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Lesson_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2bda1e2e-78be-4d18-ae43-387e66fd4544">
+      <ID>Product Parent Id</ID>
+      <Name>Product Parent Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f7738ab2-3076-4897-8414-420bb92c1d20">
+          <DataType>BigInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="98a3c084-29d6-4856-a5cc-56546df07275">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>ProductParent_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e86e7545-9b15-49d6-9fb8-feffa7341b7f">
+      <ID>Organization ID</ID>
+      <Name>Organization ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5f3cd489-fceb-4eb1-935d-dec95319bec1">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="da915f7b-6fb3-41df-91bf-3b3a40d3a478">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>OrganizationID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="92f9599c-410a-4baa-a7d3-145a336c28f0">
+      <ID>Product Fee</ID>
+      <Name>Product Fee</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ae76684b-23ff-4964-977b-abec42c5d0de">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6737a4fc-5308-41eb-9a58-78908643b4e6">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Product_Fee</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="31232c64-b703-4e19-8127-3d8834482ea0">
+      <ID>Product Grade Group ID</ID>
+      <Name>Product Grade Group ID</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e6b590cd-2b4c-4493-a94a-4c2db833ac07">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="1c332b52-08d0-42cd-a137-060f918d56d2">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>ProductGrade_Group_ID</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="40f0453b-f53b-4287-8def-4407c9db6694">
+      <ID>Major Id</ID>
+      <Name>Major Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="53303c50-6479-40eb-8ef4-d53bd215baec">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a29bba23-3f3b-49fe-aabb-d1cb8d9b7ce9">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Major_Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="dba23de0-0283-4cf1-9a61-8b7861effb5c">
+      <ID>Major Title</ID>
+      <Name>Major Title</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8dee69b1-da36-4e1d-86b8-4004402e4da4">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="847f1b9c-5aa9-42c1-923a-6bc1c3a663dc">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Major_Title</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="465e8561-50fa-4bbb-89ec-c93ecd7a3de9">
+      <ID>Code 5 Number</ID>
+      <Name>Code 5 Number</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f07b984b-b4de-4edc-a45a-6581f0365345">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="db57d4e2-9c9c-44e5-80fd-6fb488cf22e6">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Code_5_Number</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="776f47be-c992-47b4-9476-80102f17509a">
+      <ID>Berand</ID>
+      <Name>Berand</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="491316c4-9ea4-4694-ae54-127cd61e0bfe">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0f1aa914-20af-4488-a96b-8ad096c4b308">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Berand</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="059a8f9f-505e-4b92-b692-9ca7ec42bfd6">
+      <ID>Small Name</ID>
+      <Name>Small Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="09b9f5ab-2f65-49a5-8243-572b4bf4fbfd">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4948b1f3-c1dd-4018-a4ed-abfae8af845e">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>SmallName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8141ba81-e48a-4656-8e9b-4701cce0ed50">
+      <ID>Eng Name</ID>
+      <Name>Eng Name</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1854b8dd-9662-4bcf-9e0b-54fa6e8a466e">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8bdc89d5-0d95-42e9-800b-d685701475e4">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>EngName</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b62f81c3-52ef-4f4b-a56b-c262a8653b8f">
+      <ID>Collections</ID>
+      <Name>Collections</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="8452acce-fb59-4518-9b3f-9742935621a5">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="30443043-c396-4276-8716-0af9ac577e06">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Collections</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6cee5a4a-5a7e-4be0-bb9f-2393f081dba5">
+      <ID>GROUPS</ID>
+      <Name>GROUPS</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7fd0329e-4115-496e-b1b2-6f25343743e2">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ddd7c943-c926-459d-8a8c-950c76e47250">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>GROUPS</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="c9728f9a-e764-4a9a-8ca1-ef39cc57f163">
+      <ID>Detail Asli</ID>
+      <Name>Detail Asli</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="c2329c71-cbba-41d0-9999-6f62352a49bc">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d05be729-403f-4a8c-b161-4864109dd7e4">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>DetailAsli</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b9198e83-c02c-4de4-9664-9d338603ad8e">
+      <ID>Detail Far Ie 1</ID>
+      <Name>Detail Far Ie 1</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7488e576-6ee1-4b40-82d0-1c4d32340335">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="963e3ecc-2a1f-4e4b-911e-7c24cfe92d24">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Detail_Far_ie_1</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0bb322a2-4967-49d9-89db-19ab122872eb">
+      <ID>Detail Far Ie 2</ID>
+      <Name>Detail Far Ie 2</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a421468e-f3e0-46cc-b50a-9152701a5aca">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="210241ef-f86f-4089-8d3e-9518d3ff29bb">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Detail_Far_ie_2</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5e24cfca-18ae-4e73-bde1-27d3acd26b09">
+      <ID>Detail Far Ie 3</ID>
+      <Name>Detail Far Ie 3</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="668fef23-8e5b-44fa-9983-6a1d8c27d6bf">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4b21a018-44b1-4ff2-a047-06724775d39a">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Detail_Far_ie_3</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="b4aeea92-73e0-4463-8923-7600b5ee1647">
+      <ID>Mahdude Senni</ID>
+      <Name>Mahdude Senni</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4098365e-b736-4343-affc-d2a74f7aa457">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9dd59c50-e3c0-4202-b4d6-fd9759195b99">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Mahdude_senni</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="11946a0a-6929-4e3d-99a5-30589b1cf5b0">
+      <ID>Rade Senni</ID>
+      <Name>Rade Senni</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="db63218d-92f5-4032-8967-96787bb6bfc6">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="18be7842-0a46-41cb-b8aa-d95d2a9ad5c7">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>RadeSenni</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f4cafe7c-4eaa-49ec-b4d3-ed1a541a791a">
+      <ID>Ghate Ketab</ID>
+      <Name>Ghate Ketab</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="422db751-943b-41b1-a563-827e24b1713f">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="f378e188-54a1-449e-86de-305d29c6dd06">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Ghate_ketab</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5b98d280-6fcf-42ca-93ab-29a9cd3778fa">
+      <ID>Jeld</ID>
+      <Name>Jeld</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5bed0c34-9b41-4780-b9ae-4a5c37839b2c">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="199a6df0-4c4c-4d72-9c7d-019cc236d0bd">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Jeld</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ef42f2af-6586-40d2-b939-3f47f9a868b2">
+      <ID>Conut Barg</ID>
+      <Name>Conut Barg</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e9a50d63-2bf1-40c1-8c2c-056680dc746b">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c4fdd407-afb1-4c0c-a87e-d6d5372a4ab9">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Conut_Barg</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8bb45d0e-300c-48b3-9c3d-303034101e5d">
+      <ID>Count Cartoon</ID>
+      <Name>Count Cartoon</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="ae021868-8083-4e3a-987f-eb28497c3fec">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9dfb76a7-e554-4b74-bc97-99a2069589c8">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Count_Cartoon</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2cb7259c-1084-4d64-8588-9d0e518d694a">
+      <ID>Launch Time</ID>
+      <Name>Launch Time</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e40de720-9a80-4b05-b463-f01d87f01280">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="369164c0-e53d-444a-9799-b3c2255aa9fd">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>launch_Time</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e269eb6d-7ab3-4d4c-a83d-dfb3db982171">
+      <ID>Modire Talif</ID>
+      <Name>Modire Talif</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="46350eba-bcd0-47b8-826c-ecb7d08419f3">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e6bd1762-1232-4f7d-a752-309fe54de09a">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Modire_talif</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="38554ab6-41ca-4a11-b84b-c584b66f0960">
+      <ID>Maghta</ID>
+      <Name>Maghta</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="4c7448fd-baac-4075-a44b-da90bd0a7f27">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d3839736-61e8-4003-9b7e-f6366928d35b">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Maghta</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6c4d21a7-6f00-4338-8e66-4154384c39b3">
+      <ID>Paie</ID>
+      <Name>Paie</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5cfae2b4-8592-4da4-9087-7253fe947528">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="cf95bfe3-e137-48a9-aac4-973b626c055e">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Paie</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="168a4cc6-c0fc-4ac0-bedd-9abdfd1b278d">
+      <ID>Sabad</ID>
+      <Name>Sabad</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a96b65cc-2920-4c08-80f4-59711a6ee1c2">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="51c8fc21-3383-4454-b132-2cde8f158676">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Sabad</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="e8c6f389-fab0-4011-a3eb-7e1d777b8dbc">
+      <ID>Reshteh</ID>
+      <Name>Reshteh</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fa94045b-b81a-4f95-98ec-f33643550c9b">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="eadba3cd-6f00-4ac0-9f5e-db225805efde">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Reshteh</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0a771cd1-9a59-4c7a-b4c4-8718c72744f1">
+      <ID>Dars</ID>
+      <Name>Dars</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="840b5a55-b9b2-48b4-8209-0b360255b71b">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="13cf242a-117a-4335-ae11-9cbf494cf523">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Dars</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="dd9c0cdd-819f-4631-b92d-e443f2a3678b">
+      <ID>Sabad Madar</ID>
+      <Name>Sabad Madar</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6c200689-736c-4d49-a2e4-7d44b513e0a6">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="01805c7d-59b5-420f-8013-9491231c43e2">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Sabad_madar</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="9bf8ca6b-6a08-441e-ab67-b89ca989cc71">
+      <ID>Sabad Kala</ID>
+      <Name>Sabad Kala</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="82a2c40a-7d21-46b0-99bf-59646b90ecec">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a077ed86-ab45-422a-b7d8-7f6b486dcf53">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>sabad_kala</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2897f715-3eaa-431d-8399-003b36a5448e">
+      <ID>Business</ID>
+      <Name>Business</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6153ae3d-25d3-4168-a052-799f4fcb5472">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="ddea46c8-39a1-4c3b-8802-a2b03c218fd9">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>business</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="727bafb1-3c29-4e3d-9649-c2a0b893e6c5">
+      <ID>Statuses</ID>
+      <Name>Statuses</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7660a571-09d2-4b4f-846a-da64ffb7b120">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="df131859-9cd1-4ce8-a815-83a1522c6c61">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>statuses</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="093da34e-4c8f-45f3-b48a-a3c7a95cc54f">
+      <ID>Code Ref Product</ID>
+      <Name>Code Ref Product</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3002009e-0c51-40c8-b45f-22dcf975f7b9">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="134e3157-b7b6-48b2-8ff9-db8f793503e6">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Code_Ref_Product</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="eceeeaad-3fe8-4341-b849-e07bcc5ab2ed">
+      <ID>Product Group Title</ID>
+      <Name>Product Group Title</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="533a6ac0-1b0f-4c29-a435-51929f0d50d3">
+          <DataType>WChar</DataType>
+          <DataSize>100</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a382a4d7-7684-449c-9560-e18c800fe414">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>ProductGroup_Title</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="06a5acf5-430e-4413-9f9c-71a4a1c1d220">
+      <ID>Product Grade Title</ID>
+      <Name>Product Grade Title</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="60a2a10e-aee8-4e52-89da-18ed8fe5f913">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="cacef693-b252-4dcf-b565-caf7989bf738">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>ProductGrade_Title</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="adec2694-8488-4d0a-9a33-f413161dacae">
+      <ID>Sales Organization Title</ID>
+      <Name>Sales Organization Title</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="1842c5e6-9cb2-4859-b004-6f7f3f85b20a">
+          <DataType>WChar</DataType>
+          <DataSize>500</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="920db7ce-35f7-4304-9537-464e88e43f87">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>SalesOrganization_Title</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="1f328fc3-e0cf-422c-b55b-887faf762ddd">
+      <ID>Lesson Title</ID>
+      <Name>Lesson Title</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="17167124-0bdc-4d07-b93a-3999eb69e90d">
+          <DataType>WChar</DataType>
+          <DataSize>900</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8c690315-3e9b-4ba0-8419-bdb97ff654da">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Lesson_Title</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="6293c5f3-474b-43f4-ae08-05c7a4cf07a4">
+      <ID>Unit Title</ID>
+      <Name>Unit Title</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="e65f0c27-7683-4f6f-b87c-6ef08e962117">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9d213de8-e69a-4da5-8a13-db92f35c2900">
+            <TableID>SLP_DIM_Product_Union_With_Product</TableID>
+            <ColumnID>Unit_Title</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
