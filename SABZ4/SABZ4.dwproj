@@ -18,16 +18,6 @@
       </Dependencies>
     </ProjectItem>
     <ProjectItem>
-      <Name>MNG.cube</Name>
-      <FullPath>MNG.cube</FullPath>
-      <Dependencies>
-        <ProjectItem>
-          <Name>MNG.partitions</Name>
-          <FullPath>MNG.partitions</FullPath>
-        </ProjectItem>
-      </Dependencies>
-    </ProjectItem>
-    <ProjectItem>
       <Name>PUB.cube</Name>
       <FullPath>PUB.cube</FullPath>
       <Dependencies>
@@ -138,10 +128,6 @@
     <ProjectItem>
       <Name>GRL FIN Dim Type Value Loan.dim</Name>
       <FullPath>GRL FIN Dim Type Value Loan.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>GRL FIN Dim Voucher Item Desc.dim</Name>
-      <FullPath>GRL FIN Dim Voucher Item Desc.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>GRL FIN Dim Voucher State.dim</Name>
@@ -368,10 +354,6 @@
       <FullPath>Vw GRL FIN Dim Loan Type.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Vw PUB SLE Dim Product First Month And AVG Net Sale.dim</Name>
-      <FullPath>Vw PUB SLE Dim Product First Month And AVG Net Sale.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
       <Name>Vw PUB SLE Dim Sale.dim</Name>
       <FullPath>Vw PUB SLE Dim Sale.dim</FullPath>
     </ProjectItem>
@@ -396,24 +378,8 @@
       <FullPath>Vw PUB GNR Dim Entire Product.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>SLP DIM Product Union With Product.dim</Name>
-      <FullPath>SLP DIM Product Union With Product.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>PUB SLE Dim Customer 1.dim</Name>
-      <FullPath>PUB SLE Dim Customer 1.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>PUB SLE Dim Customer 2.dim</Name>
-      <FullPath>PUB SLE Dim Customer 2.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>SLP Dim Customer.dim</Name>
-      <FullPath>SLP Dim Customer.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>SLP DIM Product Union With Product 1.dim</Name>
-      <FullPath>SLP DIM Product Union With Product 1.dim</FullPath>
+      <Name>Vw PUB SLE Dim Product First Net Sale.dim</Name>
+      <FullPath>Vw PUB SLE Dim Product First Net Sale.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
@@ -442,12 +408,6 @@
       <FullPath>Role.role</FullPath>
     </ProjectItem>
   </Roles>
-  <Miscellaneous>
-    <ProjectItem>
-      <Name>AS_SalesPlaning.sln</Name>
-      <FullPath>AS_SalesPlaning.sln</FullPath>
-    </ProjectItem>
-  </Miscellaneous>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
@@ -456,7 +416,7 @@
           <ConfigurationSetting>
             <Id>SABZDW</Id>
             <Name>SABZDW</Name>
-            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=sabzdw;Integrated Security=SSPI;Initial Catalog=SABZDW</Value>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=SABZDW;Integrated Security=SSPI;Initial Catalog=SABZDW</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
