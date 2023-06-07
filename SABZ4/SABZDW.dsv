@@ -34952,7 +34952,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="SLE.PUB_SLE_Fact_Sale" msprop:design-time-name="615a797a-8822-4c0f-ad9e-54481c44dca1" msprop:IsLogical="True" msprop:FriendlyName="PUB_SLE_Fact_Sale" msprop:DbTableName="PUB_SLE_Fact_Sale" msprop:TableType="View" msprop:QueryDefinition="SELECT        MaxDisCountSanad, 62 AS DimFact_Id, Sale_Id, Sale_FirstQty, Sale_SecondQty, Sale_Value, Sale_NetValue, Sale_NetValue * Sale_SecondQty AS SaleValueQty, Sale_Add, Sale_Sub, Sale_CurrencyValue, Product_Id, &#xD;&#xA;                         Customer_Id, CurrencyType_Id, Company_Id, Date_Id, Province_Id, SaleType_Id, SalesOrganization_Id, ISNULL(SalesChannel_Id, 9999) AS SalesChannel_Id, Unit_Id, Sale_ValueGift, Sale_SubGift, ISNULL(SaleOffice_Id, 9999) &#xD;&#xA;                         AS SaleOffice_Id, Product_Fee, SanadNumber, Sale_ValueWatage, Sale_SubWatage, Sale_ValueRawMaterial, Sale_SubRawMaterial, SpecialDiscountValueTashim, Price, mindate, Diffmonth&#xD;&#xA;FROM            Vw_PUB_SLE_Fact_Sale AS s" msprop:QueryBuilder="SpecificQueryBuilder">
+            <xs:element name="SLE.PUB_SLE_Fact_Sale" msprop:design-time-name="615a797a-8822-4c0f-ad9e-54481c44dca1" msprop:IsLogical="True" msprop:FriendlyName="PUB_SLE_Fact_Sale" msprop:DbTableName="PUB_SLE_Fact_Sale" msprop:TableType="View" msprop:QueryDefinition="SELECT        IIF(MaxDisCountSanad = '0', NULL, MaxDisCountSanad) MaxDisCountSanad, 62 AS DimFact_Id, Sale_Id, Sale_FirstQty, Sale_SecondQty, Sale_Value, Sale_NetValue, Sale_NetValue * Sale_SecondQty AS SaleValueQty, &#xD;&#xA;                         Sale_Add, Sale_Sub, Sale_CurrencyValue, Product_Id, Customer_Id, CurrencyType_Id, Company_Id, Date_Id, Province_Id, SaleType_Id, SalesOrganization_Id, ISNULL(SalesChannel_Id, 9999) AS SalesChannel_Id, Unit_Id, &#xD;&#xA;                         Sale_ValueGift, Sale_SubGift, ISNULL(SaleOffice_Id, 9999) AS SaleOffice_Id, Product_Fee, SanadNumber, Sale_ValueWatage, Sale_SubWatage, Sale_ValueRawMaterial, Sale_SubRawMaterial, SpecialDiscountValueTashim, &#xD;&#xA;                         Price, mindate, Diffmonth&#xD;&#xA;FROM            Vw_PUB_SLE_Fact_Sale AS s" msprop:QueryBuilder="SpecificQueryBuilder">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Sale_Id" msprop:design-time-name="91b3fcfa-bdb2-4bd5-9041-fae75b412170" msprop:DbColumnName="Sale_Id" msprop:FriendlyName="Sale_Id" type="xs:decimal" minOccurs="0" />
@@ -34988,7 +34988,7 @@
                   <xs:element name="mindate" msprop:design-time-name="911b5cbd-ed80-44bc-9c34-9564245cb179" msprop:DbColumnName="mindate" type="xs:int" minOccurs="0" />
                   <xs:element name="Diffmonth" msprop:design-time-name="95e44f1f-909f-4698-980d-e0ad1b272755" msprop:DbColumnName="Diffmonth" type="xs:int" minOccurs="0" />
                   <xs:element name="Price" msprop:design-time-name="8cebc3a6-8288-41a1-b105-d881d8082f21" msprop:DbColumnName="Price" type="xs:decimal" minOccurs="0" />
-                  <xs:element name="MaxDisCountSanad" msprop:DbColumnName="MaxDisCountSanad" msprop:design-time-name="9c3ccba6-ed40-4a75-abbb-4ee562fce031" type="xs:long" minOccurs="0" />
+                  <xs:element name="MaxDisCountSanad" msprop:design-time-name="9c3ccba6-ed40-4a75-abbb-4ee562fce031" msprop:DbColumnName="MaxDisCountSanad" type="xs:long" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
