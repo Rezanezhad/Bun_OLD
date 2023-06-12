@@ -34952,7 +34952,7 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="SLE.PUB_SLE_Fact_Sale" msprop:design-time-name="615a797a-8822-4c0f-ad9e-54481c44dca1" msprop:IsLogical="True" msprop:FriendlyName="PUB_SLE_Fact_Sale" msprop:DbTableName="PUB_SLE_Fact_Sale" msprop:TableType="View" msprop:QueryDefinition="SELECT        62 AS DimFact_Id, Sale_Id, Sale_FirstQty, Sale_SecondQty, Sale_Value, Sale_NetValue, Sale_NetValue * Sale_SecondQty AS SaleValueQty, Sale_Add, Sale_Sub, Sale_CurrencyValue, Product_Id, Customer_Id, CurrencyType_Id, &#xD;&#xA;                         Company_Id, Date_Id, Province_Id, SaleType_Id, SalesOrganization_Id, ISNULL(SalesChannel_Id, 9999) AS SalesChannel_Id, Unit_Id, Sale_ValueGift, Sale_SubGift, ISNULL(SaleOffice_Id, 9999) AS SaleOffice_Id, Product_Fee, &#xD;&#xA;                         SanadNumber, Sale_ValueWatage, Sale_SubWatage, Sale_ValueRawMaterial, Sale_SubRawMaterial, SpecialDiscountValueTashim, Price, mindate, Diffmonth, Price * Sale_SecondQty AS SalePriceSecQty, ProductParent_Id, &#xD;&#xA;                         MaxDisCountSanad&#xD;&#xA;FROM            Vw_PUB_SLE_Fact_Sale AS s" msprop:QueryBuilder="SpecificQueryBuilder">
+            <xs:element name="SLE.PUB_SLE_Fact_Sale" msprop:design-time-name="615a797a-8822-4c0f-ad9e-54481c44dca1" msprop:IsLogical="True" msprop:FriendlyName="PUB_SLE_Fact_Sale" msprop:DbTableName="PUB_SLE_Fact_Sale" msprop:TableType="View" msprop:QueryDefinition="SELECT       IIF( MaxDisCountSanad = 0 , NULL , MaxDisCountSanad) MaxDisCountSanad , 62 AS DimFact_Id, Sale_Id, Sale_FirstQty, Sale_SecondQty, Sale_Value, Sale_NetValue, Sale_NetValue * Sale_SecondQty AS SaleValueQty, Sale_Add, Sale_Sub, Sale_CurrencyValue, Product_Id, Customer_Id, CurrencyType_Id, &#xD;&#xA;                         Company_Id, Date_Id, Province_Id, SaleType_Id, SalesOrganization_Id, ISNULL(SalesChannel_Id, 9999) AS SalesChannel_Id, Unit_Id, Sale_ValueGift, Sale_SubGift, ISNULL(SaleOffice_Id, 9999) AS SaleOffice_Id, Product_Fee, &#xD;&#xA;                         SanadNumber, Sale_ValueWatage, Sale_SubWatage, Sale_ValueRawMaterial, Sale_SubRawMaterial, SpecialDiscountValueTashim, Price, mindate, Diffmonth, Price * Sale_SecondQty AS SalePriceSecQty, ProductParent_Id&#xD;&#xA;                         &#xD;&#xA;FROM            Vw_PUB_SLE_Fact_Sale AS s" msprop:QueryBuilder="SpecificQueryBuilder">
               <xs:complexType>
                 <xs:sequence>
                   <xs:element name="Sale_Id" msprop:design-time-name="91b3fcfa-bdb2-4bd5-9041-fae75b412170" msprop:DbColumnName="Sale_Id" msprop:FriendlyName="Sale_Id" type="xs:decimal" minOccurs="0" />
@@ -34989,14 +34989,8 @@
                   <xs:element name="Diffmonth" msprop:design-time-name="95e44f1f-909f-4698-980d-e0ad1b272755" msprop:DbColumnName="Diffmonth" type="xs:int" minOccurs="0" />
                   <xs:element name="Price" msprop:design-time-name="8cebc3a6-8288-41a1-b105-d881d8082f21" msprop:DbColumnName="Price" type="xs:decimal" minOccurs="0" />
                   <xs:element name="SalePriceSecQty" msprop:design-time-name="54016c42-effa-4329-82f5-6bce0f4d0211" msprop:DbColumnName="SalePriceSecQty" type="xs:decimal" minOccurs="0" />
-                  <xs:element name="ProductParent_Id" msprop:DbColumnName="ProductParent_Id" msprop:design-time-name="061637de-94a4-4d4e-a041-6df3ad808754" type="xs:long" minOccurs="0" />
-                  <xs:element name="MaxDisCountSanad" msprop:DbColumnName="MaxDisCountSanad" msprop:design-time-name="abec03c2-3c64-4427-8b3b-cfd3f2379058" minOccurs="0">
-                    <xs:simpleType>
-                      <xs:restriction base="xs:string">
-                        <xs:maxLength value="50" />
-                      </xs:restriction>
-                    </xs:simpleType>
-                  </xs:element>
+                  <xs:element name="ProductParent_Id" msprop:design-time-name="061637de-94a4-4d4e-a041-6df3ad808754" msprop:DbColumnName="ProductParent_Id" type="xs:long" minOccurs="0" />
+                  <xs:element name="MaxDisCountSanad" msprop:design-time-name="abec03c2-3c64-4427-8b3b-cfd3f2379058" msprop:DbColumnName="MaxDisCountSanad" type="xs:int" minOccurs="0" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
