@@ -32822,7 +32822,7 @@ ParallelPeriod([GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[Year] ,
              1,
           [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].currentmember)
 ), 
-VISIBLE = 1  ;  
+VISIBLE = 1 ,  DISPLAY_FOLDER = 'SLP'  ;  
 CREATE MEMBER CURRENTCUBE.[Measures].[SLP_AVG_Saraneh_Mahsoul]
  AS ([Measures].[SLP_PUB SLE Fact Sale_ParentProduct Id Distinct Count]/[Measures].[SLP_PUB SLE Fact Sale_Customer Id Distinct Count]), 
 VISIBLE = 1 ,  DISPLAY_FOLDER = 'SLP'  ;    
