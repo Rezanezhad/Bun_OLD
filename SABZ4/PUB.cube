@@ -32816,7 +32816,7 @@ You should edit this command only if you manually specify how the cube is aggreg
 */
 CALCULATE;  
 CREATE MEMBER CURRENTCUBE.[Measures].[SLP_AVG_Saraneh_Mahsoul]
- AS ([Measures].[SLP_PUB SLE Fact Sale _ Product Id Count]/[Measures].[SLP_PUB SLE Fact Sale_Customer Id Distinct Count]), 
+ AS ([Measures].[SLP_PUB SLE Fact Sale_ParentProduct Id Distinct Count]/[Measures].[SLP_PUB SLE Fact Sale_Customer Id Distinct Count]), 
 VISIBLE = 1 ,  DISPLAY_FOLDER = 'SLP'  ;    
 CREATE MEMBER CURRENTCUBE.[Measures].[SLP_PUB SLE Fact Sale_Sanad Number Distinct Count_Y]
  AS (
