@@ -10111,6 +10111,22 @@
           <Name>[Measures].[PUB SLE Fact Sale Value Aggregation By Year Cumulative Deviation]</Name>
           <Type>Member</Type>
         </Calculation>
+        <Calculation dwd:design-time-name="ceca4189-bc20-4d9e-8866-96161cfe2514">
+          <Name>[Measures].[PUB SLE Fact Sale Total Amount Value 1st Previous Year]</Name>
+          <Type>Member</Type>
+        </Calculation>
+        <Calculation dwd:design-time-name="527f28f4-51b9-46e7-a466-f074d198de72">
+          <Name>[Measures].[PUB SLE Fact Sale Total Amount Value]</Name>
+          <Type>Member</Type>
+        </Calculation>
+        <Calculation dwd:design-time-name="9b52bd3d-e845-48b1-bf7d-81d92c34e7a4">
+          <Name>[Measures].[PUB SLE Fact Sale Target Total Amount]</Name>
+          <Type>Member</Type>
+        </Calculation>
+        <Calculation dwd:design-time-name="1e631fdf-be2c-41ed-8769-df98e78e74d0">
+          <Name>[Measures].[PUB SLE Fact Sale Total Amount Aggregate Growth 1st Prev Year % ]</Name>
+          <Type>Member</Type>
+        </Calculation>
       </Calculations>
     </Perspective>
   </Perspectives>
@@ -41005,6 +41021,36 @@ CREATE DYNAMIC SET CURRENTCUBE.[Sales Amount Type Name]
             <Translation dwd:design-time-name="298e4e64-2e7c-4d67-808f-dde65fa8a7b7">
               <Language>1065</Language>
               <Caption>تارگت فروش ریالی</Caption>
+            </Translation>
+          </Translations>
+        </CalculationProperty>
+        <CalculationProperty dwd:design-time-name="93d7ec50-698b-4a49-8219-005ec273e0c0">
+          <CalculationReference>[Measures].[PUB SLE Fact Sale Total Amount Value]</CalculationReference>
+          <CalculationType>Member</CalculationType>
+          <Translations>
+            <Translation dwd:design-time-name="982f1c08-f8a6-4755-9bd0-41b593ae6db3">
+              <Language>1065</Language>
+              <Caption>مبلغ خالص فروش</Caption>
+            </Translation>
+          </Translations>
+        </CalculationProperty>
+        <CalculationProperty dwd:design-time-name="8e5fb207-db44-4e3a-918f-d930d99625e9">
+          <CalculationReference>[Measures].[PUB SLE Fact Sale Total Amount Value 1st Previous Year]</CalculationReference>
+          <CalculationType>Member</CalculationType>
+          <Translations>
+            <Translation dwd:design-time-name="1b7e3f83-1068-48de-8b7b-63dd46b87f27">
+              <Language>1065</Language>
+              <Caption>مبلغ خالص فروش سال قبل</Caption>
+            </Translation>
+          </Translations>
+        </CalculationProperty>
+        <CalculationProperty dwd:design-time-name="a616bf27-ea37-4451-9137-fa513df76c8e">
+          <CalculationReference>[Measures].[PUB SLE Fact Sale Total Amount Aggregate Growth 1st Prev Year % ]</CalculationReference>
+          <CalculationType>Member</CalculationType>
+          <Translations>
+            <Translation dwd:design-time-name="eeb7a93b-d1ce-430b-b64c-fd91277a2279">
+              <Language>1065</Language>
+              <Caption>نرخ رشد</Caption>
             </Translation>
           </Translations>
         </CalculationProperty>
