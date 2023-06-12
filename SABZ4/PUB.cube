@@ -8,9 +8,9 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="584" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-12400" scrolltop="-5675" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="23204" y="16087" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="584" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-10195" scrolltop="-5675" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="23204" y="16087" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
-              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+              <ddsxmlobjectstreamwrapper binary="01010000900180380100065461686f6d61" />
             </font>
             <mouseicon>
               <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
@@ -5116,7 +5116,7 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>-12400</Value>
+      <Value>-10195</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
@@ -9975,6 +9975,9 @@
             <Measure dwd:design-time-name="7d7968e1-21e5-4667-b303-f1f942624698">
               <MeasureID>Sale First Qty 1</MeasureID>
             </Measure>
+            <Measure dwd:design-time-name="f5c82863-7e4c-44ce-8543-f603823bceed">
+              <MeasureID>Sale Net Value</MeasureID>
+            </Measure>
           </Measures>
         </MeasureGroup>
         <MeasureGroup dwd:design-time-name="f258d7db-adc9-43fc-81ff-1fc0896a56be">
@@ -9988,6 +9991,9 @@
             </Measure>
             <Measure dwd:design-time-name="7b94b0e2-5473-4d80-8e93-0f4afebec94e">
               <MeasureID>Return Sale First Qty - PUB SLE Fact Return Sale</MeasureID>
+            </Measure>
+            <Measure dwd:design-time-name="eb77dea6-c826-4436-b82d-992a7627dcfd">
+              <MeasureID>Return Sale Net Value</MeasureID>
             </Measure>
           </Measures>
         </MeasureGroup>
@@ -10020,6 +10026,14 @@
           <Measures>
             <Measure dwd:design-time-name="f0b0b401-e473-4334-952e-208dd6f52489">
               <MeasureID>Max Dis Count Sanad Distinct Count</MeasureID>
+            </Measure>
+          </Measures>
+        </MeasureGroup>
+        <MeasureGroup dwd:design-time-name="c3fbfc98-3d33-4fa5-9ab6-69e17c39e2ed">
+          <MeasureGroupID>PUB SLE Fact Sale Target Total</MeasureGroupID>
+          <Measures>
+            <Measure dwd:design-time-name="dc17e67e-3ef4-49f7-87eb-ec5dd920ac88">
+              <MeasureID>Target Value</MeasureID>
             </Measure>
           </Measures>
         </MeasureGroup>
@@ -10059,6 +10073,42 @@
         </Calculation>
         <Calculation dwd:design-time-name="a6651ec3-c6a8-4527-b8c7-99261a12bba3">
           <Name>[Measures].[SLP_PUB SLE Fact Sale Net Value Aggregation By Year]</Name>
+          <Type>Member</Type>
+        </Calculation>
+        <Calculation dwd:design-time-name="def16592-cf15-4dfe-8049-444d8cb0981d">
+          <Name>[Measures].[PUB SLE Fact Sale Target Total QTY Aggregation]</Name>
+          <Type>Member</Type>
+        </Calculation>
+        <Calculation dwd:design-time-name="7eafc71c-a683-479b-b5f2-41a88063606a">
+          <Name>[Measures].[PUB SLE Fact Sale Total Amount Value Aggregate and null]</Name>
+          <Type>Member</Type>
+        </Calculation>
+        <Calculation dwd:design-time-name="524d674d-9e8e-4ecf-acbf-7ed844f5ed95">
+          <Name>[Measures].[PUB SLE Fact Sale Total Amount Value Aggregate Prev1Year]</Name>
+          <Type>Member</Type>
+        </Calculation>
+        <Calculation dwd:design-time-name="73211f20-f95a-4155-a224-c07f291282b0">
+          <Name>[Measures].[PUB SLE Fact Sale Target Total Amount Aggregate]</Name>
+          <Type>Member</Type>
+        </Calculation>
+        <Calculation dwd:design-time-name="9c6cff69-6625-4ea3-96ad-947bcc2b97c4">
+          <Name>[Measures].[PUB SLE Fact Sale Budjet Qty Aggregation By Total Year Cumulative Deviation]</Name>
+          <Type>Member</Type>
+        </Calculation>
+        <Calculation dwd:design-time-name="c2f24824-0a9e-49e0-8c0c-4c0a1ed11d59">
+          <Name>[Measures].[PUB SLE Fact Return Sale Value Aggregation By Year]</Name>
+          <Type>Member</Type>
+        </Calculation>
+        <Calculation dwd:design-time-name="ffcc2232-3a92-429c-b144-60e27d07d1da">
+          <Name>[Measures].[PUB SLE Fact Return Sale Qty Aggregation By Year]</Name>
+          <Type>Member</Type>
+        </Calculation>
+        <Calculation dwd:design-time-name="2fb55f5e-9fbe-43cc-b8dc-2425d9a3735d">
+          <Name>[Measures].[PUB SLE Fact Sale Qty Aggregation By Year Cumulative Deviation]</Name>
+          <Type>Member</Type>
+        </Calculation>
+        <Calculation dwd:design-time-name="ff02efd2-fdda-4e3e-bae7-3e310dd7f107">
+          <Name>[Measures].[PUB SLE Fact Sale Value Aggregation By Year Cumulative Deviation]</Name>
           <Type>Member</Type>
         </Calculation>
       </Calculations>
@@ -29403,6 +29453,7 @@
               <ColumnID>SanadNumber</ColumnID>
             </Source>
           </Source>
+          <Visible>false</Visible>
           <DisplayFolder>SLP</DisplayFolder>
         </Measure>
       </Measures>
@@ -30664,6 +30715,7 @@
               <ColumnID>Customer_Id</ColumnID>
             </Source>
           </Source>
+          <Visible>false</Visible>
           <DisplayFolder>SLP</DisplayFolder>
         </Measure>
       </Measures>
@@ -31925,6 +31977,7 @@
               <ColumnID>ProductParent_Id</ColumnID>
             </Source>
           </Source>
+          <Visible>false</Visible>
           <DisplayFolder>SLP</DisplayFolder>
         </Measure>
       </Measures>
@@ -33186,6 +33239,7 @@
               <ColumnID>MaxDisCountSanad</ColumnID>
             </Source>
           </Source>
+          <Visible>false</Visible>
         </Measure>
       </Measures>
       <StorageMode>Molap</StorageMode>
@@ -40923,6 +40977,36 @@ CREATE DYNAMIC SET CURRENTCUBE.[Sales Amount Type Name]
         <CalculationProperty dwd:design-time-name="a6a9dd23-b628-49b6-9ddd-9528c82a0a5b">
           <CalculationReference>[Measures].[SLP_PUB SLE Fact Sale _ Count SalesPure]</CalculationReference>
           <CalculationType>Member</CalculationType>
+        </CalculationProperty>
+        <CalculationProperty dwd:design-time-name="b885e16c-f9c5-45ca-9648-51eeabb5b2cd">
+          <CalculationReference>[Measures].[PUB SLE Fact Sale Total Amount Value Aggregate and null]</CalculationReference>
+          <CalculationType>Member</CalculationType>
+          <Translations>
+            <Translation dwd:design-time-name="2cd44387-9b03-4d76-b37e-ffbb9b78296f">
+              <Language>1065</Language>
+              <Caption>فروش ریالی تجمعی تا روز انتخابی</Caption>
+            </Translation>
+          </Translations>
+        </CalculationProperty>
+        <CalculationProperty dwd:design-time-name="bbc6f0f3-bc05-48fd-84aa-10d900df7244">
+          <CalculationReference>[Measures].[PUB SLE Fact Sale Total Amount Value Aggregate Prev1Year]</CalculationReference>
+          <CalculationType>Member</CalculationType>
+          <Translations>
+            <Translation dwd:design-time-name="47dbd6be-6f37-4f62-88cc-5a192603f544">
+              <Language>1065</Language>
+              <Caption>فروش ریالی تجمعی سال گذشته</Caption>
+            </Translation>
+          </Translations>
+        </CalculationProperty>
+        <CalculationProperty dwd:design-time-name="65d68c02-d397-447c-bf0a-7b776e13d799">
+          <CalculationReference>[Measures].[PUB SLE Fact Sale Target Total Amount Aggregate]</CalculationReference>
+          <CalculationType>Member</CalculationType>
+          <Translations>
+            <Translation dwd:design-time-name="298e4e64-2e7c-4d67-808f-dde65fa8a7b7">
+              <Language>1065</Language>
+              <Caption>تارگت فروش ریالی</Caption>
+            </Translation>
+          </Translations>
         </CalculationProperty>
       </CalculationProperties>
     </MdxScript>
