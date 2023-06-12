@@ -32814,7 +32814,15 @@ The CALCULATE command controls the aggregation of leaf cells in the cube.
 If the CALCULATE command is deleted or modified, the data within the cube is affected.
 You should edit this command only if you manually specify how the cube is aggregated.
 */
-CALCULATE;  
+CALCULATE; 
+CREATE MEMBER CURRENTCUBE.[Measures].[SLP_AVG_Saraneh_Mahsoul_Y]
+ AS (
+[SLP_AVG_Saraneh_Mahsoul],
+ParallelPeriod([GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].[Year] ,
+             1,
+          [GRL GNR Dim Full Date weekly].[Year-Month-Week-Date].currentmember)
+), 
+VISIBLE = 1  ;  
 CREATE MEMBER CURRENTCUBE.[Measures].[SLP_AVG_Saraneh_Mahsoul]
  AS ([Measures].[SLP_PUB SLE Fact Sale_ParentProduct Id Distinct Count]/[Measures].[SLP_PUB SLE Fact Sale_Customer Id Distinct Count]), 
 VISIBLE = 1 ,  DISPLAY_FOLDER = 'SLP'  ;    
