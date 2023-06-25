@@ -1,8 +1,8 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="05e70c80-f676-4e88-8225-e40ea61c99fe" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>PUB GNR Dim Product Group</ID>
   <Name>PUB GNR Dim Product Group</Name>
   <CreatedTimestamp>2020-03-10T10:38:39.766667Z</CreatedTimestamp>
-  <LastSchemaUpdate>2022-02-21T14:57:41.396667Z</LastSchemaUpdate>
+  <LastSchemaUpdate>2023-06-25T09:51:09.95Z</LastSchemaUpdate>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
@@ -66,13 +66,13 @@
       <Value>100</Value>
     </Annotation>
   </Annotations>
-  <LastProcessed>2022-02-22T03:10:50.496667Z</LastProcessed>
+  <LastProcessed>2023-06-25T03:10:15.533333Z</LastProcessed>
   <State>Processed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="d6127f09-6d31-4aa1-a3cc-8b3633d7e938">
+  <Source xsi:type="DataSourceViewBinding">
     <DataSourceViewID>SABZDW</DataSourceViewID>
   </Source>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="f6c12d25-5c26-4095-859f-d54e2b39e665">
+  <ErrorConfiguration>
     <KeyNotFound>IgnoreError</KeyNotFound>
     <NullKeyNotAllowed>IgnoreError</NullKeyNotAllowed>
   </ErrorConfiguration>
@@ -81,37 +81,37 @@
   <Collation>Latin1_General_CI_AS</Collation>
   <UnknownMemberName>Unknown</UnknownMemberName>
   <Translations>
-    <Translation dwd:design-time-name="9eae6cde-96a5-4d3c-ad7b-7afddbb36142">
+    <Translation>
       <Language>1065</Language>
       <Caption>اطلاعات گروه محصول</Caption>
     </Translation>
   </Translations>
   <Attributes>
-    <Attribute dwd:design-time-name="e8330904-1bc5-4205-89ee-72e70ebdd0c6">
+    <Attribute>
       <ID>Product Group Id</ID>
       <Name>Product Group Id</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="0ab9b6b3-943a-4eb9-8a16-5a505db2f5e7">
+        <KeyColumn>
           <DataType>BigInt</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="43de5c5b-e495-4d32-99d8-15220eae122d">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_pub_GNR_Dim_ProductGroup</TableID>
             <ColumnID>ProductGroup_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="2a0de9f5-29b7-4dba-8e9c-6060e85cf1b6">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>100</DataSize>
         <NullProcessing>ZeroOrBlank</NullProcessing>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="dc807af2-02bf-4173-8393-8dd1ccb30212">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_pub_GNR_Dim_ProductGroup</TableID>
           <ColumnID>ProductGroup_Title</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="352f576d-8ed8-4d81-9a40-8f617901be53">
+        <Translation>
           <Language>1065</Language>
           <Caption>گروه محصول</Caption>
         </Translation>
@@ -121,12 +121,12 @@
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
   </Attributes>
-  <ProactiveCaching dwd:design-time-name="868fdd2e-753e-4bd2-8f3c-87bcd2861a11">
+  <ProactiveCaching>
     <SilenceInterval>-PT1S</SilenceInterval>
     <Latency>-PT1S</Latency>
     <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
     <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
-    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="b8bbd92e-4c3a-4ce4-8d51-511e433f23a1" />
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
   </ProactiveCaching>
   <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
 </Dimension>

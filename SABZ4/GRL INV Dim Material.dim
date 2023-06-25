@@ -1,8 +1,8 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="44a6542d-fa7e-4516-b5e8-6f1c52ba0d62" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>GRL INV Dim Material</ID>
   <Name>GRL INV Dim Material</Name>
   <CreatedTimestamp>2020-02-29T07:25:10.126667Z</CreatedTimestamp>
-  <LastSchemaUpdate>2022-02-21T14:57:41.156667Z</LastSchemaUpdate>
+  <LastSchemaUpdate>2023-06-25T09:51:09.403333Z</LastSchemaUpdate>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
@@ -292,13 +292,13 @@
       </Value>
     </Annotation>
   </Annotations>
-  <LastProcessed>2022-02-22T03:10:57.186667Z</LastProcessed>
+  <LastProcessed>2023-06-25T03:10:30.016667Z</LastProcessed>
   <State>Processed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="63e92bb6-4943-46ea-9df9-4572f319bbb6">
+  <Source xsi:type="DataSourceViewBinding">
     <DataSourceViewID>SABZDW</DataSourceViewID>
   </Source>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="da486c80-180b-49db-b70e-b90ff6d1e233">
+  <ErrorConfiguration>
     <KeyNotFound>IgnoreError</KeyNotFound>
     <NullKeyNotAllowed>IgnoreError</NullKeyNotAllowed>
   </ErrorConfiguration>
@@ -306,102 +306,102 @@
   <Language>1065</Language>
   <UnknownMemberName>UnknownMaterial</UnknownMemberName>
   <UnknownMemberTranslations>
-    <UnknownMemberTranslation dwd:design-time-name="ab34a74b-ae9a-4b9a-8363-5444d34b185e">
+    <UnknownMemberTranslation>
       <Language>1065</Language>
       <Caption>مواد اولیه نامشخص</Caption>
     </UnknownMemberTranslation>
   </UnknownMemberTranslations>
   <Translations>
-    <Translation dwd:design-time-name="f36d5538-5603-4f60-a912-228210356beb">
+    <Translation>
       <Language>1065</Language>
       <Caption>مواد اولیه</Caption>
     </Translation>
   </Translations>
   <Attributes>
-    <Attribute dwd:design-time-name="2d422aa5-d5fa-4689-af1f-37831423da89">
+    <Attribute>
       <ID>Material Id</ID>
       <Name>Material Id</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="1c72384f-0962-484b-9c16-8c0285ed9419">
+        <KeyColumn>
           <DataType>BigInt</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="23f156ac-8645-43b8-89de-dd1f91757d54">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_INV_Dim_Material</TableID>
             <ColumnID>Material_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="1b8916e2-8b88-434f-8286-18144df7b915">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>200</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="8fa482a4-d9a6-498f-8a35-dbae307899c9">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_GRL_INV_Dim_Material</TableID>
           <ColumnID>Material_Title</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="f187408d-7274-4f27-bb76-4daf8a99a301">
+        <Translation>
           <Language>1065</Language>
           <Caption>عنوان ماده اولیه</Caption>
         </Translation>
       </Translations>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="fd85558b-2356-44e9-9580-38d20babb131">
+        <AttributeRelationship>
           <AttributeID>Unit Id</AttributeID>
           <Name>Unit Id</Name>
           <Translations>
-            <Translation dwd:design-time-name="06e46d93-d550-41fc-8eb4-c94bd922a3ab">
+            <Translation>
               <Language>1065</Language>
               <Caption>واحد سنجش</Caption>
             </Translation>
           </Translations>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="594cf57c-b76a-40bc-9a2d-cb002f053410">
+        <AttributeRelationship>
           <AttributeID>Company Id</AttributeID>
           <Name>Company Id</Name>
           <Translations>
-            <Translation dwd:design-time-name="2d7b1bad-71f7-4837-b85c-fc5a79b867fa">
+            <Translation>
               <Language>1065</Language>
               <Caption>شرکت</Caption>
             </Translation>
           </Translations>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="2eef8487-7d39-4745-8af5-23bd1aa77f45">
+        <AttributeRelationship>
           <AttributeID>Shit- Roll</AttributeID>
           <Name>Shit- Roll</Name>
           <Translations>
-            <Translation dwd:design-time-name="ae39b206-a579-4b17-9bca-b6cb9dfe20c5">
+            <Translation>
               <Language>1065</Language>
               <Caption>شیت یا رول</Caption>
             </Translation>
           </Translations>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="8707bf93-a78c-45a3-9987-407288e55749">
+        <AttributeRelationship>
           <AttributeID>Material Type Id</AttributeID>
           <Name>Material Type Id</Name>
           <Translations>
-            <Translation dwd:design-time-name="08699035-f2c2-4eb0-a3b4-3f254db1f073">
+            <Translation>
               <Language>1065</Language>
               <Caption>عنوان نوع مواد اولیه</Caption>
             </Translation>
           </Translations>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="c819492d-3493-401b-bbe3-0ca9cb28ba1a">
+        <AttributeRelationship>
           <AttributeID>Material Grouping</AttributeID>
           <Name>Material Grouping</Name>
           <Translations>
-            <Translation dwd:design-time-name="bbb1e0d4-1887-48a4-9b65-c718b1b9d575">
+            <Translation>
               <Language>1065</Language>
               <Caption>عنوان گروه بندی مواد اولیه</Caption>
             </Translation>
           </Translations>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="b9dd7f3f-87ad-49ab-bebb-57092b3d353f">
+        <AttributeRelationship>
           <AttributeID>Material Type Id 1</AttributeID>
           <Name>Material Type Id 1</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="fb1c6776-cb5b-4d0c-a1e6-36f9fbddbf64">
+        <AttributeRelationship>
           <AttributeID>Number Of Leaves Per Strap</AttributeID>
           <Name>Number Of Leaves Per Strap</Name>
         </AttributeRelationship>
@@ -410,49 +410,49 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="d6f7a035-5fc1-413e-bf0b-67ec477c0ce2">
+    <Attribute>
       <ID>Company Id</ID>
       <Name>Company Id</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="b7229cbc-c5a8-44a4-a390-5352dae55747">
+        <KeyColumn>
           <DataType>Integer</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="78f8b788-8cec-48d1-9192-b01f2dc750c8">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_Company</TableID>
             <ColumnID>Company_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="55abf65a-f0b6-4d54-99e3-6097f9ce3597">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>50</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="5c604864-5a49-4281-a807-134224c73296">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_GRL_GNR_Dim_Company</TableID>
           <ColumnID>Company_Title</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="fff8c10e-f210-4702-bd18-9dd33e41d524">
+        <Translation>
           <Language>1065</Language>
           <Caption>شرکت</Caption>
         </Translation>
       </Translations>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="185fb3b6-6028-4d4d-b113-60ee416cd29f">
+        <AttributeRelationship>
           <AttributeID>Holding Id</AttributeID>
           <Name>Holding Id</Name>
           <Translations>
-            <Translation dwd:design-time-name="9e53fefb-a7aa-41ec-a72f-2e8bb319b26d">
+            <Translation>
               <Language>1065</Language>
               <Caption>هلدینگ</Caption>
             </Translation>
           </Translations>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="cb9daa05-3caa-4b93-bfdb-746a7952ac42">
+        <AttributeRelationship>
           <AttributeID>Industry Id</AttributeID>
           <Name>Industry Id</Name>
           <Translations>
-            <Translation dwd:design-time-name="6f09edce-bd0e-4481-b221-eec4cf1fc88d">
+            <Translation>
               <Language>1065</Language>
               <Caption>عنوان صنعت</Caption>
             </Translation>
@@ -463,29 +463,29 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="04888d56-f72e-4789-9763-af32f8934bd9">
+    <Attribute>
       <ID>Unit Id</ID>
       <Name>Unit Id</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="c18659d5-8032-48d1-8226-90c0b3c93d7f">
+        <KeyColumn>
           <DataType>Integer</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="1f72f22b-6f5a-442b-9c11-990de556cefb">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_Unit</TableID>
             <ColumnID>Unit_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="abcf85ec-a3bc-4b0c-850c-9ca2cf04aea1">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>50</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="04525c7a-85a2-4fa7-bc7d-f3356db81fcc">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_GRL_GNR_Dim_Unit</TableID>
           <ColumnID>Unit_Title</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="59fa0032-6408-42fa-b3d1-7115bc395783">
+        <Translation>
           <Language>1065</Language>
           <Caption>واحد سنجش</Caption>
         </Translation>
@@ -494,28 +494,28 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="16f29b55-c393-4d05-a752-3c825c128330">
+    <Attribute>
       <ID>Holding Id</ID>
       <Name>Holding Id</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="02544539-9749-4823-97af-3c1cfaceba5b">
+        <KeyColumn>
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="b707ddc4-d06e-4ce2-bb62-226b20bc2398">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_Holding</TableID>
             <ColumnID>Holding_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="7ca27a18-ff83-41cf-befe-ca323743625b">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>100</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="28b7d2e2-21ff-4a32-b32a-575fdbbb73ff">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_GRL_GNR_Dim_Holding</TableID>
           <ColumnID>Holding_Title</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="8a0cef05-6fba-4305-b174-a9c0f6c68ba8">
+        <Translation>
           <Language>1065</Language>
           <Caption>هلدینگ</Caption>
         </Translation>
@@ -523,28 +523,28 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="516b8a74-5096-4d3e-aa8e-818f83082690">
+    <Attribute>
       <ID>Industry Id</ID>
       <Name>Industry Id</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="cd46fe7f-670f-40c4-9482-6e5b14788091">
+        <KeyColumn>
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="8890dccf-78a9-4b71-a7b4-b459d7da09c2">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_Industry</TableID>
             <ColumnID>Industry_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="2f513f35-fbe9-4495-ad15-84e88d075d80">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>50</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="d4c49e9b-024e-477b-bb2e-fc38bb637379">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_GRL_GNR_Dim_Industry</TableID>
           <ColumnID>Industry_Title</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="d00f2758-9afd-4eab-aafc-0e131686d632">
+        <Translation>
           <Language>1065</Language>
           <Caption>عنوان صنعت</Caption>
         </Translation>
@@ -552,28 +552,28 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="dd2d94b3-5465-47fe-ad1f-e8f525f5d484">
+    <Attribute>
       <ID>Shit- Roll</ID>
       <Name>Shit- Roll</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="336f3442-53f1-441c-804d-3f5326db73c6">
+        <KeyColumn>
           <DataType>UnsignedTinyInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="fc98a7c2-b717-4407-96c1-01ad390fe7f9">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_INV_Dim_Material</TableID>
             <ColumnID>Shit-Roll</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="85f8af53-d5ca-48dc-bf16-6d84f7e1a90a">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>50</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="cdc98d1e-0e63-4ada-b9fa-edbb25725036">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_GRL_INV_Dim_ShitOrRoll</TableID>
           <ColumnID>ShitOrRoll_Title</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="52a24748-cb6a-4889-b20a-356d703240e6">
+        <Translation>
           <Language>1065</Language>
           <Caption>شیت یا رول</Caption>
         </Translation>
@@ -581,28 +581,28 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="3f3a8443-1209-4fc2-8959-65c2d1ae5c3f">
+    <Attribute>
       <ID>Material Type Id</ID>
       <Name>Material Type Id</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="a381fb6a-dc1d-4c3b-8f3f-bb3e42ec983c">
+        <KeyColumn>
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="d443f27f-4d54-4199-ba41-22b0cf44c9f6">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_INV_Dim_Material</TableID>
             <ColumnID>MaterialType_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="8cf622da-b79b-4502-80a4-118fe65ca064">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>200</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="65c7801c-fb0a-4986-a45c-66b9f4ab3489">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_GRL_INV_Dim_MaterialType</TableID>
           <ColumnID>MaterialType_Title</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="b3aa3fac-ac6c-4b31-82cd-1a28fafeda62">
+        <Translation>
           <Language>1065</Language>
           <Caption>عنوان نوع مواد اولیه</Caption>
         </Translation>
@@ -611,28 +611,28 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="636d989d-4827-494e-847b-e5a1feeb57ba">
+    <Attribute>
       <ID>Material Grouping</ID>
       <Name>Material Grouping</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="e86591a3-3886-460f-b235-6167691ebb66">
+        <KeyColumn>
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="776105e2-23df-4149-9cbb-3e28eca1b60a">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_INV_Dim_Material</TableID>
             <ColumnID>MaterialGrouping</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="a813ecf7-8d69-4122-9bab-5ced2a4997a2">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>200</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="ff8b39ae-6d8a-4cc4-93e9-6ee0f24da74f">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_GRL_INV_Dim_MaterialGrouping</TableID>
           <ColumnID>MaterialGrouping_Title</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="7679eafc-0c11-45bb-8860-becf735cd0ae">
+        <Translation>
           <Language>1065</Language>
           <Caption>عنوان گروه بندی مواد اولیه</Caption>
         </Translation>
@@ -640,22 +640,22 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="a009fbf8-7467-4dc8-9b9e-5d0929eddcea">
+    <Attribute>
       <ID>Material Type Id 1</ID>
       <Name>Material Type Id 1</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="a66f43a0-2197-4e41-8be7-6a439ed004c2">
+        <KeyColumn>
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="978edcf6-318e-4330-8501-09315d52644c">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_INV_Dim_MaterialType</TableID>
             <ColumnID>MaterialType_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="a5fd4da5-5d9b-482d-8dd7-f0459c4af390">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>200</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="3df35ed9-6a95-4dcb-b31c-ba22d7e759cd">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_GRL_INV_Dim_MaterialType</TableID>
           <ColumnID>MaterialType_Title</ColumnID>
         </Source>
@@ -664,69 +664,76 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="bc6722b6-8d4f-41fe-bc09-0a2cca9b5502">
+    <Attribute>
       <ID>Number Of Leaves Per Strap</ID>
       <Name>Number Of Leaves Per Strap</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="dc846e7f-e5df-44c2-8e32-5e7853e7dbdf">
+        <KeyColumn>
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="8f60655c-8e62-4852-ab7d-32cb479b1130">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_INV_Dim_Material</TableID>
             <ColumnID>Number_x0020_of_x0020_leaves_x0020_per_x0020_strap</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_GRL_INV_Dim_Material</TableID>
+          <ColumnID>Number_x0020_of_x0020_leaves_x0020_per_x0020_strap</ColumnID>
+        </Source>
+      </NameColumn>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
   </Attributes>
   <AttributeAllMemberName>AllMaterial</AttributeAllMemberName>
   <AttributeAllMemberTranslations>
-    <AttributeAllMemberTranslation dwd:design-time-name="a0fe25e7-88a7-4689-9f00-ba50a22c468e">
+    <AttributeAllMemberTranslation>
       <Language>1065</Language>
       <Caption>همه انواع مواد اولیه</Caption>
     </AttributeAllMemberTranslation>
   </AttributeAllMemberTranslations>
   <Hierarchies>
-    <Hierarchy dwd:design-time-name="62efe755-3f22-4499-bb8e-f59e1ce4a713">
+    <Hierarchy>
       <ID>Hierarchy</ID>
       <Name>Holding - Company - Material</Name>
       <Translations>
-        <Translation dwd:design-time-name="55ebe225-bfce-4e98-a74a-b45ef8b2441f">
+        <Translation>
           <Language>1065</Language>
           <Caption>ساختار درختی مواد اولیه</Caption>
         </Translation>
       </Translations>
       <AllMemberName>همه موارد</AllMemberName>
       <Levels>
-        <Level dwd:design-time-name="f7d4e78c-4837-4ce2-816a-57f3a4c26cea">
+        <Level>
           <ID>Holding Id</ID>
           <Name>Holding Id</Name>
           <SourceAttributeID>Holding Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="50f9b1fe-a3bc-4c2d-a24f-046588a3a7f7">
+            <Translation>
               <Language>1065</Language>
               <Caption>هلدینگ</Caption>
             </Translation>
           </Translations>
         </Level>
-        <Level dwd:design-time-name="738693bc-da8a-4e94-8a30-09c43d50ee62">
+        <Level>
           <ID>Company Id</ID>
           <Name>Company Id</Name>
           <SourceAttributeID>Company Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="faae60ed-da40-4f16-8de4-d3025628a1d3">
+            <Translation>
               <Language>1065</Language>
               <Caption>شرکت</Caption>
             </Translation>
           </Translations>
         </Level>
-        <Level dwd:design-time-name="80cd139d-a99d-4e6b-ac42-7763138b6902">
+        <Level>
           <ID>Material Id</ID>
           <Name>Material Id</Name>
           <SourceAttributeID>Material Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="f75f4fb9-f3df-4579-a57e-db83d736402a">
+            <Translation>
               <Language>1065</Language>
               <Caption>عنوان ماده اولیه</Caption>
             </Translation>
@@ -734,45 +741,45 @@
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="53a1dcff-226d-45c9-a6c4-5d84e5ce2080">
+    <Hierarchy>
       <ID>Hierarchy 1</ID>
       <Name>Industry - Company - Material</Name>
       <Translations>
-        <Translation dwd:design-time-name="9948f4aa-8a77-4d8a-a8b1-98bb8f0b2c89">
+        <Translation>
           <Language>1065</Language>
           <Caption>ساختار درختی صنعت - شرکت - مواد اولیه</Caption>
         </Translation>
       </Translations>
       <AllMemberName>همه موارد</AllMemberName>
       <Levels>
-        <Level dwd:design-time-name="12299e48-5fd7-4fe3-9411-8fdb7ff9e85b">
+        <Level>
           <ID>Industry Id</ID>
           <Name>Industry Id</Name>
           <SourceAttributeID>Industry Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="e16fff90-740b-4583-80e7-d977233e6372">
+            <Translation>
               <Language>1065</Language>
               <Caption>عنوان صنعت</Caption>
             </Translation>
           </Translations>
         </Level>
-        <Level dwd:design-time-name="c82314bc-d515-45bc-a053-593fdbd7f7f3">
+        <Level>
           <ID>Company Id</ID>
           <Name>Company Id</Name>
           <SourceAttributeID>Company Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="bc2ad1ac-2668-4af2-92a9-4f27622aed36">
+            <Translation>
               <Language>1065</Language>
               <Caption>شرکت</Caption>
             </Translation>
           </Translations>
         </Level>
-        <Level dwd:design-time-name="d18dd45b-5a59-45d6-863a-7b352daa6b02">
+        <Level>
           <ID>Material Id</ID>
           <Name>Material Id</Name>
           <SourceAttributeID>Material Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="9c66ac50-f7bf-4b24-b177-90e171fbb57f">
+            <Translation>
               <Language>1065</Language>
               <Caption>عنوان ماده اولیه</Caption>
             </Translation>
@@ -780,34 +787,34 @@
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="84a03ab4-6a44-435f-b9e8-ae4969fa278f">
+    <Hierarchy>
       <ID>Hierarchy 2</ID>
       <Name>Company - Material</Name>
       <Translations>
-        <Translation dwd:design-time-name="8d318626-faac-4013-a193-6dd525cb9218">
+        <Translation>
           <Language>1065</Language>
           <Caption>ساختار درختی شرکت - مواد اولیه</Caption>
         </Translation>
       </Translations>
       <AllMemberName>همه موارد</AllMemberName>
       <Levels>
-        <Level dwd:design-time-name="a7451392-155a-4a0f-9058-03ed2e28a84c">
+        <Level>
           <ID>Company Id</ID>
           <Name>Company Id</Name>
           <SourceAttributeID>Company Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="5f3f60d9-6ab1-4eb9-afa1-cc79f21be36f">
+            <Translation>
               <Language>1065</Language>
               <Caption>شرکت</Caption>
             </Translation>
           </Translations>
         </Level>
-        <Level dwd:design-time-name="3ed182f0-67c8-4df7-9cf8-f638c0435328">
+        <Level>
           <ID>Material Id</ID>
           <Name>Material Id</Name>
           <SourceAttributeID>Material Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="519f2b00-79a2-4a22-b1e4-a0f11386c9ba">
+            <Translation>
               <Language>1065</Language>
               <Caption>عنوان ماده اولیه</Caption>
             </Translation>
@@ -815,34 +822,34 @@
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="5242f18a-9b19-4a28-844c-f97aa64bdbc1">
+    <Hierarchy>
       <ID>Hierarchy 3</ID>
       <Name>MaterialGroup - Material</Name>
       <Translations>
-        <Translation dwd:design-time-name="9f4006ed-4e10-4198-9ed9-75a86094ae61">
+        <Translation>
           <Language>1065</Language>
           <Caption>ساختار درختی گروه بندی - مواد اولیه</Caption>
         </Translation>
       </Translations>
       <AllMemberName>همه موارد</AllMemberName>
       <Levels>
-        <Level dwd:design-time-name="98872470-cae6-4b8d-8eea-7cca5b2c80a7">
+        <Level>
           <ID>Material Grouping</ID>
           <Name>Material Grouping</Name>
           <SourceAttributeID>Material Grouping</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="b0403d4b-deb9-43ce-a9a6-21c4699ce5b0">
+            <Translation>
               <Language>1065</Language>
               <Caption>عنوان گروه بندی مواد اولیه</Caption>
             </Translation>
           </Translations>
         </Level>
-        <Level dwd:design-time-name="7aafc7ee-4120-4937-9d6e-d72052574dc6">
+        <Level>
           <ID>Material Id</ID>
           <Name>Material Id</Name>
           <SourceAttributeID>Material Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="711889ea-0f1b-4919-a2fb-81220f00bd4a">
+            <Translation>
               <Language>1065</Language>
               <Caption>عنوان ماده اولیه</Caption>
             </Translation>
@@ -850,34 +857,34 @@
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="d45299ef-407a-48e1-bd2d-b79e9032798f">
+    <Hierarchy>
       <ID>Hierarchy 4</ID>
       <Name>MaterialType - Material</Name>
       <Translations>
-        <Translation dwd:design-time-name="d37a4144-f82e-44c6-a195-e33d3c443d54">
+        <Translation>
           <Language>1065</Language>
           <Caption>ساختار درختی نوع مواد اولیه - مواد اولیه</Caption>
         </Translation>
       </Translations>
       <AllMemberName>همه موارد</AllMemberName>
       <Levels>
-        <Level dwd:design-time-name="ac9cb8b8-b2f8-46f9-b867-64a3b60f16b9">
+        <Level>
           <ID>Material Type Id</ID>
           <Name>Material Type Id</Name>
           <SourceAttributeID>Material Type Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="c10162cd-18e4-4304-8e62-1785f948caec">
+            <Translation>
               <Language>1065</Language>
               <Caption>عنوان نوع مواد اولیه</Caption>
             </Translation>
           </Translations>
         </Level>
-        <Level dwd:design-time-name="cc3e3e46-ec72-4d01-9398-ddcbf927b580">
+        <Level>
           <ID>Material Id</ID>
           <Name>Material Id</Name>
           <SourceAttributeID>Material Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="8a08c6cb-0c36-4cdd-b0f7-7be8de15b5de">
+            <Translation>
               <Language>1065</Language>
               <Caption>عنوان ماده اولیه</Caption>
             </Translation>
@@ -885,34 +892,34 @@
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="86b8e280-49de-4679-98cd-38bbf1169106">
+    <Hierarchy>
       <ID>Hierarchy 5</ID>
       <Name>ShitOrRoll-Material</Name>
       <Translations>
-        <Translation dwd:design-time-name="021a0411-e627-4301-bb68-e754efdffc15">
+        <Translation>
           <Language>1065</Language>
           <Caption>ساختار درختی شیت یا رول - مواد اولیه</Caption>
         </Translation>
       </Translations>
       <AllMemberName>همه موارد</AllMemberName>
       <Levels>
-        <Level dwd:design-time-name="f9020103-303c-4d35-a093-474160173459">
+        <Level>
           <ID>Shit- Roll</ID>
           <Name>Shit- Roll</Name>
           <SourceAttributeID>Shit- Roll</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="40473ef6-5147-449c-8f26-dd28a8460c3e">
+            <Translation>
               <Language>1065</Language>
               <Caption>شیت یا رول</Caption>
             </Translation>
           </Translations>
         </Level>
-        <Level dwd:design-time-name="15efcbf5-3d3b-4b53-8f8b-59f0110c56ac">
+        <Level>
           <ID>Material Id</ID>
           <Name>Material Id</Name>
           <SourceAttributeID>Material Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="9c4e3c43-2d1e-43b3-a748-4dee971049d6">
+            <Translation>
               <Language>1065</Language>
               <Caption>عنوان ماده اولیه</Caption>
             </Translation>
@@ -920,16 +927,16 @@
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="edc42324-53bd-44c8-9293-b3d34013291b">
+    <Hierarchy>
       <ID>Hierarchy 6</ID>
       <Name>Hierarchy</Name>
       <Levels>
-        <Level dwd:design-time-name="193baa7f-d1f0-4bc7-9966-e51e37611f16">
+        <Level>
           <ID>Material Type Id 1</ID>
           <Name>Material Type Id 1</Name>
           <SourceAttributeID>Material Type Id 1</SourceAttributeID>
         </Level>
-        <Level dwd:design-time-name="7243fa44-65b0-41b1-9560-cdd167dab74b">
+        <Level>
           <ID>Material Id</ID>
           <Name>Material Id</Name>
           <SourceAttributeID>Material Id</SourceAttributeID>
@@ -937,12 +944,12 @@
       </Levels>
     </Hierarchy>
   </Hierarchies>
-  <ProactiveCaching dwd:design-time-name="c33545af-c559-4fdb-b9bb-577f15eb6c3c">
+  <ProactiveCaching>
     <SilenceInterval>-PT1S</SilenceInterval>
     <Latency>-PT1S</Latency>
     <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
     <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
-    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="5711d08f-642f-499b-8941-051957f2a786" />
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
   </ProactiveCaching>
   <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
 </Dimension>

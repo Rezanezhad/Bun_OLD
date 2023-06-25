@@ -1,8 +1,8 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="f880b957-e45c-4258-b01e-149afa1cffd6" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>Vw PUB SLE Dim Product First Net Sale</ID>
   <Name>Vw PUB SLE Dim Product First Net Sale</Name>
-  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <CreatedTimestamp>2023-04-15T14:31:30.753333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2023-06-25T09:51:10.653333Z</LastSchemaUpdate>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
@@ -128,50 +128,60 @@
       <Value>75</Value>
     </Annotation>
   </Annotations>
-  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
-  <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="eafbce64-fa03-4214-b4de-86894dd6f518">
+  <LastProcessed>2023-06-25T03:16:04.116667Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
     <DataSourceViewID>SABZDW</DataSourceViewID>
   </Source>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="43353d6b-d3a4-45cb-b14e-a6ee93716e35">
+  <ErrorConfiguration>
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
   <Attributes>
-    <Attribute dwd:design-time-name="cd922852-9b26-483e-895a-0f0e3e11a39b">
+    <Attribute>
       <ID>Product Id</ID>
       <Name>Product Id</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="7f75f30b-c374-405a-87a8-e124b0da4ecd">
+        <KeyColumn>
           <DataType>BigInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="ae25925f-c5c9-4a45-b619-5663a4499a31">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_Vw_PUB_SLE_Dim_ProductFirstNetSale</TableID>
             <ColumnID>Product_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_Vw_PUB_SLE_Dim_ProductFirstNetSale</TableID>
+          <ColumnID>Product_Id</ColumnID>
+        </Source>
+      </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="7da959c7-4a20-4a2e-926c-fc564aababd3">
+        <AttributeRelationship>
           <AttributeID>Min Date</AttributeID>
           <Name>Min Date</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="edec2d81-cdb3-4cf8-b24a-e3537b0041b6">
+        <AttributeRelationship>
           <AttributeID>Product Title</AttributeID>
           <Name>Product Title</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="d967bb2e-9a8c-4600-a29a-1b35410c7958">
+        <AttributeRelationship>
           <AttributeID>Date Id</AttributeID>
           <Name>Date Id</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="5e54323a-4d43-42c6-98d1-e5a1148f925c">
+        <AttributeRelationship>
           <AttributeID>Month Title</AttributeID>
           <Name>Month Title</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="d94b93de-e205-49d3-8be6-83c505daeca3">
+        <AttributeRelationship>
           <AttributeID>Year</AttributeID>
           <Name>Year</Name>
         </AttributeRelationship>
@@ -180,66 +190,89 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="6125bbf5-51b3-4697-aed9-4264c7235aa1">
+    <Attribute>
       <ID>Min Date</ID>
       <Name>Min Date</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="6ca36896-80e2-4808-9caf-01cdcbc0f5d8">
+        <KeyColumn>
           <DataType>Date</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="952cd1fd-3726-4b3f-9aa6-001cf3d1bc34">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_Vw_PUB_SLE_Dim_ProductFirstNetSale</TableID>
             <ColumnID>MinDate</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_Vw_PUB_SLE_Dim_ProductFirstNetSale</TableID>
+          <ColumnID>MinDate</ColumnID>
+        </Source>
+      </NameColumn>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="fc59a5ec-064c-425d-8d23-7e81a32ef39a">
+    <Attribute>
       <ID>Product Title</ID>
       <Name>Product Title</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="a392e0f2-3033-4ce2-988e-32abbd4e1a77">
+        <KeyColumn>
           <DataType>WChar</DataType>
           <DataSize>200</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="756de68c-0782-434a-ae1b-d0e273c6141a">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_PUB_GNR_Dim_Product</TableID>
             <ColumnID>Product_Title</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>200</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_PUB_GNR_Dim_Product</TableID>
+          <ColumnID>Product_Title</ColumnID>
+        </Source>
+      </NameColumn>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="63406813-30e5-4fdc-ba93-95cdb209095c">
+    <Attribute>
       <ID>Date Id</ID>
       <Name>Date Id</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="7554dade-4a39-4970-bff3-0e4fd6169892">
+        <KeyColumn>
           <DataType>Integer</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="9803e1e0-e45f-4ce8-80c9-bb59c46426b8">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
             <ColumnID>Date_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
+          <ColumnID>Date_Id</ColumnID>
+        </Source>
+      </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="88f8f638-4b1a-4dfd-a3f3-0d043ea8a58a">
+        <AttributeRelationship>
           <AttributeID>s Date</AttributeID>
           <Name>s Date</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="c3466a74-fa9b-44fd-aa29-d8a8efb88b6c">
+        <AttributeRelationship>
           <AttributeID>Month Order</AttributeID>
           <Name>Month Order</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="79fc0e43-0beb-456f-93cd-63061e34bed7">
+        <AttributeRelationship>
           <AttributeID>Month</AttributeID>
           <Name>Month</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="9775f606-e280-4932-b2ac-bd052af13f73">
+        <AttributeRelationship>
           <AttributeID>Sdatenoslash</AttributeID>
           <Name>Sdatenoslash</Name>
         </AttributeRelationship>
@@ -248,104 +281,157 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="800ae69a-30cd-4384-a661-c5effb435899">
+    <Attribute>
       <ID>s Date</ID>
       <Name>s Date</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="b1201eb6-d934-40e9-a18f-ff0a93d0e1b2">
+        <KeyColumn>
           <DataType>WChar</DataType>
           <DataSize>1024</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="b176c8c4-8a76-4971-9a83-725d11ec006b">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
             <ColumnID>sDate</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>1024</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
+          <ColumnID>sDate</ColumnID>
+        </Source>
+      </NameColumn>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="b81b9a22-080c-4971-82e3-9b0e3ba134de">
+    <Attribute>
       <ID>Month Order</ID>
       <Name>Month Order</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="33bb0b47-acfd-4e5f-abec-889adb0b3c25">
+        <KeyColumn>
           <DataType>Integer</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="8905f6d3-7f15-4376-9746-9521454f90de">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
             <ColumnID>MonthOrder</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <NullProcessing>ZeroOrBlank</NullProcessing>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
+          <ColumnID>MonthOrder</ColumnID>
+        </Source>
+      </NameColumn>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="23e42b55-d63c-4281-802f-b9284f1ef608">
+    <Attribute>
       <ID>Month</ID>
       <Name>Month</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="f522d9d2-75b2-45a1-8ebc-cbd58c1b0be5">
+        <KeyColumn>
           <DataType>WChar</DataType>
           <DataSize>25</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="59b60a48-9ff9-4c58-b436-54d53d40f3e5">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
             <ColumnID>Month</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>25</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
+          <ColumnID>Month</ColumnID>
+        </Source>
+      </NameColumn>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="b3906733-e76a-4805-9511-4a8841819f70">
+    <Attribute>
       <ID>Sdatenoslash</ID>
       <Name>Sdatenoslash</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="32b6fe79-db21-406b-a8ca-cb985f1bb2bb">
+        <KeyColumn>
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="87549de9-713e-4cd2-991d-bcc9ec45dd49">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
             <ColumnID>sdatenoslash</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
+          <ColumnID>sdatenoslash</ColumnID>
+        </Source>
+      </NameColumn>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="27bf8351-e8a0-407a-b625-20d4237c1c5c">
+    <Attribute>
       <ID>Month Title</ID>
       <Name>Month Title</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="e3860a08-eb5c-4211-a401-985cc353bcff">
+        <KeyColumn>
           <DataType>WChar</DataType>
           <DataSize>20</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="0883c162-c39f-40c0-9fdd-7d8be1cd5e0d">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
             <ColumnID>MonthTitle</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>20</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
+          <ColumnID>MonthTitle</ColumnID>
+        </Source>
+      </NameColumn>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="2fe2b8f5-6d88-485a-a6b2-e0949b17985f">
+    <Attribute>
       <ID>Year</ID>
       <Name>Year</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="a9c19a6f-f67d-47d6-a973-520f58c48b76">
+        <KeyColumn>
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="190d6272-9102-4e94-8c03-fe0a989cb6c0">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
             <ColumnID>Year</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>dbo_GRL_GNR_Dim_FullDate</TableID>
+          <ColumnID>Year</ColumnID>
+        </Source>
+      </NameColumn>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
   </Attributes>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
   <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
 </Dimension>

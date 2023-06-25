@@ -3,8 +3,8 @@
   <SchemaVersion>9.0.2.10</SchemaVersion>
   <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkZGwzMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAiIHhtbG5zOmRkbDMwMF8zMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAvMzAwIiB4bWxuczpkZGw0MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAiIHhtbG5zOmRkbDQwMF80MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAvNDAwIiB4bWxuczpkZGw1MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAiIHhtbG5zOmRkbDUwMF81MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAvNTAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD5mYWxzZTwvRW5hYmxlZD4NCiAgPFByb2plY3ROYW1lPjwvUHJvamVjdE5hbWU+DQogIDxBdXhQYXRoPjwvQXV4UGF0aD4NCiAgPExvY2FsUGF0aD48L0xvY2FsUGF0aD4NCiAgPFByb3ZpZGVyPjwvUHJvdmlkZXI+DQo8L1NvdXJjZUNvbnRyb2xJbmZvPg==</State>
   <Database>
-    <Name>SABZ4.database</Name>
-    <FullPath>SABZ4.database</FullPath>
+    <Name>Sabz4.database</Name>
+    <FullPath>Sabz4.database</FullPath>
   </Database>
   <Cubes>
     <ProjectItem>
@@ -282,6 +282,10 @@
       <FullPath>PUB CRM Dim Last Faz.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>PUB DIM Fiscal Year Type.dim</Name>
+      <FullPath>PUB DIM Fiscal Year Type.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>PUB DIM Sales Amount Type.dim</Name>
       <FullPath>PUB DIM Sales Amount Type.dim</FullPath>
     </ProjectItem>
@@ -326,6 +330,14 @@
       <FullPath>PUB SLE Dim Sales Organization.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
+      <Name>SLP Dim Customer.dim</Name>
+      <FullPath>SLP Dim Customer.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>SLP DIM Product Union With Product.dim</Name>
+      <FullPath>SLP DIM Product Union With Product.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>Viw GRL TSY Dim Chek Payable.dim</Name>
       <FullPath>Viw GRL TSY Dim Chek Payable.dim</FullPath>
     </ProjectItem>
@@ -354,26 +366,6 @@
       <FullPath>Vw GRL FIN Dim Loan Type.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>Vw PUB SLE Dim Sale.dim</Name>
-      <FullPath>Vw PUB SLE Dim Sale.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>Vwe PUB GNR Dim Parent Product.dim</Name>
-      <FullPath>Vwe PUB GNR Dim Parent Product.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>Vw PUB SLE Dim Sale For Discount Sanad.dim</Name>
-      <FullPath>Vw PUB SLE Dim Sale For Discount Sanad.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>Vw PUB SLE Dim Return Sale Tax Number.dim</Name>
-      <FullPath>Vw PUB SLE Dim Return Sale Tax Number.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>PUB DIM Fiscal Year Type.dim</Name>
-      <FullPath>PUB DIM Fiscal Year Type.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
       <Name>Vw PUB GNR Dim Entire Product.dim</Name>
       <FullPath>Vw PUB GNR Dim Entire Product.dim</FullPath>
     </ProjectItem>
@@ -382,12 +374,20 @@
       <FullPath>Vw PUB SLE Dim Product First Net Sale.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>SLP Dim Customer.dim</Name>
-      <FullPath>SLP Dim Customer.dim</FullPath>
+      <Name>Vw PUB SLE Dim Return Sale Tax Number.dim</Name>
+      <FullPath>Vw PUB SLE Dim Return Sale Tax Number.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
-      <Name>SLP DIM Product Union With Product 2.dim</Name>
-      <FullPath>SLP DIM Product Union With Product 2.dim</FullPath>
+      <Name>Vw PUB SLE Dim Sale For Discount Sanad.dim</Name>
+      <FullPath>Vw PUB SLE Dim Sale For Discount Sanad.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vw PUB SLE Dim Sale.dim</Name>
+      <FullPath>Vw PUB SLE Dim Sale.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>Vwe PUB GNR Dim Parent Product.dim</Name>
+      <FullPath>Vwe PUB GNR Dim Parent Product.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
@@ -420,60 +420,6 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
-        <ConnectionMappings>
-          <ConfigurationSetting>
-            <Id>SABZDW</Id>
-            <Name>SABZDW</Name>
-            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=SABZDW;Integrated Security=SSPI;Initial Catalog=SABZDW</Value>
-          </ConfigurationSetting>
-        </ConnectionMappings>
-        <ConnectionSecurityMappings>
-          <ConfigurationSetting>
-            <Id>SABZDW</Id>
-            <Name>SABZDW</Name>
-            <Value xsi:type="xsd:int">0</Value>
-          </ConfigurationSetting>
-        </ConnectionSecurityMappings>
-        <DeploymentServerEdition>Enterprise</DeploymentServerEdition>
-      </Options>
-    </Configuration>
-    <Configuration>
-      <Name>Production</Name>
-      <Options>
-        <ConnectionMappings>
-          <ConfigurationSetting>
-            <Id>SABZDW</Id>
-            <Name>SABZDW</Name>
-            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=172.16.50.56;Integrated Security=SSPI;Initial Catalog=SABZDW</Value>
-          </ConfigurationSetting>
-        </ConnectionMappings>
-        <ConnectionSecurityMappings>
-          <ConfigurationSetting>
-            <Id>SABZDW</Id>
-            <Name>SABZDW</Name>
-            <Value xsi:type="xsd:int">0</Value>
-          </ConfigurationSetting>
-        </ConnectionSecurityMappings>
-        <DeploymentServerEdition>Enterprise</DeploymentServerEdition>
-      </Options>
-    </Configuration>
-    <Configuration>
-      <Name>Test</Name>
-      <Options>
-        <ConnectionMappings>
-          <ConfigurationSetting>
-            <Id>SABZDW</Id>
-            <Name>SABZDW</Name>
-            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=172.16.50.56;Integrated Security=SSPI;Initial Catalog=SABZDW</Value>
-          </ConfigurationSetting>
-        </ConnectionMappings>
-        <ConnectionSecurityMappings>
-          <ConfigurationSetting>
-            <Id>SABZDW</Id>
-            <Name>SABZDW</Name>
-            <Value xsi:type="xsd:int">0</Value>
-          </ConfigurationSetting>
-        </ConnectionSecurityMappings>
         <DeploymentServerEdition>Enterprise</DeploymentServerEdition>
       </Options>
     </Configuration>

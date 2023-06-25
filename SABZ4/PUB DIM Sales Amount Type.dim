@@ -1,8 +1,8 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="d8b4f71a-92df-45d3-9239-a69bd3a83ece" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>PUB DIM Sales Amount Type</ID>
   <Name>PUB DIM Sales Amount Type</Name>
-  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
-  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <CreatedTimestamp>2022-06-17T07:54:50.093333Z</CreatedTimestamp>
+  <LastSchemaUpdate>2023-06-25T09:51:09.886667Z</LastSchemaUpdate>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
@@ -66,86 +66,116 @@
       <Value>100</Value>
     </Annotation>
   </Annotations>
-  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
-  <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="145b7c7a-f9fa-4250-812c-2b6c0497e344">
+  <LastProcessed>2023-06-25T03:10:24.623333Z</LastProcessed>
+  <State>Processed</State>
+  <Source xsi:type="DataSourceViewBinding">
     <DataSourceViewID>SABZDW</DataSourceViewID>
   </Source>
   <Type>Utility</Type>
-  <ErrorConfiguration dwd:design-time-name="0f2aefed-8280-4150-8e1f-671e24c1df26">
+  <ErrorConfiguration>
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Language>1033</Language>
+  <Collation>Latin1_General_CI_AS</Collation>
+  <UnknownMemberName>Unknown</UnknownMemberName>
   <Attributes>
-    <Attribute dwd:design-time-name="28bd56c8-d49a-46fd-a5d4-ac1081e65215">
+    <Attribute>
       <ID>Sales Amount Type ID</ID>
       <Name>Sales Amount Type ID</Name>
       <Type>Utility</Type>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="c10ff594-d458-4608-934a-dde24fc328c4">
+        <KeyColumn>
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="1b37b2bd-b6d3-41d7-a930-bd9f4ccb88b6">
+          <Source xsi:type="ColumnBinding">
             <TableID>PUB_DIM_SalesAmount_Type</TableID>
             <ColumnID>SalesAmountTypeID</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding">
+          <TableID>PUB_DIM_SalesAmount_Type</TableID>
+          <ColumnID>SalesAmountTypeID</ColumnID>
+        </Source>
+      </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="5280107f-004e-4caf-9d49-f9a85bbc9d5f">
+        <AttributeRelationship>
           <AttributeID>Sales Amount Type Name</AttributeID>
           <Name>Sales Amount Type Name</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="b042b135-983a-4adf-bc6c-49bfd307d781">
+        <AttributeRelationship>
           <AttributeID>Sales Amount Type Description</AttributeID>
           <Name>Sales Amount Type Description</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
-      <DefaultMember></DefaultMember>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="1d5a8219-820d-4b3d-acaa-ffb1d9cd6008">
+    <Attribute>
       <ID>Sales Amount Type Name</ID>
       <Name>Sales Amount Type Name</Name>
       <Type>Utility</Type>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="d2d7f0cc-8946-4b42-9355-bef4cb3caa58">
+        <KeyColumn>
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="7ce425fe-4798-419d-9b3a-064b72599195">
+          <Source xsi:type="ColumnBinding">
             <TableID>PUB_DIM_SalesAmount_Type</TableID>
             <ColumnID>SalesAmountTypeName</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>PUB_DIM_SalesAmount_Type</TableID>
+          <ColumnID>SalesAmountTypeName</ColumnID>
+        </Source>
+      </NameColumn>
       <OrderBy>Key</OrderBy>
-      <DefaultMember></DefaultMember>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="19879cc2-8a6a-4831-9052-dbb08ff82cee">
+    <Attribute>
       <ID>Sales Amount Type Description</ID>
       <Name>Sales Amount Type Description</Name>
       <Type>Utility</Type>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="6e65418c-094a-48a4-93b8-eb79fceb02a6">
+        <KeyColumn>
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="3453dc0d-1bfd-47e2-b262-238d51691ca6">
+          <Source xsi:type="ColumnBinding">
             <TableID>PUB_DIM_SalesAmount_Type</TableID>
             <ColumnID>SalesAmountTypeDescription</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
+      <NameColumn>
+        <DataType>WChar</DataType>
+        <DataSize>50</DataSize>
+        <Source xsi:type="ColumnBinding">
+          <TableID>PUB_DIM_SalesAmount_Type</TableID>
+          <ColumnID>SalesAmountTypeDescription</ColumnID>
+        </Source>
+      </NameColumn>
       <OrderBy>Key</OrderBy>
-      <DefaultMember></DefaultMember>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
   </Attributes>
+  <ProactiveCaching>
+    <SilenceInterval>-PT1S</SilenceInterval>
+    <Latency>-PT1S</Latency>
+    <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+    <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
+  </ProactiveCaching>
   <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
 </Dimension>

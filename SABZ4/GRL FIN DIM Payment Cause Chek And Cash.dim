@@ -1,8 +1,8 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="d786f760-3852-4f3d-88a8-eaabb495e236" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>GRL FIN DIM Payment Cause Chek And Cash</ID>
   <Name>GRL FIN DIM Payment Cause Chek And Cash</Name>
   <CreatedTimestamp>2021-12-19T21:59:24.466667Z</CreatedTimestamp>
-  <LastSchemaUpdate>2022-02-21T14:57:40.503333Z</LastSchemaUpdate>
+  <LastSchemaUpdate>2023-06-25T09:51:08.026667Z</LastSchemaUpdate>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
@@ -82,13 +82,13 @@
       </Value>
     </Annotation>
   </Annotations>
-  <LastProcessed>2022-02-22T03:12:13.026667Z</LastProcessed>
+  <LastProcessed>2023-06-25T03:10:25.783333Z</LastProcessed>
   <State>Processed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="ec1cd94e-33d4-4892-808c-f5b70478eff1">
+  <Source xsi:type="DataSourceViewBinding">
     <DataSourceViewID>SABZDW</DataSourceViewID>
   </Source>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="4d11e42b-574b-4049-b8f2-bac1ff295cf9">
+  <ErrorConfiguration>
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
@@ -98,40 +98,40 @@
   <Collation>Latin1_General_CI_AS</Collation>
   <UnknownMemberName>Unknown</UnknownMemberName>
   <Translations>
-    <Translation dwd:design-time-name="24328e3c-0edc-4bc0-a677-0777af63c786">
+    <Translation>
       <Language>1065</Language>
       <Caption>اطلاعات بابتهای پرداخت چک و نقد</Caption>
     </Translation>
   </Translations>
   <Attributes>
-    <Attribute dwd:design-time-name="5b359258-1a74-44cc-b41b-7f0fadc30ecb">
+    <Attribute>
       <ID>Number</ID>
       <Name>Number</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="d0a1dc06-f1e8-4a4e-a583-5b9f332a06ff">
+        <KeyColumn>
           <DataType>BigInt</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="387e4295-8847-4c93-95cc-0ed144c4a040">
+          <Source xsi:type="ColumnBinding">
             <TableID>GRL_FIN_DIM_PaymentCauseChekAndCash</TableID>
             <ColumnID>Number</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="5b30dee3-d2b4-4a61-9350-cfefee206215">
+      <NameColumn>
         <DataType>WChar</DataType>
         <NullProcessing>ZeroOrBlank</NullProcessing>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="5fbfc902-d2f3-4ad1-ad67-78c9574579c3">
+        <Source xsi:type="ColumnBinding">
           <TableID>GRL_FIN_DIM_PaymentCauseChekAndCash</TableID>
           <ColumnID>Number</ColumnID>
         </Source>
       </NameColumn>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="4baab9e9-15e0-4757-ae55-6b5604f6064a">
+        <AttributeRelationship>
           <AttributeID>Title</AttributeID>
           <Name>Title</Name>
           <Translations>
-            <Translation dwd:design-time-name="d21dacb5-f2d3-49f0-8819-2ec34af30414">
+            <Translation>
               <Language>1065</Language>
               <Caption>عنوان بابت پرداخت چک و نقد</Caption>
             </Translation>
@@ -142,29 +142,29 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="31b17bef-d0d6-487c-937a-157b4729ef4e">
+    <Attribute>
       <ID>Title</ID>
       <Name>Title</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="2c781bdc-a959-4ba0-9594-e1b622b33255">
+        <KeyColumn>
           <DataType>WChar</DataType>
           <DataSize>255</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="03d62108-8c31-4e4b-99c0-b59aa3e2febf">
+          <Source xsi:type="ColumnBinding">
             <TableID>GRL_FIN_DIM_PaymentCauseChekAndCash</TableID>
             <ColumnID>Title</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="b0fba9c0-a86a-435e-8642-b12e2fb185f7">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>255</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="71b8f626-d17c-42d2-b657-a5e14d554ede">
+        <Source xsi:type="ColumnBinding">
           <TableID>GRL_FIN_DIM_PaymentCauseChekAndCash</TableID>
           <ColumnID>Title</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="f86e424f-6687-4e6f-9c3a-41fed21586b2">
+        <Translation>
           <Language>1065</Language>
           <Caption>عنوان بابت پرداخت چک و نقد</Caption>
         </Translation>
@@ -174,12 +174,12 @@
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
   </Attributes>
-  <ProactiveCaching dwd:design-time-name="ac10bb2d-aba0-4392-90a4-bf97ba8af5e1">
+  <ProactiveCaching>
     <SilenceInterval>-PT1S</SilenceInterval>
     <Latency>-PT1S</Latency>
     <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
     <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
-    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="ca87445e-ede6-486f-839f-ef618549f285" />
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
   </ProactiveCaching>
   <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
 </Dimension>

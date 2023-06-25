@@ -1,14 +1,14 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="0b0badd1-d0fe-4e70-b4ca-7e69b3397a08" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>GRL GNR Dim Company</ID>
   <Name>GRL GNR Dim Company</Name>
   <CreatedTimestamp>2020-02-29T07:25:10Z</CreatedTimestamp>
-  <LastSchemaUpdate>2022-02-21T14:57:40.713333Z</LastSchemaUpdate>
+  <LastSchemaUpdate>2023-06-25T09:51:08.326667Z</LastSchemaUpdate>
   <Annotations>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="18" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2572" scrolltop="-4445" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="12647" y="16801" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="18" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2572" scrolltop="-4445" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="12700" y="20241" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
             </font>
@@ -228,13 +228,13 @@
       </Value>
     </Annotation>
   </Annotations>
-  <LastProcessed>2022-02-22T03:10:50.59Z</LastProcessed>
+  <LastProcessed>2023-06-25T03:10:20.046667Z</LastProcessed>
   <State>Processed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="3445a781-04d0-4fda-b548-808a622661ed">
+  <Source xsi:type="DataSourceViewBinding">
     <DataSourceViewID>SABZDW</DataSourceViewID>
   </Source>
   <UnknownMember>Hidden</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="97b40931-4f44-4c5e-83df-114fee5c63da">
+  <ErrorConfiguration>
     <KeyNotFound>IgnoreError</KeyNotFound>
     <NullKeyNotAllowed>IgnoreError</NullKeyNotAllowed>
   </ErrorConfiguration>
@@ -242,83 +242,83 @@
   <Language>1065</Language>
   <UnknownMemberName>UnknownMember</UnknownMemberName>
   <UnknownMemberTranslations>
-    <UnknownMemberTranslation dwd:design-time-name="88beeaf0-13e0-4e9c-8624-efe89a109fed">
+    <UnknownMemberTranslation>
       <Language>1065</Language>
       <Caption>شرکت نامشخص</Caption>
     </UnknownMemberTranslation>
   </UnknownMemberTranslations>
   <Translations>
-    <Translation dwd:design-time-name="65ebd55d-0886-42a4-969f-1b6206979fea">
+    <Translation>
       <Language>1065</Language>
       <Caption>شرکت</Caption>
     </Translation>
   </Translations>
   <Attributes>
-    <Attribute dwd:design-time-name="8ac9b632-41f5-4620-9c8f-4a4f0a7bba3d">
+    <Attribute>
       <ID>Company Id</ID>
       <Name>Company Id</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="73e6104b-368d-4cb9-8204-378225e9844b">
+        <KeyColumn>
           <DataType>Integer</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="43726eda-1a03-432a-9085-eb30ba5f697a">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_Company</TableID>
             <ColumnID>Company_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="04b1432b-cd5b-48da-b3e9-bd8d388c6e6b">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>50</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="8f9b4f28-a81e-4065-9791-e08aab69a35e">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_GRL_GNR_Dim_Company</TableID>
           <ColumnID>Company_Title</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="aa4f3894-269f-4131-af9b-5e5097cbc3ec">
+        <Translation>
           <Language>1065</Language>
           <Caption>نام شرکت</Caption>
         </Translation>
       </Translations>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="d78706c6-a289-49bb-9a09-1b0bd034c689">
+        <AttributeRelationship>
           <AttributeID>Holding Id</AttributeID>
           <RelationshipType>Rigid</RelationshipType>
           <Name>Holding Id</Name>
           <Translations>
-            <Translation dwd:design-time-name="fa958429-63d3-4948-94aa-1af9ac93f22a">
+            <Translation>
               <Language>1065</Language>
               <Caption>هلدینگ</Caption>
             </Translation>
           </Translations>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="c095870a-7571-4d00-a147-11e2faa9b7a4">
+        <AttributeRelationship>
           <AttributeID>Industry Id</AttributeID>
           <Name>Industry Id</Name>
           <Translations>
-            <Translation dwd:design-time-name="b2822029-0826-4e65-80b2-ac84099f52a6">
+            <Translation>
               <Language>1065</Language>
               <Caption>صنعت</Caption>
             </Translation>
           </Translations>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="480c2935-28c6-4aea-a1d0-53f586b06882">
+        <AttributeRelationship>
           <AttributeID>Company Type Id</AttributeID>
           <Name>Company Type Id</Name>
           <Translations>
-            <Translation dwd:design-time-name="209ac321-9dea-4de8-bd17-239e581a922b">
+            <Translation>
               <Language>1065</Language>
               <Caption>نوع شرکت</Caption>
             </Translation>
           </Translations>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="fe6c427e-d792-44b5-ab9b-f3412d07534b">
+        <AttributeRelationship>
           <AttributeID>Company Id 1</AttributeID>
           <Name>Company Id 1</Name>
           <Translations>
-            <Translation dwd:design-time-name="a10bf9e1-ef7e-41ab-8cc5-2a9d616aa7cf">
+            <Translation>
               <Language>1065</Language>
               <Caption>کد شرکت</Caption>
             </Translation>
@@ -328,28 +328,28 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="0d5d7e7f-594f-4418-9971-cc706ef80acc">
+    <Attribute>
       <ID>Holding Id</ID>
       <Name>Holding Id</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="225c6b41-96c5-4bb1-9e0a-8c63da6c1df0">
+        <KeyColumn>
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="66a4f0ce-fb79-44c8-bf44-abd34c963ca2">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_Holding</TableID>
             <ColumnID>Holding_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="7117891c-d673-40e4-9fec-770e2ee1c74f">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>100</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="c2e2a77e-6da3-4e2f-a700-25925e19ec1d">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_GRL_GNR_Dim_Holding</TableID>
           <ColumnID>Holding_Title</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="649965d3-28d6-4c4d-8197-91ae87884463">
+        <Translation>
           <Language>1065</Language>
           <Caption>هلدینگ</Caption>
         </Translation>
@@ -357,28 +357,28 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="d93cd6f6-2d6f-4319-98bd-5ffcc59dfa17">
+    <Attribute>
       <ID>Industry Id</ID>
       <Name>Industry Id</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="fdf7627c-6651-4ab5-a8d8-e3f337c9542b">
+        <KeyColumn>
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="2bc029e2-fa9a-4f6a-83fe-ab44a7ff1699">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_Industry</TableID>
             <ColumnID>Industry_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="0f4e561f-8eba-4013-b9e6-23771b38a66b">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>50</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="92955d8c-f70d-41d5-8403-c78edb0758b0">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_GRL_GNR_Dim_Industry</TableID>
           <ColumnID>Industry_Title</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="a343c4e0-0cfd-404d-bbf2-cc76b9a839ae">
+        <Translation>
           <Language>1065</Language>
           <Caption>صنعت</Caption>
         </Translation>
@@ -386,28 +386,28 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="06c238c9-e06c-4e4b-8f5d-2a04299f156b">
+    <Attribute>
       <ID>Company Type Id</ID>
       <Name>Company Type Id</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="5210dab5-2252-4ce1-8c8c-ceb026ae945e">
+        <KeyColumn>
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="ec9b1fb2-1c8e-42ab-8d2e-33f8095b5baf">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_CompanyType</TableID>
             <ColumnID>CompanyType_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="8fd31127-50d6-46f4-9f42-5d6ee194a3e4">
+      <NameColumn>
         <DataType>WChar</DataType>
         <DataSize>50</DataSize>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="82ff4e4a-30cf-43e3-a121-2b1222660a3d">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_GRL_GNR_Dim_CompanyType</TableID>
           <ColumnID>CompanyType_Title</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="b96745d9-0808-481e-9880-6b51118d3e4f">
+        <Translation>
           <Language>1065</Language>
           <Caption>نوع شرکت</Caption>
         </Translation>
@@ -415,27 +415,27 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="1de83d1a-0cba-4b7c-a578-06e55217bf4e">
+    <Attribute>
       <ID>Company Id 1</ID>
       <Name>Company Id 1</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="a607ae9f-fd2d-4d9a-ba24-843ce5d38982">
+        <KeyColumn>
           <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="135a4ae9-41e9-4f66-9dbb-1eb506b4832e">
+          <Source xsi:type="ColumnBinding">
             <TableID>dbo_GRL_GNR_Dim_Company</TableID>
             <ColumnID>Company_Id</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
-      <NameColumn dwd:design-time-name="18bfcae8-7839-4d1e-be73-5fc8f9bf88cc">
+      <NameColumn>
         <DataType>WChar</DataType>
-        <Source xsi:type="ColumnBinding" dwd:design-time-name="dcae5733-7c43-4a71-ada5-74d0e7d2f84c">
+        <Source xsi:type="ColumnBinding">
           <TableID>dbo_GRL_GNR_Dim_Company</TableID>
           <ColumnID>Company_Id</ColumnID>
         </Source>
       </NameColumn>
       <Translations>
-        <Translation dwd:design-time-name="097a8562-e325-4f7d-9cdd-46508c40dd1a">
+        <Translation>
           <Language>1065</Language>
           <Caption>کد شرکت</Caption>
         </Translation>
@@ -446,40 +446,40 @@
   </Attributes>
   <AttributeAllMemberName>AllCompany</AttributeAllMemberName>
   <AttributeAllMemberTranslations>
-    <AttributeAllMemberTranslation dwd:design-time-name="4a3b0e8e-74a7-470c-ab8a-23fd10383213">
+    <AttributeAllMemberTranslation>
       <Language>1065</Language>
       <Caption>همه شرکت ها</Caption>
     </AttributeAllMemberTranslation>
   </AttributeAllMemberTranslations>
   <Hierarchies>
-    <Hierarchy dwd:design-time-name="f377f2ab-1c2a-4ddc-a5ef-5ed468c0dc37">
+    <Hierarchy>
       <ID>Hierarchy 1</ID>
       <Name>Holding - Company</Name>
       <Translations>
-        <Translation dwd:design-time-name="d72dea9d-8cab-4f06-9898-5500322b9c71">
+        <Translation>
           <Language>1065</Language>
           <Caption>ساختار درختی دو سطحی هلدینگ - شرکت</Caption>
         </Translation>
       </Translations>
       <AllMemberName>همه موارد</AllMemberName>
       <Levels>
-        <Level dwd:design-time-name="18827aab-a80c-4e24-a2d3-a5c9438c9816">
+        <Level>
           <ID>Holding Id</ID>
           <Name>Holding Id</Name>
           <SourceAttributeID>Holding Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="7b7f8e1a-c962-4fdc-a7c8-3674a878a7c3">
+            <Translation>
               <Language>1065</Language>
               <Caption>هلدینگ</Caption>
             </Translation>
           </Translations>
         </Level>
-        <Level dwd:design-time-name="cee105b8-52de-402f-963c-de2f31e0482c">
+        <Level>
           <ID>Company Id</ID>
           <Name>Company Id</Name>
           <SourceAttributeID>Company Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="71996b85-a64c-4625-b485-b08fa9a749b7">
+            <Translation>
               <Language>1065</Language>
               <Caption>شرکت</Caption>
             </Translation>
@@ -487,34 +487,34 @@
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="61c6f861-26f3-49b3-ab03-2de4566c4518">
+    <Hierarchy>
       <ID>Hierarchy</ID>
       <Name>Industry - Company</Name>
       <Translations>
-        <Translation dwd:design-time-name="8e39e0e7-c231-438e-a4b5-9643adc029d2">
+        <Translation>
           <Language>1065</Language>
           <Caption>ساختار درختی دو سطحی صنعت - شرکت</Caption>
         </Translation>
       </Translations>
       <AllMemberName>همه موارد</AllMemberName>
       <Levels>
-        <Level dwd:design-time-name="9b19c284-929e-4224-b8ea-ce60aee5ea61">
+        <Level>
           <ID>Industry Id</ID>
           <Name>Industry Id</Name>
           <SourceAttributeID>Industry Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="0d2400a3-430d-4336-a5bb-04631da6b005">
+            <Translation>
               <Language>1065</Language>
               <Caption>صنعت</Caption>
             </Translation>
           </Translations>
         </Level>
-        <Level dwd:design-time-name="71e36bb0-15c3-4b6e-972e-8639debf4bf3">
+        <Level>
           <ID>Company Id</ID>
           <Name>Company Id</Name>
           <SourceAttributeID>Company Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="3f67e87f-9475-44ff-860c-348deef52fdc">
+            <Translation>
               <Language>1065</Language>
               <Caption>شرکت</Caption>
             </Translation>
@@ -522,23 +522,23 @@
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="4e917f1b-3f02-4d6c-a75b-961deded3c21">
+    <Hierarchy>
       <ID>Hierarchy 2</ID>
       <Name>Bourse - Company</Name>
       <Translations>
-        <Translation dwd:design-time-name="45e43b78-356c-459a-a39d-3d01e6007263">
+        <Translation>
           <Language>1065</Language>
           <Caption>ساختار درختی دو سطحی بورس - شرکت</Caption>
         </Translation>
       </Translations>
       <AllMemberName>همه موارد</AllMemberName>
       <Levels>
-        <Level dwd:design-time-name="a01c00c9-17c7-4733-803d-8248248491fe">
+        <Level>
           <ID>Company Id</ID>
           <Name>Company Id</Name>
           <SourceAttributeID>Company Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="1d6d043d-7b5d-42eb-8caa-fcf61dbca1d8">
+            <Translation>
               <Language>1065</Language>
               <Caption>شرکت</Caption>
             </Translation>
@@ -546,34 +546,34 @@
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="0b6ee424-8947-440c-abc6-d73e66ab4a92">
+    <Hierarchy>
       <ID>Hierarchy 3</ID>
       <Name>CompantType - Company</Name>
       <Translations>
-        <Translation dwd:design-time-name="12cab24b-225c-467a-9b5a-f52a7e84ac9b">
+        <Translation>
           <Language>1065</Language>
           <Caption>ساختار درختی دو سطحی نوع شرکت - شرکت</Caption>
         </Translation>
       </Translations>
       <AllMemberName>همه موارد</AllMemberName>
       <Levels>
-        <Level dwd:design-time-name="c1f2f8f9-66c3-4ce1-8750-80a74aa0ffdd">
+        <Level>
           <ID>Company Type Id</ID>
           <Name>Company Type Id</Name>
           <SourceAttributeID>Company Type Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="c65ca99f-2ce9-4af9-beec-7d932d21c682">
+            <Translation>
               <Language>1065</Language>
               <Caption>نوع شرکت</Caption>
             </Translation>
           </Translations>
         </Level>
-        <Level dwd:design-time-name="c0bb5b17-3ab0-46b8-b13e-828d6bf5bd20">
+        <Level>
           <ID>Company Id</ID>
           <Name>Company Id</Name>
           <SourceAttributeID>Company Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="2b5d7051-6b28-4e0b-8fa8-2edd8a04a258">
+            <Translation>
               <Language>1065</Language>
               <Caption>شرکت</Caption>
             </Translation>
@@ -581,23 +581,23 @@
         </Level>
       </Levels>
     </Hierarchy>
-    <Hierarchy dwd:design-time-name="15f2b8b0-caf2-4672-aa26-b64823498f4c">
+    <Hierarchy>
       <ID>Hierarchy 4</ID>
       <Name>Company Fiscal Year Title - Company</Name>
       <Translations>
-        <Translation dwd:design-time-name="8741f6f0-81f3-4c3e-a4bf-2ee0ae09da1b">
+        <Translation>
           <Language>1065</Language>
           <Caption>ساختار درختی دو سطحی سال مالی - شرکت</Caption>
         </Translation>
       </Translations>
       <AllMemberName>همه موارد</AllMemberName>
       <Levels>
-        <Level dwd:design-time-name="a6d8e686-4b5e-49cc-9886-25d1de24393b">
+        <Level>
           <ID>Company Id</ID>
           <Name>Company Id</Name>
           <SourceAttributeID>Company Id</SourceAttributeID>
           <Translations>
-            <Translation dwd:design-time-name="9303b1a6-0aec-4a8c-a997-043e97987f88">
+            <Translation>
               <Language>1065</Language>
               <Caption>شرکت</Caption>
             </Translation>
@@ -606,12 +606,12 @@
       </Levels>
     </Hierarchy>
   </Hierarchies>
-  <ProactiveCaching dwd:design-time-name="d9c13a85-5c9a-44fc-a657-cce609cd42be">
+  <ProactiveCaching>
     <SilenceInterval>-PT1S</SilenceInterval>
     <Latency>-PT1S</Latency>
     <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
     <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
-    <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="3f82f887-7c0c-4905-af73-413755caacee" />
+    <Source xsi:type="ProactiveCachingInheritedBinding" />
   </ProactiveCaching>
   <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
 </Dimension>
