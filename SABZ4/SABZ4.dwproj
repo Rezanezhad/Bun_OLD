@@ -420,6 +420,20 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
+        <ConnectionMappings>
+          <ConfigurationSetting>
+            <Id>SABZDW</Id>
+            <Name>SABZDW</Name>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=SABZDW;Integrated Security=SSPI;Initial Catalog=SABZDW</Value>
+          </ConfigurationSetting>
+        </ConnectionMappings>
+        <ConnectionSecurityMappings>
+          <ConfigurationSetting>
+            <Id>SABZDW</Id>
+            <Name>SABZDW</Name>
+            <Value xsi:type="xsd:int">0</Value>
+          </ConfigurationSetting>
+        </ConnectionSecurityMappings>
         <DeploymentServerEdition>Enterprise</DeploymentServerEdition>
       </Options>
     </Configuration>
